@@ -80,8 +80,9 @@ namespace SlowTrainMachineLearningAPI.Model
 
         public Tensor? TransformInputData(params int[] numbers)
         {
+            // WIP przypilnowac ksztaltu
             var tensor = torch.from_array(numbers);
-            return tensor;
+            return rand(32, 1000);
         }
 
         public Tensor? predict(Tensor? dataBatch)
