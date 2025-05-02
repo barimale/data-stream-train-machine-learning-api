@@ -48,11 +48,11 @@ namespace SlowTrainMachineLearningAPI.Controllers
         {
             var refToModel = Program.TorchModel;
 
-            var dataBatch = refToModel.Model.TransformInputData();
+            var dataBatch = refToModel.Model.TransformInputData(1,2,3,4,5,6,7,8,7,6,5,4,3,2,1,2,3,3,333,4,4433,44);
 
             var result = refToModel.Model.predict(dataBatch);
 
-            return Ok(JsonSerializer.Serialize(System.Text.Encoding.UTF8.GetString(result.bytes)));
+            return Ok(JsonSerializer.Serialize(result.data<float>().ToArray()));
         }
 
         public static async Task LongRunningOperation()
