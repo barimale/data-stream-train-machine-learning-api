@@ -58,6 +58,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         {
             // Simulate long-running task
             var refToModel = Program.TorchModel;
+            refToModel.LoadFromDB();
             await refToModel.SaveToDB();
         }
     }

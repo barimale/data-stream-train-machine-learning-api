@@ -11,15 +11,15 @@ namespace SlowTrainMachineLearningAPI.Model
         {
             get
             {
-                //this.model = LoadFromDB();
                 return this.model;
             }
             set
             {
-                this.model = LoadFromDB();
+                this.model = value;
             }
         }
-        public Trivial LoadFromDB()
+
+        public void LoadFromDB()
         {
             string filePath = "example.bin"; // FROM DB
             try
@@ -28,7 +28,7 @@ namespace SlowTrainMachineLearningAPI.Model
                 using (MemoryStream fs = new MemoryStream())
                 using (BinaryReader reader = new BinaryReader(fs))
                 {
-                    return new Trivial(Model.load(reader));
+                    this.Model = new Trivial(Model.load(reader));
                     // TO DB
                 }
 
@@ -37,7 +37,7 @@ namespace SlowTrainMachineLearningAPI.Model
             {
             }
 
-            return new Trivial();
+            this.Model = new Trivial();
         }
 
         public Task<bool> SaveToDB()
