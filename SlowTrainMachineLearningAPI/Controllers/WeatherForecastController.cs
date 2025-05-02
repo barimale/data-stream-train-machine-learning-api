@@ -1,5 +1,6 @@
 using Hangfire;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections;
 using System.Text.Json;
 
 namespace SlowTrainMachineLearningAPI.Controllers
@@ -49,9 +50,9 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
             var dataBatch = refToModel.Model.TransformInputData();
 
-            var result = refToModel.Model.test(dataBatch);
+            var result = refToModel.Model.predict(dataBatch);
 
-            return Ok(JsonSerializer.Serialize(result));
+            return Ok(JsonSerializer.Serialize(System.Text.Encoding.UTF8.GetString(result.bytes)));
         }
 
         public static async Task LongRunningOperation()

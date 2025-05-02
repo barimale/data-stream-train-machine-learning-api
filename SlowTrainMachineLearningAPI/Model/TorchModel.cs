@@ -83,7 +83,7 @@ namespace SlowTrainMachineLearningAPI.Model
             return rand(32, 1000);
         }
 
-        public Tensor? test(Tensor? dataBatch)
+        public Tensor? predict(Tensor? dataBatch)
         {
             var result = this.forward(dataBatch);
             return result;
