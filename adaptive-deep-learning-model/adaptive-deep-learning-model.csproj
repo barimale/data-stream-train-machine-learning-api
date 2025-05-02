@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>adaptive_deep_learning_model</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="TorchSharp" Version="0.105.0" />
+		<PackageReference Include="TorchSharp-cpu" Version="0.105.0" />
+	</ItemGroup>
+
+</Project>

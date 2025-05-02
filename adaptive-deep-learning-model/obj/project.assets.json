@@ -1,0 +1,700 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "Google.Protobuf/3.21.9": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "libtorch-cpu/2.5.1": {
+        "type": "package",
+        "dependencies": {
+          "libtorch-cpu-linux-x64": "2.5.1",
+          "libtorch-cpu-osx-arm64": "2.5.1",
+          "libtorch-cpu-win-x64": "2.5.1"
+        },
+        "build": {
+          "buildTransitive/netstandard2.0/libtorch-cpu.props": {},
+          "buildTransitive/netstandard2.0/libtorch-cpu.targets": {}
+        }
+      },
+      "libtorch-cpu-linux-x64/2.5.1": {
+        "type": "package",
+        "build": {
+          "buildTransitive/netstandard2.0/libtorch-cpu-linux-x64.props": {},
+          "buildTransitive/netstandard2.0/libtorch-cpu-linux-x64.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libaoti_custom_ops.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libbackend_with_compiler.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libc10.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libgomp-98b21ff3.so.1": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libjitbackend_test.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libnnapi_backend.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libshm.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libtorch.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libtorch_cpu.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libtorch_global_deps.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libtorch_python.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libtorchbind_test.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          }
+        }
+      },
+      "libtorch-cpu-osx-arm64/2.5.1": {
+        "type": "package",
+        "build": {
+          "buildTransitive/netstandard2.0/libtorch-cpu-osx-arm64.props": {},
+          "buildTransitive/netstandard2.0/libtorch-cpu-osx-arm64.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/osx-arm64/native/libc10.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          },
+          "runtimes/osx-arm64/native/libomp.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          },
+          "runtimes/osx-arm64/native/libshm.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          },
+          "runtimes/osx-arm64/native/libtorch.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          },
+          "runtimes/osx-arm64/native/libtorch_cpu.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          },
+          "runtimes/osx-arm64/native/libtorch_global_deps.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          },
+          "runtimes/osx-arm64/native/libtorch_python.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          }
+        }
+      },
+      "libtorch-cpu-win-x64/2.5.1": {
+        "type": "package",
+        "build": {
+          "buildTransitive/netstandard2.0/libtorch-cpu-win-x64.props": {},
+          "buildTransitive/netstandard2.0/libtorch-cpu-win-x64.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win-x64/native/asmjit.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/c10.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/fbgemm.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/libiomp5md.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/libiompstubs5md.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/torch.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/torch_cpu.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/torch_global_deps.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/uv.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          }
+        }
+      },
+      "SharpZipLib/1.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/ICSharpCode.SharpZipLib.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/ICSharpCode.SharpZipLib.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "SkiaSharp/2.88.6": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp.NativeAssets.Win32": "2.88.6",
+          "SkiaSharp.NativeAssets.macOS": "2.88.6"
+        },
+        "compile": {
+          "lib/net6.0/SkiaSharp.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SkiaSharp.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.macOS/2.88.6": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/_._": {}
+        },
+        "runtime": {
+          "lib/net6.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/osx/native/libSkiaSharp.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Win32/2.88.6": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/_._": {}
+        },
+        "runtime": {
+          "lib/net6.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "System.Memory/4.5.5": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "TorchSharp/0.105.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Protobuf": "3.21.9",
+          "SharpZipLib": "1.4.0",
+          "SkiaSharp": "2.88.6",
+          "System.Memory": "4.5.5"
+        },
+        "compile": {
+          "lib/net6.0/TorchSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TorchSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/TorchSharp.props": {},
+          "buildTransitive/net6.0/TorchSharp.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libLibTorchSharp.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx-arm64/native/libLibTorchSharp.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          },
+          "runtimes/win-x64/native/LibTorchSharp.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          }
+        }
+      },
+      "TorchSharp-cpu/0.105.0": {
+        "type": "package",
+        "dependencies": {
+          "TorchSharp": "0.105.0",
+          "libtorch-cpu": "2.5.1"
+        },
+        "build": {
+          "buildTransitive/net6.0/TorchSharp-cpu.props": {},
+          "buildTransitive/net6.0/TorchSharp-cpu.targets": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Google.Protobuf/3.21.9": {
+      "sha512": "OTpFujTgkmqMLbg3KT7F/iuKi1rg6s5FCS2M9XcVLDn40zL8wgXm37CY/F6MeOEXKjdcnXGCN/h7oyMkVydVsg==",
+      "type": "package",
+      "path": "google.protobuf/3.21.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "google.protobuf.3.21.9.nupkg.sha512",
+        "google.protobuf.nuspec",
+        "lib/net45/Google.Protobuf.dll",
+        "lib/net45/Google.Protobuf.pdb",
+        "lib/net45/Google.Protobuf.xml",
+        "lib/net5.0/Google.Protobuf.dll",
+        "lib/net5.0/Google.Protobuf.pdb",
+        "lib/net5.0/Google.Protobuf.xml",
+        "lib/netstandard1.1/Google.Protobuf.dll",
+        "lib/netstandard1.1/Google.Protobuf.pdb",
+        "lib/netstandard1.1/Google.Protobuf.xml",
+        "lib/netstandard2.0/Google.Protobuf.dll",
+        "lib/netstandard2.0/Google.Protobuf.pdb",
+        "lib/netstandard2.0/Google.Protobuf.xml"
+      ]
+    },
+    "libtorch-cpu/2.5.1": {
+      "sha512": "EIBjDZ7jsjB+xZUvZebHsGUjqvayDVEJajR2yjrr+qeysoj/fzvsxZxX58w7zCDwk6ceTqeTZRjXKPMaAshc9A==",
+      "type": "package",
+      "path": "libtorch-cpu/2.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE-LIBTORCH.txt",
+        "buildTransitive/netstandard2.0/libtorch-cpu.props",
+        "buildTransitive/netstandard2.0/libtorch-cpu.targets",
+        "lib/netstandard2.0/_._/empty.txt",
+        "libtorch-cpu.2.5.1.nupkg.sha512",
+        "libtorch-cpu.nuspec"
+      ]
+    },
+    "libtorch-cpu-linux-x64/2.5.1": {
+      "sha512": "lLvbhnvoOZh8cVgPc+sRrMRGfrKc96P+kpwWKkF+MgQNpTC2g5QMxDJ+hPwv/BsmuHnF3zVFppA5hPVDg3DsnQ==",
+      "type": "package",
+      "path": "libtorch-cpu-linux-x64/2.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE-LIBTORCH.txt",
+        "buildTransitive/netstandard2.0/libtorch-cpu-linux-x64.props",
+        "buildTransitive/netstandard2.0/libtorch-cpu-linux-x64.targets",
+        "lib/netstandard2.0/_._/empty.txt",
+        "libtorch-cpu-linux-x64.2.5.1.nupkg.sha512",
+        "libtorch-cpu-linux-x64.nuspec",
+        "runtimes/linux-x64/native/libaoti_custom_ops.so",
+        "runtimes/linux-x64/native/libbackend_with_compiler.so",
+        "runtimes/linux-x64/native/libc10.so",
+        "runtimes/linux-x64/native/libgomp-98b21ff3.so.1",
+        "runtimes/linux-x64/native/libjitbackend_test.so",
+        "runtimes/linux-x64/native/libnnapi_backend.so",
+        "runtimes/linux-x64/native/libshm.so",
+        "runtimes/linux-x64/native/libtorch.so",
+        "runtimes/linux-x64/native/libtorch_cpu.so",
+        "runtimes/linux-x64/native/libtorch_global_deps.so",
+        "runtimes/linux-x64/native/libtorch_python.so",
+        "runtimes/linux-x64/native/libtorchbind_test.so"
+      ]
+    },
+    "libtorch-cpu-osx-arm64/2.5.1": {
+      "sha512": "Yl2SDwdNgGplma3X49kF9P/YQfW+lcbBPAy4eLbskqTkSeSJnkXxl6ENIIDT1XjoRNxKM0hARx2CWOiK7pCE+w==",
+      "type": "package",
+      "path": "libtorch-cpu-osx-arm64/2.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE-LIBTORCH.txt",
+        "buildTransitive/netstandard2.0/libtorch-cpu-osx-arm64.props",
+        "buildTransitive/netstandard2.0/libtorch-cpu-osx-arm64.targets",
+        "lib/netstandard2.0/_._/empty.txt",
+        "libtorch-cpu-osx-arm64.2.5.1.nupkg.sha512",
+        "libtorch-cpu-osx-arm64.nuspec",
+        "runtimes/osx-arm64/native/libc10.dylib",
+        "runtimes/osx-arm64/native/libomp.dylib",
+        "runtimes/osx-arm64/native/libshm.dylib",
+        "runtimes/osx-arm64/native/libtorch.dylib",
+        "runtimes/osx-arm64/native/libtorch_cpu.dylib",
+        "runtimes/osx-arm64/native/libtorch_global_deps.dylib",
+        "runtimes/osx-arm64/native/libtorch_python.dylib"
+      ]
+    },
+    "libtorch-cpu-win-x64/2.5.1": {
+      "sha512": "u7X6G3mLRfC35Wn/ngCLpA51+J4qM+NTRYWAyJZnsyhv1WUr2N1FCGb3/MVhvfY7sdD3qt+cLm4Qm1JjyaHE/g==",
+      "type": "package",
+      "path": "libtorch-cpu-win-x64/2.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE-LIBTORCH.txt",
+        "buildTransitive/netstandard2.0/libtorch-cpu-win-x64.props",
+        "buildTransitive/netstandard2.0/libtorch-cpu-win-x64.targets",
+        "lib/netstandard2.0/_._/empty.txt",
+        "libtorch-cpu-win-x64.2.5.1.nupkg.sha512",
+        "libtorch-cpu-win-x64.nuspec",
+        "runtimes/win-x64/native/asmjit.dll",
+        "runtimes/win-x64/native/c10.dll",
+        "runtimes/win-x64/native/fbgemm.dll",
+        "runtimes/win-x64/native/libiomp5md.dll",
+        "runtimes/win-x64/native/libiompstubs5md.dll",
+        "runtimes/win-x64/native/torch.dll",
+        "runtimes/win-x64/native/torch_cpu.dll",
+        "runtimes/win-x64/native/torch_global_deps.dll",
+        "runtimes/win-x64/native/uv.dll"
+      ]
+    },
+    "SharpZipLib/1.4.0": {
+      "sha512": "CdkbBSPIpHD8xBlu+8kDJiqc1Tf9iV89BObnqcvEbwysXSj5h1MfaeLgeeaxPZmi7CTJO8FDofBBNxBW0Vml7A==",
+      "type": "package",
+      "path": "sharpziplib/1.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "images/sharpziplib-nuget-256x256.png",
+        "lib/net6.0/ICSharpCode.SharpZipLib.dll",
+        "lib/net6.0/ICSharpCode.SharpZipLib.pdb",
+        "lib/net6.0/ICSharpCode.SharpZipLib.xml",
+        "lib/netstandard2.0/ICSharpCode.SharpZipLib.dll",
+        "lib/netstandard2.0/ICSharpCode.SharpZipLib.pdb",
+        "lib/netstandard2.0/ICSharpCode.SharpZipLib.xml",
+        "lib/netstandard2.1/ICSharpCode.SharpZipLib.dll",
+        "lib/netstandard2.1/ICSharpCode.SharpZipLib.pdb",
+        "lib/netstandard2.1/ICSharpCode.SharpZipLib.xml",
+        "sharpziplib.1.4.0.nupkg.sha512",
+        "sharpziplib.nuspec"
+      ]
+    },
+    "SkiaSharp/2.88.6": {
+      "sha512": "wdfeBAQrEQCbJIRgAiargzP1Uy+0grZiG4CSgBnhAgcJTsPzlifIaO73JRdwIlT3TyBoeU9jEqzwFUhl4hTYnQ==",
+      "type": "package",
+      "path": "skiasharp/2.88.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "THIRD-PARTY-NOTICES.txt",
+        "interactive-extensions/dotnet/SkiaSharp.DotNet.Interactive.dll",
+        "lib/monoandroid1.0/SkiaSharp.dll",
+        "lib/monoandroid1.0/SkiaSharp.pdb",
+        "lib/monoandroid1.0/SkiaSharp.xml",
+        "lib/net462/SkiaSharp.dll",
+        "lib/net462/SkiaSharp.pdb",
+        "lib/net462/SkiaSharp.xml",
+        "lib/net6.0-android30.0/SkiaSharp.dll",
+        "lib/net6.0-android30.0/SkiaSharp.pdb",
+        "lib/net6.0-android30.0/SkiaSharp.xml",
+        "lib/net6.0-ios13.6/SkiaSharp.dll",
+        "lib/net6.0-ios13.6/SkiaSharp.pdb",
+        "lib/net6.0-ios13.6/SkiaSharp.xml",
+        "lib/net6.0-maccatalyst13.5/SkiaSharp.dll",
+        "lib/net6.0-maccatalyst13.5/SkiaSharp.pdb",
+        "lib/net6.0-maccatalyst13.5/SkiaSharp.xml",
+        "lib/net6.0-macos10.15/SkiaSharp.dll",
+        "lib/net6.0-macos10.15/SkiaSharp.pdb",
+        "lib/net6.0-macos10.15/SkiaSharp.xml",
+        "lib/net6.0-tizen7.0/SkiaSharp.dll",
+        "lib/net6.0-tizen7.0/SkiaSharp.pdb",
+        "lib/net6.0-tizen7.0/SkiaSharp.xml",
+        "lib/net6.0-tvos13.4/SkiaSharp.dll",
+        "lib/net6.0-tvos13.4/SkiaSharp.pdb",
+        "lib/net6.0-tvos13.4/SkiaSharp.xml",
+        "lib/net6.0/SkiaSharp.dll",
+        "lib/net6.0/SkiaSharp.pdb",
+        "lib/net6.0/SkiaSharp.xml",
+        "lib/netcoreapp3.1/SkiaSharp.dll",
+        "lib/netcoreapp3.1/SkiaSharp.pdb",
+        "lib/netcoreapp3.1/SkiaSharp.xml",
+        "lib/netstandard1.3/SkiaSharp.dll",
+        "lib/netstandard1.3/SkiaSharp.pdb",
+        "lib/netstandard1.3/SkiaSharp.xml",
+        "lib/netstandard2.0/SkiaSharp.dll",
+        "lib/netstandard2.0/SkiaSharp.pdb",
+        "lib/netstandard2.0/SkiaSharp.xml",
+        "lib/netstandard2.1/SkiaSharp.dll",
+        "lib/netstandard2.1/SkiaSharp.pdb",
+        "lib/netstandard2.1/SkiaSharp.xml",
+        "lib/tizen40/SkiaSharp.dll",
+        "lib/tizen40/SkiaSharp.pdb",
+        "lib/tizen40/SkiaSharp.xml",
+        "lib/uap10.0.10240/SkiaSharp.dll",
+        "lib/uap10.0.10240/SkiaSharp.pdb",
+        "lib/uap10.0.10240/SkiaSharp.xml",
+        "lib/uap10.0.16299/SkiaSharp.dll",
+        "lib/uap10.0.16299/SkiaSharp.pdb",
+        "lib/uap10.0.16299/SkiaSharp.xml",
+        "lib/xamarinios1.0/SkiaSharp.dll",
+        "lib/xamarinios1.0/SkiaSharp.pdb",
+        "lib/xamarinios1.0/SkiaSharp.xml",
+        "lib/xamarinmac2.0/SkiaSharp.dll",
+        "lib/xamarinmac2.0/SkiaSharp.pdb",
+        "lib/xamarinmac2.0/SkiaSharp.xml",
+        "lib/xamarintvos1.0/SkiaSharp.dll",
+        "lib/xamarintvos1.0/SkiaSharp.pdb",
+        "lib/xamarintvos1.0/SkiaSharp.xml",
+        "lib/xamarinwatchos1.0/SkiaSharp.dll",
+        "lib/xamarinwatchos1.0/SkiaSharp.pdb",
+        "lib/xamarinwatchos1.0/SkiaSharp.xml",
+        "skiasharp.2.88.6.nupkg.sha512",
+        "skiasharp.nuspec"
+      ]
+    },
+    "SkiaSharp.NativeAssets.macOS/2.88.6": {
+      "sha512": "Sko9LFxRXSjb3OGh5/RxrVRXxYo48tr5NKuuSy6jB85GrYt8WRqVY1iLOLwtjPiVAt4cp+pyD4i30azanS64dw==",
+      "type": "package",
+      "path": "skiasharp.nativeassets.macos/2.88.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/net462/SkiaSharp.NativeAssets.macOS.targets",
+        "build/net6.0-macos10.15/SkiaSharp.NativeAssets.macOS.targets",
+        "build/xamarinmac2.0/SkiaSharp.NativeAssets.macOS.targets",
+        "buildTransitive/net462/SkiaSharp.NativeAssets.macOS.targets",
+        "buildTransitive/net6.0-macos10.15/SkiaSharp.NativeAssets.macOS.targets",
+        "buildTransitive/xamarinmac2.0/SkiaSharp.NativeAssets.macOS.targets",
+        "lib/net462/_._",
+        "lib/net6.0-macos10.15/_._",
+        "lib/net6.0/_._",
+        "lib/netcoreapp3.1/_._",
+        "lib/netstandard1.3/_._",
+        "lib/xamarinmac2.0/_._",
+        "runtimes/osx/native/libSkiaSharp.dylib",
+        "skiasharp.nativeassets.macos.2.88.6.nupkg.sha512",
+        "skiasharp.nativeassets.macos.nuspec"
+      ]
+    },
+    "SkiaSharp.NativeAssets.Win32/2.88.6": {
+      "sha512": "7TzFO0u/g2MpQsTty4fyCDdMcfcWI+aLswwfnYXr3gtNS6VLKdMXPMeKpJa3pJSLnUBN6wD0JjuCe8OoLBQ6cQ==",
+      "type": "package",
+      "path": "skiasharp.nativeassets.win32/2.88.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/net462/SkiaSharp.NativeAssets.Win32.targets",
+        "buildTransitive/net462/SkiaSharp.NativeAssets.Win32.targets",
+        "lib/net462/_._",
+        "lib/net6.0/_._",
+        "lib/netcoreapp3.1/_._",
+        "lib/netstandard1.3/_._",
+        "runtimes/win-arm64/native/libSkiaSharp.dll",
+        "runtimes/win-x64/native/libSkiaSharp.dll",
+        "runtimes/win-x86/native/libSkiaSharp.dll",
+        "skiasharp.nativeassets.win32.2.88.6.nupkg.sha512",
+        "skiasharp.nativeassets.win32.nuspec"
+      ]
+    },
+    "System.Memory/4.5.5": {
+      "sha512": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
+      "type": "package",
+      "path": "system.memory/4.5.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.5.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "TorchSharp/0.105.0": {
+      "sha512": "PC3QZ+Y79LXOmSBFNk5YK6iNR5B0rmgEgc0njPocKgI50FLCHZAxz4gRQfzXeB6ffRcxz/FStjWi7Pxo+zVnhA==",
+      "type": "package",
+      "path": "torchsharp/0.105.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "buildTransitive/net6.0/TorchSharp.props",
+        "buildTransitive/net6.0/TorchSharp.targets",
+        "lib/net6.0/TorchSharp.dll",
+        "lib/net6.0/TorchSharp.xml",
+        "lib/netstandard2.0/TorchSharp.dll",
+        "lib/netstandard2.0/TorchSharp.xml",
+        "runtimes/linux-x64/native/libLibTorchSharp.so",
+        "runtimes/osx-arm64/native/libLibTorchSharp.dylib",
+        "runtimes/win-x64/native/LibTorchSharp.dll",
+        "torchsharp.0.105.0.nupkg.sha512",
+        "torchsharp.nuspec"
+      ]
+    },
+    "TorchSharp-cpu/0.105.0": {
+      "sha512": "RqIPovDEb0MY3sD/rLyFe1w57SfsBHTP8SCQa/e9MRhwMtHSE/nXB+1e9i3MmYtOBbPPYRgtAsPz8FzOcOSMjg==",
+      "type": "package",
+      "path": "torchsharp-cpu/0.105.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE-LIBTORCH.txt",
+        "LICENSE.txt",
+        "buildTransitive/net6.0/TorchSharp-cpu.props",
+        "buildTransitive/net6.0/TorchSharp-cpu.targets",
+        "buildTransitive/netstandard2.0/TorchSharp-cpu.props",
+        "buildTransitive/netstandard2.0/TorchSharp-cpu.targets",
+        "lib/net6.0/_._/empty.txt",
+        "lib/netstandard2.0/_._/empty.txt",
+        "torchsharp-cpu.0.105.0.nupkg.sha512",
+        "torchsharp-cpu.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "TorchSharp >= 0.105.0",
+      "TorchSharp-cpu >= 0.105.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\mateu\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "R:\\slow-train-machine-learning-api\\adaptive-deep-learning-model\\adaptive-deep-learning-model.csproj",
+      "projectName": "adaptive-deep-learning-model",
+      "projectPath": "R:\\slow-train-machine-learning-api\\adaptive-deep-learning-model\\adaptive-deep-learning-model.csproj",
+      "packagesPath": "C:\\Users\\mateu\\.nuget\\packages\\",
+      "outputPath": "R:\\slow-train-machine-learning-api\\adaptive-deep-learning-model\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\mateu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.100"
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "dependencies": {
+          "TorchSharp": {
+            "target": "Package",
+            "version": "[0.105.0, )"
+          },
+          "TorchSharp-cpu": {
+            "target": "Package",
+            "version": "[0.105.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

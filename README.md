@@ -1,3 +1,10 @@
 # slow-train-machine-learning-api [POC]
+## Prereqs
+- Docker Desktop
+- .NET 8.0 SDK
 
-https://www.bing.com/search?pglt=297&q=long+running+task+web+api+c%23&cvid=c13e994f1edd44de91887101095ea08c&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQg0NTI4ajBqMagCALACAA&FORM=ANNTA1&PC=ACTS
+## SQL server:
+```
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password_123#" -p 1500:1433 --name sql_server_container mcr.microsoft.com/mssql/server
+
+```

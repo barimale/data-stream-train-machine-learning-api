@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "wLJwiNzFv5E=",
+  "success": true,
+  "projectFilePath": "R:\\slow-train-machine-learning-api\\adaptive-deep-learning-model\\adaptive-deep-learning-model.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mateu\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\libtorch-cpu\\2.5.1\\libtorch-cpu.2.5.1.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\libtorch-cpu-linux-x64\\2.5.1\\libtorch-cpu-linux-x64.2.5.1.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\libtorch-cpu-osx-arm64\\2.5.1\\libtorch-cpu-osx-arm64.2.5.1.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\libtorch-cpu-win-x64\\2.5.1\\libtorch-cpu-win-x64.2.5.1.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\sharpziplib\\1.4.0\\sharpziplib.1.4.0.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\skiasharp\\2.88.6\\skiasharp.2.88.6.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.6\\skiasharp.nativeassets.macos.2.88.6.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.6\\skiasharp.nativeassets.win32.2.88.6.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\torchsharp\\0.105.0\\torchsharp.0.105.0.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\torchsharp-cpu\\0.105.0\\torchsharp-cpu.0.105.0.nupkg.sha512"
+  ],
+  "logs": []
+}

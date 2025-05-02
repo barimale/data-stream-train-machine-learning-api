@@ -18,4 +18,12 @@
     <PackageReference Include="TorchSharp-cpu" Version="0.105.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\adaptive-deep-learning-model\adaptive-deep-learning-model.csproj" />
+  </ItemGroup>
+
 </Project>
