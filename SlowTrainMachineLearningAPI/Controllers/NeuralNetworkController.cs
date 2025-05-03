@@ -63,11 +63,18 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [NonAction]
         public async Task TrainModelWithFullData()
         {
-            var refToModel = Program.TorchModel;
-            await refToModel.LoadFromDB();
-            var allData = await _sender.Send(new TrainNetworkQuery(string.Empty));
-            refToModel.Model.train(refToModel.Model.TransformInputData(allData.Data));
-            await refToModel.SaveToDB();
+            try
+            {
+                var refToModel = Program.TorchModel;
+                await refToModel.LoadFromDB();
+                var allData = await _sender.Send(new TrainNetworkQuery(string.Empty));
+                refToModel.Model.train(refToModel.Model.TransformInputData(allData.Data));
+                await refToModel.SaveToDB();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
         }
     }
 }

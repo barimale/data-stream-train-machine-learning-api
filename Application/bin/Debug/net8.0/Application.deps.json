@@ -14,6 +14,8 @@
           "Infrastructure": "1.0.0",
           "MassTransit": "8.2.3",
           "MassTransit.RabbitMQ": "8.2.3",
+          "MediatR": "12.5.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0",
           "TypeGen": "2.5.0"
         },
         "runtime": {
@@ -146,7 +148,7 @@
           }
         }
       },
-      "MediatR/12.4.0": {
+      "MediatR/12.5.0": {
         "dependencies": {
           "MediatR.Contracts": "2.0.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.4"
@@ -154,7 +156,7 @@
         "runtime": {
           "lib/net6.0/MediatR.dll": {
             "assemblyVersion": "12.0.0.0",
-            "fileVersion": "12.4.0.0"
+            "fileVersion": "12.5.0.0"
           }
         }
       },
@@ -163,6 +165,18 @@
           "lib/netstandard2.0/MediatR.Contracts.dll": {
             "assemblyVersion": "2.0.1.0",
             "fileVersion": "2.0.1.0"
+          }
+        }
+      },
+      "MediatR.Extensions.Microsoft.DependencyInjection/11.1.0": {
+        "dependencies": {
+          "MediatR": "12.5.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.4"
+        },
+        "runtime": {
+          "lib/netstandard2.1/MediatR.Extensions.Microsoft.DependencyInjection.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.1.0.0"
           }
         }
       },
@@ -944,7 +958,7 @@
           "FluentValidation": "11.9.0",
           "FluentValidation.AspNetCore": "11.3.0",
           "FluentValidation.DependencyInjectionExtensions": "11.9.0",
-          "MediatR": "12.4.0",
+          "MediatR": "12.5.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.4",
           "Microsoft.FeatureManagement.AspNetCore": "3.2.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.4",
@@ -961,7 +975,7 @@
       "Domain/1.0.0": {
         "dependencies": {
           "BuildingBlocks": "1.0.0",
-          "MediatR": "12.4.0",
+          "MediatR": "12.5.0",
           "System.Reflection.TypeExtensions": "4.7.0"
         },
         "runtime": {
@@ -1065,12 +1079,12 @@
       "path": "masstransit.rabbitmq/8.2.3",
       "hashPath": "masstransit.rabbitmq.8.2.3.nupkg.sha512"
     },
-    "MediatR/12.4.0": {
+    "MediatR/12.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-s8xhhvsTQqt7jI1XeVqcniiph/QoRmJb1qxVgk7UFpAgOzpzZ0VTl8zV+lFJgxISVqZuJRjmxF+P3AuHyelCrg==",
-      "path": "mediatr/12.4.0",
-      "hashPath": "mediatr.12.4.0.nupkg.sha512"
+      "sha512": "sha512-vqm2H8/nqL5NAJHPhsG1JOPwfkmbVrPyh4svdoRzu+uZh6Ex7PRoHBGsLYC0/RWCEJFqD1ohHNpteQvql9OktA==",
+      "path": "mediatr/12.5.0",
+      "hashPath": "mediatr.12.5.0.nupkg.sha512"
     },
     "MediatR.Contracts/2.0.1": {
       "type": "package",
@@ -1078,6 +1092,13 @@
       "sha512": "sha512-FYv95bNT4UwcNA+G/J1oX5OpRiSUxteXaUt2BJbRSdRNiIUNbggJF69wy6mnk2wYToaanpdXZdCwVylt96MpwQ==",
       "path": "mediatr.contracts/2.0.1",
       "hashPath": "mediatr.contracts.2.0.1.nupkg.sha512"
+    },
+    "MediatR.Extensions.Microsoft.DependencyInjection/11.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RW3etRuy6Xp63cgqfC0r/ITOtUT0f9ymJl1+1XZdzsYUsfv7WBPC2kXGOP8IYpY/6c4Q6805vbIW/88DopUs3w==",
+      "path": "mediatr.extensions.microsoft.dependencyinjection/11.1.0",
+      "hashPath": "mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",

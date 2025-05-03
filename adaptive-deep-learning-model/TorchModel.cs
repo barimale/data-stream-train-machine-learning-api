@@ -9,9 +9,9 @@ namespace SlowTrainMachineLearningAPI.Model
     public class TorchModel
     {
         private readonly ISender _sender;
-        public TorchModel(IServiceProvider serviceProvider)
+        public TorchModel(ISender sender)
         {
-            _sender = serviceProvider.CreateScope().ServiceProvider.GetRequiredService<ISender>();
+            _sender = sender;
         }
 
         private Trivial model = new Trivial();

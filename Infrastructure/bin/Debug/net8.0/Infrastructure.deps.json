@@ -107,7 +107,7 @@
           }
         }
       },
-      "MediatR/12.4.0": {
+      "MediatR/12.5.0": {
         "dependencies": {
           "MediatR.Contracts": "2.0.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.4"
@@ -115,7 +115,7 @@
         "runtime": {
           "lib/net6.0/MediatR.dll": {
             "assemblyVersion": "12.0.0.0",
-            "fileVersion": "12.4.0.0"
+            "fileVersion": "12.5.0.0"
           }
         }
       },
@@ -1275,7 +1275,7 @@
           "FluentValidation": "11.9.0",
           "FluentValidation.AspNetCore": "11.3.0",
           "FluentValidation.DependencyInjectionExtensions": "11.9.0",
-          "MediatR": "12.4.0",
+          "MediatR": "12.5.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.4",
           "Microsoft.FeatureManagement.AspNetCore": "3.2.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.4",
@@ -1292,7 +1292,7 @@
       "Domain/1.0.0": {
         "dependencies": {
           "BuildingBlocks": "1.0.0",
-          "MediatR": "12.4.0",
+          "MediatR": "12.5.0",
           "System.Reflection.TypeExtensions": "4.7.0"
         },
         "runtime": {
@@ -1359,12 +1359,12 @@
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
     },
-    "MediatR/12.4.0": {
+    "MediatR/12.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-s8xhhvsTQqt7jI1XeVqcniiph/QoRmJb1qxVgk7UFpAgOzpzZ0VTl8zV+lFJgxISVqZuJRjmxF+P3AuHyelCrg==",
-      "path": "mediatr/12.4.0",
-      "hashPath": "mediatr.12.4.0.nupkg.sha512"
+      "sha512": "sha512-vqm2H8/nqL5NAJHPhsG1JOPwfkmbVrPyh4svdoRzu+uZh6Ex7PRoHBGsLYC0/RWCEJFqD1ohHNpteQvql9OktA==",
+      "path": "mediatr/12.5.0",
+      "hashPath": "mediatr.12.5.0.nupkg.sha512"
     },
     "MediatR.Contracts/2.0.1": {
       "type": "package",

@@ -6,7 +6,6 @@ using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.FeatureManagement;
-using System.Reflection;
 
 namespace Card.Application;
 public static class DependencyInjection
@@ -18,7 +17,7 @@ public static class DependencyInjection
 
         services.AddMediatR(config =>
         {
-            config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            config.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
             config.AddOpenBehavior(typeof(LoggingBehavior<,>));
             config.AddOpenBehavior(typeof(ValidationBehavior<,>));
             config.AddOpenBehavior(typeof(TransactionBehavior<,>));
