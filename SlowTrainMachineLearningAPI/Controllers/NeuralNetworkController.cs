@@ -1,3 +1,4 @@
+using API.SlowTrainMachineLearning.Utilities;
 using AutoMapper;
 using Card.Application.CQRS.Commands;
 using Hangfire;
@@ -38,19 +39,16 @@ namespace SlowTrainMachineLearningAPI.Controllers
         public async Task<IResult> TrainNetwork(RegisterCardRequest commandRequest)
         {
             var mapped = _mapper.Map<RegisterModelCommand>(commandRequest);
-            // save mapped to DB via cqrs command
             _hub.Publish(mapped);
 
             return Results.Ok();
         }
 
         [HttpPost("[action]")]
-        public IResult PredictValue()
+        public IResult PredictValue(string input)
         {
             var refToModel = Program.TorchModel;
-
-            var dataBatch = refToModel.Model.TransformInputData(1,2,3,4,5,6,7,8,7,6,5,4,3,2,1,2,3,3,333,4,4433,44);
-
+            var dataBatch = refToModel.Model.TransformInputData(input.ToIntArray());
             var result = refToModel.Model.predict(dataBatch);
 
             return Results.Ok(JsonSerializer.Serialize(result.data<float>().ToArray()));
@@ -59,7 +57,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         public static async Task TrainModelWithFullData()
         {
             var refToModel = Program.TorchModel;
-            refToModel.LoadFromDB();
+            await refToModel.LoadFromDB();
             // var allData = await _sender.Send(new GetAllCardsQuery());
             //refToModel.Model.train(allData);
             await refToModel.SaveToDB();

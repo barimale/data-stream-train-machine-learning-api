@@ -33,7 +33,7 @@ namespace SlowTrainMachineLearningAPI.Model
         {
             var result = await _sender.Send(new GetModuleByVersionQuery(version));
 
-            byte[] modelFromDb = new byte[2];// FROM DB
+            byte[] modelFromDb = result.Model.Model;
             try
             {
                 using (MemoryStream fs = new MemoryStream(modelFromDb))

@@ -14,4 +14,5 @@ public class ModelDto
     public string PIN { get; set; }
     public string SerialNumber { get; set; }
     public string Id { get; set; }
+    public byte[] Model { get; set; }   
 }
