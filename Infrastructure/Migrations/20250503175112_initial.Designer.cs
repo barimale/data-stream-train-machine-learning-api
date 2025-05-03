@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(CardContext))]
-    [Migration("20250503152556_initial")]
+    [Migration("20250503175112_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -26,39 +26,25 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Card.Domain.AggregatesModel.CardAggregate.Card", b =>
+            modelBuilder.Entity("Card.Domain.AggregatesModel.CardAggregate.Model", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("AccountNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<byte[]>("Model")
+                    b.Property<byte[]>("ModelAsBytes")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("PIN")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("RegisteringTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SerialNumber")
+                    b.Property<string>("Version")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountNumber")
-                        .IsUnique();
-
                     b.HasIndex("Id")
-                        .IsUnique();
-
-                    b.HasIndex("SerialNumber")
                         .IsUnique();
 
                     b.ToTable("cards", "ordering");

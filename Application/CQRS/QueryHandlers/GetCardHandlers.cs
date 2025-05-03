@@ -15,7 +15,7 @@ public class GetCardHandlers(
 {
     public async Task<GetModuleResult> Handle(GetModuleByVersionQuery query, CancellationToken cancellationToken)
     {
-        var card = await orderRepository.GetBySerialNumberAsync(query.Version);
+        var card = await orderRepository.GetByLatestAsync(query.Version);
         var mapped = mapper.Map<ModelDto>(card);
 
         return new GetModuleResult(mapped);
@@ -24,7 +24,7 @@ public class GetCardHandlers(
     // WIP
     public async Task<GetAllDataResult> Handle(TrainNetworkQuery request, CancellationToken cancellationToken)
     {
-        var card = await orderRepository.GetBySerialNumberAsync(request.Id);
+        var card = await orderRepository.GetByLatestAsync(request.Id);
         var mapped = mapper.Map<ModelDto>(card);
 
         return new GetAllDataResult(["", ""]);

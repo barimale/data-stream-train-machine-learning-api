@@ -7,6 +7,6 @@ namespace Card.Domain.AggregatesModel.CardAggregate
         Task<Model> AddAsync(Model card);
         Task<string> Delete(string id);
         Task<Model> GetByIdAsync(string id);
-        Task<Model> GetBySerialNumberAsync(string id);
+        Task<Model> GetByLatestAsync(string id);
     }
 }

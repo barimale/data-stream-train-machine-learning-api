@@ -21,10 +21,8 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     RegisteringTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AccountNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    PIN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SerialNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Model = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                    ModelAsBytes = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    Version = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,24 +30,10 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_cards_AccountNumber",
-                schema: "ordering",
-                table: "cards",
-                column: "AccountNumber",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_cards_Id",
                 schema: "ordering",
                 table: "cards",
                 column: "Id",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_cards_SerialNumber",
-                schema: "ordering",
-                table: "cards",
-                column: "SerialNumber",
                 unique: true);
         }
 
