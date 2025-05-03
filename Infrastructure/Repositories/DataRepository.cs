@@ -1,6 +1,7 @@
 ﻿using Card.Common.Domain;
 using Card.Domain.AggregatesModel.CardAggregate;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,12 +25,9 @@ public class DataRepository : IDataRepository
         return result.Entity;
     }
 
-    // WIP
-    public async Task<Domain.AggregatesModel.CardAggregate.Data> GetByLatestAsync(string id)
+    public async Task<IEnumerable<Data>> GetAllAsync(string id)
     {
-        var card = await _context.Datas.OrderBy(p => p.IngestionTime).LastOrDefaultAsync();
-
-        return card;
+        return await _context.Datas.ToListAsync();
     }
 
     public async Task<Domain.AggregatesModel.CardAggregate.Data> GetByIdAsync(string id)
