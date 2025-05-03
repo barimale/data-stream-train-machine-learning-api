@@ -1,4 +1,6 @@
 
+using Card.Application;
+using Card.Infrastructure;
 using Hangfire;
 using Hangfire.MemoryStorage;
 using SlowTrainMachineLearningAPI.Model;
@@ -20,6 +22,10 @@ namespace SlowTrainMachineLearningAPI
             builder.Services.AddSwaggerGen();
             builder.Services.AddHangfire(config => config.UseMemoryStorage());
             builder.Services.AddHangfireServer();
+            builder.Services
+                   .AddApplicationServices(builder.Configuration)
+                   .AddInfrastructureServices(builder.Configuration);
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

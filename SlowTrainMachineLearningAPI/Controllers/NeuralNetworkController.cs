@@ -1,4 +1,7 @@
+using AutoMapper;
+using Card.Application.CQRS.Queries;
 using Hangfire;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -10,23 +13,35 @@ namespace SlowTrainMachineLearningAPI.Controllers
     {
         private readonly ILogger<NeuralNetworkController> _logger;
         private readonly IBackgroundJobClient _backgroundJobClient;
+        private readonly ISender _sender;
 
         public NeuralNetworkController(ILogger<NeuralNetworkController> logger,
-            IBackgroundJobClient backgroundJobClient)
+            IBackgroundJobClient backgroundJobClient,
+            ISender sender)
         {
             _logger = logger;
             _backgroundJobClient = backgroundJobClient;
+            _sender = sender;
         }
 
         [HttpPost("[action]")]
-        public OkResult TrainNetwork()
+        public OkResult TrainNetwork(string input)
         {
+            //var mapped = mapper.Map<GetCardBySerialNumberQuery>(serialNumber);
+            //var response = await sender.Send(mapped);
+
+            //if (response is null)
+            //    return Results.NotFound();
+
+            //return Results.Ok(response);
             // train based on data from DB
             _backgroundJobClient.Enqueue(() => TrainModelWithFullData());
 
             var refToModel = Program.TorchModel;
+            string[] s1 = input.Trim('[', ']').Split(',');
+            int[] myArr = Array.ConvertAll(s1, n => int.Parse(n));
 
-            var dataBatch = refToModel.Model.TransformInputData(1, 10, 102);
+            var dataBatch = refToModel.Model.TransformInputData(myArr);
             //dataBatch to DB
             refToModel.Model.train(dataBatch);
 
