@@ -49,10 +49,7 @@ namespace SlowTrainMachineLearningAPI
 
             app.UseAuthorization();
 
-
             app.MapControllers();
-
-
 
             app.Run();
         }

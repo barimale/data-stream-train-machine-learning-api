@@ -29,11 +29,11 @@ namespace SlowTrainMachineLearningAPI.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IResult> TrainNetwork(string input)
+        public async Task<IResult> TrainNetwork(RegisterCardRequest commandRequest)
         {
             // input transform to tensor then train and return loss
-            var mapped = _mapper.Map<RegisterCardCommand>(input);
-            var response = await _sender.Send(mapped);
+            var mapped = _mapper.Map<RegisterCardCommand>(commandRequest);
+            //var response = await _sender.Send(mapped);
 
             //if (response is null)
             //    return Results.NotFound();
@@ -43,7 +43,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
             _backgroundJobClient.Enqueue(() => TrainModelWithFullData());
 
             var refToModel = Program.TorchModel;
-            string[] s1 = input.Trim('[', ']').Split(',');
+            string[] s1 = commandRequest.Input.Trim('[', ']').Split(',');
             int[] myArr = Array.ConvertAll(s1, n => int.Parse(n));
 
             var dataBatch = refToModel.Model.TransformInputData(myArr);

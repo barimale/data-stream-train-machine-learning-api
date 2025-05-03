@@ -11,14 +11,14 @@ public class RegisterCardHandler(ICardRepository cardRepository, IIdGeneratorAda
 
     public async Task<RegisterCardResult> Handle(RegisterCardCommand command, CancellationToken cancellationToken)
     {
-        command.Id = generator.Generate(ID_LENGTH);
+        //command.Id = generator.Generate(ID_LENGTH);
         var card = new Domain.AggregatesModel.CardAggregate.Card()
         {
             RegisteringTime = DateTime.UtcNow,
-            PIN = command.PIN,
-            SerialNumber = command.SerialNumber,
-            AccountNumber = command.AccountNumber,
-            Id = command.Id,
+            //PIN = command.PIN,
+            //SerialNumber = command.SerialNumber,
+            //AccountNumber = command.AccountNumber,
+            //Id = command.Id,
         };
 
         var result = await cardRepository.AddAsync(card);

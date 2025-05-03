@@ -11,6 +11,9 @@ namespace Card.API.MappingProfiles
             CreateMap<RegisterCardCommand, RegisterCardRequest>()
                 .ReverseMap();
 
+            CreateMap<RegisterCardRequest, RegisterCardCommand>()
+                .ReverseMap();
+
             CreateMap<RegisterCardResult, RegisterCardResponse>()
                 .ReverseMap();
         }
