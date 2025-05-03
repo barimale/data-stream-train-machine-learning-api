@@ -38,6 +38,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         public async Task<IResult> TrainNetwork(RegisterCardRequest commandRequest)
         {
             var mapped = _mapper.Map<RegisterCardCommand>(commandRequest);
+            // save mapped to DB via cqrs command
             _hub.Publish(mapped);
 
             return Results.Ok();

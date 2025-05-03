@@ -18,7 +18,7 @@ namespace SlowTrainMachineLearningAPI.Model
             }
         }
 
-        public void LoadFromDB()
+        public void LoadFromDB(string version = "latest")
         {
             string filePath = "example.bin"; // FROM DB
             try
