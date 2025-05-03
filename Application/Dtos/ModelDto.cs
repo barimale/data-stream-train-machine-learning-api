@@ -2,9 +2,9 @@
 
 namespace Card.Application.Dtos;
 
-public class CardDto
+public class ModelDto
 {
-    public CardDto()
+    public ModelDto()
     {
         // intentionally left blank
     }

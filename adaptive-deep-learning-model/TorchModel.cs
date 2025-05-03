@@ -31,7 +31,7 @@ namespace SlowTrainMachineLearningAPI.Model
 
         public async Task LoadFromDB(string version = "latest")
         {
-            var result = await _sender.Send(new GetCardBySerialNumberQuery(Guid.NewGuid().ToString())); // query instead of command
+            var result = await _sender.Send(new GetModuleByVersionQuery(version));
 
             byte[] modelFromDb = new byte[2];// FROM DB
             try
@@ -57,7 +57,9 @@ namespace SlowTrainMachineLearningAPI.Model
             using (BinaryWriter writer = new BinaryWriter(fs))
             {
                 Model.save(writer);
-                var result2= await _sender.Send(new RegisterModelCommand() { Model = fs.ToArray()});
+                var result2= await _sender.Send(new RegisterModelCommand() { 
+                    Model = fs.ToArray(),
+                Version = "1.2.2.1"});
             }
 
             return true;

@@ -11,6 +11,7 @@ public class RegisterModelCommand : ICommand<RegisterModelResult>
 
     public string Input { get; set; }
     public byte[] Model { get; set; }
+    public string Version { get; set; }
 }
 
 

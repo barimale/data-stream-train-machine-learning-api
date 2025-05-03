@@ -4,7 +4,7 @@ using Card.Application.Integration;
 using Card.Domain.AggregatesModel.CardAggregate;
 
 namespace Card.Application.CQRS.CommandHandlers;
-public class RegisterCardHandler(ICardRepository cardRepository, IIdGeneratorAdapter generator)
+public class RegisterModuleHandler(ICardRepository cardRepository, IIdGeneratorAdapter generator)
     : ICommandHandler<RegisterModelCommand, RegisterModelResult>
 {
     private const int ID_LENGTH = 36;
