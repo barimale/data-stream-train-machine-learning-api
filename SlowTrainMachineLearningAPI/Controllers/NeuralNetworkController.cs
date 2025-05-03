@@ -1,8 +1,6 @@
 using AutoMapper;
 using Card.Application.CQRS.Commands;
-using Card.Application.CQRS.Queries;
 using Hangfire;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -14,41 +12,33 @@ namespace SlowTrainMachineLearningAPI.Controllers
     {
         private readonly ILogger<NeuralNetworkController> _logger;
         private readonly IBackgroundJobClient _backgroundJobClient;
-        private readonly ISender _sender;
         private readonly IMapper _mapper;
+        private readonly PubSub.Hub _hub;
 
         public NeuralNetworkController(ILogger<NeuralNetworkController> logger,
             IBackgroundJobClient backgroundJobClient,
-            ISender sender,
             IMapper mapper)
         {
             _logger = logger;
             _backgroundJobClient = backgroundJobClient;
-            _sender = sender;
             _mapper = mapper;
+            _hub = PubSub.Hub.Default;
+        }
+
+
+        [HttpPost("[action]")]
+        public async Task<IResult> RebuildNetwork()
+        {
+            _backgroundJobClient.Enqueue(() => TrainModelWithFullData());
+
+            return Results.Ok();
         }
 
         [HttpPost("[action]")]
         public async Task<IResult> TrainNetwork(RegisterCardRequest commandRequest)
         {
-            // input transform to tensor then train and return loss
             var mapped = _mapper.Map<RegisterCardCommand>(commandRequest);
-            //var response = await _sender.Send(mapped);
-
-            //if (response is null)
-            //    return Results.NotFound();
-
-            //return Results.Ok(response);
-            // train based on data from DB
-            _backgroundJobClient.Enqueue(() => TrainModelWithFullData());
-
-            var refToModel = Program.TorchModel;
-            string[] s1 = commandRequest.Input.Trim('[', ']').Split(',');
-            int[] myArr = Array.ConvertAll(s1, n => int.Parse(n));
-
-            var dataBatch = refToModel.Model.TransformInputData(myArr);
-            //dataBatch to DB
-            refToModel.Model.train(dataBatch);
+            _hub.Publish(mapped);
 
             return Results.Ok();
         }
@@ -67,9 +57,10 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
         public static async Task TrainModelWithFullData()
         {
-            // Simulate long-running task
             var refToModel = Program.TorchModel;
             refToModel.LoadFromDB();
+            // var allData = await _sender.Send(new GetAllCardsQuery());
+            //refToModel.Model.train(allData);
             await refToModel.SaveToDB();
         }
     }

@@ -1,4 +1,5 @@
 
+using Albergue.Administrator.HostedServices;
 using Card.API.Extensions;
 using Card.API.MappingProfiles;
 using Card.Application;
@@ -31,7 +32,7 @@ namespace SlowTrainMachineLearningAPI
                    .AddInfrastructureServices(builder.Configuration);
 
             builder.Services.AddMigration<CardContext>();
-
+            builder.Services.AddHostedService<LocalesHostedService>();
 
             var app = builder.Build();
 
