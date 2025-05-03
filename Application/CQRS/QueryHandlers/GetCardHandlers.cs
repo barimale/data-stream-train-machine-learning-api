@@ -13,6 +13,7 @@ public class GetCardHandlers(
     : IQueryHandler<GetModuleByVersionQuery, GetModuleResult>,
     IQueryHandler<TrainNetworkQuery, GetAllDataResult>
 {
+    // WIP
     public async Task<GetModuleResult> Handle(GetModuleByVersionQuery query, CancellationToken cancellationToken)
     {
         var card = await orderRepository.GetByLatestAsync(query.Version);
@@ -21,12 +22,11 @@ public class GetCardHandlers(
         return new GetModuleResult(mapped);
     }
 
-    // WIP
     public async Task<GetAllDataResult> Handle(TrainNetworkQuery request, CancellationToken cancellationToken)
     {
         var card = await orderRepository.GetByLatestAsync(request.Id);
         var mapped = mapper.Map<ModelDto>(card);
-
+        // WIP
         return new GetAllDataResult(["", ""]);
     }
 }

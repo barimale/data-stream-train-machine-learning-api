@@ -10,9 +10,7 @@ public class ModelDto
     }
 
     public DateTime RegisteringTime { get; set; }
-    public string AccountNumber { get; set; }
-    public string PIN { get; set; }
-    public string SerialNumber { get; set; }
     public string Id { get; set; }
-    public byte[] Model { get; set; }   
+    public byte[] ModelAsBytes { get; set; }   
+    public string Version { get; set; }
 }
