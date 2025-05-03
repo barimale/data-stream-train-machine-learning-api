@@ -58,8 +58,6 @@ namespace SlowTrainMachineLearningAPI.Controllers
         {
             var refToModel = Program.TorchModel;
             await refToModel.LoadFromDB();
-            // var allData = await _sender.Send(new GetAllCardsQuery());
-            //refToModel.Model.train(allData);
             await refToModel.SaveToDB();
         }
     }
