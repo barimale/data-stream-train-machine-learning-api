@@ -19,7 +19,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
             _backgroundJobClient = backgroundJobClient;
         }
 
-        [HttpPost(Name = "TrainNetwork")]
+        [HttpPost("[action]")]
         public OkResult TrainNetwork()
         {
             // train based on data from DB
@@ -34,7 +34,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
             return Ok();
         }
 
-        [HttpPost(Name = "PredictValue")]
+        [HttpPost("[action]")]
         public OkObjectResult PredictValue()
         {
             var refToModel = Program.TorchModel;
