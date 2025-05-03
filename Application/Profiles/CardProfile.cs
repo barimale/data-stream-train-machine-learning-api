@@ -8,6 +8,7 @@ namespace Card.Application.Profiles
         public CardProfile()
         {
             CreateMap<Domain.AggregatesModel.CardAggregate.Model, ModelDto>().ReverseMap();
+            CreateMap<Domain.AggregatesModel.CardAggregate.Data, DataDto>().ReverseMap();
         }
     }
 }
