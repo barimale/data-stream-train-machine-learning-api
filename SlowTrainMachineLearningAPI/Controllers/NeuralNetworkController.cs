@@ -52,9 +52,9 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost("[action]")]
         public IResult PredictValue(string input)
         {
-            var refToModel = Program.TorchModel;
-            var dataBatch = refToModel.Model.TransformInputData(input.ToIntArray());
-            var result = refToModel.Model.predict(dataBatch);
+            var refToModel = Program.TorchModel.Model;
+            var dataBatch = refToModel.TransformInputData(input.ToIntArray());
+            var result = refToModel.predict(dataBatch);
 
             return Results.Ok(JsonSerializer.Serialize(result.data<float>().ToArray()));
         }
