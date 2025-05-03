@@ -9,7 +9,7 @@ namespace Card.Infrastructure
         public CardContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<CardContext>();
-            optionsBuilder.UseSqlServer("Data Source=localhost,1500;Database=CardManagerDB;Uid=sa;Password=Password_123#;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Data Source=localhost,1500;Database=DNNdb;Uid=sa;Password=Password_123#;TrustServerCertificate=True");
 
             return new CardContext(optionsBuilder.Options);
         }

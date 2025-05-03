@@ -33,7 +33,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         {
             // input transform to tensor then train and return loss
             var mapped = _mapper.Map<RegisterCardCommand>(input);
-            //var response = await _sender.Send(mapped);
+            var response = await _sender.Send(mapped);
 
             //if (response is null)
             //    return Results.NotFound();

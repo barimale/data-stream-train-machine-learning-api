@@ -1,4 +1,6 @@
 
+using Card.API.Extensions;
+using Card.API.MappingProfiles;
 using Card.Application;
 using Card.Infrastructure;
 using Hangfire;
@@ -17,6 +19,8 @@ namespace SlowTrainMachineLearningAPI
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddAutoMapper(typeof(ApiProfile));
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -25,6 +29,9 @@ namespace SlowTrainMachineLearningAPI
             builder.Services
                    .AddApplicationServices(builder.Configuration)
                    .AddInfrastructureServices(builder.Configuration);
+
+            builder.Services.AddMigration<CardContext>();
+
 
             var app = builder.Build();
 
@@ -44,6 +51,8 @@ namespace SlowTrainMachineLearningAPI
 
 
             app.MapControllers();
+
+
 
             app.Run();
         }
