@@ -9,13 +9,9 @@ namespace SlowTrainMachineLearningAPI.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly IBackgroundJobClient _backgroundJobClient;
+
         public WeatherForecastController(ILogger<WeatherForecastController> logger,
             IBackgroundJobClient backgroundJobClient)
         {
@@ -23,28 +19,22 @@ namespace SlowTrainMachineLearningAPI.Controllers
             _backgroundJobClient = backgroundJobClient;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpPost(Name = "TrainNetwork")]
+        public OkResult TrainNetwork()
         {
             _backgroundJobClient.Enqueue(() => LongRunningOperation());
 
             var refToModel = Program.TorchModel;
 
-            var dataBatch = refToModel.Model.TransformInputData();
+            var dataBatch = refToModel.Model.TransformInputData(1, 10, 102);
 
             refToModel.Model.train(dataBatch);
 
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return Ok();
         }
 
-        [HttpPost(Name = "Postdummy")]
-        public OkObjectResult Post()
+        [HttpPost(Name = "PredictValue")]
+        public OkObjectResult PredictValue()
         {
             var refToModel = Program.TorchModel;
 

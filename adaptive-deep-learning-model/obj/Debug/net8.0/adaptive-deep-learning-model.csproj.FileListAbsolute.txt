@@ -1,0 +1,13 @@
+R:\slow-train-machine-learning-api\adaptive-deep-learning-model\bin\Debug\net8.0\adaptive-deep-learning-model.deps.json
+R:\slow-train-machine-learning-api\adaptive-deep-learning-model\bin\Debug\net8.0\adaptive-deep-learning-model.dll
+R:\slow-train-machine-learning-api\adaptive-deep-learning-model\bin\Debug\net8.0\adaptive-deep-learning-model.pdb
+R:\slow-train-machine-learning-api\adaptive-deep-learning-model\obj\Debug\net8.0\adaptive-deep-learning-model.csproj.AssemblyReference.cache
+R:\slow-train-machine-learning-api\adaptive-deep-learning-model\obj\Debug\net8.0\adaptive-deep-learning-model.GeneratedMSBuildEditorConfig.editorconfig
+R:\slow-train-machine-learning-api\adaptive-deep-learning-model\obj\Debug\net8.0\adaptive-deep-learning-model.AssemblyInfoInputs.cache
+R:\slow-train-machine-learning-api\adaptive-deep-learning-model\obj\Debug\net8.0\adaptive-deep-learning-model.AssemblyInfo.cs
+R:\slow-train-machine-learning-api\adaptive-deep-learning-model\obj\Debug\net8.0\adaptive-deep-learning-model.csproj.CoreCompileInputs.cache
+R:\slow-train-machine-learning-api\adaptive-deep-learning-model\obj\Debug\net8.0\adaptive-deep-learning-model.sourcelink.json
+R:\slow-train-machine-learning-api\adaptive-deep-learning-model\obj\Debug\net8.0\adaptive-deep-learning-model.dll
+R:\slow-train-machine-learning-api\adaptive-deep-learning-model\obj\Debug\net8.0\refint\adaptive-deep-learning-model.dll
+R:\slow-train-machine-learning-api\adaptive-deep-learning-model\obj\Debug\net8.0\adaptive-deep-learning-model.pdb
+R:\slow-train-machine-learning-api\adaptive-deep-learning-model\obj\Debug\net8.0\ref\adaptive-deep-learning-model.dll

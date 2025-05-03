@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("adaptive-deep-learning-model")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c6560e4f3cb1583b6f5b08223adc25751a5890f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+226f975c15197bec472a598ddfb22a12e8b55d38")]
 [assembly: System.Reflection.AssemblyProductAttribute("adaptive-deep-learning-model")]
 [assembly: System.Reflection.AssemblyTitleAttribute("adaptive-deep-learning-model")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
