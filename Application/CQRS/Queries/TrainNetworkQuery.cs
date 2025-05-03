@@ -3,7 +3,7 @@
 namespace Card.Application.CQRS.Queries;
 
 public class TrainNetworkQuery
-    : IQuery<GetModuleResult>
+    : IQuery<GetAllDataResult>
 {
     public TrainNetworkQuery(string id)
     {

@@ -1,7 +1,9 @@
 using API.SlowTrainMachineLearning.Utilities;
 using AutoMapper;
 using Card.Application.CQRS.Commands;
+using Card.Application.CQRS.Queries;
 using Hangfire;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -14,15 +16,18 @@ namespace SlowTrainMachineLearningAPI.Controllers
         private readonly ILogger<NeuralNetworkController> _logger;
         private readonly IBackgroundJobClient _backgroundJobClient;
         private readonly IMapper _mapper;
+        private readonly ISender _sender;
         private readonly PubSub.Hub _hub;
 
         public NeuralNetworkController(ILogger<NeuralNetworkController> logger,
             IBackgroundJobClient backgroundJobClient,
-            IMapper mapper)
+            IMapper mapper,
+            ISender sender)
         {
             _logger = logger;
             _backgroundJobClient = backgroundJobClient;
             _mapper = mapper;
+            _sender = sender;
             _hub = PubSub.Hub.Default;
         }
 
@@ -54,10 +59,12 @@ namespace SlowTrainMachineLearningAPI.Controllers
             return Results.Ok(JsonSerializer.Serialize(result.data<float>().ToArray()));
         }
 
-        public static async Task TrainModelWithFullData()
+        public async Task TrainModelWithFullData()
         {
             var refToModel = Program.TorchModel;
             await refToModel.LoadFromDB();
+            var allData = await _sender.Send(new TrainNetworkQuery(string.Empty));
+            refToModel.Model.train(refToModel.Model.TransformInputData(allData.Data));
             await refToModel.SaveToDB();
         }
     }

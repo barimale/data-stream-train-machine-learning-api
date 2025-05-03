@@ -10,7 +10,8 @@ public class GetCardHandlers(
     ICardRepository orderRepository,
     IMapper mapper,
     ILogger<GetCardHandlers> logger)
-    : IQueryHandler<GetModuleByVersionQuery, GetModuleResult>
+    : IQueryHandler<GetModuleByVersionQuery, GetModuleResult>,
+    IQueryHandler<TrainNetworkQuery, GetAllDataResult>
 {
     public async Task<GetModuleResult> Handle(GetModuleByVersionQuery query, CancellationToken cancellationToken)
     {
@@ -18,5 +19,14 @@ public class GetCardHandlers(
         var mapped = mapper.Map<ModelDto>(card);
 
         return new GetModuleResult(mapped);
+    }
+
+    // WIP
+    public async Task<GetAllDataResult> Handle(TrainNetworkQuery request, CancellationToken cancellationToken)
+    {
+        var card = await orderRepository.GetBySerialNumberAsync(query.Version);
+        var mapped = mapper.Map<ModelDto>(card);
+
+        return new GetAllDataResult(["", ""]);
     }
 }

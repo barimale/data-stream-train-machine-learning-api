@@ -35,6 +35,15 @@ namespace adaptive_deep_learning_model
             return rand(32, 1000);
         }
 
+        public Tensor? TransformInputData(params string[] numbers)
+        {
+            // WIP przypilnowac ksztaltu
+            var tensor = torch.from_array(numbers);
+
+            //tensor = tensor.view(1, 1000);
+            return rand(32, 1000);
+        }
+
         public Tensor? predict(Tensor? dataBatch)
         {
             var result = this.forward(dataBatch);
