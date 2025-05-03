@@ -26,6 +26,7 @@ public static class DependencyInjection
 
         // Add services to the container.
         services.AddScoped<ICardRepository, CardRepository>();
+        services.AddScoped<IDataRepository, DataRepository>();
 
         return services;
     }

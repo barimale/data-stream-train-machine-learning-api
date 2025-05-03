@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace Card.Application.CQRS.QueryHandlers;
 public class GetCardHandlers(
     ICardRepository orderRepository,
+    IDataRepository dataRepository,
     IMapper mapper,
     ILogger<GetCardHandlers> logger)
     : IQueryHandler<GetModuleByVersionQuery, GetModuleResult>,
@@ -24,6 +25,7 @@ public class GetCardHandlers(
 
     public async Task<GetAllDataResult> Handle(TrainNetworkQuery request, CancellationToken cancellationToken)
     {
+        var datas = await dataRepository.GetByLatestAsync(request.Id);
         var card = await orderRepository.GetByLatestAsync(request.Id);
         var mapped = mapper.Map<ModelDto>(card);
         // WIP

@@ -15,6 +15,8 @@ public class CardContext : DbContext, IUnitOfWork
     }
 
     public DbSet<Domain.AggregatesModel.CardAggregate.Model> Cards { get; set; }
+    public DbSet<Domain.AggregatesModel.CardAggregate.Data> Datas { get; set; }
+
 
     private IDbContextTransaction _currentTransaction;
 
