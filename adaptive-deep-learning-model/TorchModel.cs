@@ -3,8 +3,6 @@ using Card.Application.CQRS.Commands;
 using Card.Application.CQRS.Queries;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
-using System.Text;
 
 namespace SlowTrainMachineLearningAPI.Model
 {
