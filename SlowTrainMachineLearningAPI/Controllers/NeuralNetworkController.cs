@@ -31,7 +31,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         public async Task<IResult> TrainNetwork(string input)
         {
             var mapped = _mapper.Map<GetCardBySerialNumberQuery>(input);
-            var response = await _sender.Send(mapped);
+            //var response = await _sender.Send(mapped);
 
             //if (response is null)
             //    return Results.NotFound();
@@ -48,11 +48,11 @@ namespace SlowTrainMachineLearningAPI.Controllers
             //dataBatch to DB
             refToModel.Model.train(dataBatch);
 
-            return Ok();
+            return Results.Ok();
         }
 
         [HttpPost("[action]")]
-        public OkObjectResult PredictValue()
+        public IResult PredictValue()
         {
             var refToModel = Program.TorchModel;
 
@@ -60,7 +60,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
             var result = refToModel.Model.predict(dataBatch);
 
-            return Ok(JsonSerializer.Serialize(result.data<float>().ToArray()));
+            return Results.Ok(JsonSerializer.Serialize(result.data<float>().ToArray()));
         }
 
         public static async Task TrainModelWithFullData()
