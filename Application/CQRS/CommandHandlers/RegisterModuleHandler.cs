@@ -11,6 +11,7 @@ public class RegisterModuleHandler(ICardRepository cardRepository, IIdGeneratorA
     {
         var card = new Model()
         {
+            Id = Guid.NewGuid().ToString(),
             RegisteringTime = DateTime.UtcNow,
             ModelAsBytes = command.Model,
             Version = command.Version,
