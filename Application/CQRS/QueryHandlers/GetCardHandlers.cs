@@ -26,8 +26,7 @@ public class GetCardHandlers(
     public async Task<GetAllDataResult> Handle(TrainNetworkQuery request, CancellationToken cancellationToken)
     {
         var datas = await dataRepository.GetByLatestAsync(request.Id);
-        var card = await orderRepository.GetByLatestAsync(request.Id);
-        var mapped = mapper.Map<ModelDto>(card);
+        var mapped = mapper.Map<ModelDto>(datas);
         // WIP
         return new GetAllDataResult(["", ""]);
     }
