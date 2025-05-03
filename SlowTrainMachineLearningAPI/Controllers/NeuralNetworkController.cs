@@ -6,12 +6,12 @@ namespace SlowTrainMachineLearningAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class NeuralNetworkController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<NeuralNetworkController> _logger;
         private readonly IBackgroundJobClient _backgroundJobClient;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger,
+        public NeuralNetworkController(ILogger<NeuralNetworkController> logger,
             IBackgroundJobClient backgroundJobClient)
         {
             _logger = logger;
