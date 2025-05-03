@@ -1,10 +1,18 @@
 ﻿using adaptive_deep_learning_model;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using System.Text;
 
 namespace SlowTrainMachineLearningAPI.Model
 {
     public class TorchModel
     {
+        private readonly ISender _sender;
+        public TorchModel(IServiceProvider serviceProvider)
+        {
+            _sender = serviceProvider.CreateScope().ServiceProvider.GetRequiredService<ISender>();
+        }
+
         private Trivial model = new Trivial();
         public Trivial Model
         {
@@ -20,15 +28,14 @@ namespace SlowTrainMachineLearningAPI.Model
 
         public void LoadFromDB(string version = "latest")
         {
-            string filePath = "example.bin"; // FROM DB
+            byte[] modelFromDb = new byte[2];// FROM DB
             try
             {
-                // Create a file to write to
-                using (MemoryStream fs = new MemoryStream())
+                using (MemoryStream fs = new MemoryStream(modelFromDb))
                 using (BinaryReader reader = new BinaryReader(fs))
                 {
                     this.Model = new Trivial(Model.load(reader));
-                    // TO DB
+                    return;
                 }
 
             }
@@ -41,9 +48,6 @@ namespace SlowTrainMachineLearningAPI.Model
 
         public Task<bool> SaveToDB()
         {
-            string filePath = "example.bin";
-
-            // Create a file to write to
             using (MemoryStream fs = new MemoryStream())
             using (BinaryWriter writer = new BinaryWriter(fs))
             {

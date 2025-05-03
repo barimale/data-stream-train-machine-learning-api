@@ -12,7 +12,7 @@ namespace SlowTrainMachineLearningAPI
 {
     public class Program
     {
-        public static TorchModel TorchModel { get; set; } = new TorchModel();
+        public static TorchModel TorchModel { get; set; }
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -33,6 +33,9 @@ namespace SlowTrainMachineLearningAPI
 
             builder.Services.AddMigration<CardContext>();
             builder.Services.AddHostedService<LocalesHostedService>();
+
+            var provider = builder.Services.BuildServiceProvider();
+            TorchModel = new TorchModel(provider);
 
             var app = builder.Build();
 

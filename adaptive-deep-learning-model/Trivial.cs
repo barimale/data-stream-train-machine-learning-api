@@ -9,6 +9,7 @@ namespace adaptive_deep_learning_model
         public Trivial(nn.Module module)
             : base(nameof(Trivial))
         {
+            this.register_module(nameof(Trivial), module);
             RegisterComponents();
         }
 
