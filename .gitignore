@@ -11,3 +11,7 @@
 /BuildingBlocks/obj
 /Domain/obj
 /Infrastructure/obj
+/Application/bin
+/BuildingBlocks/bin
+/Domain/bin
+/Infrastructure/bin
