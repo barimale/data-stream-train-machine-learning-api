@@ -1,0 +1,14 @@
+﻿using BuildingBlocks.Application.CQRS;
+
+namespace Card.Application.CQRS.Queries;
+
+public class TrainNetworkQuery
+    : IQuery<GetCardResult>
+{
+    public TrainNetworkQuery(string id)
+    {
+        Id = id;
+    }
+
+    public string Id { get; set; }
+}
