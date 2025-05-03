@@ -22,12 +22,13 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost(Name = "TrainNetwork")]
         public OkResult TrainNetwork()
         {
-            _backgroundJobClient.Enqueue(() => LongRunningOperation());
+            // train based on data from DB
+            _backgroundJobClient.Enqueue(() => TrainModelWithFullData());
 
             var refToModel = Program.TorchModel;
 
             var dataBatch = refToModel.Model.TransformInputData(1, 10, 102);
-
+            //dataBatch to DB
             refToModel.Model.train(dataBatch);
 
             return Ok();
@@ -45,7 +46,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
             return Ok(JsonSerializer.Serialize(result.data<float>().ToArray()));
         }
 
-        public static async Task LongRunningOperation()
+        public static async Task TrainModelWithFullData()
         {
             // Simulate long-running task
             var refToModel = Program.TorchModel;
