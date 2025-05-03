@@ -1,6 +1,5 @@
 using Hangfire;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections;
 using System.Text.Json;
 
 namespace SlowTrainMachineLearningAPI.Controllers
