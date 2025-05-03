@@ -14,21 +14,24 @@ namespace SlowTrainMachineLearningAPI.Controllers
         private readonly ILogger<NeuralNetworkController> _logger;
         private readonly IBackgroundJobClient _backgroundJobClient;
         private readonly ISender _sender;
+        private readonly IMapper _mapper;
 
         public NeuralNetworkController(ILogger<NeuralNetworkController> logger,
             IBackgroundJobClient backgroundJobClient,
-            ISender sender)
+            ISender sender,
+            IMapper mapper)
         {
             _logger = logger;
             _backgroundJobClient = backgroundJobClient;
             _sender = sender;
+            _mapper = mapper;
         }
 
         [HttpPost("[action]")]
-        public OkResult TrainNetwork(string input)
+        public async Task<IResult> TrainNetwork(string input)
         {
-            //var mapped = mapper.Map<GetCardBySerialNumberQuery>(serialNumber);
-            //var response = await sender.Send(mapped);
+            var mapped = _mapper.Map<GetCardBySerialNumberQuery>(input);
+            var response = await _sender.Send(mapped);
 
             //if (response is null)
             //    return Results.NotFound();
