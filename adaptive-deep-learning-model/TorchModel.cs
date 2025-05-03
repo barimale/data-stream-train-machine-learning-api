@@ -1,6 +1,9 @@
 ﻿using adaptive_deep_learning_model;
+using Card.Application.CQRS.Commands;
+using Card.Application.CQRS.Queries;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 using System.Text;
 
 namespace SlowTrainMachineLearningAPI.Model
@@ -26,8 +29,10 @@ namespace SlowTrainMachineLearningAPI.Model
             }
         }
 
-        public void LoadFromDB(string version = "latest")
+        public async Task LoadFromDB(string version = "latest")
         {
+            var result = await _sender.Send(new RegisterCardCommand()); // query instead of command
+
             byte[] modelFromDb = new byte[2];// FROM DB
             try
             {
@@ -46,17 +51,16 @@ namespace SlowTrainMachineLearningAPI.Model
             this.Model = new Trivial();
         }
 
-        public Task<bool> SaveToDB()
+        public async Task<bool> SaveToDB()
         {
             using (MemoryStream fs = new MemoryStream())
             using (BinaryWriter writer = new BinaryWriter(fs))
             {
                 Model.save(writer);
-                string result = Encoding.UTF8.GetString(fs.ToArray());
-                // TO DB
+                var result2= await _sender.Send(new RegisterCardCommand() { Model = fs.ToArray()});
             }
 
-            return Task.FromResult(true);
+            return true;
         }
     }
 }
