@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Card.Infrastructure.Migrations
+namespace Infrastructure.Migrations
 {
     [DbContext(typeof(CardContext))]
-    [Migration("20241127180701_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250503135106_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,10 @@ namespace Card.Infrastructure.Migrations
                     b.Property<string>("AccountNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<byte[]>("Model")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("PIN")
                         .IsRequired()

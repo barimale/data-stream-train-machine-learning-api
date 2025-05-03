@@ -1,4 +1,5 @@
 using AutoMapper;
+using Card.Application.CQRS.Commands;
 using Card.Application.CQRS.Queries;
 using Hangfire;
 using MediatR;
@@ -30,7 +31,8 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IResult> TrainNetwork(string input)
         {
-            var mapped = _mapper.Map<GetCardBySerialNumberQuery>(input);
+            // input transform to tensor then train and return loss
+            var mapped = _mapper.Map<RegisterCardCommand>(input);
             //var response = await _sender.Send(mapped);
 
             //if (response is null)

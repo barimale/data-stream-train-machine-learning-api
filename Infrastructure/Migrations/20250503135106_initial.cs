@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Card.Infrastructure.Migrations
+namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,7 +23,8 @@ namespace Card.Infrastructure.Migrations
                     RegisteringTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AccountNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     PIN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SerialNumber = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    SerialNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Model = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
                 },
                 constraints: table =>
                 {

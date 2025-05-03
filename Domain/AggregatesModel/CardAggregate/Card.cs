@@ -1,4 +1,5 @@
 ﻿using Card.Common.Domain;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
 namespace Card.Domain.AggregatesModel.CardAggregate;
 
@@ -10,4 +11,5 @@ public class Card
     public string PIN { get; set; }
     public string SerialNumber { get; set; }
     public string Id { get; set; }
+    public byte[] Model { get; set; }
 }
