@@ -59,6 +59,8 @@ namespace SlowTrainMachineLearningAPI.Controllers
             return Results.Ok(JsonSerializer.Serialize(result.data<float>().ToArray()));
         }
 
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [NonAction]
         public async Task TrainModelWithFullData()
         {
             var refToModel = Program.TorchModel;
