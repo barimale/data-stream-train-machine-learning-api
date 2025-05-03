@@ -17,7 +17,7 @@ public class CardRepository : ICardRepository
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }
 
-    public async Task<Domain.AggregatesModel.CardAggregate.Card> AddAsync(Domain.AggregatesModel.CardAggregate.Card order)
+    public async Task<Domain.AggregatesModel.CardAggregate.Model> AddAsync(Domain.AggregatesModel.CardAggregate.Model order)
     {
         var result = await _context.Cards.AddAsync(order);
         
@@ -25,21 +25,14 @@ public class CardRepository : ICardRepository
     }
 
     // WIP
-    public async Task<Domain.AggregatesModel.CardAggregate.Card> GetBySerialNumberAsync(string id)
+    public async Task<Domain.AggregatesModel.CardAggregate.Model> GetBySerialNumberAsync(string id)
     {
         var card = await _context.Cards.FirstOrDefaultAsync(p => p.Id == id);
 
         return card;
     }
 
-    public async Task<Domain.AggregatesModel.CardAggregate.Card> GetByAccountNumberAsync(string id)
-    {
-        var card = await _context.Cards.FirstOrDefaultAsync(p => p.AccountNumber == id);
-
-        return card;
-    }
-
-    public async Task<Domain.AggregatesModel.CardAggregate.Card> GetByIdAsync(string id)
+    public async Task<Domain.AggregatesModel.CardAggregate.Model> GetByIdAsync(string id)
     {
         var card = await _context.Cards.FirstOrDefaultAsync(p => p.Id == id);
 

@@ -7,18 +7,13 @@ namespace Card.Application.CQRS.CommandHandlers;
 public class RegisterModuleHandler(ICardRepository cardRepository, IIdGeneratorAdapter generator)
     : ICommandHandler<RegisterModelCommand, RegisterModelResult>
 {
-    private const int ID_LENGTH = 36;
-
     public async Task<RegisterModelResult> Handle(RegisterModelCommand command, CancellationToken cancellationToken)
     {
-        //command.Id = generator.Generate(ID_LENGTH);
-        var card = new Domain.AggregatesModel.CardAggregate.Card()
+        var card = new Model()
         {
             RegisteringTime = DateTime.UtcNow,
-            //PIN = command.PIN,
-            //SerialNumber = command.SerialNumber,
-            //AccountNumber = command.AccountNumber,
-            //Id = command.Id,
+            ModelAsBytes = command.Model,
+            Version = command.Version,
         };
 
         var result = await cardRepository.AddAsync(card);
