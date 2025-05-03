@@ -25,13 +25,13 @@ namespace Albergue.Administrator.HostedServices
         {
             _logger.LogInformation("Locales Hosted Service running.");
 
-            _hub.Subscribe<RegisterCardCommand>(async (item) =>
+            _hub.Subscribe<RegisterModelCommand>(async (item) =>
             {
                 await DoWorkAsync(item);
             });
         }
 
-        private async Task DoWorkAsync(RegisterCardCommand commandRequest)
+        private async Task DoWorkAsync(RegisterModelCommand commandRequest)
         {
             var id = Guid.NewGuid().ToString();
 

@@ -5,11 +5,11 @@ using Card.Domain.AggregatesModel.CardAggregate;
 
 namespace Card.Application.CQRS.CommandHandlers;
 public class RegisterCardHandler(ICardRepository cardRepository, IIdGeneratorAdapter generator)
-    : ICommandHandler<RegisterCardCommand, RegisterCardResult>
+    : ICommandHandler<RegisterModelCommand, RegisterModelResult>
 {
     private const int ID_LENGTH = 36;
 
-    public async Task<RegisterCardResult> Handle(RegisterCardCommand command, CancellationToken cancellationToken)
+    public async Task<RegisterModelResult> Handle(RegisterModelCommand command, CancellationToken cancellationToken)
     {
         //command.Id = generator.Generate(ID_LENGTH);
         var card = new Domain.AggregatesModel.CardAggregate.Card()
@@ -24,6 +24,6 @@ public class RegisterCardHandler(ICardRepository cardRepository, IIdGeneratorAda
         var result = await cardRepository.AddAsync(card);
         await cardRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
-        return new RegisterCardResult(result.Id);
+        return new RegisterModelResult(result.Id);
     }
 }

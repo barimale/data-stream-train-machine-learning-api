@@ -2,9 +2,9 @@
 
 namespace Card.Application.CQRS.Commands;
 
-public class RegisterCardCommand : ICommand<RegisterCardResult>
+public class RegisterModelCommand : ICommand<RegisterModelResult>
 {
-    public RegisterCardCommand()
+    public RegisterModelCommand()
     {
         // intentionally left blank
     }
@@ -14,14 +14,14 @@ public class RegisterCardCommand : ICommand<RegisterCardResult>
 }
 
 
-public class RegisterCardResult
+public class RegisterModelResult
 {
-    public RegisterCardResult()
+    public RegisterModelResult()
     {
         // intentionally left blank
     }
 
-    public RegisterCardResult(string id)
+    public RegisterModelResult(string id)
     {
         Id = id;
     }
