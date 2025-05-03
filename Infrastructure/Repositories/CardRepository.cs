@@ -30,6 +30,7 @@ public class CardRepository : ICardRepository
 
         return card;
     }
+
     public async Task<Domain.AggregatesModel.CardAggregate.Card> GetByAccountNumberAsync(string id)
     {
         var card = await _context.Cards.FirstOrDefaultAsync(p => p.AccountNumber == id);
