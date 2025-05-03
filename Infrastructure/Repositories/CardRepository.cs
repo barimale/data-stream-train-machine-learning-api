@@ -24,9 +24,10 @@ public class CardRepository : ICardRepository
         return result.Entity;
     }
 
+    // WIP
     public async Task<Domain.AggregatesModel.CardAggregate.Card> GetBySerialNumberAsync(string id)
     {
-        var card = await _context.Cards.FirstOrDefaultAsync(p => p.SerialNumber == id);
+        var card = await _context.Cards.FirstOrDefaultAsync(p => p.Id == id);
 
         return card;
     }

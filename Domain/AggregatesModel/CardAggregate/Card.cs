@@ -12,4 +12,5 @@ public class Card
     public string SerialNumber { get; set; }
     public string Id { get; set; }
     public byte[] Model { get; set; }
+    public string Version { get; set; }
 }
