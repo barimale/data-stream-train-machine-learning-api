@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(CardContext))]
-    [Migration("20250503175513_initial")]
+    [Migration("20250503184105_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -25,6 +25,23 @@ namespace Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Card.Domain.AggregatesModel.CardAggregate.Data", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DataAsCommaSeparatedData")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("IngestionTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Datas", "ordering");
+                });
 
             modelBuilder.Entity("Card.Domain.AggregatesModel.CardAggregate.Model", b =>
                 {

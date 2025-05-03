@@ -23,6 +23,23 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Card.Domain.AggregatesModel.CardAggregate.Data", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DataAsCommaSeparatedData")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("IngestionTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Datas", "ordering");
+                });
+
             modelBuilder.Entity("Card.Domain.AggregatesModel.CardAggregate.Model", b =>
                 {
                     b.Property<string>("Id")

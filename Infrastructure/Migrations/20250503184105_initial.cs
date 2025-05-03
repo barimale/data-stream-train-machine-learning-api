@@ -29,6 +29,20 @@ namespace Infrastructure.Migrations
                     table.PrimaryKey("PK_cards", x => x.Id);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Datas",
+                schema: "ordering",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IngestionTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DataAsCommaSeparatedData = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Datas", x => x.Id);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_cards_Id",
                 schema: "ordering",
@@ -42,6 +56,10 @@ namespace Infrastructure.Migrations
         {
             migrationBuilder.DropTable(
                 name: "cards",
+                schema: "ordering");
+
+            migrationBuilder.DropTable(
+                name: "Datas",
                 schema: "ordering");
         }
     }
