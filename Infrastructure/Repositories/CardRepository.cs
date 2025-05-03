@@ -24,7 +24,6 @@ public class CardRepository : ICardRepository
         return result.Entity;
     }
 
-    // WIP
     public async Task<Domain.AggregatesModel.CardAggregate.Model> GetByLatestAsync(string id)
     {
         var card = await _context.Cards.OrderBy(p => p.RegisteringTime).LastOrDefaultAsync();
