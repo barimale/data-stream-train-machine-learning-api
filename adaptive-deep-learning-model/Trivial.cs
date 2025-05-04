@@ -59,8 +59,6 @@ namespace adaptive_deep_learning_model
         {
             var learning_rate = 0.001f;
             var loss = nn.MSELoss();
-            // WIP
-            resultBatch = rand(32, 10);  // Our pretend ground truth.
             var EPOCHS = 3;
 
             var optimizer = torch.optim.SGD(this.parameters(), learning_rate);
@@ -81,7 +79,7 @@ namespace adaptive_deep_learning_model
                     optimizer.step();
                 }
 
-                loss.forward(this.forward(dataBatch), resultBatch).item<float>();
+                var _ = loss.forward(this.forward(dataBatch), resultBatch).item<float>();
             }
         }
 
