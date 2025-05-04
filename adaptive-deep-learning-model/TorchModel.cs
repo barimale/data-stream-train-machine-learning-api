@@ -29,7 +29,7 @@ namespace SlowTrainMachineLearningAPI.Model
 
         public async Task LoadFromDB(string version = "latest")
         {
-            var result = await _sender.Send(new GetModuleByVersionQuery(version));
+            var result = await _sender.Send(new GetLatestQuery(version));
 
             if(result.Model is null)
             {

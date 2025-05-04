@@ -12,10 +12,10 @@ public class GetCardHandlers(
     IDataRepository dataRepository,
     IMapper mapper,
     ILogger<GetCardHandlers> logger)
-    : IQueryHandler<GetModuleByVersionQuery, GetModuleResult>,
+    : IQueryHandler<GetLatestQuery, GetModuleResult>,
     IQueryHandler<TrainNetworkQuery, GetAllDataResult>
 {
-    public async Task<GetModuleResult> Handle(GetModuleByVersionQuery query, CancellationToken cancellationToken)
+    public async Task<GetModuleResult> Handle(GetLatestQuery query, CancellationToken cancellationToken)
     {
         var card = await orderRepository.GetByLatestAsync(query.Version);
         var mapped = mapper.Map<ModelDto>(card);

@@ -2,10 +2,10 @@
 
 namespace Card.Application.CQRS.Queries;
 
-public class GetModuleByVersionQuery
+public class GetLatestQuery
     : IQuery<GetModuleResult>
 {
-    public GetModuleByVersionQuery(string version)
+    public GetLatestQuery(string version)
     {
         Version = version;
     }
