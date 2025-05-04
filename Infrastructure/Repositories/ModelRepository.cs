@@ -26,23 +26,8 @@ public class ModelRepository : IModelRepository
 
     public async Task<Model> GetByLatestAsync(string id)
     {
-        var card = await _context.Cards.OrderBy(p => p.RegisteringTime).LastOrDefaultAsync();
+        var result = await _context.Cards.OrderBy(p => p.RegisteringTime).LastOrDefaultAsync();
 
-        return card;
-    }
-
-    public async Task<Model> GetByIdAsync(string id)
-    {
-        var card = await _context.Cards.FirstOrDefaultAsync(p => p.Id == id);
-
-        return card;
-    }
-
-    public async Task<string> Delete(string id)
-    {
-        var toBeDeleted = await _context.Cards.FirstOrDefaultAsync(p => p.Id == id);
-        var result = _context.Cards.Remove(toBeDeleted);
-
-        return result.Entity.Id;
+        return result;
     }
 }

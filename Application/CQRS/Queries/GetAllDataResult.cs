@@ -15,7 +15,7 @@ public class GetAllDataResult
 
     public class DataEntry
     {
-        public string DataX { get; set; }
-        public string Y { get; set; }
+        public string Xs { get; set; }
+        public string Ys { get; set; }
     }
 }

@@ -5,8 +5,6 @@ namespace Card.Domain.AggregatesModel.CardAggregate
     public interface IModelRepository : IRepository<Model>
     {
         Task<Model> AddAsync(Model card);
-        Task<string> Delete(string id);
-        Task<Model> GetByIdAsync(string id);
         Task<Model> GetByLatestAsync(string id);
     }
 }

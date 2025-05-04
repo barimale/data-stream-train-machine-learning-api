@@ -29,8 +29,8 @@ public class GetCardHandlers(
         var mapped = mapper.Map<List<DataDto>>(datas);
         
         return new GetAllDataResult(mapped.Select(p => new DataEntry(){
-           DataX = p.DataAsCommaSeparatedData,
-           Y = p.Ys
+           Xs = p.Xs,
+           Ys = p.Ys
         }).ToArray());
     }
 }
