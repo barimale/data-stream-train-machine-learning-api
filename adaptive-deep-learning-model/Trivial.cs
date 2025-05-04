@@ -36,6 +36,7 @@ namespace adaptive_deep_learning_model
         {
             var tensors = new Tensor[numbers.Length];
             var index = 0;
+
             foreach (var s in numbers)
             {
                 string[] s1 = s.Trim('[', ']').Split(',');
