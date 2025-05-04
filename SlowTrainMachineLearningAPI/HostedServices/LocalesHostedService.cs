@@ -1,4 +1,5 @@
-﻿using Card.Application.CQRS.Commands;
+﻿using adaptive_deep_learning_model.Utilities;
+using Card.Application.CQRS.Commands;
 using SlowTrainMachineLearningAPI;
 
 namespace Albergue.Administrator.HostedServices
@@ -41,12 +42,20 @@ namespace Albergue.Administrator.HostedServices
                     "Locales creation in progress. ");
 
                 var refToModel = Program.TorchModel;
-                string[] s1 = commandRequest.Input.Trim('[', ']').Split(',');
-                float[] myArr = Array.ConvertAll(s1, n => float.Parse(n));
-
-                var dataBatch = refToModel.Model.TransformInputData(myArr);
-                //dataBatch to DB
-                refToModel.Model.train(dataBatch);
+                var dataBatch = refToModel
+                    .Model
+                    .TransformInputData(
+                        commandRequest
+                        .Input
+                        .ToFloatArray());
+                var Ys = refToModel
+                    .Model
+                    .TransformInputData(
+                        commandRequest
+                        .Ys
+                        .ToFloatArray());
+                                
+                refToModel.Model.train(dataBatch, Ys);
 
                 _logger.LogInformation(
                     "Locales creation is finished. ");

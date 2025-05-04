@@ -6,10 +6,16 @@ public class GetAllDataResult
     {
         //intentionally left blank
     }
-    public GetAllDataResult(string[] data)
+    public GetAllDataResult(DataEntry[] data)
     {
         Data = data;
     }
 
-    public string[] Data { get; set; }
+    public DataEntry[] Data { get; set; }
+
+    public class DataEntry
+    {
+        public string DataX { get; set; }
+        public string Y { get; set; }
+    }
 }

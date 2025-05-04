@@ -9,6 +9,7 @@ public class RegisterModelCommand : ICommand<RegisterModelResult>
         // intentionally left blank
     }
 
+    public string Ys { get; set; }
     public string Input { get; set; }
     public byte[] Model { get; set; }
     public string Version { get; set; }

@@ -35,6 +35,10 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("IngestionTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Ys")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Datas", "ordering");

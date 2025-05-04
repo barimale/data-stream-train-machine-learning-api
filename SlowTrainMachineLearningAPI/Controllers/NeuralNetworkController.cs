@@ -43,7 +43,9 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IResult> TrainNetwork(RegisterCardRequest commandRequest)
         {
-            var added = _sender.Send(new RegisterDataCommand() { Input = commandRequest.Input });
+            var _ = _sender.Send(new RegisterDataCommand() { 
+                Input = commandRequest.Input,
+                Ys = commandRequest.Ys});
 
             var mapped = _mapper.Map<RegisterModelCommand>(commandRequest);
             _hub.Publish(mapped);
@@ -74,8 +76,10 @@ namespace SlowTrainMachineLearningAPI.Controllers
                 {
                     foreach(var data in allData.Data)
                     {
-                        var dataBatch = refToModel.Model.TransformInputData(data.ToFloatArray());
-                        refToModel.Model.train(dataBatch);
+                        var dataBatch = refToModel.Model.TransformInputData(data.DataX.ToFloatArray());
+                        var Ys = refToModel.Model.TransformInputData(data.Y.ToFloatArray());
+
+                        refToModel.Model.train(dataBatch, Ys);
                     }
                 }
             }

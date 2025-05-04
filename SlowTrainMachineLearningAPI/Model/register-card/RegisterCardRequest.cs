@@ -8,5 +8,6 @@
         }
 
         public string Input { get; set; }
+        public string Ys { get; set; }
     }
 }

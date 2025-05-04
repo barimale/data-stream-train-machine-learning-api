@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(CardContext))]
-    [Migration("20250503184105_initial")]
+    [Migration("20250504125714_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -37,6 +37,10 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("IngestionTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Ys")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

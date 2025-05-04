@@ -4,6 +4,8 @@ using Card.Application.CQRS.Queries;
 using Card.Application.Dtos;
 using Card.Domain.AggregatesModel.CardAggregate;
 using Microsoft.Extensions.Logging;
+using static Card.Application.CQRS.Queries.GetAllDataResult;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Card.Application.CQRS.QueryHandlers;
 public class GetCardHandlers(
@@ -25,8 +27,11 @@ public class GetCardHandlers(
     public async Task<GetAllDataResult> Handle(TrainNetworkQuery request, CancellationToken cancellationToken)
         {
         var datas = await dataRepository.GetAllAsync(request.Id);
-            var mapped = mapper.Map<List<DataDto>>(datas);
+        var mapped = mapper.Map<List<DataDto>>(datas);
         
-        return new GetAllDataResult(mapped.Select(p => p.DataAsCommaSeparatedData).ToArray());
+        return new GetAllDataResult(mapped.Select(p => new DataEntry(){
+           DataX = p.DataAsCommaSeparatedData,
+           Y = p.Ys
+        }).ToArray());
     }
 }

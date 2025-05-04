@@ -10,6 +10,7 @@ public class RegisterDataCommand : ICommand<RegisterDataResult>
     }
 
     public string Input { get; set; }
+    public string Ys { get; set; }
 }
 
 

@@ -55,11 +55,12 @@ namespace adaptive_deep_learning_model
             return result;
         }
 
-        public void train(Tensor? dataBatch)
+        public void train(Tensor? dataBatch, Tensor? resultBatch)
         {
             var learning_rate = 0.001f;
             var loss = nn.MSELoss();
-            var resultBatch = rand(32, 10);  // Our pretend ground truth.
+            // WIP
+            resultBatch = rand(32, 10);  // Our pretend ground truth.
             var EPOCHS = 3;
 
             var optimizer = torch.optim.SGD(this.parameters(), learning_rate);
