@@ -59,6 +59,7 @@ namespace adaptive_deep_learning_model
         {
             var learning_rate = 0.001f;
             var loss = nn.MSELoss();
+            // WIP extract as param 
             var resultBatch = rand(32, 10);  // Our pretend ground truth.
             var EPOCHS = 3;
 
