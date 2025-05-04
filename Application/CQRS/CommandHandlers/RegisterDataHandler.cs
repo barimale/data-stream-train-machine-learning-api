@@ -1,6 +1,5 @@
 ﻿using BuildingBlocks.Application.CQRS;
 using Card.Application.CQRS.Commands;
-using Card.Application.Integration;
 using Card.Domain.AggregatesModel.CardAggregate;
 
 namespace Card.Application.CQRS.CommandHandlers;
@@ -14,6 +13,7 @@ public class RegisterDataHandler(IDataRepository dataRepository)
             Id = Guid.NewGuid().ToString(),
             IngestionTime = DateTime.UtcNow,
             DataAsCommaSeparatedData = command.Input,
+            Ys = command.Ys
         };
 
         var result = await dataRepository.AddAsync(card);
