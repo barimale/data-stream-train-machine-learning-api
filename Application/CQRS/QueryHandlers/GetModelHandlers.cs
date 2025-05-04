@@ -5,7 +5,6 @@ using Card.Application.Dtos;
 using Card.Domain.AggregatesModel.CardAggregate;
 using Microsoft.Extensions.Logging;
 using static Card.Application.CQRS.Queries.GetAllDataResult;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Card.Application.CQRS.QueryHandlers;
 public class GetCardHandlers(
