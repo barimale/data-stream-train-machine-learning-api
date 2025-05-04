@@ -1,4 +1,4 @@
-# slow-train-machine-learning-api [POC]
+# slow-train-machine-learning-api
 ## Prereqs
 - Docker Desktop
 - .NET 8.0 SDK
