@@ -2,7 +2,6 @@
 using Card.Application.CQRS.Commands;
 using Card.Application.CQRS.Queries;
 using MediatR;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace SlowTrainMachineLearningAPI.Model
 {
@@ -62,9 +61,10 @@ namespace SlowTrainMachineLearningAPI.Model
             using (BinaryWriter writer = new BinaryWriter(fs))
             {
                 Model.save(writer);
-                var result2= await _sender.Send(new RegisterModelCommand() { 
+                var _ = await _sender.Send(new RegisterModelCommand()
+                { 
                     Model = fs.ToArray(),
-                Version = version
+                    Version = version
                 });
             }
 
