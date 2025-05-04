@@ -66,7 +66,7 @@ namespace adaptive_deep_learning_model
 
             for (int e = 0; e < EPOCHS; e++)
             {
-                for (int i = 0; i < 1000; i++)
+                for (int i = 0; i < 500; i++)
                 {
                     // Compute the loss
                     using var output = loss.forward(this.forward(dataBatch), resultBatch);
