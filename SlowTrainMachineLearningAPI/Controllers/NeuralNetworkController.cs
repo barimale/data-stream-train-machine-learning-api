@@ -41,7 +41,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IResult> TrainNetwork(RegisterCardRequest commandRequest)
+        public async Task<IResult> TrainNetwork(RegisterModelRequest commandRequest)
         {
             var _ = _sender.Send(new RegisterDataCommand() { 
                 Input = commandRequest.Input,

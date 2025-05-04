@@ -1,13 +1,13 @@
 ﻿namespace Card.API.Model.order
 {
-    public class RegisterCardResponse
+    public class RegisterModelResponse
     {
-        public RegisterCardResponse()
+        public RegisterModelResponse()
         {
             // intentionally left blank
         }
 
-        public RegisterCardResponse(int id)
+        public RegisterModelResponse(int id)
         {
             Id = id;
         }

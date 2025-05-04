@@ -8,13 +8,13 @@ namespace Card.API.MappingProfiles
     {
         public ApiProfile()
         {
-            CreateMap<RegisterModelCommand, RegisterCardRequest>()
+            CreateMap<RegisterModelCommand, RegisterModelRequest>()
                 .ReverseMap();
 
-            CreateMap<RegisterCardRequest, RegisterModelCommand>()
+            CreateMap<RegisterModelRequest, RegisterModelCommand>()
                 .ReverseMap();
 
-            CreateMap<RegisterModelResult, RegisterCardResponse>()
+            CreateMap<RegisterModelResult, RegisterModelResponse>()
                 .ReverseMap();
         }
     }

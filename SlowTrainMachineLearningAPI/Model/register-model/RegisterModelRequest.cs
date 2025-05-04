@@ -1,8 +1,8 @@
 ﻿namespace Card.Application.CQRS.Commands
 {
-    public class RegisterCardRequest
+    public class RegisterModelRequest
     {
-        public RegisterCardRequest()
+        public RegisterModelRequest()
         {
             //intentionally left blank
         }
