@@ -32,10 +32,23 @@ namespace adaptive_deep_learning_model
             return tensor;
         }
 
-        public Tensor? TransformInputData(params string[] numbers)
+        public Tensor TransformInputData(params string[] numbers)
         {
-            float[] myArr = Array.ConvertAll(numbers, n => float.Parse(n));
-            return TransformInputData(myArr);
+            var tensors = new Tensor[numbers.Length];
+            float[][] stateArray = new float[numbers.Length][];
+
+            var index = 0;
+            foreach (var s in numbers)
+            {
+                string[] s1 = s.Trim('[', ']').Split(',');
+                float[] myArr = Array.ConvertAll(s1, n => float.Parse(n));
+                tensors[index] = TransformInputData(myArr);
+                stateArray[index] = myArr;
+                index += 1;
+            }
+
+            Tensor states = from_array(tensors);
+            return states;
         }
 
         public Tensor? predict(Tensor? dataBatch)
