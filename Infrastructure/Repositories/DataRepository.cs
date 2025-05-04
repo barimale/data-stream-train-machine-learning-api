@@ -25,7 +25,7 @@ public class DataRepository : IDataRepository
         return result.Entity;
     }
 
-    public async Task<IEnumerable<Data>> GetAllAsync(string id)
+    public async Task<IEnumerable<Data>> GetAllAsync()
     {
         return await _context.Datas.ToListAsync();
     }

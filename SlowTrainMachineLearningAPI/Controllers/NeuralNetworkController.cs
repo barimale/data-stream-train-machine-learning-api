@@ -67,19 +67,19 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [NonAction]
         public async Task TrainModelWithFullData(string version)
         {
-            var refToModel = Program.TorchModel;
+            var refToModel = Program.TorchModel.Model;
 
             try
             {
-                var allData = await _sender.Send(new TrainNetworkQuery(string.Empty));
+                var allData = await _sender.Send(new TrainNetworkQuery());
                 if (allData.Data.Length > 0)
                 {
                     foreach(var data in allData.Data)
                     {
-                        var dataBatch = refToModel.Model.TransformInputData(data.DataX.ToFloatArray());
-                        var Ys = refToModel.Model.TransformInputData(data.Y.ToFloatArray());
+                        var dataBatch = refToModel.TransformInputData(data.DataX.ToFloatArray());
+                        var Ys = refToModel.TransformInputData(data.Y.ToFloatArray());
 
-                        var loss = refToModel.Model.train(dataBatch, Ys);
+                        var loss = refToModel.train(dataBatch, Ys);
                         _logger.LogInformation($"Loss: {loss}");
                     }
                 }
@@ -90,7 +90,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
             }
             finally
             {
-                await refToModel.SaveToDB(version);
+                await Program.TorchModel.SaveToDB(version);
             }
         }
     }

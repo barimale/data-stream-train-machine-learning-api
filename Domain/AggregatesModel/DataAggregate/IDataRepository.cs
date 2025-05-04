@@ -7,6 +7,6 @@ namespace Card.Domain.AggregatesModel.CardAggregate
         Task<Data> AddAsync(Data card);
         Task<string> Delete(string id);
         Task<Data> GetByIdAsync(string id);
-        Task<IEnumerable<Data>> GetAllAsync(string id);
+        Task<IEnumerable<Data>> GetAllAsync();
     }
 }

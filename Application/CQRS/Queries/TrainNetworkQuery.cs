@@ -5,10 +5,8 @@ namespace Card.Application.CQRS.Queries;
 public class TrainNetworkQuery
     : IQuery<GetAllDataResult>
 {
-    public TrainNetworkQuery(string id)
+    public TrainNetworkQuery()
     {
-        Id = id;
     }
 
-    public string Id { get; set; }
 }
