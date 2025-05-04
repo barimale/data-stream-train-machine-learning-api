@@ -47,7 +47,7 @@ namespace adaptive_deep_learning_model
                 index += 1;
             }
 
-            Tensor states = from_array(tensors);
+            Tensor states = from_array(stateArray);
             return states;
         }
 
