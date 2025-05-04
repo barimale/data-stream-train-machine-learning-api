@@ -82,8 +82,6 @@ namespace adaptive_deep_learning_model
 
                 loss.forward(this.forward(dataBatch), resultBatch).item<float>();
             }
-
-            GC.Collect();
         }
 
         private nn.Module<Tensor, Tensor> lin1 = nn.Linear(5, 100);
