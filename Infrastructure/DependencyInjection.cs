@@ -12,7 +12,7 @@ public static class DependencyInjection
     {
         var connectionString = configuration.GetConnectionString("Database");
 
-        services.AddDbContext<CardContext>(options =>
+        services.AddDbContext<NNContext>(options =>
         {
             options.UseSqlServer(connectionString,
             sqlServerOptionsAction: sqlOptions =>
@@ -25,7 +25,7 @@ public static class DependencyInjection
         }, ServiceLifetime.Transient);
 
         // Add services to the container.
-        services.AddScoped<ICardRepository, CardRepository>();
+        services.AddScoped<IModelRepository, ModelRepository>();
         services.AddScoped<IDataRepository, DataRepository>();
 
         return services;

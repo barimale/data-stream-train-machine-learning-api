@@ -4,7 +4,7 @@ using Card.Application.Integration;
 using Card.Domain.AggregatesModel.CardAggregate;
 
 namespace Card.Application.CQRS.CommandHandlers;
-public class RegisterModuleHandler(ICardRepository cardRepository, IIdGeneratorAdapter generator)
+public class RegisterModuleHandler(IModelRepository cardRepository, IIdGeneratorAdapter generator)
     : ICommandHandler<RegisterModelCommand, RegisterModelResult>
 {
     public async Task<RegisterModelResult> Handle(RegisterModelCommand command, CancellationToken cancellationToken)

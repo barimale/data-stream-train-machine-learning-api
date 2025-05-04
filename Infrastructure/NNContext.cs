@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Card.Infrastructure;
 
-public class CardContext : DbContext, IUnitOfWork
+public class NNContext : DbContext, IUnitOfWork
 {
-    public CardContext(DbContextOptions<CardContext> options)
+    public NNContext(DbContextOptions<NNContext> options)
     : base(options)
     {
         Database.EnsureCreated();
@@ -24,7 +24,7 @@ public class CardContext : DbContext, IUnitOfWork
 
     public bool HasActiveTransaction => _currentTransaction != null;
 
-    public CardContext(DbContextOptions<CardContext> options, IMediator mediator) : base(options)
+    public NNContext(DbContextOptions<NNContext> options, IMediator mediator) : base(options)
     {
         System.Diagnostics.Debug.WriteLine("CardContext::ctor ->" + GetHashCode());
     }

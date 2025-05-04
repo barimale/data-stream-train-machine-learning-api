@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Migrations
 {
-    [DbContext(typeof(CardContext))]
+    [DbContext(typeof(NNContext))]
     [Migration("20250504125714_initial")]
     partial class initial
     {

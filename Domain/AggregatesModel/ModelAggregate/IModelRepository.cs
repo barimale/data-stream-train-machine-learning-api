@@ -2,7 +2,7 @@
 
 namespace Card.Domain.AggregatesModel.CardAggregate
 {
-    public interface ICardRepository : IRepository<Model>
+    public interface IModelRepository : IRepository<Model>
     {
         Task<Model> AddAsync(Model card);
         Task<string> Delete(string id);

@@ -2,18 +2,17 @@
 using Card.Domain.AggregatesModel.CardAggregate;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Card.Infrastructure.Repositories;
 
 public class DataRepository : IDataRepository
 {
-    private readonly CardContext _context;
+    private readonly NNContext _context;
 
     public IUnitOfWork UnitOfWork => _context;
 
-    public DataRepository(CardContext context)
+    public DataRepository(NNContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }

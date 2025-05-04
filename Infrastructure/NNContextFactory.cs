@@ -4,14 +4,14 @@ namespace Card.Infrastructure
 {
     /* For migrations generation only */
 
-    public class CardContextFactory : IDesignTimeDbContextFactory<CardContext>
+    public class NNContextFactory : IDesignTimeDbContextFactory<NNContext>
     {
-        public CardContext CreateDbContext(string[] args)
+        public NNContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<CardContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<NNContext>();
             optionsBuilder.UseSqlServer("Data Source=localhost,1500;Database=DNNdb;Uid=sa;Password=Password_123#;TrustServerCertificate=True");
 
-            return new CardContext(optionsBuilder.Options);
+            return new NNContext(optionsBuilder.Options);
         }
     }
 }

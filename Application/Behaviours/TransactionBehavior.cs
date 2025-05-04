@@ -9,12 +9,12 @@ namespace Card.Application.Behaviours
     public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
         private readonly ILogger<TransactionBehavior<TRequest, TResponse>> _logger;
-        private readonly CardContext _dbContext;
+        private readonly NNContext _dbContext;
 
-        public TransactionBehavior(CardContext dbContext,
+        public TransactionBehavior(NNContext dbContext,
             ILogger<TransactionBehavior<TRequest, TResponse>> logger)
         {
-            _dbContext = dbContext ?? throw new ArgumentException(nameof(CardContext));
+            _dbContext = dbContext ?? throw new ArgumentException(nameof(NNContext));
             _logger = logger ?? throw new ArgumentException(nameof(ILogger));
         }
 

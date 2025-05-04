@@ -33,7 +33,7 @@ namespace SlowTrainMachineLearningAPI
                    .AddApplicationServices(builder.Configuration)
                    .AddInfrastructureServices(builder.Configuration);
 
-            builder.Services.AddMigration<CardContext>();
+            builder.Services.AddMigration<NNContext>();
             builder.Services.AddHostedService<LocalesHostedService>();
 
             var app = builder.Build();

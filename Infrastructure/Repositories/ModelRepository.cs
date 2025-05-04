@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Card.Infrastructure.Repositories;
 
-public class CardRepository : ICardRepository
+public class ModelRepository : IModelRepository
 {
-    private readonly CardContext _context;
+    private readonly NNContext _context;
 
     public IUnitOfWork UnitOfWork => _context;
 
-    public CardRepository(CardContext context)
+    public ModelRepository(NNContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }

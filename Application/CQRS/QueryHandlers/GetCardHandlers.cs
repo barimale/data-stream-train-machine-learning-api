@@ -9,7 +9,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Card.Application.CQRS.QueryHandlers;
 public class GetCardHandlers(
-    ICardRepository orderRepository,
+    IModelRepository orderRepository,
     IDataRepository dataRepository,
     IMapper mapper,
     ILogger<GetCardHandlers> logger)
