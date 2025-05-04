@@ -10,7 +10,7 @@ public class RegisterModelCommand : ICommand<RegisterModelResult>
     }
 
     public string Ys { get; set; }
-    public string Input { get; set; }
+    public string Xs { get; set; }
     public byte[] Model { get; set; }
     public string Version { get; set; }
 }

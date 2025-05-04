@@ -46,7 +46,7 @@ namespace Albergue.Administrator.HostedServices
                     .Model
                     .TransformInputData(
                         commandRequest
-                        .Input
+                        .Xs
                         .ToFloatArray());
                 var Ys = refToModel
                     .Model
