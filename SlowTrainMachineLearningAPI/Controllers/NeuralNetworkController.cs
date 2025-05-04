@@ -33,9 +33,9 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
 
         [HttpPost("[action]")]
-        public async Task<IResult> RebuildNetwork()
+        public async Task<IResult> RebuildNetwork(string version)
         {
-            _backgroundJobClient.Enqueue(() => TrainModelWithFullData());
+            _backgroundJobClient.Enqueue(() => TrainModelWithFullData(version));
 
             return Results.Ok();
         }
@@ -63,7 +63,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
         [ApiExplorerSettings(IgnoreApi = true)]
         [NonAction]
-        public async Task TrainModelWithFullData()
+        public async Task TrainModelWithFullData(string version)
         {
             var refToModel = Program.TorchModel;
 
@@ -78,7 +78,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
             }
             finally
             {
-                await refToModel.SaveToDB();
+                await refToModel.SaveToDB(version);
             }
         }
     }

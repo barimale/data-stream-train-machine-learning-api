@@ -14,7 +14,6 @@ public class GetCardHandlers(
     : IQueryHandler<GetModuleByVersionQuery, GetModuleResult>,
     IQueryHandler<TrainNetworkQuery, GetAllDataResult>
 {
-    // WIP
     public async Task<GetModuleResult> Handle(GetModuleByVersionQuery query, CancellationToken cancellationToken)
     {
         var card = await orderRepository.GetByLatestAsync(query.Version);

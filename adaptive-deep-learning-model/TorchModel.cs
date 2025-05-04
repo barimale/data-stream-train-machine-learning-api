@@ -56,7 +56,7 @@ namespace SlowTrainMachineLearningAPI.Model
             this.Model = new Trivial();
         }
 
-        public async Task<bool> SaveToDB()
+        public async Task<bool> SaveToDB(string version = "-")
         {
             using (MemoryStream fs = new MemoryStream())
             using (BinaryWriter writer = new BinaryWriter(fs))
@@ -64,7 +64,8 @@ namespace SlowTrainMachineLearningAPI.Model
                 Model.save(writer);
                 var result2= await _sender.Send(new RegisterModelCommand() { 
                     Model = fs.ToArray(),
-                Version = "1.2.2.1"});
+                Version = version
+                });
             }
 
             return true;
