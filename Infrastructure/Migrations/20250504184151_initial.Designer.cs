@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(NNContext))]
-    [Migration("20250504183723_initial")]
+    [Migration("20250504184151_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -31,12 +31,12 @@ namespace Infrastructure.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("DataAsCommaSeparatedData")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("IngestionTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Xs")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ys")
                         .IsRequired()

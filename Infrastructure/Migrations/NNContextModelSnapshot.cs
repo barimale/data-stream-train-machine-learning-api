@@ -28,12 +28,12 @@ namespace Infrastructure.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("DataAsCommaSeparatedData")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("IngestionTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Xs")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ys")
                         .IsRequired()

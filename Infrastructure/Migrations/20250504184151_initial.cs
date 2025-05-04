@@ -36,7 +36,7 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     IngestionTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DataAsCommaSeparatedData = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Xs = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ys = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>

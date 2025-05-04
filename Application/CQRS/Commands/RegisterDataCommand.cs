@@ -9,7 +9,7 @@ public class RegisterDataCommand : ICommand<RegisterDataResult>
         // intentionally left blank
     }
 
-    public string Input { get; set; }
+    public string Xs { get; set; }
     public string Ys { get; set; }
 }
 

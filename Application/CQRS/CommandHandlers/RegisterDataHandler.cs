@@ -12,7 +12,7 @@ public class RegisterDataHandler(IDataRepository dataRepository)
         {
             Id = Guid.NewGuid().ToString(),
             IngestionTime = DateTime.UtcNow,
-            DataAsCommaSeparatedData = command.Input,
+            Xs = command.Xs,
             Ys = command.Ys
         };
 
