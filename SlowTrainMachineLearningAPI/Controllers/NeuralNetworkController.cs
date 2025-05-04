@@ -70,7 +70,10 @@ namespace SlowTrainMachineLearningAPI.Controllers
             try
             {
                 var allData = await _sender.Send(new TrainNetworkQuery(string.Empty));
-                refToModel.Model.train(refToModel.Model.TransformInputData(allData.Data));
+                if (allData.Data.Length > 0)
+                {
+                    refToModel.Model.train(refToModel.Model.TransformInputData(allData.Data));
+                }
             }
             catch (Exception ex)
             {
