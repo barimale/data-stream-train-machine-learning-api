@@ -42,7 +42,7 @@ namespace Albergue.Administrator.HostedServices
 
                 var refToModel = Program.TorchModel;
                 string[] s1 = commandRequest.Input.Trim('[', ']').Split(',');
-                int[] myArr = Array.ConvertAll(s1, n => int.Parse(n));
+                float[] myArr = Array.ConvertAll(s1, n => float.Parse(n));
 
                 var dataBatch = refToModel.Model.TransformInputData(myArr);
                 //dataBatch to DB

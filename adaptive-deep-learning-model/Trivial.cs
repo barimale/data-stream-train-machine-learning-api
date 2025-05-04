@@ -26,20 +26,16 @@ namespace adaptive_deep_learning_model
             return lin2.forward(y);
         }
 
-        public Tensor? TransformInputData(params int[] numbers)
+        public Tensor? TransformInputData(params float[] numbers)
         {
-            // WIP przypilnowac ksztaltu
             var tensor = torch.from_array(numbers);
-
-            //tensor = tensor.view(1, 1000);
-            return rand(32, 1000);
+            return tensor;
         }
 
         public Tensor? TransformInputData(params string[] numbers)
         {
-            // WIP przypilnowac ksztaltu
-            //tensor = tensor.view(1, 1000);
-            return rand(32, 1000);
+            float[] myArr = Array.ConvertAll(numbers, n => float.Parse(n));
+            return TransformInputData(myArr);
         }
 
         public Tensor? predict(Tensor? dataBatch)
@@ -80,7 +76,7 @@ namespace adaptive_deep_learning_model
             GC.Collect();
         }
 
-        private nn.Module<Tensor, Tensor> lin1 = nn.Linear(1000, 100);
+        private nn.Module<Tensor, Tensor> lin1 = nn.Linear(5, 100);
         private nn.Module<Tensor, Tensor> lin2 = nn.Linear(100, 10);
     }
 }

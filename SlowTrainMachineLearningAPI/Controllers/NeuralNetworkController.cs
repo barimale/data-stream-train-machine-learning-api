@@ -55,7 +55,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         public IResult PredictValue(string input)
         {
             var refToModel = Program.TorchModel.Model;
-            var dataBatch = refToModel.TransformInputData(input.ToIntArray());
+            var dataBatch = refToModel.TransformInputData(input.ToFloatArray());
             var result = refToModel.predict(dataBatch);
 
             return Results.Ok(JsonSerializer.Serialize(result.data<float>().ToArray()));
