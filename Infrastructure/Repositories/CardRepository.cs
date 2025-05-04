@@ -17,21 +17,21 @@ public class CardRepository : ICardRepository
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }
 
-    public async Task<Domain.AggregatesModel.CardAggregate.Model> AddAsync(Domain.AggregatesModel.CardAggregate.Model order)
+    public async Task<Model> AddAsync(Model order)
     {
         var result = await _context.Cards.AddAsync(order);
         
         return result.Entity;
     }
 
-    public async Task<Domain.AggregatesModel.CardAggregate.Model> GetByLatestAsync(string id)
+    public async Task<Model> GetByLatestAsync(string id)
     {
         var card = await _context.Cards.OrderBy(p => p.RegisteringTime).LastOrDefaultAsync();
 
         return card;
     }
 
-    public async Task<Domain.AggregatesModel.CardAggregate.Model> GetByIdAsync(string id)
+    public async Task<Model> GetByIdAsync(string id)
     {
         var card = await _context.Cards.FirstOrDefaultAsync(p => p.Id == id);
 
