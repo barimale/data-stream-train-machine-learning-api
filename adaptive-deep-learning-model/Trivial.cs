@@ -3,9 +3,12 @@ using TorchSharp;
 
 namespace adaptive_deep_learning_model
 {
-
     public class Trivial : nn.Module<Tensor, Tensor>
     {
+
+        private nn.Module<Tensor, Tensor> lin1 = nn.Linear(5, 100);
+        private nn.Module<Tensor, Tensor> lin2 = nn.Linear(100, 10);
+
         public Trivial(nn.Module module)
             : base(nameof(Trivial))
         {
@@ -84,8 +87,5 @@ namespace adaptive_deep_learning_model
 
             return finalLoss;
         }
-
-        private nn.Module<Tensor, Tensor> lin1 = nn.Linear(5, 100);
-        private nn.Module<Tensor, Tensor> lin2 = nn.Linear(100, 10);
     }
 }
