@@ -1,4 +1,4 @@
-using API.SlowTrainMachineLearning.Utilities;
+using adaptive_deep_learning_model.Utilities;
 using AutoMapper;
 using Card.Application.CQRS.Commands;
 using Card.Application.CQRS.Queries;
