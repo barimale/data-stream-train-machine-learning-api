@@ -79,7 +79,8 @@ namespace SlowTrainMachineLearningAPI.Controllers
                         var dataBatch = refToModel.Model.TransformInputData(data.DataX.ToFloatArray());
                         var Ys = refToModel.Model.TransformInputData(data.Y.ToFloatArray());
 
-                        refToModel.Model.train(dataBatch, Ys);
+                        var loss = refToModel.Model.train(dataBatch, Ys);
+                        _logger.LogInformation($"Loss: {loss}");
                     }
                 }
             }

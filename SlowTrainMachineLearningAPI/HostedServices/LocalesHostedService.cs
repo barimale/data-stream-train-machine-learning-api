@@ -55,7 +55,8 @@ namespace Albergue.Administrator.HostedServices
                         .Ys
                         .ToFloatArray());
                                 
-                refToModel.Model.train(dataBatch, Ys);
+                var loss = refToModel.Model.train(dataBatch, Ys);
+                _logger.LogInformation("Loss: {0}", loss);
 
                 _logger.LogInformation(
                     "Locales creation is finished. ");

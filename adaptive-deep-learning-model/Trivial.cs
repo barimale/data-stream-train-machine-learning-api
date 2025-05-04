@@ -55,12 +55,12 @@ namespace adaptive_deep_learning_model
             return result;
         }
 
-        public void train(Tensor? dataBatch, Tensor? resultBatch)
+        public float train(Tensor? dataBatch, Tensor? resultBatch)
         {
             var learning_rate = 0.001f;
             var loss = nn.MSELoss();
             var EPOCHS = 3;
-
+            var finalLoss = 0.0f;
             var optimizer = torch.optim.SGD(this.parameters(), learning_rate);
 
             for (int e = 0; e < EPOCHS; e++)
@@ -79,8 +79,10 @@ namespace adaptive_deep_learning_model
                     optimizer.step();
                 }
 
-                var _ = loss.forward(this.forward(dataBatch), resultBatch).item<float>();
+                finalLoss = loss.forward(this.forward(dataBatch), resultBatch).item<float>();
             }
+
+            return finalLoss;
         }
 
         private nn.Module<Tensor, Tensor> lin1 = nn.Linear(5, 100);
