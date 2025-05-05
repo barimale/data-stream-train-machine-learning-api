@@ -14,6 +14,7 @@ namespace adaptive_deep_learning_model
         {
             return nn.Linear(inputLength, 100);
         }
+
         public Trivial(nn.Module module)
             : base(nameof(Trivial))
         {
@@ -30,13 +31,13 @@ namespace adaptive_deep_learning_model
         public override Tensor forward(Tensor input)
         {
             // model switch
-            if(input.bytes.Length == 5)
+            if(input.real.NumberOfElements == 5)
             {
                 using var xx = lin1.forward(input);
                 using var yy = nn.functional.relu(xx);
                 return lin2.forward(yy);
             }
-            else if (input.bytes.Length == 10)
+            else if (input.real.NumberOfElements == 10)
             {
                 using var x = lin1b.forward(input);
                 using var y = nn.functional.relu(x);
@@ -44,7 +45,7 @@ namespace adaptive_deep_learning_model
             }
 
             // dynamic/adaptive input layer
-            using var xxx = getLin1a(input.bytes.Length).forward(input);
+            using var xxx = getLin1a((int)input.real.NumberOfElements).forward(input);
             using var yyy = nn.functional.relu(xxx);
             return lin2.forward(yyy); 
         }
@@ -81,14 +82,14 @@ namespace adaptive_deep_learning_model
         public float train(Tensor? dataBatch, Tensor? resultBatch)
         {
             // to be customized / adaptive
-            var learning_rate = 0.001f;
+            //var learning_rate = 0.001f; adaptive via Adam
             // to be customized / adaptive
             var loss = nn.MSELoss();
             // to be customized / adaptive
             var EPOCHS = 3;
             var finalLoss = 0.0f;
             // to be customized / adaptive
-            var optimizer = torch.optim.SGD(this.parameters(), learning_rate);
+            var optimizer = torch.optim.Adam(this.parameters());
 
             for (int e = 0; e < EPOCHS; e++)
             {
