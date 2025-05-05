@@ -58,6 +58,7 @@ namespace Albergue.Administrator.HostedServices
                 var loss = refToModel.Model.train(dataBatch, Ys);
                 _logger.LogInformation("Loss: {0}", loss);
 
+                await refToModel.SaveToDB(id);
                 _logger.LogInformation(
                     "Locales creation is finished. ");
             }
