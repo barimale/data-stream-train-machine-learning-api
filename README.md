@@ -27,4 +27,15 @@ Reduce amount of epochs based on maximal execution time of the api call.
 Reduce amount of steps based on maximal execution time of the api call.
 Rewrite the POC by using rabbitMQ. Monitor the queue.
 Use adam optimizer.
-Use RNN or CNN or graph.
+Use RNN or CNN or graph to be able to handle vary length of the input layer.
+Compare slow-learn neural network with regular one by using the same dataset.
+Create more specific dataset and ingest data to the service from javascript of WPF.
+Add signalR endpoint to feed service faster.
+
+# Implementation order
+1. Create adaptive neural networks.
+2. Compare networks.
+3. Slow learn networks.
+4. Compare their features (loss, predictions)
+5. Create mechanism for recreation model triggered manually or automatically based on official CI/CD for neural networks. Recreate the concept by custom tool.
+6. Create neural network B for automatic recreation neural network A.
