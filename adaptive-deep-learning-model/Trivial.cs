@@ -81,9 +81,14 @@ namespace adaptive_deep_learning_model
             }
 
             // dynamic/adaptive input layer
-            using var xxx = getLin1a((int)input.real.NumberOfElements).forward(input);
-            using var yyy = nn.functional.relu(xxx);
-            return lin2.forward(yyy); 
+            using var seq = nn.Sequential(
+                ("lin1", getLin1a((int)input.real.NumberOfElements)), 
+                ("relu1", nn.ReLU()), 
+                ("drop1", nn.Dropout(0.1)), 
+                ("lin2", lin2), 
+                ("relu2", nn.ReLU()));
+
+            return seq.forward(input); 
         }
 
         public Tensor? TransformInputData(params float[] numbers)

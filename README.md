@@ -49,4 +49,5 @@ Add signalR endpoint to feed service faster.
 9. Observe MS Sql in case new model is added refresh existed one (observe latest)
 10. Specify metadata of the model (version, date, time, loss, accuracy, etc.)
 11. Architecture: CQRS + Event Sourcing
-12. Trivial model as stateless?
+12. Trivial model as stateless:
+	1. Reject trainmodel endpoint when model is being updated.
