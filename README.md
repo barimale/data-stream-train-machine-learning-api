@@ -33,8 +33,9 @@ Create more specific dataset and ingest data to the service from javascript of W
 Add signalR endpoint to feed service faster.
 
 # Reqs
-1. Single api call execution time limit: 500ms
-2. Loss value less than 0.3
+1. Single api call execution time limit: 50ms
+2. Minimize retention time of being the call in the queue: 50ms
+3. Loss value less than 0.3
    
 # Implementation order
 1. Create adaptive neural networks.

@@ -1,5 +1,6 @@
 ﻿using static TorchSharp.torch;
 using TorchSharp;
+using TorchSharp.Modules;
 
 namespace adaptive_deep_learning_model
 {
@@ -24,7 +25,9 @@ namespace adaptive_deep_learning_model
                 index++;
             }
 
-            return torch.cat(outputs, 1); // Concatenate along the feature dimension
+            var y =  torch.cat(outputs, 1);
+            var yy = nn.functional.relu(y);
+            return yy;
         }
     }
 
@@ -55,9 +58,11 @@ namespace adaptive_deep_learning_model
             RegisterComponents();
         }
 
-        public nn.Module<Tensor, Tensor> Merge(nn.Module<Tensor, Tensor> m1, nn.Module<Tensor, Tensor> m2)
+        public nn.Module<Tensor, Tensor> merge(params nn.Module<Tensor, Tensor>[] ms)
         {
-            var combinedModel = new CombinedModel(m1, m2);
+            var combinedModel = new CombinedModel(ms);
+
+            return combinedModel;
         }
 
         public override Tensor forward(Tensor input)
