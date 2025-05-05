@@ -48,3 +48,5 @@ Add signalR endpoint to feed service faster.
 8. Start with UnitTests.
 9. Observe MS Sql in case new model is added refresh existed one (observe latest)
 10. Specify metadata of the model (version, date, time, loss, accuracy, etc.)
+11. Architecture: CQRS + Event Sourcing
+12. Trivial model as stateless?
