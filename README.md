@@ -21,3 +21,10 @@ https://www.google.com/search?q=vary+input+layer+neural+network&oq=&gs_lcrp=EgZj
 https://code-maze.com/masstransit-rabbitmq-aspnetcore/
 
 https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-9.0&tabs=visual-studio
+
+# Ideas
+Reduce amount of epochs based on maximal execution time of the api call.
+Reduce amount of steps based on maximal execution time of the api call.
+Rewrite the POC by using rabbitMQ. Monitor the queue.
+Use adam optimizer.
+Use RNN or CNN or graph.
