@@ -24,7 +24,7 @@ namespace Albergue.Administrator.HostedServices
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Locales Hosted Service running.");
+            _logger.LogInformation("Neural Network Hosted Service running.");
 
             _hub.Subscribe<RegisterModelCommand>(async (item) =>
             {
@@ -39,7 +39,7 @@ namespace Albergue.Administrator.HostedServices
             try
             {
                 _logger.LogInformation(
-                    "Locales creation in progress. ");
+                    "Train neural network in progress. ");
 
                 var refToModel = Program.TorchModel;
                 var dataBatch = refToModel
@@ -59,8 +59,6 @@ namespace Albergue.Administrator.HostedServices
                 _logger.LogInformation("Loss: {0}", loss);
 
                 await refToModel.SaveToDB(id);
-                _logger.LogInformation(
-                    "Locales creation is finished. ");
             }
             catch (Exception ex)
             {
@@ -70,7 +68,7 @@ namespace Albergue.Administrator.HostedServices
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Locales Hosted Service is stopping.");
+            _logger.LogInformation("Neural Network Hosted Service is stopping.");
 
             return Task.CompletedTask;
         }
