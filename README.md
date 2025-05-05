@@ -44,3 +44,4 @@ Add signalR endpoint to feed service faster.
 5. Compare their features (loss, predictions) by using test data set.
 6. Create mechanism for recreation model triggered manually or automatically based on official CI/CD for neural networks. Recreate the concept by custom tool.
 7. Create neural network B for automatic recreation neural network A.
+8. Start with UnitTests.

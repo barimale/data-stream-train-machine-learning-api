@@ -3,6 +3,31 @@ using TorchSharp;
 
 namespace adaptive_deep_learning_model
 {
+    // merge models
+    public class CombinedModel : nn.Module<Tensor, Tensor>
+    {
+        private nn.Module<Tensor, Tensor>[] models;
+
+        public CombinedModel(params nn.Module<Tensor, Tensor>[] models) : base("CombinedModel")
+        {
+            this.models = models;
+            RegisterComponents();
+        }
+
+        public override Tensor forward(Tensor input)
+        {
+            Tensor[] outputs = new Tensor[models.Length];
+            int index = 0;
+            foreach (var model in models)
+            {
+                outputs[0] = model.forward(input);
+                index++;
+            }
+
+            return torch.cat(outputs, 1); // Concatenate along the feature dimension
+        }
+    }
+
     // probably to be replaced by a RNN or CNN model
     // TODOs: https://pytorch.org/blog/computational-graphs-constructed-in-pytorch/
     public class Trivial : nn.Module<Tensor, Tensor>
@@ -30,10 +55,15 @@ namespace adaptive_deep_learning_model
             RegisterComponents();
         }
 
+        public nn.Module<Tensor, Tensor> Merge(nn.Module<Tensor, Tensor> m1, nn.Module<Tensor, Tensor> m2)
+        {
+            var combinedModel = new CombinedModel(m1, m2);
+        }
+
         public override Tensor forward(Tensor input)
         {
             // model switch
-            if(input.real.NumberOfElements == 5)
+            if (input.real.NumberOfElements == 5)
             {
                 using var xx = lin1.forward(input);
                 using var yy = nn.functional.relu(xx);
