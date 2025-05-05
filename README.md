@@ -51,3 +51,8 @@ Add signalR endpoint to feed service faster.
 11. Architecture: CQRS + Event Sourcing
 12. Trivial model as stateless:
 	1. Reject trainmodel endpoint when model is being updated.
+
+ # Ksiazki
+ https://www.oreilly.com/library/view/uczenie-gebokie-od/9788328365971/
+
+ https://www.oreilly.com/library/view/uczenie-maszynowe-z/9788328360020/
