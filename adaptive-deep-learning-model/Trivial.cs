@@ -7,8 +7,13 @@ namespace adaptive_deep_learning_model
     {
         // to be customized / adaptive
         private nn.Module<Tensor, Tensor> lin1 = nn.Linear(5, 100);
+        private nn.Module<Tensor, Tensor> lin1b = nn.Linear(10, 100);
         private nn.Module<Tensor, Tensor> lin2 = nn.Linear(100, 10);
 
+        private nn.Module<Tensor, Tensor> getLin1a(int inputLength)
+        {
+            return nn.Linear(inputLength, 100);
+        }
         public Trivial(nn.Module module)
             : base(nameof(Trivial))
         {
@@ -24,9 +29,24 @@ namespace adaptive_deep_learning_model
 
         public override Tensor forward(Tensor input)
         {
-            using var x = lin1.forward(input);
-            using var y = nn.functional.relu(x);
-            return lin2.forward(y);
+            // model switch
+            if(input.bytes.Length == 5)
+            {
+                using var xx = lin1.forward(input);
+                using var yy = nn.functional.relu(xx);
+                return lin2.forward(yy);
+            }
+            else if (input.bytes.Length == 10)
+            {
+                using var x = lin1b.forward(input);
+                using var y = nn.functional.relu(x);
+                return lin2.forward(y);
+            }
+
+            // dynamic/adaptive input layer
+            using var xxx = getLin1a(input.bytes.Length).forward(input);
+            using var yyy = nn.functional.relu(xxx);
+            return lin2.forward(yyy); 
         }
 
         public Tensor? TransformInputData(params float[] numbers)
