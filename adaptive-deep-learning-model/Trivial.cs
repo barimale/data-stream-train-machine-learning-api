@@ -5,7 +5,7 @@ namespace adaptive_deep_learning_model
 {
     public class Trivial : nn.Module<Tensor, Tensor>
     {
-
+        // to be customized / adaptive
         private nn.Module<Tensor, Tensor> lin1 = nn.Linear(5, 100);
         private nn.Module<Tensor, Tensor> lin2 = nn.Linear(100, 10);
 
@@ -60,10 +60,14 @@ namespace adaptive_deep_learning_model
 
         public float train(Tensor? dataBatch, Tensor? resultBatch)
         {
+            // to be customized / adaptive
             var learning_rate = 0.001f;
+            // to be customized / adaptive
             var loss = nn.MSELoss();
+            // to be customized / adaptive
             var EPOCHS = 3;
             var finalLoss = 0.0f;
+            // to be customized / adaptive
             var optimizer = torch.optim.SGD(this.parameters(), learning_rate);
 
             for (int e = 0; e < EPOCHS; e++)
