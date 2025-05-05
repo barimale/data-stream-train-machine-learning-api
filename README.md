@@ -1,4 +1,5 @@
-# slow-train-machine-learning-api
+# slow-train-machine-learning-api [POC]
+Adaptable deep neural networks to learn directly from data streams
 ## Prereqs
 - Docker Desktop
 - .NET 8.0 SDK
