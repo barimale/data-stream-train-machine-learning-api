@@ -1,6 +1,5 @@
 ﻿using static TorchSharp.torch;
 using TorchSharp;
-using TorchSharp.Modules;
 
 namespace adaptive_deep_learning_model
 {
@@ -25,8 +24,8 @@ namespace adaptive_deep_learning_model
                 index++;
             }
 
-            var y =  torch.cat(outputs, 1);
-            var yy = nn.functional.relu(y);
+            var y =  torch.cat(outputs, 1) / models.Length; // divide or not divide
+            var yy = nn.functional.relu(y); // use it or not use it
             return yy;
         }
     }

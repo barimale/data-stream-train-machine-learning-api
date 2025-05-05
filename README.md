@@ -25,7 +25,7 @@ https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=asp
 # Ideas
 Reduce amount of epochs based on maximal retention time of the api call.
 Reduce amount of steps based on maximal retention time of the api call.
-Rewrite the POC by using rabbitMQ. Monitor the queue.
+Rewrite the POC by using rabbitMQ. Monitor the queue. Make it async parallel.
 Use adam optimizer.
 Use RNN or CNN or graph to be able to handle vary length of the input layer.
 Compare slow-learn neural network with regular one by using the same dataset.
@@ -46,3 +46,5 @@ Add signalR endpoint to feed service faster.
 6. Create mechanism for recreation model triggered manually or automatically based on official CI/CD for neural networks. Recreate the concept by custom tool.
 7. Create neural network B for automatic recreation neural network A.
 8. Start with UnitTests.
+9. Observe MS Sql in case new model is added refresh existed one (observe latest)
+10. Specify metadata of the model (version, date, time, loss, accuracy, etc.)
