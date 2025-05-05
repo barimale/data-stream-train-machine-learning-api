@@ -43,7 +43,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IResult> TrainNetwork(RegisterModelRequest commandRequest)
         {
-            var _ = _sender.Send(new RegisterDataCommand() { 
+            var _ = await _sender.Send(new RegisterDataCommand() { 
                 Xs = commandRequest.Xs,
                 Ys = commandRequest.Ys});
 
