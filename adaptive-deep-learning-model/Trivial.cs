@@ -4,6 +4,7 @@ using TorchSharp;
 namespace adaptive_deep_learning_model
 {
     // probably to be replaced by a RNN or CNN model
+    // TODOs: https://pytorch.org/blog/computational-graphs-constructed-in-pytorch/
     public class Trivial : nn.Module<Tensor, Tensor>
     {
         // to be customized / adaptive
