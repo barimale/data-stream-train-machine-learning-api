@@ -32,10 +32,15 @@ Compare slow-learn neural network with regular one by using the same dataset.
 Create more specific dataset and ingest data to the service from javascript of WPF.
 Add signalR endpoint to feed service faster.
 
+# Reqs
+1. Single api call execution time limit: 500ms
+2. Loss value less than 0.3
+   
 # Implementation order
 1. Create adaptive neural networks.
-2. Compare networks.
-3. Slow learn networks.
-4. Compare their features (loss, predictions)
-5. Create mechanism for recreation model triggered manually or automatically based on official CI/CD for neural networks. Recreate the concept by custom tool.
-6. Create neural network B for automatic recreation neural network A.
+2. Compare networks and reimplement by using GPU.
+3. Prepare data sets: training, test. Shuffle. Merge more than two data sets, shaffle and split into test and train.
+4. Slow learn networks.
+5. Compare their features (loss, predictions) by using test data set.
+6. Create mechanism for recreation model triggered manually or automatically based on official CI/CD for neural networks. Recreate the concept by custom tool.
+7. Create neural network B for automatic recreation neural network A.
