@@ -13,7 +13,8 @@ public class GetCardHandlers(
     IMapper mapper,
     ILogger<GetCardHandlers> logger)
     : IQueryHandler<GetLatestQuery, GetModuleResult>,
-    IQueryHandler<TrainNetworkQuery, GetAllDataResult>
+    IQueryHandler<TrainNetworkQuery, GetAllDataResult>,
+    IQueryHandler<ModelYearsOldInMinutesQuery, GetModelYearsOldResult>
 {
     public async Task<GetModuleResult> Handle(GetLatestQuery query, CancellationToken cancellationToken)
     {
@@ -32,5 +33,12 @@ public class GetCardHandlers(
            Xs = p.Xs,
            Ys = p.Ys
         }).ToArray());
+    }
+
+    public async Task<GetModelYearsOldResult> Handle(ModelYearsOldInMinutesQuery request, CancellationToken cancellationToken)
+    {
+        var inMinutes = await orderRepository.GetYearsOldInMinutesAsync();
+
+        return new GetModelYearsOldResult(inMinutes);
     }
 }

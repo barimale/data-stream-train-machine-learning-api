@@ -13,7 +13,7 @@ namespace fuzzy_logic_model_generator
             var modelYearsOld = new LinguisticVariable("ModelYearsOld");
             var young = modelYearsOld.MembershipFunctions.AddTrapezoid("Young", 0, 0, 20, 40);
             var medium = modelYearsOld.MembershipFunctions.AddTriangle("Medium", 30, 50, 70);
-            var old = modelYearsOld.MembershipFunctions.AddTrapezoid("Old", 50, 80, 100, 100);
+            var old = modelYearsOld.MembershipFunctions.AddTrapezoid("Old", 50, 80, 10000, 10000);
 
             var pieces = new LinguisticVariable("Pieces");
             var small = pieces.MembershipFunctions.AddTrapezoid("Small", 0, 0, 200, 400);

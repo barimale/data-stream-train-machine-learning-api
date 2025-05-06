@@ -6,5 +6,7 @@ namespace Card.Domain.AggregatesModel.CardAggregate
     {
         Task<Model> AddAsync(Model card);
         Task<Model> GetByLatestAsync(string id);
+        Task<double> GetYearsOldInMinutesAsync();
+
     }
 }

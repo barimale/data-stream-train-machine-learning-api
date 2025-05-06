@@ -72,17 +72,14 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
             try
             {
-                //var a = await _sender.Send(new ModelYearsOldQuery());
-                //var b = await _sender.Send(new ModelPiecesAmountQuery());
-                //var result = new FuzzyLogicModelGenerator().main(a, b);
-
-                var a1 = new FuzzyLogicModelGenerator().main(100, 30); //true
-                var a2 = new FuzzyLogicModelGenerator().main(1, 0); // false
-                var a3 = new FuzzyLogicModelGenerator().main(5, 300); // false
-                var a4 = new FuzzyLogicModelGenerator().main(10, 800); // true
-
+                var modelYearsOldInMinutes = await _sender.Send(new ModelYearsOldInMinutesQuery());
                 var allData = await _sender.Send(new TrainNetworkQuery());
-                if (allData.Data.Length > 0)
+                var pieces = allData.Data.Length;
+                var result = new FuzzyLogicModelGenerator().main(
+                    (int)modelYearsOldInMinutes.YearsOldInMinutes, 
+                    pieces);
+
+                if (result)
                 {
                     foreach(var data in allData.Data)
                     {
@@ -92,15 +89,13 @@ namespace SlowTrainMachineLearningAPI.Controllers
                         var loss = refToModel.train(dataBatch, Ys);
                         _logger.LogInformation($"Loss: {loss}");
                     }
+
+                    await Program.TorchModel.SaveToDB(version);
                 }
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-            }
-            finally
-            {
-                await Program.TorchModel.SaveToDB(version);
             }
         }
     }
