@@ -24,7 +24,7 @@ namespace adaptive_deep_learning_model
                 index++;
             }
 
-            var y =  torch.cat(outputs, 1) / models.Length; // divide or not divide
+            var y =  torch.cat(outputs, 1) / models.Length; // divide or not divide or 2^models.Length
             var yy = nn.functional.relu(y); // use it or not use it
             return yy;
         }
