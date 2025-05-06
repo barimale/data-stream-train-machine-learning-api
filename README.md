@@ -53,6 +53,9 @@ Add signalR endpoint to feed service faster.
 12. Trivial model as stateless:
 	1. Reject trainmodel endpoint when model is being updated.
 
+ 13. fuzzy: 
+https://github.com/davidgrupp/Fuzzy-Logic-Sharp
+
  # Ksiazki
  https://www.oreilly.com/library/view/uczenie-gebokie-od/9788328365971/
 
