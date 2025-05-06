@@ -6,6 +6,7 @@ using Hangfire;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using fuzzy_logic_model_generator;
 
 namespace SlowTrainMachineLearningAPI.Controllers
 {
@@ -71,6 +72,11 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
             try
             {
+                var a1 = FuzzyLogicModelGenerator.main(100, 30); //true
+                var a2 = FuzzyLogicModelGenerator.main(1, 0); // false
+                var a3 = FuzzyLogicModelGenerator.main(5, 300); // false
+                var a4 = FuzzyLogicModelGenerator.main(60, 5); // true
+
                 var allData = await _sender.Send(new TrainNetworkQuery());
                 if (allData.Data.Length > 0)
                 {

@@ -29,6 +29,7 @@
     <ProjectReference Include="..\adaptive-deep-learning-model\adaptive-deep-learning-model.csproj" />
     <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\BuildingBlocks\BuildingBlocks.csproj" />
+    <ProjectReference Include="..\fuzzy-logic-model-generator\fuzzy-logic-model-generator.csproj" />
   </ItemGroup>
 
 </Project>

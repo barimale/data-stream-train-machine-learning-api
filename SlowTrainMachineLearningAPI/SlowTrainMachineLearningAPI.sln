@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{81289F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "neural-network-model", "neural-network-model", "{98863774-F248-445A-8E40-354A28494477}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fuzzy-logic-model-generator", "..\fuzzy-logic-model-generator\fuzzy-logic-model-generator.csproj", "{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +108,18 @@ Global
 		{7038DCE1-E4A4-4CF6-86E8-253CEECBEC2D}.x64|Any CPU.Build.0 = Debug|Any CPU
 		{7038DCE1-E4A4-4CF6-86E8-253CEECBEC2D}.x64|x64.ActiveCfg = Debug|Any CPU
 		{7038DCE1-E4A4-4CF6-86E8-253CEECBEC2D}.x64|x64.Build.0 = Debug|Any CPU
+		{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}.Debug|x64.Build.0 = Debug|Any CPU
+		{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}.Release|x64.ActiveCfg = Release|Any CPU
+		{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}.Release|x64.Build.0 = Release|Any CPU
+		{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}.x64|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}.x64|Any CPU.Build.0 = Debug|Any CPU
+		{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}.x64|x64.ActiveCfg = Debug|Any CPU
+		{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}.x64|x64.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
