@@ -81,7 +81,9 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
                 if (result)
                 {
-                    foreach(var data in allData.Data)
+                    await Program.TorchModel.LoadFromDB();
+
+                    foreach (var data in allData.Data)
                     {
                         var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
                         var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());

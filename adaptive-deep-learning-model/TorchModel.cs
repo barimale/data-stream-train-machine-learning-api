@@ -18,7 +18,7 @@ namespace SlowTrainMachineLearningAPI.Model
         {
             get
             {
-                LoadFromDB().GetAwaiter();
+                //LoadFromDB().GetAwaiter();
                 return this.model;
             }
             set
