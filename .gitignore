@@ -15,3 +15,5 @@
 /BuildingBlocks/bin
 /Domain/bin
 /Infrastructure/bin
+/fuzzy-logic-model-generator/bin
+/fuzzy-logic-model-generator/obj
