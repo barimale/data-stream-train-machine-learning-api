@@ -76,11 +76,11 @@ namespace SlowTrainMachineLearningAPI.Controllers
                 var modelYearsOldInMinutes = await _sender.Send(new ModelYearsOldInMinutesQuery());
                 var allData = await _sender.Send(new TrainNetworkQuery());
                 var pieces = allData.Data.Length;
-                var result = new FuzzyLogicModelGenerator().main(
+                var isGenerateModelAllowed = new FuzzyLogicModelGenerator().main(
                     (int)modelYearsOldInMinutes.YearsOldInMinutes, 
                     pieces);
 
-                if (result)
+                if (isGenerateModelAllowed)
                 {
                     await Program.TorchModel.LoadFromDB(); // it is going to be done in different way
 
