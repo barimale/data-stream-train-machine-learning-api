@@ -36,6 +36,7 @@ Add signalR endpoint to feed service faster.
 1. Single api call execution time limit: 50ms
 2. Minimize retention time of being the call in the queue: 50ms
 3. Loss value less than 0.3
+4. train always the brand new model  do the merge for predict.
    
 # Implementation order
 1. Create adaptive neural networks.
@@ -44,10 +45,18 @@ Add signalR endpoint to feed service faster.
 4. Slow learn networks.
 5. Compare their features (loss, predictions) by using test data set.
 6. Create mechanism for recreation model triggered manually or automatically based on official CI/CD for neural networks. Recreate the concept by custom tool.
-7. Create neural network B for automatic recreation neural network A.
+7. Create neural network B for automatic recreation neural network A or fuzzy logic with ISO czas dostępności modelu do predicateow 
 8. Start with UnitTests.
 9. Observe MS Sql in case new model is added refresh existed one (observe latest)
 10. Specify metadata of the model (version, date, time, loss, accuracy, etc.)
 11. Architecture: CQRS + Event Sourcing
 12. Trivial model as stateless:
 	1. Reject trainmodel endpoint when model is being updated.
+
+ 13. fuzzy: 
+https://github.com/davidgrupp/Fuzzy-Logic-Sharp
+
+ # Ksiazki
+ https://www.oreilly.com/library/view/uczenie-gebokie-od/9788328365971/
+
+ https://www.oreilly.com/library/view/uczenie-maszynowe-z/9788328360020/
