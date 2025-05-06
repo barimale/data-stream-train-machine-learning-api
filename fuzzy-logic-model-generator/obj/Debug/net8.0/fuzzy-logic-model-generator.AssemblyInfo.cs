@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("fuzzy-logic-model-generator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+364a12e644f68a8dc1f4071110f542390c749687")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0668938f85d386d09d2189d6fb2e806d74a7cb18")]
 [assembly: System.Reflection.AssemblyProductAttribute("fuzzy-logic-model-generator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("fuzzy-logic-model-generator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
