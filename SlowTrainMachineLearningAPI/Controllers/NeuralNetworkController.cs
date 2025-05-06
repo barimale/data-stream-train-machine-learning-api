@@ -72,10 +72,14 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
             try
             {
-                var a1 = FuzzyLogicModelGenerator.main(100, 30); //true
-                var a2 = FuzzyLogicModelGenerator.main(1, 0); // false
-                var a3 = FuzzyLogicModelGenerator.main(5, 300); // false
-                var a4 = FuzzyLogicModelGenerator.main(60, 5); // true
+                //var a = await _sender.Send(new ModelYearsOldQuery());
+                //var b = await _sender.Send(new ModelPiecesAmountQuery());
+                //var result = new FuzzyLogicModelGenerator().main(a, b);
+
+                var a1 = new FuzzyLogicModelGenerator().main(100, 30); //true
+                var a2 = new FuzzyLogicModelGenerator().main(1, 0); // false
+                var a3 = new FuzzyLogicModelGenerator().main(5, 300); // false
+                var a4 = new FuzzyLogicModelGenerator().main(10, 800); // true
 
                 var allData = await _sender.Send(new TrainNetworkQuery());
                 if (allData.Data.Length > 0)
