@@ -36,6 +36,7 @@ Add signalR endpoint to feed service faster.
 1. Single api call execution time limit: 50ms
 2. Minimize retention time of being the call in the queue: 50ms
 3. Loss value less than 0.3
+4. train always the brand new model  do the merge for predict.
    
 # Implementation order
 1. Create adaptive neural networks.
