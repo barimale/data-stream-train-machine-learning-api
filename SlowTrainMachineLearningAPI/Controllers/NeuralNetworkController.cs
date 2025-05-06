@@ -81,7 +81,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
                 if (result)
                 {
-                    await Program.TorchModel.LoadFromDB();
+                    await Program.TorchModel.LoadFromDB(); // it is going to be different 
 
                     foreach (var data in allData.Data)
                     {
