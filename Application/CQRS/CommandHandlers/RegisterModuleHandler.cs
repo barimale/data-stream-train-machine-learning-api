@@ -12,7 +12,7 @@ public class RegisterModuleHandler(IModelRepository cardRepository, IIdGenerator
         var card = new Model()
         {
             Id = Guid.NewGuid().ToString(),
-            RegisteringTime = DateTime.UtcNow,
+            RegisteringTime = DateTime.Now,
             ModelAsBytes = command.Model,
             Version = command.Version,
         };

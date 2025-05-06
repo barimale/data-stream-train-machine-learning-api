@@ -35,7 +35,7 @@ public class ModelRepository : IModelRepository
     {
         var result = await GetByLatestAsync(string.Empty);
         DateTimeOffset from = new DateTimeOffset(result.RegisteringTime);
-        DateTimeOffset now = DateTimeOffset.UtcNow;
+        DateTimeOffset now = DateTimeOffset.Now;
 
         return (now - from).TotalMinutes;
     }
