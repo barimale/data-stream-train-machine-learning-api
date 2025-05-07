@@ -43,6 +43,7 @@ namespace SlowTrainMachineLearningAPI.Model
                 using (MemoryStream fs = new MemoryStream(modelFromDb))
                 using (BinaryReader reader = new BinaryReader(fs))
                 {
+                    //WIP all models here
                     this.Model.load(reader);
                     return;
                 }
