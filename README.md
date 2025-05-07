@@ -23,6 +23,10 @@ https://code-maze.com/masstransit-rabbitmq-aspnetcore/
 https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-9.0&tabs=visual-studio
 
 https://dev.to/elpidaguy/implement-a-time-based-service-in-net-8-by-using-ihostedservice-interface-1328
+
+https://ruhollah-jafari.medium.com/learn-how-to-schedule-tasks-with-hangfire-in-asp-net-core-4e9d157d58f5
+
+
 # Ideas
 Reduce amount of epochs based on maximal retention time of the api call.
 Reduce amount of steps based on maximal retention time of the api call.
