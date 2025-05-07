@@ -8,5 +8,8 @@ namespace Card.Domain.AggregatesModel.CardAggregate
         Task<string> Delete(string id);
         Task<Data> GetByIdAsync(string id);
         Task<IEnumerable<Data>> GetAllAsync();
+        Task<IEnumerable<Data>> GetAllUnAppliedAsync();
+        Task<string> SetIsApplied(string id);
+
     }
 }

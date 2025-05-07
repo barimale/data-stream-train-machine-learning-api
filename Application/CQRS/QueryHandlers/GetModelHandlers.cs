@@ -28,12 +28,13 @@ public class GetCardHandlers(
 
     public async Task<GetAllDataResult> Handle(TrainNetworkQuery request, CancellationToken cancellationToken)
         {
-        var datas = await dataRepository.GetAllAsync();
+        var datas = await dataRepository.GetAllUnAppliedAsync();
         var mapped = mapper.Map<List<DataDto>>(datas);
         
         return new GetAllDataResult(mapped.Select(p => new DataEntry(){
            Xs = p.Xs,
-           Ys = p.Ys
+           Ys = p.Ys,
+           Id = p.Id
         }).ToArray());
     }
 
@@ -46,6 +47,7 @@ public class GetCardHandlers(
 
     public async Task<GetPiecesResult> Handle(GetPiecesQuery request, CancellationToken cancellationToken)
     {
+        // WIP 
         var card = await orderRepository.GetByLatestAsync(string.Empty);
         var mapped = mapper.Map<List<ModelDto>>(card);
 

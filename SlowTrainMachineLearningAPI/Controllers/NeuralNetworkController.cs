@@ -91,6 +91,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
                         var loss = refToModel.train(dataBatch, Ys);
                         _logger.LogInformation($"Loss: {loss}");
+                        var _ = await _sender.Send(new UpdateIsAppliedPiece(data.Id));
                     }
 
                     await Program.TorchModel.SaveToDB(version);

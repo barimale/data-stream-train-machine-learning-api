@@ -1,10 +1,13 @@
 ﻿using BuildingBlocks.Application.CQRS;
 using Card.Application.CQRS.Commands;
 using Card.Domain.AggregatesModel.CardAggregate;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Card.Application.CQRS.CommandHandlers;
 public class RegisterDataHandler(IDataRepository dataRepository)
-    : ICommandHandler<RegisterDataCommand, RegisterDataResult>
+    : ICommandHandler<RegisterDataCommand, RegisterDataResult>,
+    ICommandHandler<UpdateIsAppliedPiece, RegisterDataIsAppliedResult>
+
 {
     public async Task<RegisterDataResult> Handle(RegisterDataCommand command, CancellationToken cancellationToken)
     {
@@ -21,5 +24,14 @@ public class RegisterDataHandler(IDataRepository dataRepository)
         await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
         return new RegisterDataResult(result.Id);
+    }
+
+    public async Task<RegisterDataIsAppliedResult> Handle(UpdateIsAppliedPiece request, CancellationToken cancellationToken)
+    {
+        var tobeupdatedId = await dataRepository.SetIsApplied(request.Id);
+
+        await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+
+        return new RegisterDataIsAppliedResult(tobeupdatedId);
     }
 }

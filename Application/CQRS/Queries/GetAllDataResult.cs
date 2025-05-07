@@ -17,5 +17,6 @@ public class GetAllDataResult
     {
         public string Xs { get; set; }
         public string Ys { get; set; }
+        public string Id { get; set; }
     }
 }
