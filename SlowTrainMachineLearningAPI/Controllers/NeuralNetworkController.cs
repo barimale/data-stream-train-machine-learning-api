@@ -7,8 +7,6 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using fuzzy_logic_model_generator;
-using System;
-using Consul;
 
 namespace SlowTrainMachineLearningAPI.Controllers
 {

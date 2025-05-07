@@ -20,6 +20,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="PubSub" Version="4.0.2" />
+    <PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="TorchSharp" Version="0.105.0" />
     <PackageReference Include="TorchSharp-cpu" Version="0.105.0" />
@@ -30,10 +31,6 @@
     <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\BuildingBlocks\BuildingBlocks.csproj" />
     <ProjectReference Include="..\fuzzy-logic-model-generator\fuzzy-logic-model-generator.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="RabbitMQ\" />
   </ItemGroup>
 
 </Project>
