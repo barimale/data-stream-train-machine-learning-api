@@ -27,6 +27,29 @@ namespace SlowTrainMachineLearningAPI.Model
             }
         }
 
+        public async Task<Trivial> GetModelFromPieces()
+        {
+            var result = await _sender.Send(new GetPiecesQuery());
+
+            //byte[] modelFromDb = result.Model.ModelAsBytes;
+            //try
+            //{
+            //    using (MemoryStream fs = new MemoryStream(modelFromDb))
+            //    using (BinaryReader reader = new BinaryReader(fs))
+            //    {
+            //        //WIP all models here
+            //        this.Model.load(reader);
+            //        return;
+            //    }
+
+            //}
+            //catch (Exception)
+            //{
+            //}
+
+            return new Trivial();
+        }
+
         public async Task LoadFromDB(string version = "latest")
         {
             var result = await _sender.Send(new GetLatestQuery(version));
