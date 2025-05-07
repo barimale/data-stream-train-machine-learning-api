@@ -7,6 +7,8 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using fuzzy_logic_model_generator;
+using System;
+using Consul;
 
 namespace SlowTrainMachineLearningAPI.Controllers
 {
@@ -55,8 +57,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         public async Task<IResult> TrainNetwork(RegisterModelRequest commandRequest)
         {
             // create piece 
-            var mapped = _mapper.Map<RegisterModelCommand>(commandRequest);
-            _hub.Publish(mapped);
+            _backgroundJobClient.Enqueue(() => TrainModelOnDemand(commandRequest));
 
             return Results.Ok();
         }
@@ -73,6 +74,14 @@ namespace SlowTrainMachineLearningAPI.Controllers
             var result = refToModel.forward(dataBatch);
 
             return Results.Ok(JsonSerializer.Serialize(result?.data<float>().ToArray()));
+        }
+
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [NonAction]
+        public async Task TrainModelOnDemand(RegisterModelRequest commandRequest)
+        {
+            var mapped = _mapper.Map<RegisterModelCommand>(commandRequest);
+            _hub.Publish(mapped);
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]
