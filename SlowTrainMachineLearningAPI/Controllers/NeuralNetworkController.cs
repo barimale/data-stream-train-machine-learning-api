@@ -36,6 +36,8 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IResult> RebuildNetwork(string version)
         {
+            //WIP it is going to be 60secs interval hosted service job
+            //result: trained full model
             _backgroundJobClient.Enqueue(() => TrainModelWithFullData(version));
 
             return Results.Ok();
@@ -44,6 +46,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IResult> TrainNetwork(RegisterModelRequest commandRequest)
         {
+            // create piece 
             var mapped = _mapper.Map<RegisterModelCommand>(commandRequest);
             _hub.Publish(mapped);
 
@@ -53,6 +56,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IResult> PredictValue(string input)
         {
+            // WIP use latest model + combine unapplied pieces
             var transformator = Program.TorchModel.Model;
             var refToModel = await Program.TorchModel.GetModelFromPieces();
             var dataBatch = transformator.TransformInputData(input.ToFloatArray());
@@ -78,7 +82,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
                 if (isGenerateModelAllowed)
                 {
-                    await Program.TorchModel.LoadFromDB(); // it is going to be done in different way
+                    await Program.TorchModel.LoadFromDB();
 
                     foreach (var data in allData.Data)
                     {
