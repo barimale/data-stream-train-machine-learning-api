@@ -56,7 +56,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IResult> PredictValue(string input)
         {
-            // WIP use latest model + combine unapplied pieces
+            // use latest model + combine unapplied pieces
             var transformator = Program.TorchModel.Model;
             var mainModel = await _sender.Send(new GetLatestQuery(string.Empty));
 
