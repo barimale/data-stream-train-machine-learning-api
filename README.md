@@ -55,6 +55,8 @@ Add signalR endpoint to feed service faster.
 
  13. fuzzy: 
 https://github.com/davidgrupp/Fuzzy-Logic-Sharp DONE
+https://www.kaggle.com/datasets?tags=13407-Neural+Networks
+
 
  # Ksiazki
  https://www.oreilly.com/library/view/uczenie-gebokie-od/9788328365971/
