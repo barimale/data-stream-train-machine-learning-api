@@ -47,11 +47,8 @@ public class GetCardHandlers(
 
     public async Task<GetPiecesResult> Handle(GetPiecesQuery request, CancellationToken cancellationToken)
     {
-        // WIP 
-        var card = await orderRepository.GetByLatestAsync(string.Empty);
-        var mapped = mapper.Map<List<ModelDto>>(card);
-
-        // WIP get pieces
+        var card = await dataRepository.GetAllUnAppliedAsync();
+        var mapped = mapper.Map<List<DataDto>>(card);
 
         return new GetPiecesResult(mapped.ToArray());
     }

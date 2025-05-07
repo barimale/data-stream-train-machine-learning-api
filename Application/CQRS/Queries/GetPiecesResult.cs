@@ -8,10 +8,10 @@ public class GetPiecesResult
     {
         //intentionally left blank
     }
-    public GetPiecesResult(ModelDto[] model)
+    public GetPiecesResult(DataDto[] model)
     {
         Models = model;
     }
 
-    public ModelDto[] Models { get; set; }
+    public DataDto[] Models { get; set; }
 }

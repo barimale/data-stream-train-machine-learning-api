@@ -31,7 +31,7 @@ namespace SlowTrainMachineLearningAPI.Model
         {
             var result = await _sender.Send(new GetPiecesQuery());
 
-            var pieces = result.Models.Select(p => p.ModelAsBytes);
+            var pieces = result.Models.Select(p => p.Model);
             var trivials = new Trivial[pieces.Count() + 1];
 
             using (MemoryStream fs = new MemoryStream(mainModel))
