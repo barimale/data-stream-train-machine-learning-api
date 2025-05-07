@@ -14,7 +14,6 @@ namespace adaptive_deep_learning_model
             RegisterComponents();
         }
 
-        // WIP double check it
         public override Tensor? forward(Tensor input)
         {
             if(models.Length == 0)

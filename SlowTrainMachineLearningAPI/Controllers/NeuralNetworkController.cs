@@ -14,6 +14,8 @@ namespace SlowTrainMachineLearningAPI.Controllers
     [Route("[controller]")]
     public class NeuralNetworkController : ControllerBase
     {
+        private const int CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES = 10;
+
         private readonly ILogger<NeuralNetworkController> _logger;
         private readonly IBackgroundJobClient _backgroundJobClient;
         private readonly IRecurringJobManager _requringJobManager;
@@ -36,7 +38,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
             _requringJobManager.AddOrUpdate(
                 "TrainModelWithFullData", 
                 () => TrainModelWithFullData(""), 
-                Cron.MinuteInterval(2), 
+                Cron.MinuteInterval(CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES), 
                 TimeZoneInfo.Utc);
         }
 
@@ -81,6 +83,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
             try
             {
+                // fuzzy logic 
                 var modelYearsOldInMinutes = await _sender.Send(new ModelYearsOldInMinutesQuery());
                 var allData = await _sender.Send(new TrainNetworkQuery());
                 var pieces = allData.Data.Length;
@@ -88,7 +91,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
                     (int)modelYearsOldInMinutes.YearsOldInMinutes, 
                     pieces);
 
-                if (isGenerateModelAllowed)
+                if (isGenerateModelAllowed && pieces > 0)
                 {
                     await Program.TorchModel.LoadFromDB();
 

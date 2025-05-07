@@ -22,10 +22,6 @@ https://code-maze.com/masstransit-rabbitmq-aspnetcore/
 
 https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-9.0&tabs=visual-studio
 
-https://dev.to/elpidaguy/implement-a-time-based-service-in-net-8-by-using-ihostedservice-interface-1328
-
-https://ruhollah-jafari.medium.com/learn-how-to-schedule-tasks-with-hangfire-in-asp-net-core-4e9d157d58f5
-
 
 # Ideas
 Reduce amount of epochs based on maximal retention time of the api call.
@@ -54,11 +50,6 @@ Add signalR endpoint to feed service faster.
 11. Architecture: CQRS + Event Sourcing
 12. Trivial model as stateless:
 	1. Reject trainmodel endpoint when model is being updated.
-
- 13. fuzzy: 
-https://github.com/davidgrupp/Fuzzy-Logic-Sharp DONE
-https://www.kaggle.com/datasets?tags=13407-Neural+Networks
-
 
  # Ksiazki
  https://www.oreilly.com/library/view/uczenie-gebokie-od/9788328365971/

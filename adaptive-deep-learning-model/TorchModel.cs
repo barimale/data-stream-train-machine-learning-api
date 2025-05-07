@@ -31,7 +31,7 @@ namespace SlowTrainMachineLearningAPI.Model
         {
             var result = await _sender.Send(new GetPiecesQuery());
 
-            var pieces = result.Models.Select(p => p.Model);
+            var pieces = result.Models.Select(p => p.PieceOfModel);
             var trivials = new Trivial[pieces.Count() + 1];
 
             using (MemoryStream fs = new MemoryStream(mainModel))
@@ -56,7 +56,7 @@ namespace SlowTrainMachineLearningAPI.Model
                         index += 1;
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                 }
             }

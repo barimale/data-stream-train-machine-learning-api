@@ -13,5 +13,5 @@ public class DataDto
     public string Id { get; set; }
     public string Xs { get; set; }   
     public string Ys { get; set; }
-    public byte[] Model { get; set; }
+    public byte[] PieceOfModel { get; set; }
 }
