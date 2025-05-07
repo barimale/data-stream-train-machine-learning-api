@@ -46,11 +46,8 @@ Add signalR endpoint to feed service faster.
 3. Prepare data sets: training, test. Shuffle. Merge more than two data sets, shaffle and split into test and train.
 4. Slow learn networks.
 5. Compare their features (loss, predictions) by using test data set.
-6. Create mechanism for recreation model triggered manually or automatically based on official CI/CD for neural networks. Recreate the concept by custom tool.
 10. Specify metadata of the model (version, date, time, loss, accuracy, etc.)
-11. Architecture: CQRS + Event Sourcing
 12. Trivial model as stateless:
-	1. Reject trainmodel endpoint when model is being updated.
 
  # Ksiazki
  https://www.oreilly.com/library/view/uczenie-gebokie-od/9788328365971/
