@@ -32,4 +32,8 @@
     <ProjectReference Include="..\fuzzy-logic-model-generator\fuzzy-logic-model-generator.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="RabbitMQ\" />
+  </ItemGroup>
+
 </Project>
