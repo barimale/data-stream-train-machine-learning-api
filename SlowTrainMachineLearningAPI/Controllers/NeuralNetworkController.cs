@@ -1,4 +1,4 @@
-using adaptive_deep_learning_model.Utilities;
+﻿using adaptive_deep_learning_model.Utilities;
 using AutoMapper;
 using Card.Application.CQRS.Commands;
 using Card.Application.CQRS.Queries;
@@ -7,6 +7,11 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using fuzzy_logic_model_generator;
+using RabbitMQ.Client;
+using System.Threading.Channels;
+using System.Reflection.Metadata;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace SlowTrainMachineLearningAPI.Controllers
 {
@@ -15,14 +20,15 @@ namespace SlowTrainMachineLearningAPI.Controllers
     public class NeuralNetworkController : ControllerBase
     {
         private const int CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES = 10;
+        public static string CHANNEL_NAME = "msgKey";
 
         private readonly ILogger<NeuralNetworkController> _logger;
         private readonly IBackgroundJobClient _backgroundJobClient;
         private readonly IRecurringJobManager _requringJobManager;
         private readonly IMapper _mapper;
         private readonly ISender _sender;
-        private readonly PubSub.Hub _hub;
-
+        private readonly IConnection _connection;
+        private readonly IChannel _channel;
         public NeuralNetworkController(ILogger<NeuralNetworkController> logger,
             IBackgroundJobClient backgroundJobClient,
             IRecurringJobManager requringJobManager,
@@ -34,12 +40,21 @@ namespace SlowTrainMachineLearningAPI.Controllers
             _requringJobManager = requringJobManager;
             _mapper = mapper;
             _sender = sender;
-            _hub = PubSub.Hub.Default;
             _requringJobManager.AddOrUpdate(
                 "TrainModelWithFullData", 
                 () => TrainModelWithFullData(""), 
                 Cron.MinuteInterval(CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES), 
                 TimeZoneInfo.Utc);
+
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            // otwarcie połączenia
+            _connection = factory.CreateConnectionAsync().Result;
+            _channel = _connection.CreateChannelAsync().Result;
+            _channel.QueueDeclareAsync(queue: CHANNEL_NAME,
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
         }
 
 
@@ -79,7 +94,14 @@ namespace SlowTrainMachineLearningAPI.Controllers
         public async Task TrainModelOnDemand(RegisterModelRequest commandRequest)
         {
             var mapped = _mapper.Map<RegisterModelCommand>(commandRequest);
-            _hub.Publish(mapped);
+           // _hub.Publish(mapped);
+
+            string msg = JsonSerializer.Serialize(mapped);
+
+            await _channel.BasicPublishAsync(
+                exchange: string.Empty, 
+                routingKey: CHANNEL_NAME, 
+                Encoding.UTF8.GetBytes(msg));
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]

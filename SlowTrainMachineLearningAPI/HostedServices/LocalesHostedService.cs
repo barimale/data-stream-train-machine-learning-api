@@ -2,18 +2,35 @@
 using Card.Application.CQRS.Commands;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using SlowTrainMachineLearningAPI;
+using SlowTrainMachineLearningAPI.Controllers;
+using System.Text.Json;
+using System.Threading.Channels;
+using static MassTransit.Logging.OperationName;
 
 namespace Albergue.Administrator.HostedServices
 {
     public class LocalesHostedService : IHostedService
     {
         private readonly ILogger<LocalesHostedService> _logger;
-        private readonly PubSub.Hub _hub;
         private readonly ISender _sender;
+        private readonly IConnection _connection;
+        private readonly IChannel _channel;
+        private AsyncEventingBasicConsumer _consumer;
         public LocalesHostedService()
         {
-            _hub = PubSub.Hub.Default;
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            // otwarcie połączenia
+            _connection = factory.CreateConnectionAsync().Result;
+            // utworzenie kanału komunikacji
+            _channel = _connection.CreateChannelAsync().Result;
+            _channel.QueueDeclareAsync(queue: NeuralNetworkController.CHANNEL_NAME,
+                                durable: false,
+                                exclusive: false,
+                                autoDelete: false,
+            arguments: null);
         }
 
         public LocalesHostedService(
@@ -32,10 +49,16 @@ namespace Albergue.Administrator.HostedServices
         {
             _logger.LogInformation("Neural Network Hosted Service running.");
 
-            _hub.Subscribe<RegisterModelCommand>(async (item) =>
+            _consumer = new AsyncEventingBasicConsumer(_channel);
+            _consumer.ReceivedAsync += async (model, ea) =>
             {
-                await DoWorkAsync(item);
-            });
+                var body = ea.Body.ToArray();
+                var obj = JsonSerializer.Deserialize<RegisterModelCommand>(body);
+                await DoWorkAsync(obj);
+            };
+
+            _channel.BasicConsumeAsync(NeuralNetworkController.CHANNEL_NAME, autoAck: true, consumer: _consumer);
+
         }
 
         private async Task DoWorkAsync(RegisterModelCommand commandRequest)
