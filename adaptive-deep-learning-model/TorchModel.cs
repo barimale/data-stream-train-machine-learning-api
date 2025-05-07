@@ -27,13 +27,22 @@ namespace SlowTrainMachineLearningAPI.Model
             }
         }
 
-        public async Task<CombinedModel> GetModelFromPieces()
+        public async Task<CombinedModel> GetModelFromPieces(byte[] mainModel)
         {
             var result = await _sender.Send(new GetPiecesQuery());
 
             var pieces = result.Models.Select(p => p.ModelAsBytes);
-            var trivials = new Trivial[pieces.Count()];
-            var index = 0;
+            var trivials = new Trivial[pieces.Count() + 1];
+
+            using (MemoryStream fs = new MemoryStream(mainModel))
+            using (BinaryReader reader = new BinaryReader(fs))
+            {
+                var trivial = new Trivial();
+                trivial.load(reader);
+                trivials[0] = trivial;
+            }
+
+            var index = 1;
             foreach(var submodule in pieces)
             {
                 try

@@ -58,7 +58,9 @@ namespace SlowTrainMachineLearningAPI.Controllers
         {
             // WIP use latest model + combine unapplied pieces
             var transformator = Program.TorchModel.Model;
-            var refToModel = await Program.TorchModel.GetModelFromPieces();
+            var mainModel = await _sender.Send(new GetLatestQuery(string.Empty));
+
+            var refToModel = await Program.TorchModel.GetModelFromPieces(mainModel.Model.ModelAsBytes);
             var dataBatch = transformator.TransformInputData(input.ToFloatArray());
             var result = refToModel.forward(dataBatch);
 
