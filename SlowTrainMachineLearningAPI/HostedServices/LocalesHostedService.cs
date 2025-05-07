@@ -1,5 +1,7 @@
 ﻿using adaptive_deep_learning_model.Utilities;
 using Card.Application.CQRS.Commands;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using SlowTrainMachineLearningAPI;
 
 namespace Albergue.Administrator.HostedServices
@@ -8,7 +10,7 @@ namespace Albergue.Administrator.HostedServices
     {
         private readonly ILogger<LocalesHostedService> _logger;
         private readonly PubSub.Hub _hub;
-
+        private readonly ISender _sender;
         public LocalesHostedService()
         {
             _hub = PubSub.Hub.Default;
@@ -19,7 +21,11 @@ namespace Albergue.Administrator.HostedServices
             IServiceProvider serviceProvider)
             : this()
         {
-            _logger = logger;
+            _logger = logger; 
+            _sender = serviceProvider
+                .CreateScope()
+                .ServiceProvider
+                .GetRequiredService<ISender>();
         }
 
         public async Task StartAsync(CancellationToken cancellationToken)
@@ -58,7 +64,12 @@ namespace Albergue.Administrator.HostedServices
                 var loss = refToModel.Model.train(dataBatch, Ys);
                 _logger.LogInformation("Loss: {0}", loss);
 
-                await refToModel.SaveToDB(id);
+                var _ = await _sender.Send(new RegisterDataCommand()
+                {
+                    Xs = commandRequest.Xs,
+                    Ys = commandRequest.Ys,
+                    Model = refToModel.ModelToBytes(),
+                });
             }
             catch (Exception ex)
             {

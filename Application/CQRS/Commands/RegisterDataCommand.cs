@@ -11,6 +11,7 @@ public class RegisterDataCommand : ICommand<RegisterDataResult>
 
     public string Xs { get; set; }
     public string Ys { get; set; }
+    public byte[] Model { get; set; }
 }
 
 

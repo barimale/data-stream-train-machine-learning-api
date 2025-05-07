@@ -72,7 +72,6 @@ namespace SlowTrainMachineLearningAPI.Model
                 using (MemoryStream fs = new MemoryStream(modelFromDb))
                 using (BinaryReader reader = new BinaryReader(fs))
                 {
-                    //WIP all models here
                     this.Model.load(reader);
                     return;
                 }
@@ -85,6 +84,16 @@ namespace SlowTrainMachineLearningAPI.Model
             this.Model = new Trivial();
         }
 
+        public byte[] ModelToBytes()
+        {
+            using (MemoryStream fs = new MemoryStream())
+            using (BinaryWriter writer = new BinaryWriter(fs))
+            {
+                Model.save(writer);
+                return fs.ToArray();
+            }
+        }
+
         public async Task<bool> SaveToDB(string version = "-")
         {
             using (MemoryStream fs = new MemoryStream())
@@ -94,7 +103,7 @@ namespace SlowTrainMachineLearningAPI.Model
                 var _ = await _sender.Send(new RegisterModelCommand()
                 { 
                     Model = fs.ToArray(),
-                    Version = version
+                    Version = version,
                 });
             }
 

@@ -13,7 +13,8 @@ public class RegisterDataHandler(IDataRepository dataRepository)
             Id = Guid.NewGuid().ToString(),
             IngestionTime = DateTime.UtcNow,
             Xs = command.Xs,
-            Ys = command.Ys
+            Ys = command.Ys,
+            PieceOfModel = command.Model
         };
 
         var result = await dataRepository.AddAsync(card);

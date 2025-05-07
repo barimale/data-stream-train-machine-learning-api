@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(NNContext))]
-    [Migration("20250504184151_initial")]
+    [Migration("20250507115935_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -33,6 +33,13 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("IngestionTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsApplied")
+                        .HasColumnType("bit");
+
+                    b.Property<byte[]>("PieceOfModel")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Xs")
                         .IsRequired()

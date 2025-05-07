@@ -37,7 +37,9 @@ namespace Infrastructure.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     IngestionTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Xs = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Ys = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Ys = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PieceOfModel = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    IsApplied = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -14,8 +14,13 @@ namespace adaptive_deep_learning_model
             RegisterComponents();
         }
 
-        public override Tensor forward(Tensor input)
+        // WIP double check it
+        public override Tensor? forward(Tensor input)
         {
+            if(models.Length == 0)
+            {
+                return null;
+            }
             Tensor[] outputs = new Tensor[models.Length];
             int index = 0;
             foreach (var model in models)

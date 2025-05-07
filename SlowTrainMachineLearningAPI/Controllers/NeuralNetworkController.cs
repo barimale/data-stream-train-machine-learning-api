@@ -44,10 +44,6 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IResult> TrainNetwork(RegisterModelRequest commandRequest)
         {
-            var _ = await _sender.Send(new RegisterDataCommand() { 
-                Xs = commandRequest.Xs,
-                Ys = commandRequest.Ys});
-
             var mapped = _mapper.Map<RegisterModelCommand>(commandRequest);
             _hub.Publish(mapped);
 
@@ -62,7 +58,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
             var dataBatch = transformator.TransformInputData(input.ToFloatArray());
             var result = refToModel.forward(dataBatch);
 
-            return Results.Ok(JsonSerializer.Serialize(result.data<float>().ToArray()));
+            return Results.Ok(JsonSerializer.Serialize(result?.data<float>().ToArray()));
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]

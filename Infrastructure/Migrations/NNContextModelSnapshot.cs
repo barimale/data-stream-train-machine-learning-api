@@ -31,6 +31,13 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("IngestionTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("IsApplied")
+                        .HasColumnType("bit");
+
+                    b.Property<byte[]>("PieceOfModel")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("Xs")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
