@@ -5,6 +5,7 @@ using Card.Application.Dtos;
 using Card.Domain.AggregatesModel.CardAggregate;
 using Microsoft.Extensions.Logging;
 using static Card.Application.CQRS.Queries.GetAllDataResult;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Card.Application.CQRS.QueryHandlers;
 public class GetCardHandlers(
@@ -14,7 +15,8 @@ public class GetCardHandlers(
     ILogger<GetCardHandlers> logger)
     : IQueryHandler<GetLatestQuery, GetModuleResult>,
     IQueryHandler<TrainNetworkQuery, GetAllDataResult>,
-    IQueryHandler<ModelYearsOldInMinutesQuery, GetModelYearsOldResult>
+    IQueryHandler<ModelYearsOldInMinutesQuery, GetModelYearsOldResult>,
+    IQueryHandler<GetPiecesQuery, GetPiecesResult>
 {
     public async Task<GetModuleResult> Handle(GetLatestQuery query, CancellationToken cancellationToken)
     {
@@ -40,5 +42,13 @@ public class GetCardHandlers(
         var inMinutes = await orderRepository.GetYearsOldInMinutesAsync();
 
         return new GetModelYearsOldResult(inMinutes);
+    }
+
+    public async Task<GetPiecesResult> Handle(GetPiecesQuery request, CancellationToken cancellationToken)
+    {
+        var card = await orderRepository.GetAllAsync();
+        var mapped = mapper.Map<List<ModelDto>>(card);
+
+        return new GetPiecesResult(mapped.ToArray());
     }
 }

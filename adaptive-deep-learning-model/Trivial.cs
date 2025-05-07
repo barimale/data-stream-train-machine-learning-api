@@ -20,7 +20,7 @@ namespace adaptive_deep_learning_model
             int index = 0;
             foreach (var model in models)
             {
-                outputs[0] = model.forward(input);
+                outputs[index] = model.forward(input);
                 index++;
             }
 

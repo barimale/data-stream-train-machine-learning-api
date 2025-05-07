@@ -1,6 +1,7 @@
 ﻿using Card.Common.Domain;
 using Card.Domain.AggregatesModel.CardAggregate;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -38,5 +39,12 @@ public class ModelRepository : IModelRepository
         DateTimeOffset now = DateTimeOffset.Now;
 
         return (now - from).TotalMinutes;
+    }
+
+    public async Task<IEnumerable<Model>> GetAllAsync()
+    {
+        var result = await _context.Cards.OrderBy(p => p.RegisteringTime).ToListAsync();
+
+        return result;
     }
 }

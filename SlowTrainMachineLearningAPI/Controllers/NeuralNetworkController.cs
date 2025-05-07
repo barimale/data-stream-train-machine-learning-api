@@ -60,7 +60,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
             var transformator = Program.TorchModel.Model;
             var refToModel = await Program.TorchModel.GetModelFromPieces();
             var dataBatch = transformator.TransformInputData(input.ToFloatArray());
-            var result = refToModel.predict(dataBatch);
+            var result = refToModel.forward(dataBatch);
 
             return Results.Ok(JsonSerializer.Serialize(result.data<float>().ToArray()));
         }
