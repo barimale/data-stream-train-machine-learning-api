@@ -47,7 +47,6 @@ Add signalR endpoint to feed service faster.
 6. Create mechanism for recreation model triggered manually or automatically based on official CI/CD for neural networks. Recreate the concept by custom tool.
 7. Create neural network B for automatic recreation neural network A or fuzzy logic with ISO czas dostępności modelu do predicateow 
 8. Start with UnitTests.
-9. Observe MS Sql in case new model is added refresh existed one (observe latest)
 10. Specify metadata of the model (version, date, time, loss, accuracy, etc.)
 11. Architecture: CQRS + Event Sourcing
 12. Trivial model as stateless:
