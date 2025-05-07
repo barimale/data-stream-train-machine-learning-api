@@ -23,6 +23,7 @@ https://code-maze.com/masstransit-rabbitmq-aspnetcore/
 
 https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-9.0&tabs=visual-studio
 
+https://www.plukasiewicz.net/Artykuly/RabbitMqIntroduction
 
 # Ideas
 Reduce amount of epochs based on maximal retention time of the api call.
