@@ -16,29 +16,35 @@ namespace SlowTrainMachineLearningAPI.Controllers
     {
         private readonly ILogger<NeuralNetworkController> _logger;
         private readonly IBackgroundJobClient _backgroundJobClient;
+        private readonly IRecurringJobManager _requringJobManager;
         private readonly IMapper _mapper;
         private readonly ISender _sender;
         private readonly PubSub.Hub _hub;
 
         public NeuralNetworkController(ILogger<NeuralNetworkController> logger,
             IBackgroundJobClient backgroundJobClient,
+            IRecurringJobManager requringJobManager,
             IMapper mapper,
             ISender sender)
         {
             _logger = logger;
             _backgroundJobClient = backgroundJobClient;
+            _requringJobManager = requringJobManager;
             _mapper = mapper;
             _sender = sender;
             _hub = PubSub.Hub.Default;
+            _requringJobManager.AddOrUpdate(
+                "TrainModelWithFullData", 
+                () => TrainModelWithFullData(""), 
+                Cron.MinuteInterval(2), 
+                TimeZoneInfo.Utc);
         }
 
 
         [HttpPost("[action]")]
-        public async Task<IResult> RebuildNetwork(string version)
+        public async Task<IResult> RebuildNetworkManually(string version)
         {
-            //WIP it is going to be 60secs interval hosted service job
-            //result: trained full model
-            _backgroundJobClient.Enqueue(() => TrainModelWithFullData(version));
+            _backgroundJobClient.Enqueue(() => TrainModelWithFullDataManually(version));
 
             return Results.Ok();
         }
@@ -83,6 +89,40 @@ namespace SlowTrainMachineLearningAPI.Controllers
                     pieces);
 
                 if (isGenerateModelAllowed)
+                {
+                    await Program.TorchModel.LoadFromDB();
+
+                    foreach (var data in allData.Data)
+                    {
+                        var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
+                        var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
+
+                        var loss = refToModel.train(dataBatch, Ys);
+                        _logger.LogInformation($"Loss: {loss}");
+                        var _ = await _sender.Send(new UpdateIsAppliedPiece(data.Id));
+                    }
+
+                    await Program.TorchModel.SaveToDB(version);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+        }
+
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [NonAction]
+        public async Task TrainModelWithFullDataManually(string version)
+        {
+            var refToModel = Program.TorchModel.Model;
+
+            try
+            {
+                var modelYearsOldInMinutes = await _sender.Send(new ModelYearsOldInMinutesQuery());
+                var allData = await _sender.Send(new TrainNetworkQuery());
+
+                if (allData.Data.Length > 0)
                 {
                     await Program.TorchModel.LoadFromDB();
 
