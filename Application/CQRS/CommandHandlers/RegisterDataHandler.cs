@@ -11,7 +11,7 @@ public class RegisterDataHandler(IDataRepository dataRepository)
         var card = new Data()
         {
             Id = Guid.NewGuid().ToString(),
-            IngestionTime = DateTime.UtcNow,
+            IngestionTime = DateTime.Now,
             Xs = command.Xs,
             Ys = command.Ys,
             PieceOfModel = command.Model
