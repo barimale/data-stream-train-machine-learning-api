@@ -35,8 +35,13 @@ public class ModelRepository : IModelRepository
     public async Task<double> GetYearsOldInMinutesAsync()
     {
         var result = await GetByLatestAsync(string.Empty);
+        if (result is null)
+        {
+            return 0;
+        }
+
         DateTimeOffset from = new DateTimeOffset(result.RegisteringTime);
-        DateTimeOffset now = DateTimeOffset.Now;
+        DateTimeOffset now = DateTime.Now;
 
         return (now - from).TotalMinutes;
     }
