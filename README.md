@@ -19,12 +19,6 @@ Ys: 1,1,1,1,1,1,1,1,1,1
 # Todos
 https://www.google.com/search?q=vary+input+layer+neural+network&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIJCAMQRRg7GMID0gEGLTFqMGo3qAIEsAIB8QXvRy7F_TusyPEF70cuxf07rMg&client=ms-android-samsung-ga-rev1&sourceid=chrome-mobile&ie=UTF-8
 
-https://code-maze.com/masstransit-rabbitmq-aspnetcore/
-
-https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-9.0&tabs=visual-studio
-
-https://www.plukasiewicz.net/Artykuly/RabbitMqIntroduction
-
 # Ideas
 Reduce amount of epochs based on maximal retention time of the api call.
 Reduce amount of steps based on maximal retention time of the api call.
