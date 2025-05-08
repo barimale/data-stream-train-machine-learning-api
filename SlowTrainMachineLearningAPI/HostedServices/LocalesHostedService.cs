@@ -57,7 +57,10 @@ namespace Albergue.Administrator.HostedServices
                 await DoWorkAsync(obj);
             };
 
-            _channel.BasicConsumeAsync(NeuralNetworkController.CHANNEL_NAME, autoAck: true, consumer: _consumer);
+            await _channel.BasicConsumeAsync(
+                NeuralNetworkController.CHANNEL_NAME,
+                autoAck: true, 
+                consumer: _consumer);
 
         }
 

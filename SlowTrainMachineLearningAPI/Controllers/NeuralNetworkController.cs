@@ -12,6 +12,7 @@ using System.Threading.Channels;
 using System.Reflection.Metadata;
 using System.Security.Cryptography;
 using System.Text;
+using FLS;
 
 namespace SlowTrainMachineLearningAPI.Controllers
 {
@@ -151,22 +152,29 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
             try
             {
-                var modelYearsOldInMinutes = await _sender.Send(new ModelYearsOldInMinutesQuery());
                 var allData = await _sender.Send(new TrainNetworkQuery());
 
                 if (allData.Data.Length > 0)
                 {
                     await Program.TorchModel.LoadFromDB();
 
-                    foreach (var data in allData.Data)
+                    allData.Data.AsParallel().ForAll(async (data) =>
                     {
-                        var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
-                        var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
+                        try
+                        {
+                            var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
+                            var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
 
-                        var loss = refToModel.train(dataBatch, Ys);
-                        _logger.LogInformation($"Loss: {loss}");
-                        var _ = await _sender.Send(new UpdateIsAppliedPiece(data.Id));
-                    }
+                            var loss = refToModel.train(dataBatch, Ys);
+                            _logger.LogInformation($"Loss: {loss}");
+                            var _ = await _sender.Send(new UpdateIsAppliedPiece(data.Id));
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.LogError(ex.Message);
+                        }
+
+                    });
 
                     await Program.TorchModel.SaveToDB(version);
                 }
