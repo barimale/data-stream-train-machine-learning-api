@@ -48,7 +48,6 @@ namespace SlowTrainMachineLearningAPI.Controllers
                 TimeZoneInfo.Utc);
 
             var factory = new ConnectionFactory() { HostName = "localhost" };
-            // otwarcie połączenia
             _connection = factory.CreateConnectionAsync().Result;
             _channel = _connection.CreateChannelAsync().Result;
             _channel.QueueDeclareAsync(queue: CHANNEL_NAME,
