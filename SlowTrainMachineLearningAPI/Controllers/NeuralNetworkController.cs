@@ -173,7 +173,6 @@ namespace SlowTrainMachineLearningAPI.Controllers
                         {
                             _logger.LogError(ex.Message);
                         }
-
                     }
                 }
             }
