@@ -13,20 +13,14 @@ namespace Albergue.Administrator.HostedServices
     {
         private readonly ILogger<NeuralNetworkTrainerHostedService> _logger;
         private readonly ISender _sender;
-        private readonly IConnection _connection;
-        private readonly IChannel _channel;
+        private IConnection _connection;
+        private IChannel _channel;
         private AsyncEventingBasicConsumer _consumer;
+        private ConnectionFactory factory;
 
         public NeuralNetworkTrainerHostedService()
         {
-            var factory = new ConnectionFactory() { HostName = "localhost" };
-            _connection = factory.CreateConnectionAsync().Result;
-            _channel = _connection.CreateChannelAsync().Result;
-            _channel.QueueDeclareAsync(queue: NeuralNetworkController.CHANNEL_NAME,
-                                durable: false,
-                                exclusive: false,
-                                autoDelete: false,
-            arguments: null);
+            factory = new ConnectionFactory() { HostName = "localhost" };
         }
 
         public NeuralNetworkTrainerHostedService(
@@ -44,6 +38,14 @@ namespace Albergue.Administrator.HostedServices
         public async Task StartAsync(CancellationToken cancellationToken)
         {
             _logger.LogInformation("Neural Network Hosted Service running.");
+
+            _connection = await factory.CreateConnectionAsync();
+            _channel = await _connection.CreateChannelAsync();
+            await _channel.QueueDeclareAsync(queue: NeuralNetworkController.CHANNEL_NAME,
+                                durable: false,
+                                exclusive: false,
+                                autoDelete: false,
+            arguments: null);
 
             _consumer = new AsyncEventingBasicConsumer(_channel);
             _consumer.ReceivedAsync += async (model, ea) =>

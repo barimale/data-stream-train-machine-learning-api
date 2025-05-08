@@ -28,8 +28,8 @@ namespace SlowTrainMachineLearningAPI.Controllers
         private readonly IRecurringJobManager _requringJobManager;
         private readonly IMapper _mapper;
         private readonly ISender _sender;
-        private readonly IConnection _connection;
-        private readonly IChannel _channel;
+
+        private readonly ConnectionFactory factory;
         public NeuralNetworkController(ILogger<NeuralNetworkController> logger,
             IBackgroundJobClient backgroundJobClient,
             IRecurringJobManager requringJobManager,
@@ -47,14 +47,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
                 Cron.MinuteInterval(CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES), 
                 TimeZoneInfo.Utc);
 
-            var factory = new ConnectionFactory() { HostName = "localhost" };
-            _connection = factory.CreateConnectionAsync().Result;
-            _channel = _connection.CreateChannelAsync().Result;
-            _channel.QueueDeclareAsync(queue: CHANNEL_NAME,
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
+            factory = new ConnectionFactory() { HostName = "localhost" };
         }
 
 
@@ -93,6 +86,14 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [NonAction]
         public async Task TrainModelOnDemand(RegisterModelRequest commandRequest)
         {
+            using var _connection = await factory.CreateConnectionAsync();
+            using var _channel = await _connection.CreateChannelAsync();
+            await _channel.QueueDeclareAsync(queue: CHANNEL_NAME,
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
             var mapped = _mapper.Map<RegisterModelCommand>(commandRequest);
 
             string msg = JsonSerializer.Serialize(mapped);
