@@ -175,13 +175,15 @@ namespace SlowTrainMachineLearningAPI.Controllers
                         }
 
                     });
-
-                    await Program.TorchModel.SaveToDB(version);
                 }
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
+            }
+            finally
+            {
+                await Program.TorchModel.SaveToDB(version);
             }
         }
     }
