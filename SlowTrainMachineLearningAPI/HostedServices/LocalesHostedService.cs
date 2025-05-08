@@ -22,9 +22,7 @@ namespace Albergue.Administrator.HostedServices
         public LocalesHostedService()
         {
             var factory = new ConnectionFactory() { HostName = "localhost" };
-            // otwarcie połączenia
             _connection = factory.CreateConnectionAsync().Result;
-            // utworzenie kanału komunikacji
             _channel = _connection.CreateChannelAsync().Result;
             _channel.QueueDeclareAsync(queue: NeuralNetworkController.CHANNEL_NAME,
                                 durable: false,
