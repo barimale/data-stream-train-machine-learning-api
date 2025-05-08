@@ -95,7 +95,6 @@ namespace SlowTrainMachineLearningAPI.Controllers
         public async Task TrainModelOnDemand(RegisterModelRequest commandRequest)
         {
             var mapped = _mapper.Map<RegisterModelCommand>(commandRequest);
-           // _hub.Publish(mapped);
 
             string msg = JsonSerializer.Serialize(mapped);
 
@@ -121,7 +120,10 @@ namespace SlowTrainMachineLearningAPI.Controllers
                     (int)modelYearsOldInMinutes.YearsOldInMinutes, 
                     pieces);
 
-                if (isGenerateModelAllowed && pieces > 0)
+                if (pieces == 0)
+                    return;
+
+                if (isGenerateModelAllowed)
                 {
                     await Program.TorchModel.LoadFromDB();
 

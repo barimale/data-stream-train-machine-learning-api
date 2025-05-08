@@ -73,28 +73,26 @@ namespace Albergue.Administrator.HostedServices
                 _logger.LogInformation(
                     "Train neural network in progress. ");
 
-                var refToModel = Program.TorchModel;
+                var refToModel = Program.TorchModel.Model;
                 var dataBatch = refToModel
-                    .Model
                     .TransformInputData(
                         commandRequest
                         .Xs
                         .ToFloatArray());
                 var Ys = refToModel
-                    .Model
                     .TransformInputData(
                         commandRequest
                         .Ys
                         .ToFloatArray());
                                 
-                var loss = refToModel.Model.train(dataBatch, Ys);
+                var loss = refToModel.train(dataBatch, Ys);
                 _logger.LogInformation("Loss: {0}", loss);
 
                 var _ = await _sender.Send(new RegisterDataCommand()
                 {
                     Xs = commandRequest.Xs,
                     Ys = commandRequest.Ys,
-                    Model = refToModel.ModelToBytes(),
+                    Model = Program.TorchModel.ModelToBytes(),
                 });
             }
             catch (Exception ex)
