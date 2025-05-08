@@ -158,7 +158,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
                 {
                     await Program.TorchModel.LoadFromDB();
 
-                    allData.Data.AsParallel().ForAll(async (data) =>
+                    foreach(var data in allData.Data)
                     {
                         try
                         {
@@ -174,7 +174,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
                             _logger.LogError(ex.Message);
                         }
 
-                    });
+                    }
                 }
             }
             catch (Exception ex)
