@@ -21,7 +21,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
     public class NeuralNetworkController : ControllerBase
     {
         private const int CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES = 10;
-        public static string CHANNEL_NAME = "msgKey";
+        public static string CHANNEL_NAME = "model-creation-channel";
 
         private readonly ILogger<NeuralNetworkController> _logger;
         private readonly IBackgroundJobClient _backgroundJobClient;

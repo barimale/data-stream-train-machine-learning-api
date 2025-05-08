@@ -1,25 +1,23 @@
 ﻿using adaptive_deep_learning_model.Utilities;
 using Card.Application.CQRS.Commands;
 using MediatR;
-using Microsoft.Extensions.DependencyInjection;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SlowTrainMachineLearningAPI;
 using SlowTrainMachineLearningAPI.Controllers;
 using System.Text.Json;
-using System.Threading.Channels;
-using static MassTransit.Logging.OperationName;
 
 namespace Albergue.Administrator.HostedServices
 {
-    public class LocalesHostedService : IHostedService
+    public class NeuralNetworkTrainerHostedService : IHostedService
     {
-        private readonly ILogger<LocalesHostedService> _logger;
+        private readonly ILogger<NeuralNetworkTrainerHostedService> _logger;
         private readonly ISender _sender;
         private readonly IConnection _connection;
         private readonly IChannel _channel;
         private AsyncEventingBasicConsumer _consumer;
-        public LocalesHostedService()
+
+        public NeuralNetworkTrainerHostedService()
         {
             var factory = new ConnectionFactory() { HostName = "localhost" };
             _connection = factory.CreateConnectionAsync().Result;
@@ -31,8 +29,8 @@ namespace Albergue.Administrator.HostedServices
             arguments: null);
         }
 
-        public LocalesHostedService(
-            ILogger<LocalesHostedService> logger,
+        public NeuralNetworkTrainerHostedService(
+            ILogger<NeuralNetworkTrainerHostedService> logger,
             IServiceProvider serviceProvider)
             : this()
         {
