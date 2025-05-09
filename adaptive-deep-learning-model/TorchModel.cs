@@ -26,42 +26,73 @@ namespace SlowTrainMachineLearningAPI.Model
             }
         }
 
-        public async Task<CombinedModel> GetModelFromPieces(byte[] mainModel)
+        public async Task<CombinedModel> GetModelFromPieces(GetModuleResult mainModel)
         {
             var result = await _sender.Send(new GetPiecesQuery());
 
-            var pieces = result.Models.Select(p => p.PieceOfModel);
-            var trivials = new Trivial[pieces.Count() + 1];
-
-            using (MemoryStream fs = new MemoryStream(mainModel))
-            using (BinaryReader reader = new BinaryReader(fs))
+            if(mainModel is not null && mainModel.Model is not null)
             {
-                var trivial = new Trivial();
-                trivial.load(reader);
-                trivials[0] = trivial;
-            }
+                var pieces = result.Models.Select(p => p.PieceOfModel);
+                var trivials = new Trivial[pieces.Count() + 1];
 
-            var index = 1;
-            foreach(var submodule in pieces)
-            {
-                try
+                using (MemoryStream fs = new MemoryStream(mainModel.Model.ModelAsBytes))
+                using (BinaryReader reader = new BinaryReader(fs))
                 {
-                    using (MemoryStream fs = new MemoryStream(submodule))
-                    using (BinaryReader reader = new BinaryReader(fs))
+                    var trivial = new Trivial();
+                    trivial.load(reader);
+                    trivials[0] = trivial;
+                }
+
+                var index = 1;
+                foreach (var submodule in pieces)
+                {
+                    try
                     {
-                        var trivial = new Trivial();
-                        trivial.load(reader);
-                        trivials[index] = trivial;
-                        index += 1;
+                        using (MemoryStream fs = new MemoryStream(submodule))
+                        using (BinaryReader reader = new BinaryReader(fs))
+                        {
+                            var trivial = new Trivial();
+                            trivial.load(reader);
+                            trivials[index] = trivial;
+                            index += 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
                     }
                 }
-                catch (Exception ex)
-                {
-                }
-            }
-            
 
-            return new CombinedModel(trivials);
+
+                return new CombinedModel(trivials);
+            }
+            else
+            {
+                var pieces = result.Models.Select(p => p.PieceOfModel);
+                var trivials = new Trivial[pieces.Count()];
+
+                var index = 0;
+                foreach (var submodule in pieces)
+                {
+                    try
+                    {
+                        using (MemoryStream fs = new MemoryStream(submodule))
+                        using (BinaryReader reader = new BinaryReader(fs))
+                        {
+                            var trivial = new Trivial();
+                            trivial.load(reader);
+                            trivials[index] = trivial;
+                            index += 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                }
+
+
+                return new CombinedModel(trivials);
+            }
+           
         }
 
         public async Task LoadFromDB(string version = "latest")
