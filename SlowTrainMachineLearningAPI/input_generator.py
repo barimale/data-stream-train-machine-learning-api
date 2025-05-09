@@ -12,7 +12,17 @@ api_url = "https://localhost:7174/NeuralNetwork/TrainNetwork"
 
 # Iterate over the NumPy array and make POST requests
 for entry in x:
-    payload = {"xs": "1,2,3,4,5" , "ys": "1,1,1,1,1,1,1,1,1,1"}  # Convert entry to a format suitable for the API
+    xs = np.random.randn(1,5)
+    resultXs = np.array2string(xs, separator=',', suppress_small=True)[1:-1].replace(' ', '')
+    resultXs = resultXs.strip("[")
+    resultXs = resultXs.strip("]")
+    print(resultXs)
+    ys = np.random.randn(1,10)
+    resultYs = np.array2string(ys, separator=',', suppress_small=True)[1:-1].replace(' ', '')
+    resultYs = resultYs.strip("[")
+    resultYs = resultYs.strip("]")
+    print(resultYs)
+    payload = {"xs": resultXs , "ys": resultYs}  # Convert entry to a format suitable for the API
     try:
         response = requests.post(api_url, headers={"Content-Type": "application/json"},verify=False, json=payload)
         if response.status_code == 200:
