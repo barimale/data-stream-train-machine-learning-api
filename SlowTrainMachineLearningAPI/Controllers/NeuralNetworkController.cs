@@ -8,11 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using fuzzy_logic_model_generator;
 using RabbitMQ.Client;
-using System.Threading.Channels;
-using System.Reflection.Metadata;
-using System.Security.Cryptography;
 using System.Text;
-using FLS;
 
 namespace SlowTrainMachineLearningAPI.Controllers
 {
