@@ -16,11 +16,13 @@ for entry in x:
     resultXs = np.array2string(xs, separator=',', suppress_small=True)[1:-1].replace(' ', '')
     resultXs = resultXs.strip("[")
     resultXs = resultXs.strip("]")
+    resultXs = resultXs.strip()
     print(resultXs)
     ys = np.random.randn(1,10)
-    resultYs = np.array2string(ys, separator=',', suppress_small=True)[1:-1].replace(' ', '')
+    resultYs = np.array2string(ys, separator=',', suppress_small=True)[1:-1].replace(' ', '').replace('\n', '')
     resultYs = resultYs.strip("[")
     resultYs = resultYs.strip("]")
+    resultYs = resultYs.strip()
     print(resultYs)
     payload = {"xs": resultXs , "ys": resultYs}  # Convert entry to a format suitable for the API
     try:
