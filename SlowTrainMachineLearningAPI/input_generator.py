@@ -6,7 +6,7 @@ import requests
 
 # Example NumPy array
 data = np.array([1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
-x = range(100)
+x = range(1000)
 # API endpoint
 api_url = "https://localhost:7174/NeuralNetwork/TrainNetwork"
 
