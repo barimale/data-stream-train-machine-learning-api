@@ -129,13 +129,20 @@ namespace SlowTrainMachineLearningAPI.Controllers
 
                     foreach (var data in allData.Data)
                     {
-                        var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
-                        var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
+                        try
+                        {
+                            var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
+                            var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
 
-                        var loss = refToModel.train(dataBatch, Ys);
-                        _logger.LogInformation($"Loss: {loss}");
-                        var _ = await _sender.Send(new UpdateIsAppliedPiece(data.Id));
-                    }
+                            var loss = refToModel.train(dataBatch, Ys);
+                            _logger.LogInformation($"Loss: {loss}");
+                            var _ = await _sender.Send(new UpdateIsAppliedPiece(data.Id));
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.LogError(ex.Message);
+                        }
+        }
 
                     await Program.TorchModel.SaveToDB(version);
                 }
