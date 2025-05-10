@@ -116,6 +116,10 @@ namespace SlowTrainMachineLearningAPI.Controllers
                     (int)modelYearsOldInMinutes.YearsOldInMinutes, 
                     pieces);
 
+                _logger.LogInformation("modelYearsOldInMinutes: " + modelYearsOldInMinutes.YearsOldInMinutes);
+                _logger.LogInformation("pieces amount: " + pieces);
+                _logger.LogInformation("isGenerateModelAllowed: " + isGenerateModelAllowed);
+
                 if (pieces == 0)
                     return;
 

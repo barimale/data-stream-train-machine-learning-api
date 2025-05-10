@@ -16,8 +16,8 @@ namespace fuzzy_logic_model_generator
             var old = modelYearsOld.MembershipFunctions.AddTrapezoid("Old", 50, 80, 10000, 10000);
 
             var pieces = new LinguisticVariable("Pieces");
-            var small = pieces.MembershipFunctions.AddTrapezoid("Small", 0, 0, 200, 400);
-            var huge = pieces.MembershipFunctions.AddTrapezoid("Huge", 500, 800, 5000, 5000);
+            var small = pieces.MembershipFunctions.AddTrapezoid("Small", 0, 0, 50, 200);
+            var huge = pieces.MembershipFunctions.AddTrapezoid("Huge", 300, 800, 5000, 5000);
 
 
             var power = new LinguisticVariable("Generator");

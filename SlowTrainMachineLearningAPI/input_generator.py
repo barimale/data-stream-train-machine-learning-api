@@ -10,7 +10,7 @@ housing = fetch_california_housing()
 Xtrain, Xtest, ytrain, ytest = train_test_split(housing.data, housing.target, test_size = .2)
 Xtrain, Xval, ytrain, yval = train_test_split(Xtrain, ytrain, test_size=.2)
 
-x = range(100)
+x = range(1000)
 # API endpoint
 api_url = "https://localhost:7174/NeuralNetwork/TrainNetwork"
 
