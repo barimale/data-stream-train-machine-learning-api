@@ -30,9 +30,9 @@ namespace adaptive_deep_learning_model
             Tensor final = outputs[0];
             foreach (var t in outputs.Skip(1))
             {
-                final = (final + t) / 2;
+                final = (final + t);
             }
-            var yy = nn.functional.relu(final / 1); // models.Length);
+            var yy = nn.functional.relu(final / models.Length);
             return yy;
         }
     }
