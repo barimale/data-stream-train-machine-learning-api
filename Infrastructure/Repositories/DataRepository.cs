@@ -47,9 +47,9 @@ public class DataRepository : IDataRepository
 
     public async Task<IEnumerable<Data>> GetAllUnAppliedAsync()
     {
-        var allofthem = await _context.Datas.ToListAsync();
+        var allofthem = await _context.Datas.Where(p => !p.IsApplied).ToListAsync();
 
-        return allofthem.Where(p => !p.IsApplied);
+        return allofthem;
     }
 
     public async Task<string> SetIsApplied(string id)
