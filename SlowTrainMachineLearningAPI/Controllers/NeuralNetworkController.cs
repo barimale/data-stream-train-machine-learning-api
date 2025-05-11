@@ -9,6 +9,7 @@ using System.Text.Json;
 using fuzzy_logic_model_generator;
 using RabbitMQ.Client;
 using System.Text;
+using adaptive_deep_learning_model;
 
 namespace SlowTrainMachineLearningAPI.Controllers
 {
@@ -24,6 +25,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         private readonly IRecurringJobManager _requringJobManager;
         private readonly IMapper _mapper;
         private readonly ISender _sender;
+        private readonly StatelessStateMachine _machine;
 
         private readonly ConnectionFactory factory;
         public NeuralNetworkController(ILogger<NeuralNetworkController> logger,
@@ -44,6 +46,11 @@ namespace SlowTrainMachineLearningAPI.Controllers
                 TimeZoneInfo.Utc);
 
             factory = new ConnectionFactory() { HostName = "localhost" };
+            //    _machine = new StatelessStateMachine(
+            //        async () => await TrainModelWithFullData(""),
+            //        async () => await PredictValue("0"));
+            //    _machine.Train();
+            //    _machine.Predict();
         }
 
 
@@ -85,7 +92,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
             using var _connection = await factory.CreateConnectionAsync();
             using var _channel = await _connection.CreateChannelAsync();
             await _channel.QueueDeclareAsync(queue: CHANNEL_NAME,
-                                     durable: false,
+                                     durable: true,
                                      exclusive: false,
                                      autoDelete: false,
                                      arguments: null);
