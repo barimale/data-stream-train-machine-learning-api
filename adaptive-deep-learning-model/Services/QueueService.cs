@@ -1,4 +1,6 @@
 ﻿using Card.Application.CQRS.Commands;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using System.Text;
 

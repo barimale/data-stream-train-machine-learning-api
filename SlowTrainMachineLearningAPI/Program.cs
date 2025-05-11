@@ -1,30 +1,23 @@
 
 using adaptive_deep_learning_model;
 using Albergue.Administrator.HostedServices;
-using API.SlowTrainMachineLearning.Services;
 using Card.API.Extensions;
 using Card.API.MappingProfiles;
 using Card.Application;
 using Card.Infrastructure;
 using Hangfire;
 using Hangfire.MemoryStorage;
-using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using SlowTrainMachineLearningAPI.Model;
 
 namespace SlowTrainMachineLearningAPI
 {
     public class Program
     {
-        public static TorchModel TorchModel { get; set; }
+        //public static IStatelessStateMachine statelessStateMachine;
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddTransient<INeuralNetworkService, NeuralNetworkService>();
-            builder.Services.AddTransient<IQueueService, QueueService>();
-            builder.Services.AddTransient<IQueueConsumerService, QueueConsumerService>();
             builder.Services.AddSingleton<IStatelessStateMachine, StatelessStateMachine>();
 
             builder.Services.AddControllers();
@@ -37,6 +30,7 @@ namespace SlowTrainMachineLearningAPI
             builder.Services.AddHangfireServer();
             builder.Services
                    .AddApplicationServices(builder.Configuration)
+                   .AddAdaptiveDeepLearningServices(builder.Configuration)
                    .AddInfrastructureServices(builder.Configuration);
 
             builder.Services.AddMigration<NNContext>();
@@ -60,12 +54,12 @@ namespace SlowTrainMachineLearningAPI
 
             app.MapControllers();
 
-            var provider = builder.Services.BuildServiceProvider();
-            var monitorLoop = app.Services.CreateScope().ServiceProvider.GetRequiredService<ISender>();
+            //var serviceProvider = builder.Services.BuildServiceProvider();
 
-            var isender = provider.CreateScope().ServiceProvider.GetRequiredService<ISender>();
-            TorchModel = new TorchModel(monitorLoop);
+            //// Step 3: Retrieve the service
+            //var myService = serviceProvider.GetService<IStatelessStateMachine>();
 
+            //statelessStateMachine = myService;
             app.Run();
         }
     }

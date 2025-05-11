@@ -1,10 +1,12 @@
-﻿using adaptive_deep_learning_model.Utilities;
+﻿using adaptive_deep_learning_model;
+using adaptive_deep_learning_model.Utilities;
 using AutoMapper;
 using Card.Application.CQRS.Commands;
 using Card.Application.CQRS.Queries;
 using fuzzy_logic_model_generator;
 using MediatR;
-using SlowTrainMachineLearningAPI;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using System.Text.Json;
 
 namespace API.SlowTrainMachineLearning.Services
@@ -38,7 +40,7 @@ namespace API.SlowTrainMachineLearning.Services
                 _logger.LogInformation(
                     "Train neural network in progress. ");
 
-                var refToModel = Program.TorchModel.Model;
+                var refToModel = StatelessStateMachine.TorchModel.Model;
                 var dataBatch = refToModel
                     .TransformInputData(
                         commandRequest
@@ -57,7 +59,7 @@ namespace API.SlowTrainMachineLearning.Services
                 {
                     Xs = commandRequest.Xs,
                     Ys = commandRequest.Ys,
-                    Model = Program.TorchModel.ModelToBytes(refToModel),
+                    Model = StatelessStateMachine.TorchModel.ModelToBytes(refToModel),
                 });
             }
             catch (Exception ex)
@@ -69,10 +71,10 @@ namespace API.SlowTrainMachineLearning.Services
         public async Task<IResult> PredictValue(string input)
         {
             // use latest model + combine unapplied pieces
-            var transformator = Program.TorchModel.Model;
+            var transformator = StatelessStateMachine.TorchModel.Model;
             var mainModel = await _sender.Send(new GetLatestQuery(string.Empty));
 
-            var refToModel = await Program.TorchModel.GetModelFromPieces(mainModel);
+            var refToModel = await StatelessStateMachine.TorchModel.GetModelFromPieces(mainModel);
             var dataBatch = transformator.TransformInputData(input.ToFloatArray());
             var result = refToModel.forward(dataBatch);
 
@@ -81,7 +83,7 @@ namespace API.SlowTrainMachineLearning.Services
 
         public async Task TrainModelWithFullDataManually(string version)
         {
-            var refToModel = Program.TorchModel.Model;
+            var refToModel = StatelessStateMachine.TorchModel.Model;
 
             try
             {
@@ -89,7 +91,7 @@ namespace API.SlowTrainMachineLearning.Services
 
                 if (allData.Data.Length > 0)
                 {
-                    await Program.TorchModel.LoadFromDB();
+                    await StatelessStateMachine.TorchModel.LoadFromDB();
 
                     foreach (var data in allData.Data)
                     {
@@ -115,7 +117,7 @@ namespace API.SlowTrainMachineLearning.Services
             }
             finally
             {
-                await Program.TorchModel.SaveToDB(version);
+                await StatelessStateMachine.TorchModel.SaveToDB(version);
             }
         }
 
@@ -129,7 +131,7 @@ namespace API.SlowTrainMachineLearning.Services
 
         public async Task TrainModelWithFullData(string version)
         {
-            var refToModel = Program.TorchModel.Model;
+            var refToModel = StatelessStateMachine.TorchModel.Model;
 
             try
             {
@@ -150,7 +152,7 @@ namespace API.SlowTrainMachineLearning.Services
 
                 if (isGenerateModelAllowed)
                 {
-                    await Program.TorchModel.LoadFromDB();
+                    await StatelessStateMachine.TorchModel.LoadFromDB();
 
                     foreach (var data in allData.Data)
                     {
@@ -169,7 +171,7 @@ namespace API.SlowTrainMachineLearning.Services
                         }
                     }
 
-                    await Program.TorchModel.SaveToDB(version);
+                    await StatelessStateMachine.TorchModel.SaveToDB(version);
                 }
             }
             catch (Exception ex)

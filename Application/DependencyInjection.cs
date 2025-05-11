@@ -1,5 +1,4 @@
 ﻿using BuildingBlocks.Application.Behaviors;
-using Card.Application.Behaviours;
 using Card.Application.Integration;
 using Card.Application.Profiles;
 using MediatR;
