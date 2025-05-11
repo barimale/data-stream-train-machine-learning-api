@@ -1,14 +1,6 @@
-﻿using adaptive_deep_learning_model.Utilities;
-using AutoMapper;
-using Card.Application.CQRS.Commands;
-using Card.Application.CQRS.Queries;
+﻿using Card.Application.CQRS.Commands;
 using Hangfire;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
-using fuzzy_logic_model_generator;
-using RabbitMQ.Client;
-using System.Text;
 using adaptive_deep_learning_model;
 using API.SlowTrainMachineLearning.Services;
 
