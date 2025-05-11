@@ -10,6 +10,7 @@ using fuzzy_logic_model_generator;
 using RabbitMQ.Client;
 using System.Text;
 using adaptive_deep_learning_model;
+using API.SlowTrainMachineLearning.Services;
 
 namespace SlowTrainMachineLearningAPI.Controllers
 {
@@ -18,34 +19,28 @@ namespace SlowTrainMachineLearningAPI.Controllers
     public class NeuralNetworkController : ControllerBase
     {
         private const int CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES = 20;
-        public static string CHANNEL_NAME = "model-creation-channel";
 
         private readonly ILogger<NeuralNetworkController> _logger;
         private readonly IBackgroundJobClient _backgroundJobClient;
         private readonly IRecurringJobManager _requringJobManager;
-        private readonly IMapper _mapper;
-        private readonly ISender _sender;
+        private readonly INeuralNetworkService _neuralNetworkService;
         private readonly StatelessStateMachine _machine;
 
-        private readonly ConnectionFactory factory;
         public NeuralNetworkController(ILogger<NeuralNetworkController> logger,
             IBackgroundJobClient backgroundJobClient,
             IRecurringJobManager requringJobManager,
-            IMapper mapper,
-            ISender sender)
+            INeuralNetworkService neuralNetworkService)
         {
             _logger = logger;
             _backgroundJobClient = backgroundJobClient;
             _requringJobManager = requringJobManager;
-            _mapper = mapper;
-            _sender = sender;
+            _neuralNetworkService = neuralNetworkService;
             _requringJobManager.AddOrUpdate(
                 "TrainModelWithFullData", 
-                () => TrainModelWithFullData(""), 
+                () => _neuralNetworkService.TrainModelWithFullData(""), 
                 Cron.MinuteInterval(CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES), 
                 TimeZoneInfo.Utc);
 
-            factory = new ConnectionFactory() { HostName = "localhost" };
             //    _machine = new StatelessStateMachine(
             //        async () => await TrainModelWithFullData(""),
             //        async () => await PredictValue("0"));
@@ -57,7 +52,9 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IResult> RebuildNetworkManually(string version)
         {
-            _backgroundJobClient.Enqueue(() => TrainModelWithFullDataManually(version));
+            // create model and save to Model
+            _backgroundJobClient.Enqueue(
+                () => _neuralNetworkService.TrainModelWithFullDataManually(version));
 
             return Results.Ok();
         }
@@ -65,8 +62,9 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IResult> TrainNetwork(RegisterModelRequest commandRequest)
         {
-            // create piece 
-            _backgroundJobClient.Enqueue(() => TrainModelOnDemand(commandRequest));
+            // create a piece of model and save to Datas
+            _backgroundJobClient.Enqueue(
+                () => _neuralNetworkService.TrainModelOnDemand(commandRequest));
 
             return Results.Ok();
         }
@@ -74,132 +72,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IResult> PredictValue(string input)
         {
-            // use latest model + combine unapplied pieces
-            var transformator = Program.TorchModel.Model;
-            var mainModel = await _sender.Send(new GetLatestQuery(string.Empty));
-
-            var refToModel = await Program.TorchModel.GetModelFromPieces(mainModel);
-            var dataBatch = transformator.TransformInputData(input.ToFloatArray());
-            var result = refToModel.forward(dataBatch);
-
-            return Results.Ok(JsonSerializer.Serialize(result?.data<float>().ToArray()));
-        }
-
-        [ApiExplorerSettings(IgnoreApi = true)]
-        [NonAction]
-        public async Task TrainModelOnDemand(RegisterModelRequest commandRequest)
-        {
-            using var _connection = await factory.CreateConnectionAsync();
-            using var _channel = await _connection.CreateChannelAsync();
-            await _channel.QueueDeclareAsync(queue: CHANNEL_NAME,
-                                     durable: true,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
-
-            var mapped = _mapper.Map<RegisterModelCommand>(commandRequest);
-
-            string msg = JsonSerializer.Serialize(mapped);
-
-            await _channel.BasicPublishAsync(
-                exchange: string.Empty, 
-                routingKey: CHANNEL_NAME, 
-                Encoding.UTF8.GetBytes(msg));
-        }
-
-        [ApiExplorerSettings(IgnoreApi = true)]
-        [NonAction]
-        public async Task TrainModelWithFullData(string version)
-        {
-            var refToModel = Program.TorchModel.Model;
-
-            try
-            {
-                // fuzzy logic 
-                var modelYearsOldInMinutes = await _sender.Send(new ModelYearsOldInMinutesQuery());
-                var allData = await _sender.Send(new TrainNetworkQuery());
-                var pieces = allData.Data.Length;
-                var isGenerateModelAllowed = new FuzzyLogicModelGenerator().main(
-                    (int)modelYearsOldInMinutes.YearsOldInMinutes, 
-                    pieces);
-
-                _logger.LogInformation("modelYearsOldInMinutes: " + modelYearsOldInMinutes.YearsOldInMinutes);
-                _logger.LogInformation("pieces amount: " + pieces);
-                _logger.LogInformation("isGenerateModelAllowed: " + isGenerateModelAllowed);
-
-                if (pieces == 0)
-                    return;
-
-                if (isGenerateModelAllowed)
-                {
-                    await Program.TorchModel.LoadFromDB();
-
-                    foreach (var data in allData.Data)
-                    {
-                        try
-                        {
-                            var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
-                            var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
-
-                            var loss = refToModel.train(dataBatch, Ys);
-                            _logger.LogInformation($"Loss: {loss}");
-                            var _ = await _sender.Send(new UpdateIsAppliedPiece(data.Id));
-                        }
-                        catch (Exception ex)
-                        {
-                            _logger.LogError(ex.Message);
-                        }
-        }
-
-                    await Program.TorchModel.SaveToDB(version);
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);
-            }
-        }
-
-        [ApiExplorerSettings(IgnoreApi = true)]
-        [NonAction]
-        public async Task TrainModelWithFullDataManually(string version)
-        {
-            var refToModel = Program.TorchModel.Model;
-
-            try
-            {
-                var allData = await _sender.Send(new TrainNetworkQuery());
-
-                if (allData.Data.Length > 0)
-                {
-                    await Program.TorchModel.LoadFromDB();
-
-                    foreach(var data in allData.Data)
-                    {
-                        try
-                        {
-                            var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
-                            var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
-
-                            var loss = refToModel.train(dataBatch, Ys);
-                            _logger.LogInformation($"Loss: {loss}");
-                            var _ = await _sender.Send(new UpdateIsAppliedPiece(data.Id));
-                        }
-                        catch (Exception ex)
-                        {
-                            _logger.LogError(ex.Message);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);
-            }
-            finally
-            {
-                await Program.TorchModel.SaveToDB(version);
-            }
+            return await _neuralNetworkService.PredictValue(input);
         }
     }
 }

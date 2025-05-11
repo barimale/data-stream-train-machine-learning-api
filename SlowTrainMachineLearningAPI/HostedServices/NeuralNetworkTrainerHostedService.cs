@@ -1,10 +1,10 @@
 ﻿using adaptive_deep_learning_model.Utilities;
+using API.SlowTrainMachineLearning.Services;
 using Card.Application.CQRS.Commands;
 using MediatR;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SlowTrainMachineLearningAPI;
-using SlowTrainMachineLearningAPI.Controllers;
 using System.Text.Json;
 
 namespace Albergue.Administrator.HostedServices
@@ -41,7 +41,7 @@ namespace Albergue.Administrator.HostedServices
 
             _connection = await factory.CreateConnectionAsync();
             _channel = await _connection.CreateChannelAsync();
-            await _channel.QueueDeclareAsync(queue: NeuralNetworkController.CHANNEL_NAME,
+            await _channel.QueueDeclareAsync(queue: NeuralNetworkService.CHANNEL_NAME,
                                 durable: false,
                                 exclusive: false,
                                 autoDelete: false,
@@ -56,7 +56,7 @@ namespace Albergue.Administrator.HostedServices
             };
 
             await _channel.BasicConsumeAsync(
-                NeuralNetworkController.CHANNEL_NAME,
+                NeuralNetworkService.CHANNEL_NAME,
                 autoAck: true, 
                 consumer: _consumer);
 

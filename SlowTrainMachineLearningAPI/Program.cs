@@ -1,5 +1,6 @@
 
 using Albergue.Administrator.HostedServices;
+using API.SlowTrainMachineLearning.Services;
 using Card.API.Extensions;
 using Card.API.MappingProfiles;
 using Card.Application;
@@ -35,6 +36,7 @@ namespace SlowTrainMachineLearningAPI
 
             builder.Services.AddMigration<NNContext>();
             builder.Services.AddHostedService<NeuralNetworkTrainerHostedService>();
+            builder.Services.AddTransient<INeuralNetworkService, NeuralNetworkService>();
 
             var app = builder.Build();
 
