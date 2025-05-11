@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace adaptive_deep_learning_model
 {
-    public class StatelessStateMachine
+    public class StatelessStateMachine : IStatelessStateMachine
     {
         //WIP
         //private readonly INeuralNetworkService neuralNetworkService;

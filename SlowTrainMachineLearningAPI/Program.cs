@@ -1,4 +1,5 @@
 
+using adaptive_deep_learning_model;
 using Albergue.Administrator.HostedServices;
 using API.SlowTrainMachineLearning.Services;
 using Card.API.Extensions;
@@ -39,7 +40,7 @@ namespace SlowTrainMachineLearningAPI
             builder.Services.AddTransient<INeuralNetworkService, NeuralNetworkService>();
             builder.Services.AddTransient<IQueueService, QueueService>();
             builder.Services.AddTransient<IQueueConsumerService, QueueConsumerService>();
-
+            builder.Services.AddSingleton<IStatelessStateMachine, StatelessStateMachine>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
