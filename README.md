@@ -41,8 +41,9 @@ Add signalR endpoint to feed service faster.
 3. Prepare data sets: training, test. Shuffle. Merge more than two data sets, shaffle and split into test and train.
 4. Slow learn networks.
 5. Compare their features (loss, predictions) by using test data set.
-10. Specify metadata of the model (version, date, time, loss, accuracy, etc.)
-12. Trivial model as stateless:
+6. Specify metadata of the model (version, date, time, loss, accuracy, etc.)
+7. Trivial model as stateless:
+8. Hosted service to separate service.
 
  # Ksiazki
  https://www.oreilly.com/library/view/uczenie-gebokie-od/9788328365971/
