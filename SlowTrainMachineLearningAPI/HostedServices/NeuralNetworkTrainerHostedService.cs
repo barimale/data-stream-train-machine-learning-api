@@ -20,7 +20,7 @@ namespace Albergue.Administrator.HostedServices
 
         public NeuralNetworkTrainerHostedService()
         {
-            factory = new ConnectionFactory() { HostName = "localhost", ConsumerDispatchConcurrency = 8 };
+            factory = new ConnectionFactory() { HostName = "localhost", ConsumerDispatchConcurrency = 24 };
         }
 
         public NeuralNetworkTrainerHostedService(
