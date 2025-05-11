@@ -5,6 +5,8 @@ namespace adaptive_deep_learning_model
 {
     public class StatelessStateMachine
     {
+        //WIP
+        //private readonly INeuralNetworkService neuralNetworkService;
         public enum State { Open, InTraining, InPrediction }
 
         private enum Trigger { Train, Predict, BackToOpen }
