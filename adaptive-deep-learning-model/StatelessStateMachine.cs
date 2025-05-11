@@ -50,18 +50,18 @@ namespace adaptive_deep_learning_model
 
             _machine.Configure(State.InTraining)
                 .OnEntry(() => Console.WriteLine("OnEntry InTraining"))
-                .InternalTransition<RegisterModelRequest>(_trainTrigger,async (volume, t) => await _neuralNetworkService.TrainModelOnDemand(volume))
+                .OnEntryFromAsync<RegisterModelRequest>(_trainTrigger,async (volume, t) => await _neuralNetworkService.TrainModelOnDemand(volume))
                 .Permit(Trigger.BackToOpen, State.Open);
 
             _machine.Configure(State.InBuilding)
                 .OnEntry(() => Console.WriteLine("OnEntry InBuilding"))
-                .InternalTransition<string>(_buildTrigger, async (version, t) => await _neuralNetworkService.TrainModelWithFullData(version))
+                .OnEntryFromAsync<string>(_buildTrigger, async (version, t) => await _neuralNetworkService.TrainModelWithFullData(version))
                 .Permit(Trigger.BackToOpen, State.Open);
 
 
             _machine.Configure(State.InPrediction)
                 .OnEntry(() => Console.WriteLine("OnEntry InPrediction"))
-                .InternalTransition<string>(_predicateTrigger, async (volume, t) => await _neuralNetworkService.PredictValue(volume))
+                .OnEntryFromAsync<string>(_predicateTrigger, async (volume, t) => await _neuralNetworkService.PredictValue(volume))
                 .Permit(Trigger.BackToOpen, State.Open);
 
             TorchModel = new TorchModel(_sender);
