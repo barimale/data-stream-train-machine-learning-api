@@ -37,6 +37,8 @@ namespace SlowTrainMachineLearningAPI
             builder.Services.AddMigration<NNContext>();
             builder.Services.AddHostedService<NeuralNetworkTrainerHostedService>();
             builder.Services.AddTransient<INeuralNetworkService, NeuralNetworkService>();
+            builder.Services.AddTransient<IQueueService, QueueService>();
+            builder.Services.AddTransient<IQueueConsumerService, QueueConsumerService>();
 
             var app = builder.Build();
 

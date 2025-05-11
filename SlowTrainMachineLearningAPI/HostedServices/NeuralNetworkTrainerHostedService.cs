@@ -1,10 +1,6 @@
-﻿using adaptive_deep_learning_model.Utilities;
-using API.SlowTrainMachineLearning.Services;
+﻿using API.SlowTrainMachineLearning.Services;
 using Card.Application.CQRS.Commands;
-using MediatR;
-using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using SlowTrainMachineLearningAPI;
 using System.Text.Json;
 
 namespace Albergue.Administrator.HostedServices
@@ -12,98 +8,36 @@ namespace Albergue.Administrator.HostedServices
     public class NeuralNetworkTrainerHostedService : IHostedService
     {
         private readonly ILogger<NeuralNetworkTrainerHostedService> _logger;
-        private readonly ISender _sender;
-        private IConnection _connection;
-        private IChannel _channel;
-        private AsyncEventingBasicConsumer _consumer;
-        private ConnectionFactory factory;
-
-        public NeuralNetworkTrainerHostedService()
-        {
-            factory = new ConnectionFactory() { HostName = "localhost", ConsumerDispatchConcurrency = 16 };
-        }
-
+        private readonly INeuralNetworkService _neuralNetworkService;
+        private readonly IQueueConsumerService _queueConsumerService;
         public NeuralNetworkTrainerHostedService(
             ILogger<NeuralNetworkTrainerHostedService> logger,
+            INeuralNetworkService neuralNetworkService,
+            IQueueConsumerService queueConsumerService,
             IServiceProvider serviceProvider)
-            : this()
         {
-            _logger = logger; 
-            _sender = serviceProvider
-                .CreateScope()
-                .ServiceProvider
-                .GetRequiredService<ISender>();
+            _logger = logger;
+            _neuralNetworkService = neuralNetworkService;
+            _queueConsumerService = queueConsumerService;
         }
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
             _logger.LogInformation("Neural Network Hosted Service running.");
 
-            _connection = await factory.CreateConnectionAsync();
-            _channel = await _connection.CreateChannelAsync();
-            await _channel.QueueDeclareAsync(queue: NeuralNetworkService.CHANNEL_NAME,
-                                durable: false,
-                                exclusive: false,
-                                autoDelete: false,
-            arguments: null);
+            AsyncEventHandler<BasicDeliverEventArgs> bo = async (model, ea) =>
+                    {
+                        var body = ea.Body.ToArray();
+                        var obj = JsonSerializer.Deserialize<RegisterModelCommand>(body);
+                        await _neuralNetworkService.DoTrainModelAsync(obj);
+                    };
 
-            _consumer = new AsyncEventingBasicConsumer(_channel);
-            _consumer.ReceivedAsync += async (model, ea) =>
-            {
-                var body = ea.Body.ToArray();
-                var obj = JsonSerializer.Deserialize<RegisterModelCommand>(body);
-                await DoWorkAsync(obj);
-            };
-
-            await _channel.BasicConsumeAsync(
-                NeuralNetworkService.CHANNEL_NAME,
-                autoAck: true, 
-                consumer: _consumer);
-
-        }
-
-        private async Task DoWorkAsync(RegisterModelCommand commandRequest)
-        {
-            var id = Guid.NewGuid().ToString();
-
-            try
-            {
-                _logger.LogInformation(
-                    "Train neural network in progress. ");
-
-                var refToModel = Program.TorchModel.Model;
-                var dataBatch = refToModel
-                    .TransformInputData(
-                        commandRequest
-                        .Xs
-                        .ToFloatArray());
-                var Ys = refToModel
-                    .TransformInputData(
-                        commandRequest
-                        .Ys
-                        .ToFloatArray());
-                                
-                var loss = refToModel.train(dataBatch, Ys);
-                _logger.LogInformation("Loss: {0}", loss);
-
-                var _ = await _sender.Send(new RegisterDataCommand()
-                {
-                    Xs = commandRequest.Xs,
-                    Ys = commandRequest.Ys,
-                    Model = Program.TorchModel.ModelToBytes(refToModel),
-                });
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);
-            }
+            await _queueConsumerService.StartAsync(bo, cancellationToken);
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Neural Network Hosted Service is stopping.");
-
-            return Task.CompletedTask;
+            return _queueConsumerService.StopAsync(cancellationToken);
         }
     }
 }

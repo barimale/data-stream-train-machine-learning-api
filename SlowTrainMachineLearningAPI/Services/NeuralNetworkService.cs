@@ -4,34 +4,66 @@ using Card.Application.CQRS.Commands;
 using Card.Application.CQRS.Queries;
 using fuzzy_logic_model_generator;
 using MediatR;
-using RabbitMQ.Client;
 using SlowTrainMachineLearningAPI;
-using System.Text;
 using System.Text.Json;
 
 namespace API.SlowTrainMachineLearning.Services
 {
     public class NeuralNetworkService : INeuralNetworkService
     {
-        public static string CHANNEL_NAME = "model-creation-channel";
-
         private readonly ILogger<NeuralNetworkService> _logger;
         private readonly IMapper _mapper;
         private readonly ISender _sender;
-
-        private readonly ConnectionFactory _factory;
-
+        private readonly IQueueService _queueService;
 
         public NeuralNetworkService(
             ISender sender,
             IMapper mapper,
-            ILogger<NeuralNetworkService> logger)
+            ILogger<NeuralNetworkService> logger,
+            IQueueService queueService)
         {
             _sender = sender;
             _mapper = mapper;
             _logger = logger;
-            // WIP IConfogiration
-            _factory = new ConnectionFactory() { HostName = "localhost" };
+            _queueService = queueService;
+        }
+
+        
+        public async Task DoTrainModelAsync(RegisterModelCommand commandRequest)
+        {
+            var id = Guid.NewGuid().ToString();
+
+            try
+            {
+                _logger.LogInformation(
+                    "Train neural network in progress. ");
+
+                var refToModel = Program.TorchModel.Model;
+                var dataBatch = refToModel
+                    .TransformInputData(
+                        commandRequest
+                        .Xs
+                        .ToFloatArray());
+                var Ys = refToModel
+                    .TransformInputData(
+                        commandRequest
+                        .Ys
+                        .ToFloatArray());
+
+                var loss = refToModel.train(dataBatch, Ys);
+                _logger.LogInformation("Loss: {0}", loss);
+
+                var _ = await _sender.Send(new RegisterDataCommand()
+                {
+                    Xs = commandRequest.Xs,
+                    Ys = commandRequest.Ys,
+                    Model = Program.TorchModel.ModelToBytes(refToModel),
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
         }
 
         public async Task<IResult> PredictValue(string input)
@@ -89,22 +121,10 @@ namespace API.SlowTrainMachineLearning.Services
 
         public async Task TrainModelOnDemand(RegisterModelRequest commandRequest)
         {
-            using var _connection = await _factory.CreateConnectionAsync();
-            using var _channel = await _connection.CreateChannelAsync();
-            await _channel.QueueDeclareAsync(queue: CHANNEL_NAME,
-                                     durable: true,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
-
             var mapped = _mapper.Map<RegisterModelCommand>(commandRequest);
-
             string msg = JsonSerializer.Serialize(mapped);
 
-            await _channel.BasicPublishAsync(
-                exchange: string.Empty,
-                routingKey: CHANNEL_NAME,
-                Encoding.UTF8.GetBytes(msg));
+            await _queueService.Publish(msg);
         }
 
         public async Task TrainModelWithFullData(string version)
