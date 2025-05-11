@@ -20,27 +20,19 @@ Ys: 1,1,1,1,1,1,1,1,1,1
 https://www.google.com/search?q=vary+input+layer+neural+network&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIJCAMQRRg7GMID0gEGLTFqMGo3qAIEsAIB8QXvRy7F_TusyPEF70cuxf07rMg&client=ms-android-samsung-ga-rev1&sourceid=chrome-mobile&ie=UTF-8
 
 # Ideas
-Reduce amount of epochs based on maximal retention time of the api call.
-Reduce amount of steps based on maximal retention time of the api call.
-Rewrite the POC by using rabbitMQ. Monitor the queue. Make it async parallel.
-Use adam optimizer.
 Use RNN or CNN or graph to be able to handle vary length of the input layer.
 Compare slow-learn neural network with regular one by using the same dataset.
 Create more specific dataset and ingest data to the service from javascript of WPF.
-Add signalR endpoint to feed service faster.
 
 # Reqs
 1. Single api call execution time limit: 50ms
-2. Minimize retention time of being the call in the queue: 50ms
-3. Loss value less than 0.3
-4. train always the brand new model  do the merge for predict.
    
 # Implementation order
 1. Create adaptive neural networks.
 2. Compare networks and reimplement by using GPU.
 3. Prepare data sets: training, test. Shuffle. Merge more than two data sets, shaffle and split into test and train.
 4. Slow learn networks.
-5. Compare their features (loss, predictions) by using test data set.
+5. Compare their features (loss, accuracy) by using test data set.
 6. Specify metadata of the model (version, date, time, loss, accuracy, etc.)
 7. Trivial model as stateless:
 8. Hosted service to separate service.
