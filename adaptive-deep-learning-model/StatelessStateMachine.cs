@@ -13,6 +13,11 @@ namespace adaptive_deep_learning_model
 
         private readonly StateMachine<State, Trigger> _machine;
 
+        public StatelessStateMachine()
+        {
+            // intentionally left blank
+        }
+
         public StatelessStateMachine(Action dothetraining, Action dotheprediction)
         {
             _machine = new StateMachine<State, Trigger>(State.Open);

@@ -22,6 +22,10 @@ namespace SlowTrainMachineLearningAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddTransient<INeuralNetworkService, NeuralNetworkService>();
+            builder.Services.AddTransient<IQueueService, QueueService>();
+            builder.Services.AddTransient<IQueueConsumerService, QueueConsumerService>();
+            builder.Services.AddSingleton<IStatelessStateMachine, StatelessStateMachine>();
 
             builder.Services.AddControllers();
             builder.Services.AddAutoMapper(typeof(ApiProfile));
@@ -37,10 +41,7 @@ namespace SlowTrainMachineLearningAPI
 
             builder.Services.AddMigration<NNContext>();
             builder.Services.AddHostedService<NeuralNetworkTrainerHostedService>();
-            builder.Services.AddTransient<INeuralNetworkService, NeuralNetworkService>();
-            builder.Services.AddTransient<IQueueService, QueueService>();
-            builder.Services.AddTransient<IQueueConsumerService, QueueConsumerService>();
-            builder.Services.AddSingleton<IStatelessStateMachine, StatelessStateMachine>();
+           
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

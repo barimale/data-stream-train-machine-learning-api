@@ -1,10 +1,11 @@
 ﻿using BuildingBlocks.Application.CQRS;
 using Card.Application.CQRS.Commands;
 using Card.Domain.AggregatesModel.CardAggregate;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using Card.Infrastructure.Repositories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Card.Application.CQRS.CommandHandlers;
-public class RegisterDataHandler(IDataRepository dataRepository)
+public class RegisterDataHandler(IServiceScopeFactory _serviceScopeFactory)
     : ICommandHandler<RegisterDataCommand, RegisterDataResult>,
     ICommandHandler<UpdateIsAppliedPiece, RegisterDataIsAppliedResult>
 
@@ -20,18 +21,30 @@ public class RegisterDataHandler(IDataRepository dataRepository)
             PieceOfModel = command.Model
         };
 
-        var result = await dataRepository.AddAsync(card);
-        await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+        using (var scope = _serviceScopeFactory.CreateScope())
+        {
+            var scopedServices = scope.ServiceProvider;
+            var dataRepository = scopedServices.GetRequiredService<IDataRepository>();
 
-        return new RegisterDataResult(result.Id);
+            var result = await dataRepository.AddAsync(card);
+            await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+
+            return new RegisterDataResult(result.Id);
+        }
     }
 
     public async Task<RegisterDataIsAppliedResult> Handle(UpdateIsAppliedPiece request, CancellationToken cancellationToken)
     {
-        var tobeupdatedId = await dataRepository.SetIsApplied(request.Id);
+        using (var scope = _serviceScopeFactory.CreateScope())
+        {
+            var scopedServices = scope.ServiceProvider;
+            var dataRepository = scopedServices.GetRequiredService<IDataRepository>();
 
-        await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            var tobeupdatedId = await dataRepository.SetIsApplied(request.Id);
 
-        return new RegisterDataIsAppliedResult(tobeupdatedId);
+            await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+
+            return new RegisterDataIsAppliedResult(tobeupdatedId);
+        }
     }
 }
