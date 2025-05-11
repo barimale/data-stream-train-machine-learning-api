@@ -16,7 +16,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
     [Route("[controller]")]
     public class NeuralNetworkController : ControllerBase
     {
-        private const int CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES = 10;
+        private const int CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES = 20;
         public static string CHANNEL_NAME = "model-creation-channel";
 
         private readonly ILogger<NeuralNetworkController> _logger;
