@@ -18,7 +18,7 @@ namespace SlowTrainMachineLearningAPI.Model
         {
             get
             {
-                return this.model;
+                return new Trivial();
             }
             set
             {
@@ -129,6 +129,16 @@ namespace SlowTrainMachineLearningAPI.Model
             using (BinaryWriter writer = new BinaryWriter(fs))
             {
                 Model.save(writer);
+                return fs.ToArray();
+            }
+        }
+
+        public byte[] ModelToBytes(Trivial model)
+        {
+            using (MemoryStream fs = new MemoryStream())
+            using (BinaryWriter writer = new BinaryWriter(fs))
+            {
+                model.save(writer);
                 return fs.ToArray();
             }
         }

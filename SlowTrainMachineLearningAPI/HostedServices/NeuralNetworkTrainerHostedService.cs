@@ -20,7 +20,7 @@ namespace Albergue.Administrator.HostedServices
 
         public NeuralNetworkTrainerHostedService()
         {
-            factory = new ConnectionFactory() { HostName = "localhost" };
+            factory = new ConnectionFactory() { HostName = "localhost", ConsumerDispatchConcurrency = 100 };
         }
 
         public NeuralNetworkTrainerHostedService(
@@ -90,7 +90,7 @@ namespace Albergue.Administrator.HostedServices
                 {
                     Xs = commandRequest.Xs,
                     Ys = commandRequest.Ys,
-                    Model = Program.TorchModel.ModelToBytes(),
+                    Model = Program.TorchModel.ModelToBytes(refToModel),
                 });
             }
             catch (Exception ex)
