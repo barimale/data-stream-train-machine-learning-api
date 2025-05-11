@@ -61,7 +61,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [HttpPost("[action]")]
         public async Task<IResult> PredictValue(string input)
         {
-            return await _neuralNetworkService.PredictValue(input);
+            return await _statelessStateMachine.Predict(input);
         }
     }
 }

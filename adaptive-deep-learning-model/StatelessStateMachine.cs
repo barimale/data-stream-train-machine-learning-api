@@ -2,8 +2,11 @@
 using Card.Application.CQRS.Commands;
 using Google.Protobuf.WellKnownTypes;
 using MediatR;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using SlowTrainMachineLearningAPI.Model;
 using Stateless;
+using System.Reflection.PortableExecutable;
 
 namespace adaptive_deep_learning_model
 {
@@ -15,6 +18,7 @@ namespace adaptive_deep_learning_model
 
         //WIP
         private readonly INeuralNetworkService _neuralNetworkService;
+        private readonly ILogger<StatelessStateMachine> _logger;
         public enum State { Open, InTraining, InPrediction , InBuilding}
 
         private enum Trigger { Train, Predict, BackToOpen, Build }
@@ -26,9 +30,11 @@ namespace adaptive_deep_learning_model
 
         public StatelessStateMachine(
             INeuralNetworkService neuralNetworkService,
+            ILogger<StatelessStateMachine> logger,
             ISender sender)
         {
             _neuralNetworkService = neuralNetworkService;
+            _logger = logger;
             _sender = sender;
 
             _machine = new StateMachine<State, Trigger>(State.Open);
@@ -74,11 +80,24 @@ namespace adaptive_deep_learning_model
             //_machine.Fire(Trigger.Train);
         }
 
-        public void Predict(string @value)
+        public Task<IResult> Predict(string @value)
         {
-            _machine.Fire(_predicateTrigger, @value);
+            try
+            {
+                _machine.Fire(_predicateTrigger, @value);
 
-            //_machine.Fire(Trigger.Predict);
+                return _neuralNetworkService.PredictValue(@value);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error in Predict");
+            }
+            finally
+            {
+                _machine.Fire(Trigger.BackToOpen);
+            }
+
+            return null;
         }
 
         public void OnTrainingFinished()

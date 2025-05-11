@@ -1,4 +1,5 @@
 ﻿using Card.Application.CQRS.Commands;
+using Microsoft.AspNetCore.Http;
 
 namespace adaptive_deep_learning_model
 {
@@ -7,7 +8,7 @@ namespace adaptive_deep_learning_model
         StatelessStateMachine.State CurrentState { get; }
 
         void OnTrainingFinished();
-        void Predict(string @value);
+        Task<IResult> Predict(string @value);
         void Train(RegisterModelRequest request);
         void Build(string version);
     }
