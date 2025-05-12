@@ -51,12 +51,20 @@ namespace adaptive_deep_learning_model
 
             _machine.Configure(State.InTraining)
                 .OnEntry(() => Console.WriteLine("OnEntry InTraining"))
-                .OnEntryFromAsync<RegisterModelRequest>(_trainTrigger,async (volume, t) => await _neuralNetworkService.TrainModelOnDemand(volume))
+                .OnEntryFromAsync<RegisterModelRequest>(_trainTrigger,async (volume, t) =>
+                {
+                    await _neuralNetworkService.TrainModelOnDemand(volume);
+                    OnTrainingFinished();
+                })
                 .Permit(Trigger.BackToOpen, State.Open);
 
             _machine.Configure(State.InBuilding)
                 .OnEntry(() => Console.WriteLine("OnEntry InBuilding"))
-                .OnEntryFromAsync<string>(_buildTrigger, async (version, t) => await _neuralNetworkService.TrainModelWithFullData(version))
+                .OnEntryFromAsync<string>(_buildTrigger, async (version, t) =>
+                {
+                    await _neuralNetworkService.TrainModelWithFullData(version);
+                    OnTrainingFinished();
+                })
                 .Permit(Trigger.BackToOpen, State.Open);
 
 
@@ -101,7 +109,7 @@ namespace adaptive_deep_learning_model
 
         public void OnTrainingFinished()
         {
-            _machine.Fire(Trigger.BackToOpen);
+            _machine.FireAsync(Trigger.BackToOpen);
         }
     }
 }
