@@ -61,7 +61,7 @@ namespace adaptive_deep_learning_model
 
             _machine.Configure(State.InPrediction)
                 .OnEntry(() => Console.WriteLine("OnEntry InPrediction"))
-                .OnEntryFromAsync<string>(_predicateTrigger, async (volume, t) => await _neuralNetworkService.PredictValue(volume))
+                //.OnEntryFromAsync<string>(_predicateTrigger, async (volume, t) => await _neuralNetworkService.PredictValue(volume))
                 .Permit(Trigger.BackToOpen, State.Open);
 
             TorchModel = new TorchModel(_sender);
@@ -71,11 +71,11 @@ namespace adaptive_deep_learning_model
 
         public void Build(string version)
         {
-            _machine.Fire(_buildTrigger, version);
+            _machine.FireAsync(_buildTrigger, version);
         }
         public void Train(RegisterModelRequest request)
         {
-            _machine.Fire(_trainTrigger, request);
+            _machine.FireAsync(_trainTrigger, request);
 
             //_machine.Fire(Trigger.Train);
         }
@@ -84,7 +84,7 @@ namespace adaptive_deep_learning_model
         {
             try
             {
-                _machine.Fire(_predicateTrigger, @value);
+                _machine.FireAsync(_predicateTrigger, @value);
 
                 return _neuralNetworkService.PredictValue(@value);
             }
@@ -94,7 +94,7 @@ namespace adaptive_deep_learning_model
             }
             finally
             {
-                _machine.Fire(Trigger.BackToOpen);
+                _machine.FireAsync(Trigger.BackToOpen);
             }
 
             return null;

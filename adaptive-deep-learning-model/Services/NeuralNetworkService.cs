@@ -136,6 +136,7 @@ namespace API.SlowTrainMachineLearning.Services
             try
             {
                 // fuzzy logic 
+                // WIP 
                 var modelYearsOldInMinutes = await _sender.Send(new ModelYearsOldInMinutesQuery());
                 var allData = await _sender.Send(new TrainNetworkQuery());
                 var pieces = allData.Data.Length;

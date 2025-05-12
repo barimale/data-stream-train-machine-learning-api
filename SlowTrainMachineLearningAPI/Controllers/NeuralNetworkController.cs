@@ -32,7 +32,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
             _statelessStateMachine = statelessStateMachine;
             _requringJobManager.AddOrUpdate(
                 "TrainModelWithFullData", 
-                () => _neuralNetworkService.TrainModelWithFullData(""), 
+                () => _statelessStateMachine.Build(Guid.NewGuid().ToString()), 
                 Cron.MinuteInterval(CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES), 
                 TimeZoneInfo.Utc);
         }
