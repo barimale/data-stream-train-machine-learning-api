@@ -8,7 +8,6 @@ namespace API.SlowTrainMachineLearning.Services
         Task<IResult> PredictValue(string input);
         Task DoTrainModelAsync(RegisterModelCommand commandRequest);
         Task TrainModelOnDemand(RegisterModelRequest commandRequest);
-        Task TrainModelWithFullDataManually(string version);
-        Task TrainModelWithFullData(string version);
+        Task TrainModelWithFullData(string version, bool isAutomatic);
     }
 }

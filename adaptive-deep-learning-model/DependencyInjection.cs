@@ -1,13 +1,7 @@
 ﻿using adaptive_deep_learning_model;
 using API.SlowTrainMachineLearning.Services;
-using BuildingBlocks.Application.Behaviors;
-using Card.Application.Behaviours;
-using Card.Application.Integration;
-using Card.Application.Profiles;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.FeatureManagement;
 using SlowTrainMachineLearningAPI.Model;
 
 namespace Card.Application;

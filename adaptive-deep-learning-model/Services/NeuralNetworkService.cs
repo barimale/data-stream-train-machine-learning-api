@@ -81,46 +81,6 @@ namespace API.SlowTrainMachineLearning.Services
             return Results.Ok(JsonSerializer.Serialize(result?.data<float>().ToArray()));
         }
 
-        public async Task TrainModelWithFullDataManually(string version)
-        {
-            var refToModel = StatelessStateMachine.TorchModel.Model;
-
-            try
-            {
-                var allData = await _sender.Send(new TrainNetworkQuery());
-
-                if (allData.Data.Length > 0)
-                {
-                    await StatelessStateMachine.TorchModel.LoadFromDB();
-
-                    foreach (var data in allData.Data)
-                    {
-                        try
-                        {
-                            var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
-                            var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
-
-                            var loss = refToModel.train(dataBatch, Ys);
-                            _logger.LogInformation($"Loss: {loss}");
-                            var _ = await _sender.Send(new UpdateIsAppliedPiece(data.Id));
-                        }
-                        catch (Exception ex)
-                        {
-                            _logger.LogError(ex.Message);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);
-            }
-            finally
-            {
-                await StatelessStateMachine.TorchModel.SaveToDB(version);
-            }
-        }
-
         public async Task TrainModelOnDemand(RegisterModelRequest commandRequest)
         {
             var mapped = _mapper.Map<RegisterModelCommand>(commandRequest);
@@ -129,7 +89,7 @@ namespace API.SlowTrainMachineLearning.Services
             await _queueService.Publish(msg);
         }
 
-        public async Task TrainModelWithFullData(string version)
+        public async Task TrainModelWithFullData(string version, bool isAutomatic)
         {
             var refToModel = StatelessStateMachine.TorchModel.Model;
 
@@ -151,7 +111,7 @@ namespace API.SlowTrainMachineLearning.Services
                 if (pieces == 0)
                     return;
 
-                if (isGenerateModelAllowed)
+                if ((isGenerateModelAllowed && isAutomatic) || !isAutomatic)
                 {
                     await StatelessStateMachine.TorchModel.LoadFromDB();
 

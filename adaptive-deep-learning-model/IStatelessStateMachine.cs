@@ -10,6 +10,6 @@ namespace adaptive_deep_learning_model
         void OnTrainingFinished();
         Task<IResult> Predict(string @value);
         void Train(RegisterModelRequest request);
-        void Build(string version);
+        void Build(string version, bool isAutomatic);
     }
 }

@@ -32,7 +32,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
             _statelessStateMachine = statelessStateMachine;
             _requringJobManager.AddOrUpdate(
                 "TrainModelWithFullData", 
-                () => _statelessStateMachine.Build(Guid.NewGuid().ToString()), 
+                () => _statelessStateMachine.Build(Guid.NewGuid().ToString(), true), 
                 Cron.MinuteInterval(CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES), 
                 TimeZoneInfo.Utc);
         }
@@ -43,7 +43,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         {
             // create model and save to Model
             _backgroundJobClient.Enqueue(
-                () => _statelessStateMachine.Build(version));
+                () => _statelessStateMachine.Build(version, false));
 
             return Results.Ok();
         }

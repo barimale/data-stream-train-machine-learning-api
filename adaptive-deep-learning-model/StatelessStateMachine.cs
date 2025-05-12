@@ -25,7 +25,7 @@ namespace adaptive_deep_learning_model
         private readonly StateMachine<State, Trigger> _machine;
         StateMachine<State, Trigger>.TriggerWithParameters<string> _predicateTrigger;
         StateMachine<State, Trigger>.TriggerWithParameters<RegisterModelRequest> _trainTrigger;
-        StateMachine<State, Trigger>.TriggerWithParameters<string> _buildTrigger;
+        StateMachine<State, Trigger>.TriggerWithParameters<string,bool> _buildTrigger;
 
         public StatelessStateMachine(
             INeuralNetworkService neuralNetworkService,
@@ -42,7 +42,7 @@ namespace adaptive_deep_learning_model
 
             _predicateTrigger = _machine.SetTriggerParameters<string>(Trigger.Predict);
             _trainTrigger = _machine.SetTriggerParameters<RegisterModelRequest>(Trigger.Train);
-            _buildTrigger = _machine.SetTriggerParameters<string>(Trigger.Build);
+            _buildTrigger = _machine.SetTriggerParameters<string,bool>(Trigger.Build);
 
             _machine.Configure(State.Open)
                 .Permit(Trigger.Train, State.InTraining)
@@ -60,9 +60,9 @@ namespace adaptive_deep_learning_model
 
             _machine.Configure(State.InBuilding)
                 .OnEntry(() => Console.WriteLine("OnEntry InBuilding"))
-                .OnEntryFromAsync<string>(_buildTrigger, async (version, t) =>
+                .OnEntryFromAsync<string,bool>(_buildTrigger, async (version,isAutomatic, t) =>
                 {
-                    await _neuralNetworkService.TrainModelWithFullData(version);
+                    await _neuralNetworkService.TrainModelWithFullData(version, isAutomatic);
                     OnTrainingFinished();
                 })
                 .Permit(Trigger.BackToOpen, State.Open);
@@ -76,9 +76,9 @@ namespace adaptive_deep_learning_model
 
         public State CurrentState => _machine.State;
 
-        public void Build(string version)
+        public void Build(string version, bool isAutomatic)
         {
-            _machine.FireAsync(_buildTrigger, version);
+            _machine.FireAsync(_buildTrigger, version, isAutomatic);
         }
         public void Train(RegisterModelRequest request)
         {

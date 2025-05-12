@@ -1,11 +1,9 @@
 ﻿using BuildingBlocks.Application.CQRS;
 using Card.Application.CQRS.Commands;
 using Card.Domain.AggregatesModel.CardAggregate;
-using Card.Infrastructure.Repositories;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Card.Application.CQRS.CommandHandlers;
-public class RegisterDataHandler(IServiceScopeFactory _serviceScopeFactory)
+public class RegisterDataHandler(IDataRepository dataRepository)
     : ICommandHandler<RegisterDataCommand, RegisterDataResult>,
     ICommandHandler<UpdateIsAppliedPiece, RegisterDataIsAppliedResult>
 
@@ -21,30 +19,18 @@ public class RegisterDataHandler(IServiceScopeFactory _serviceScopeFactory)
             PieceOfModel = command.Model
         };
 
-        using (var scope = _serviceScopeFactory.CreateScope())
-        {
-            var scopedServices = scope.ServiceProvider;
-            var dataRepository = scopedServices.GetRequiredService<IDataRepository>();
+        var result = await dataRepository.AddAsync(card);
+        await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
-            var result = await dataRepository.AddAsync(card);
-            await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-
-            return new RegisterDataResult(result.Id);
-        }
+        return new RegisterDataResult(result.Id);
     }
 
     public async Task<RegisterDataIsAppliedResult> Handle(UpdateIsAppliedPiece request, CancellationToken cancellationToken)
     {
-        using (var scope = _serviceScopeFactory.CreateScope())
-        {
-            var scopedServices = scope.ServiceProvider;
-            var dataRepository = scopedServices.GetRequiredService<IDataRepository>();
+        var tobeupdatedId = await dataRepository.SetIsApplied(request.Id);
 
-            var tobeupdatedId = await dataRepository.SetIsApplied(request.Id);
+        await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
-            await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-
-            return new RegisterDataIsAppliedResult(tobeupdatedId);
-        }
+        return new RegisterDataIsAppliedResult(tobeupdatedId);
     }
 }
