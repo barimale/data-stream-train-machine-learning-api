@@ -5,7 +5,7 @@ using MediatR;
 
 namespace SlowTrainMachineLearningAPI.Model
 {
-    public class TorchModel
+    public class TorchModel : ITorchModel
     {
         private readonly ISender _sender;
         public TorchModel(ISender sender)
@@ -30,7 +30,7 @@ namespace SlowTrainMachineLearningAPI.Model
         {
             var result = await _sender.Send(new GetPiecesQuery());
 
-            if(mainModel is not null && mainModel.Model is not null)
+            if (mainModel is not null && mainModel.Model is not null)
             {
                 var pieces = result.Models.Select(p => p.PieceOfModel);
                 var trivials = new Trivial[pieces.Count() + 1];
@@ -92,14 +92,14 @@ namespace SlowTrainMachineLearningAPI.Model
 
                 return new CombinedModel(trivials);
             }
-           
+
         }
 
         public async Task LoadFromDB(string version = "latest")
         {
             var result = await _sender.Send(new GetLatestQuery(version));
 
-            if(result.Model is null)
+            if (result.Model is null)
             {
                 this.Model = new Trivial();
                 return;
@@ -150,7 +150,7 @@ namespace SlowTrainMachineLearningAPI.Model
             {
                 Model.save(writer);
                 var _ = await _sender.Send(new RegisterModelCommand()
-                { 
+                {
                     Model = fs.ToArray(),
                     Version = version,
                 });

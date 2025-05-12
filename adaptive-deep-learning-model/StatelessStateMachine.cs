@@ -12,7 +12,7 @@ namespace adaptive_deep_learning_model
 {
     public class StatelessStateMachine : IStatelessStateMachine
     {
-        public static TorchModel TorchModel { get; set; }
+        public static ITorchModel TorchModel { get; set; }
 
         private readonly ISender _sender;
 
@@ -30,8 +30,10 @@ namespace adaptive_deep_learning_model
         public StatelessStateMachine(
             INeuralNetworkService neuralNetworkService,
             ILogger<StatelessStateMachine> logger,
+            ITorchModel torchModel,
             ISender sender)
         {
+            TorchModel = torchModel;
             _neuralNetworkService = neuralNetworkService;
             _logger = logger;
             _sender = sender;
@@ -62,8 +64,6 @@ namespace adaptive_deep_learning_model
                 .OnEntry(() => Console.WriteLine("OnEntry InPrediction"))
                 //.OnEntryFromAsync<string>(_predicateTrigger, async (volume, t) => await _neuralNetworkService.PredictValue(volume))
                 .Permit(Trigger.BackToOpen, State.Open);
-
-            TorchModel = new TorchModel(_sender);
         }
 
         public State CurrentState => _machine.State;

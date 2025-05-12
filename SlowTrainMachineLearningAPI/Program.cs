@@ -12,7 +12,6 @@ namespace SlowTrainMachineLearningAPI
 {
     public class Program
     {
-        //public static IStatelessStateMachine statelessStateMachine;
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -54,12 +53,6 @@ namespace SlowTrainMachineLearningAPI
 
             app.MapControllers();
 
-            //var serviceProvider = builder.Services.BuildServiceProvider();
-
-            //// Step 3: Retrieve the service
-            //var myService = serviceProvider.GetService<IStatelessStateMachine>();
-
-            //statelessStateMachine = myService;
             app.Run();
         }
     }
