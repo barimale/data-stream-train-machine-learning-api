@@ -16,7 +16,6 @@ namespace adaptive_deep_learning_model
 
         private readonly ISender _sender;
 
-        //WIP
         private readonly INeuralNetworkService _neuralNetworkService;
         private readonly ILogger<StatelessStateMachine> _logger;
         public enum State { Open, InTraining, InPrediction , InBuilding}
