@@ -3,9 +3,11 @@ using Card.Application.CQRS.Commands;
 using Google.Protobuf.WellKnownTypes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using SlowTrainMachineLearningAPI.Model;
 using Stateless;
+using System;
 using System.Reflection.PortableExecutable;
 
 namespace adaptive_deep_learning_model
@@ -13,8 +15,7 @@ namespace adaptive_deep_learning_model
     public class StatelessStateMachine : IStatelessStateMachine
     {
         public static ITorchModel TorchModel { get; set; }
-
-        private readonly ISender _sender;
+        private readonly IServiceProvider _serviceProvider;
 
         private readonly INeuralNetworkService _neuralNetworkService;
         private readonly ILogger<StatelessStateMachine> _logger;
@@ -30,13 +31,13 @@ namespace adaptive_deep_learning_model
         public StatelessStateMachine(
             INeuralNetworkService neuralNetworkService,
             ILogger<StatelessStateMachine> logger,
-            ITorchModel torchModel,
-            ISender sender)
+            IServiceProvider serviceProvider,
+            ITorchModel torchModel)
         {
             TorchModel = torchModel;
-            _neuralNetworkService = neuralNetworkService;
+            //_neuralNetworkService = neuralNetworkService;
+            _serviceProvider = serviceProvider;
             _logger = logger;
-            _sender = sender;
 
             _machine = new StateMachine<State, Trigger>(State.Open);
 
@@ -53,8 +54,12 @@ namespace adaptive_deep_learning_model
                 .OnEntry(() => Console.WriteLine("OnEntry InTraining"))
                 .OnEntryFromAsync<RegisterModelRequest>(_trainTrigger,async (volume, t) =>
                 {
-                    await _neuralNetworkService.TrainModelOnDemand(volume);
-                    OnTrainingFinished();
+                    using(var scoped = _serviceProvider.CreateAsyncScope())
+                    {
+                        var neuralNetworkService = scoped.ServiceProvider.GetService<INeuralNetworkService>();
+                        await neuralNetworkService.TrainModelOnDemand(volume);
+                        OnTrainingFinished();
+                    }
                 })
                 .Permit(Trigger.BackToOpen, State.Open);
 
@@ -62,8 +67,12 @@ namespace adaptive_deep_learning_model
                 .OnEntry(() => Console.WriteLine("OnEntry InBuilding"))
                 .OnEntryFromAsync<string,bool>(_buildTrigger, async (version,isAutomatic, t) =>
                 {
-                    await _neuralNetworkService.TrainModelWithFullData(version, isAutomatic);
-                    OnTrainingFinished();
+                    using (var scoped = _serviceProvider.CreateAsyncScope())
+                    {
+                        var neuralNetworkService = scoped.ServiceProvider.GetService<INeuralNetworkService>();
+                        await neuralNetworkService.TrainModelWithFullData(version, isAutomatic);
+                        OnTrainingFinished();
+                    }
                 })
                 .Permit(Trigger.BackToOpen, State.Open);
 
@@ -92,8 +101,11 @@ namespace adaptive_deep_learning_model
             try
             {
                 _machine.FireAsync(_predicateTrigger, @value);
-
-                return _neuralNetworkService.PredictValue(@value);
+                using (var scoped = _serviceProvider.CreateAsyncScope())
+                {
+                    var neuralNetworkService = scoped.ServiceProvider.GetService<INeuralNetworkService>();
+                    return neuralNetworkService.PredictValue(@value);
+                }
             }
             catch (Exception ex)
             {
