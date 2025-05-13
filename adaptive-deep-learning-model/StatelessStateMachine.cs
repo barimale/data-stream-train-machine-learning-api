@@ -17,7 +17,6 @@ namespace adaptive_deep_learning_model
         public static ITorchModel TorchModel { get; set; }
         private readonly IServiceProvider _serviceProvider;
 
-        private readonly INeuralNetworkService _neuralNetworkService;
         private readonly ILogger<StatelessStateMachine> _logger;
         public enum State { Open, InTraining, InPrediction , InBuilding}
 
@@ -29,13 +28,12 @@ namespace adaptive_deep_learning_model
         StateMachine<State, Trigger>.TriggerWithParameters<string,bool> _buildTrigger;
 
         public StatelessStateMachine(
-            INeuralNetworkService neuralNetworkService,
             ILogger<StatelessStateMachine> logger,
             IServiceProvider serviceProvider,
             ITorchModel torchModel)
         {
             TorchModel = torchModel;
-            //_neuralNetworkService = neuralNetworkService;
+
             _serviceProvider = serviceProvider;
             _logger = logger;
 
