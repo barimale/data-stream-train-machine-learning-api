@@ -13,7 +13,7 @@ public static class DependencyInjection
         services.AddTransient<INeuralNetworkService, NeuralNetworkService>();
         services.AddTransient<IQueueService, QueueService>();
         services.AddTransient<IQueueConsumerService, QueueConsumerService>();
-        services.AddTransient<ITorchModel, TorchModel>();
+        services.AddSingleton<ITorchModel, TorchModel>();
         services.AddSingleton<IStatelessStateMachine, StatelessStateMachine>();
 
         return services;
