@@ -1,6 +1,4 @@
 ﻿using Card.Application.CQRS.Commands;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using System.Text;
 
@@ -26,7 +24,7 @@ namespace API.SlowTrainMachineLearning.Services
             using var _connection = await _factory.CreateConnectionAsync();
             using var _channel = await _connection.CreateChannelAsync();
             await _channel.QueueDeclareAsync(queue: CHANNEL_NAME,
-                                     durable: false,
+                                     durable: true,
                                      exclusive: false,
                                      autoDelete: false,
                                      arguments: null);

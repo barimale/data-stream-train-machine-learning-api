@@ -1,6 +1,7 @@
 ﻿using BuildingBlocks.Application.CQRS;
 using Card.Application.CQRS.Commands;
 using Card.Domain.AggregatesModel.CardAggregate;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Card.Application.CQRS.CommandHandlers;
 public class RegisterDataHandler(IDataRepository dataRepository)

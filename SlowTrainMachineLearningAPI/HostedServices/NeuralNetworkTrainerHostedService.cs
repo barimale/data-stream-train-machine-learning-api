@@ -13,7 +13,8 @@ namespace Albergue.Administrator.HostedServices
         public NeuralNetworkTrainerHostedService(
             ILogger<NeuralNetworkTrainerHostedService> logger,
             INeuralNetworkService neuralNetworkService,
-            IQueueConsumerService queueConsumerService)
+            IQueueConsumerService queueConsumerService,
+            IServiceProvider serviceProvider)
         {
             _logger = logger;
             _neuralNetworkService = neuralNetworkService;

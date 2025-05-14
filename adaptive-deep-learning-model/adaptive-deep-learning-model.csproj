@@ -8,7 +8,6 @@
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="MediatR" Version="12.5.0" />
-		<PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
 		<PackageReference Include="Stateless" Version="5.17.0" />
 		<PackageReference Include="TorchSharp" Version="0.105.0" />
 		<PackageReference Include="TorchSharp-cpu" Version="0.105.0" />
