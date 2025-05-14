@@ -1,8 +1,7 @@
-﻿using Card.Application.CQRS.Commands;
-using Consul;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using System.Threading;
 
 namespace API.SlowTrainMachineLearning.Services
 {

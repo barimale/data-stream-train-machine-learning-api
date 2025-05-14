@@ -2,15 +2,19 @@
 using Card.Application.CQRS.Commands;
 using Card.Application.CQRS.Queries;
 using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace SlowTrainMachineLearningAPI.Model
 {
-    public class TorchModel
+    public class TorchModel : ITorchModel
     {
         private readonly ISender _sender;
-        public TorchModel(ISender sender)
+        private readonly IServiceProvider _provider;
+
+        public TorchModel(ISender sender, IServiceProvider provider)
         {
             _sender = sender;
+            _provider = provider;
         }
 
         private Trivial model = new Trivial();
@@ -28,9 +32,16 @@ namespace SlowTrainMachineLearningAPI.Model
 
         public async Task<CombinedModel> GetModelFromPieces(GetModuleResult mainModel)
         {
-            var result = await _sender.Send(new GetPiecesQuery());
+            GetPiecesResult result;
 
-            if(mainModel is not null && mainModel.Model is not null)
+            await using (var scope = _provider.CreateAsyncScope())
+            {
+                var sender = scope.ServiceProvider.GetService<ISender>();
+                result = await sender.Send(new GetPiecesQuery());
+            }
+            
+
+            if (mainModel is not null && mainModel.Model is not null)
             {
                 var pieces = result.Models.Select(p => p.PieceOfModel);
                 var trivials = new Trivial[pieces.Count() + 1];
@@ -92,14 +103,19 @@ namespace SlowTrainMachineLearningAPI.Model
 
                 return new CombinedModel(trivials);
             }
-           
+
         }
 
         public async Task LoadFromDB(string version = "latest")
         {
-            var result = await _sender.Send(new GetLatestQuery(version));
+            GetModuleResult result;
 
-            if(result.Model is null)
+            await using (var scope = _provider.CreateAsyncScope())
+            {
+                var sender = scope.ServiceProvider.GetService<ISender>();
+                result = await sender.Send(new GetLatestQuery(version));
+            }
+            if (result.Model is null)
             {
                 this.Model = new Trivial();
                 return;
@@ -150,7 +166,7 @@ namespace SlowTrainMachineLearningAPI.Model
             {
                 Model.save(writer);
                 var _ = await _sender.Send(new RegisterModelCommand()
-                { 
+                {
                     Model = fs.ToArray(),
                     Version = version,
                 });

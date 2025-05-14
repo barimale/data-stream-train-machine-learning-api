@@ -22,11 +22,11 @@ public static class DependencyInjection
                 maxRetryDelay: TimeSpan.FromSeconds(30),
                 errorNumbersToAdd: null);
             });
-        }, ServiceLifetime.Transient);
+        }, ServiceLifetime.Transient);  
 
         // Add services to the container.
-        services.AddScoped<IModelRepository, ModelRepository>();
-        services.AddScoped<IDataRepository, DataRepository>();
+        services.AddTransient<IModelRepository, ModelRepository>();
+        services.AddTransient<IDataRepository, DataRepository>();
 
         return services;
     }
