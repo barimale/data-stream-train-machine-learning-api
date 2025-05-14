@@ -11,6 +11,7 @@ using RabbitMQ.Client;
 using System.Text;
 using adaptive_deep_learning_model;
 using API.SlowTrainMachineLearning.Services;
+using System.Reflection.PortableExecutable;
 
 namespace SlowTrainMachineLearningAPI.Controllers
 {
@@ -24,39 +25,48 @@ namespace SlowTrainMachineLearningAPI.Controllers
         private readonly IBackgroundJobClient _backgroundJobClient;
         private readonly IRecurringJobManager _requringJobManager;
         private readonly INeuralNetworkService _neuralNetworkService;
-        private readonly StatelessStateMachine _machine;
+        private readonly IStatelessStateMachine _machine;
 
         public NeuralNetworkController(ILogger<NeuralNetworkController> logger,
             IBackgroundJobClient backgroundJobClient,
             IRecurringJobManager requringJobManager,
+            IStatelessStateMachine machine,
             INeuralNetworkService neuralNetworkService)
         {
             _logger = logger;
             _backgroundJobClient = backgroundJobClient;
             _requringJobManager = requringJobManager;
+            _machine = machine;
             _neuralNetworkService = neuralNetworkService;
             _requringJobManager.AddOrUpdate(
                 "TrainModelWithFullData", 
-                () => _neuralNetworkService.TrainModelWithFullData(""), 
-                Cron.MinuteInterval(CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES), 
+                () => BuildModel(),
+                Cron.MinuteInterval(CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES),
                 TimeZoneInfo.Utc);
-
-            //    _machine = new StatelessStateMachine(
-            //        async () => await TrainModelWithFullData(""),
-            //        async () => await PredictValue("0"));
-            //    _machine.Train();
-            //    _machine.Predict();
         }
 
+        private void BuildModel()
+        {
+            _machine.Build();
+            _neuralNetworkService.TrainModelWithFullData(Guid.NewGuid().ToString());
+            _machine.OnFinished();
+        }
 
         [HttpPost("[action]")]
         public async Task<IResult> RebuildNetworkManually(string version)
         {
             // create model and save to Model
             _backgroundJobClient.Enqueue(
-                () => _neuralNetworkService.TrainModelWithFullDataManually(version));
+                () => BuildModelManually(version));
 
             return Results.Ok();
+        }
+
+        private void BuildModelManually(string version)
+        {
+            _machine.Build();
+            _neuralNetworkService.TrainModelWithFullDataManually(version);
+            _machine.OnFinished();
         }
 
         [HttpPost("[action]")]
@@ -64,15 +74,46 @@ namespace SlowTrainMachineLearningAPI.Controllers
         {
             // create a piece of model and save to Datas
             _backgroundJobClient.Enqueue(
-                () => _neuralNetworkService.TrainModelOnDemand(commandRequest));
+                () => Train(commandRequest));
 
             return Results.Ok();
+        }
+
+        private Task Train(RegisterModelRequest commandRequest)
+        {
+            try
+            {
+                _machine.Train();
+                return _neuralNetworkService.TrainModelOnDemand(commandRequest);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                _machine.OnFinished();
+            }
         }
 
         [HttpPost("[action]")]
         public async Task<IResult> PredictValue(string input)
         {
-            return await _neuralNetworkService.PredictValue(input);
+            try
+            {
+                _machine.Predict();
+                return await _neuralNetworkService.PredictValue(input);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                _machine.OnFinished();
+            }
         }
     }
 }

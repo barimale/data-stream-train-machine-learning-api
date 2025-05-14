@@ -31,6 +31,7 @@ namespace SlowTrainMachineLearningAPI
             builder.Services.AddHangfire(config => config.UseMemoryStorage());
             builder.Services.AddHangfireServer();
             builder.Services
+                   .AddAdaptiveNetworkServices(builder.Configuration)
                    .AddApplicationServices(builder.Configuration)
                    .AddInfrastructureServices(builder.Configuration);
 

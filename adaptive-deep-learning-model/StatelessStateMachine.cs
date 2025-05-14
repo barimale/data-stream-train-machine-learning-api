@@ -3,28 +3,33 @@ using System.Runtime.CompilerServices;
 
 namespace adaptive_deep_learning_model
 {
-    public class StatelessStateMachine
+    public class StatelessStateMachine : IStatelessStateMachine
     {
-        public enum State { Open, InTraining, InPrediction }
+        public enum State { Open, InTraining, InPrediction, InBuilding }
 
-        private enum Trigger { Train, Predict, BackToOpen }
+        private enum Trigger { Train, Predict, Build, BackToOpen }
 
         private readonly StateMachine<State, Trigger> _machine;
 
-        public StatelessStateMachine(Action dothetraining, Action dotheprediction)
+        public StatelessStateMachine()
         {
             _machine = new StateMachine<State, Trigger>(State.Open);
 
             _machine.Configure(State.Open)
                 .Permit(Trigger.Train, State.InTraining)
+                .Permit(Trigger.Build, State.InBuilding)
                 .Permit(Trigger.Predict, State.InPrediction);
 
+            _machine.Configure(State.InBuilding)
+                .OnEntry(() => Console.WriteLine("InBuilding"))
+                .Permit(Trigger.BackToOpen, State.Open);
+
             _machine.Configure(State.InTraining)
-                .OnEntry(() => dothetraining.Invoke())
+                .OnEntry(() => Console.WriteLine("InTraining"))
                 .Permit(Trigger.BackToOpen, State.Open);
 
             _machine.Configure(State.InPrediction)
-                .OnEntry(() => dotheprediction.Invoke())
+                .OnEntry(() => Console.WriteLine("InPrediction"))
                 .Permit(Trigger.BackToOpen, State.Open);
         }
 
@@ -32,17 +37,22 @@ namespace adaptive_deep_learning_model
 
         public void Train()
         {
-            _machine.Fire(Trigger.Train);
+            _machine.FireAsync(Trigger.Train);
         }
 
         public void Predict()
         {
-            _machine.Fire(Trigger.Predict);
+            _machine.FireAsync(Trigger.Predict);
         }
 
-        public void OnTrainingFinished()
+        public void OnFinished()
         {
-            _machine.Fire(Trigger.BackToOpen);
+            _machine.FireAsync(Trigger.BackToOpen);
+        }
+
+        public void Build()
+        {
+            _machine.FireAsync(Trigger.Build);
         }
     }
 }

@@ -1,6 +1,4 @@
 ﻿using BuildingBlocks.Application.Behaviors;
-using Card.Application.Behaviours;
-using Card.Application.Integration;
 using Card.Application.Profiles;
 using MediatR;
 using Microsoft.Extensions.Configuration;
@@ -25,8 +23,6 @@ public static class DependencyInjection
 
         services.AddFeatureManagement();
         services.AddAutoMapper(typeof(CardProfile));
-
-        services.AddScoped<IIdGeneratorAdapter, IdGeneratorAdapter>();
 
         return services;
     }

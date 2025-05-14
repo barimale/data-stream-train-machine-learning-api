@@ -1,11 +1,10 @@
 ﻿using BuildingBlocks.Application.CQRS;
 using Card.Application.CQRS.Commands;
-using Card.Application.Integration;
 using Card.Domain.AggregatesModel.CardAggregate;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Card.Application.CQRS.CommandHandlers;
-public class RegisterModuleHandler(IServiceProvider provider, IIdGeneratorAdapter generator)
+public class RegisterModuleHandler(IServiceProvider provider)
     : ICommandHandler<RegisterModelCommand, RegisterModelResult>
 {
     public async Task<RegisterModelResult> Handle(RegisterModelCommand command, CancellationToken cancellationToken)
