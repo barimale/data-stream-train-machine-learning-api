@@ -1,17 +1,7 @@
-﻿using adaptive_deep_learning_model.Utilities;
-using AutoMapper;
-using Card.Application.CQRS.Commands;
-using Card.Application.CQRS.Queries;
+﻿using Card.Application.CQRS.Commands;
 using Hangfire;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
-using fuzzy_logic_model_generator;
-using RabbitMQ.Client;
-using System.Text;
-using adaptive_deep_learning_model;
 using API.SlowTrainMachineLearning.Services;
-using System.Reflection.PortableExecutable;
 
 namespace SlowTrainMachineLearningAPI.Controllers
 {
@@ -25,18 +15,15 @@ namespace SlowTrainMachineLearningAPI.Controllers
         private readonly IBackgroundJobClient _backgroundJobClient;
         private readonly IRecurringJobManager _requringJobManager;
         private readonly INeuralNetworkService _neuralNetworkService;
-        private readonly IStatelessStateMachine _machine;
 
         public NeuralNetworkController(ILogger<NeuralNetworkController> logger,
             IBackgroundJobClient backgroundJobClient,
             IRecurringJobManager requringJobManager,
-            IStatelessStateMachine machine,
             INeuralNetworkService neuralNetworkService)
         {
             _logger = logger;
             _backgroundJobClient = backgroundJobClient;
             _requringJobManager = requringJobManager;
-            _machine = machine;
             _neuralNetworkService = neuralNetworkService;
             _requringJobManager.AddOrUpdate(
                 "TrainModelWithFullData", 
@@ -48,9 +35,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [NonAction]
         public void BuildModel()
         {
-            _machine.Build();
             _neuralNetworkService.TrainModelWithFullData(Guid.NewGuid().ToString());
-            _machine.OnFinished();
         }
 
         [HttpPost("[action]")]
@@ -66,9 +51,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [NonAction]
         public void BuildModelManually(string version)
         {
-            _machine.Build();
             _neuralNetworkService.TrainModelWithFullDataManually(version);
-            _machine.OnFinished();
         }
 
         [HttpPost("[action]")]
@@ -86,17 +69,12 @@ namespace SlowTrainMachineLearningAPI.Controllers
         {
             try
             {
-                _machine.Train();
                 return _neuralNetworkService.TrainModelOnDemand(commandRequest);
             }
             catch (Exception)
             {
 
                 throw;
-            }
-            finally
-            {
-                _machine.OnFinished();
             }
         }
 
@@ -105,17 +83,12 @@ namespace SlowTrainMachineLearningAPI.Controllers
         {
             try
             {
-                _machine.Predict();
                 return await _neuralNetworkService.PredictValue(input);
             }
             catch (Exception)
             {
 
                 throw;
-            }
-            finally
-            {
-                _machine.OnFinished();
             }
         }
     }

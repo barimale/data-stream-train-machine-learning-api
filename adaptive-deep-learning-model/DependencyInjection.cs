@@ -8,8 +8,6 @@ public static class DependencyInjection
     public static IServiceCollection AddAdaptiveNetworkServices
         (this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddSingleton<IStatelessStateMachine, StatelessStateMachine>();
-
         return services;
     }
 }
