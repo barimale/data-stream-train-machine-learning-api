@@ -1,10 +1,14 @@
 ﻿using BuildingBlocks.Application.CQRS;
 using Card.Application.CQRS.Commands;
+using Card.Common.Domain;
 using Card.Domain.AggregatesModel.CardAggregate;
+using Card.Infrastructure.Repositories;
+using Consul;
+using Microsoft.Extensions.DependencyInjection;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Card.Application.CQRS.CommandHandlers;
-public class RegisterDataHandler(IDataRepository dataRepository)
+public class RegisterDataHandler(IServiceProvider provider)
     : ICommandHandler<RegisterDataCommand, RegisterDataResult>,
     ICommandHandler<UpdateIsAppliedPiece, RegisterDataIsAppliedResult>
 
@@ -19,19 +23,28 @@ public class RegisterDataHandler(IDataRepository dataRepository)
             Ys = command.Ys,
             PieceOfModel = command.Model
         };
+        using (var scope = provider.CreateAsyncScope())
+        {
+            var repository = scope.ServiceProvider.GetService<IDataRepository>();
 
-        var result = await dataRepository.AddAsync(card);
-        await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            var result = await repository.AddAsync(card);
+            await repository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
-        return new RegisterDataResult(result.Id);
+            return new RegisterDataResult(result.Id);
+        }
     }
 
     public async Task<RegisterDataIsAppliedResult> Handle(UpdateIsAppliedPiece request, CancellationToken cancellationToken)
     {
-        var tobeupdatedId = await dataRepository.SetIsApplied(request.Id);
+        using (var scope = provider.CreateAsyncScope())
+        {
+            var dataRepository = scope.ServiceProvider.GetService<IDataRepository>();
 
-        await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            var tobeupdatedId = await dataRepository.SetIsApplied(request.Id);
 
-        return new RegisterDataIsAppliedResult(tobeupdatedId);
+            await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+
+            return new RegisterDataIsAppliedResult(tobeupdatedId);
+        }
     }
 }

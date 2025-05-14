@@ -25,8 +25,8 @@ public static class DependencyInjection
         }, ServiceLifetime.Transient);
 
         // Add services to the container.
-        services.AddScoped<IModelRepository, ModelRepository>();
-        services.AddScoped<IDataRepository, DataRepository>();
+        services.AddTransient<IModelRepository, ModelRepository>();
+        services.AddTransient<IDataRepository, DataRepository>();
 
         return services;
     }
