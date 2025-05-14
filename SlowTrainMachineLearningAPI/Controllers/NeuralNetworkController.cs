@@ -45,7 +45,8 @@ namespace SlowTrainMachineLearningAPI.Controllers
                 TimeZoneInfo.Utc);
         }
 
-        private void BuildModel()
+        [NonAction]
+        public void BuildModel()
         {
             _machine.Build();
             _neuralNetworkService.TrainModelWithFullData(Guid.NewGuid().ToString());
@@ -62,7 +63,8 @@ namespace SlowTrainMachineLearningAPI.Controllers
             return Results.Ok();
         }
 
-        private void BuildModelManually(string version)
+        [NonAction]
+        public void BuildModelManually(string version)
         {
             _machine.Build();
             _neuralNetworkService.TrainModelWithFullDataManually(version);
@@ -79,7 +81,8 @@ namespace SlowTrainMachineLearningAPI.Controllers
             return Results.Ok();
         }
 
-        private Task Train(RegisterModelRequest commandRequest)
+        [NonAction]
+        public Task Train(RegisterModelRequest commandRequest)
         {
             try
             {

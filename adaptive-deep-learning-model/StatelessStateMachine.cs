@@ -22,14 +22,17 @@ namespace adaptive_deep_learning_model
 
             _machine.Configure(State.InBuilding)
                 .OnEntry(() => Console.WriteLine("InBuilding"))
+                .PermitReentry(Trigger.Predict)
                 .Permit(Trigger.BackToOpen, State.Open);
 
             _machine.Configure(State.InTraining)
                 .OnEntry(() => Console.WriteLine("InTraining"))
+                .PermitReentry(Trigger.Predict)
                 .Permit(Trigger.BackToOpen, State.Open);
 
             _machine.Configure(State.InPrediction)
                 .OnEntry(() => Console.WriteLine("InPrediction"))
+                .PermitReentry(Trigger.Predict)
                 .Permit(Trigger.BackToOpen, State.Open);
         }
 
