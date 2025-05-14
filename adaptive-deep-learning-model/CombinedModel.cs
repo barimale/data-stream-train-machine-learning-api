@@ -32,7 +32,7 @@ namespace adaptive_deep_learning_model
             {
                 final = (final + t)/2;
             }
-            var yy = nn.functional.relu(final); // models.Length);
+            var yy = nn.functional.relu(final); // models.Length); WIP
             return yy;
         }
     }
