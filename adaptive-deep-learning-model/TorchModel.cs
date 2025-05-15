@@ -13,6 +13,8 @@ namespace SlowTrainMachineLearningAPI.Model
             _sender = sender;
         }
 
+        public bool IsTrainingInProgress = false;
+
         private Trivial model = new Trivial();
         public Trivial Model
         {

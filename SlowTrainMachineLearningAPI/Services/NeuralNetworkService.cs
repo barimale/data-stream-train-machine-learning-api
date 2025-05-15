@@ -94,9 +94,12 @@ namespace API.SlowTrainMachineLearning.Services
         {
             var refToModel = Program.TorchModel.Model;
 
+            if (Program.TorchModel.IsTrainingInProgress)
+                return;
+
             try
             {
-
+                Program.TorchModel.IsTrainingInProgress = true;
                 GetAllDataResult allData;
                 using (var scope = _provider.CreateScope())
                 {
@@ -133,6 +136,7 @@ namespace API.SlowTrainMachineLearning.Services
             finally
             {
                 await Program.TorchModel.SaveToDB(version);
+                Program.TorchModel.IsTrainingInProgress = false;
             }
         }
 
@@ -148,8 +152,12 @@ namespace API.SlowTrainMachineLearning.Services
         {
             var refToModel = Program.TorchModel.Model;
 
+            if (Program.TorchModel.IsTrainingInProgress)
+                return;
+
             try
             {
+                Program.TorchModel.IsTrainingInProgress = true;
                 // fuzzy logic 
                 GetModelYearsOldResult modelYearsOldInMinutes;
                 GetAllDataResult allData;
@@ -200,6 +208,10 @@ namespace API.SlowTrainMachineLearning.Services
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
+            }
+            finally
+            {
+                Program.TorchModel.IsTrainingInProgress = false;
             }
         }
     }
