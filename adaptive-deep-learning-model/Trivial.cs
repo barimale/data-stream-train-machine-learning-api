@@ -40,19 +40,35 @@ namespace adaptive_deep_learning_model
 
         public override Tensor forward(Tensor input)
         {
-            // dynamic/adaptive input layer
-            using var seq = nn.Sequential(
-                ("lin1", getLin1a((int)input.real.NumberOfElements)), 
-                ("relu1", nn.ReLU()), 
-                ("drop1", nn.Dropout(0.1)), 
-                ("lin2", lin2), 
+            if(torch.cuda.is_available())
+            {
+                // dynamic/adaptive input layer
+                using var seq = nn.Sequential(
+                ("lin1", getLin1a((int)input.real.NumberOfElements)),
+                ("relu1", nn.ReLU()),
+                ("drop1", nn.Dropout(0.1)),
+                ("lin2", lin2),
+                ("relu2", nn.ReLU())).cuda();
+
+                // GPU install cuda torhsharp
+                var device = torch.device(torch.cuda.is_available() ? "cuda" : "cpu");
+                input = input.to(device);
+
+                return seq.forward(input);
+            }
+            else
+            {
+                // dynamic/adaptive input layer
+                using var seq = nn.Sequential(
+                ("lin1", getLin1a((int)input.real.NumberOfElements)),
+                ("relu1", nn.ReLU()),
+                ("drop1", nn.Dropout(0.1)),
+                ("lin2", lin2),
                 ("relu2", nn.ReLU()));
 
-            // GPU install cuda torhsharp
-            var device = torch.device(torch.cuda.is_available() ? "cuda" : "cpu");
-            input = input.to(device);
-
-            return seq.forward(input); 
+                return seq.forward(input);
+            }
+            
         }
 
         public Tensor? TransformInputData(params float[] numbers)
@@ -89,7 +105,8 @@ namespace adaptive_deep_learning_model
             // to be customized / adaptive
             //var learning_rate = 0.001f; adaptive via Adam
             // to be customized / adaptive
-            var loss = nn.MSELoss();
+            // GPU cuda here
+            var loss = torch.cuda.is_available() ? nn.MSELoss().cuda() : nn.MSELoss();
             // to be customized / adaptive
             var EPOCHS = 3;
             var finalLoss = 0.0f;
