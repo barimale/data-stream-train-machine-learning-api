@@ -1,5 +1,4 @@
-﻿using adaptive_deep_learning_model;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Card.Application;
