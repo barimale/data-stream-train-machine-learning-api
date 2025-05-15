@@ -40,21 +40,9 @@ namespace adaptive_deep_learning_model
 
         public override Tensor forward(Tensor input)
         {
-            // model switch
-            if (input.real.NumberOfElements == 5)
-            {
-                using var xx = lin1.forward(input);
-                using var yy = nn.functional.relu(xx);
-                return lin2.forward(yy);
-            }
-            else if (input.real.NumberOfElements == 10)
-            {
-                using var x = lin1b.forward(input);
-                using var y = nn.functional.relu(x);
-                return lin2.forward(y);
-            }
-
             // dynamic/adaptive input layer
+            // gpu: save the seq as a model in the class
+            // Sequential model;
             using var seq = nn.Sequential(
                 ("lin1", getLin1a((int)input.real.NumberOfElements)), 
                 ("relu1", nn.ReLU()), 
@@ -111,8 +99,8 @@ namespace adaptive_deep_learning_model
 
             //var _ = torch.CUDA;
             // it should be possible to use GPU NVIDIA
-            //this.to(torch.CUDA);
-
+            // this.to(torch.CUDA);
+            
             for (int e = 0; e < EPOCHS; e++)
             {
                 for (int i = 0; i < steps; i++)

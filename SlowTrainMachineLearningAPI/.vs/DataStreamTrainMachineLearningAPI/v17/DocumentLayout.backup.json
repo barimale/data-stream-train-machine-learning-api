@@ -1,14 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{74CC3E67-A428-4FD1-B64D-A6489C5A8398}|..\\adaptive-deep-learning-model\\adaptive-deep-learning-model.csproj|r:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\combinedmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74CC3E67-A428-4FD1-B64D-A6489C5A8398}|..\\adaptive-deep-learning-model\\adaptive-deep-learning-model.csproj|r:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\trivial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -16,37 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Trivial.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\Trivial.cs",
-              "RelativeDocumentMoniker": "..\\adaptive-deep-learning-model\\Trivial.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\Trivial.cs",
-              "RelativeToolTip": "..\\adaptive-deep-learning-model\\Trivial.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAIwHkAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T18:06:48.657Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CombinedModel.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\CombinedModel.cs",
-              "RelativeDocumentMoniker": "..\\adaptive-deep-learning-model\\CombinedModel.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\CombinedModel.cs",
-              "RelativeToolTip": "..\\adaptive-deep-learning-model\\CombinedModel.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBkAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T18:05:51.646Z",
-              "EditorCaption": ""
             }
           ]
         }
