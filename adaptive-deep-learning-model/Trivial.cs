@@ -107,6 +107,12 @@ namespace adaptive_deep_learning_model
             // to be customized / adaptive
             var optimizer = torch.optim.Adam(this.parameters());
 
+            //var b = torch.cuda.is_available();
+
+            //var _ = torch.CUDA;
+            // it should be possible to use GPU NVIDIA
+            //this.to(torch.CUDA);
+
             for (int e = 0; e < EPOCHS; e++)
             {
                 for (int i = 0; i < steps; i++)
