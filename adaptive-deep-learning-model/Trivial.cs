@@ -40,35 +40,29 @@ namespace adaptive_deep_learning_model
 
         public override Tensor forward(Tensor input)
         {
-            if(torch.cuda.is_available())
+            // model switch
+            if (input.real.NumberOfElements == 5)
             {
-                // dynamic/adaptive input layer
-                using var seq = nn.Sequential(
-                ("lin1", getLin1a((int)input.real.NumberOfElements)),
-                ("relu1", nn.ReLU()),
-                ("drop1", nn.Dropout(0.1)),
-                ("lin2", lin2),
-                ("relu2", nn.ReLU())).cuda();
-
-                // GPU install cuda torhsharp
-                var device = torch.device(torch.cuda.is_available() ? "cuda" : "cpu");
-                input = input.to(device);
-
-                return seq.forward(input);
+                using var xx = lin1.forward(input);
+                using var yy = nn.functional.relu(xx);
+                return lin2.forward(yy);
             }
-            else
+            else if (input.real.NumberOfElements == 10)
             {
-                // dynamic/adaptive input layer
-                using var seq = nn.Sequential(
-                ("lin1", getLin1a((int)input.real.NumberOfElements)),
-                ("relu1", nn.ReLU()),
-                ("drop1", nn.Dropout(0.1)),
-                ("lin2", lin2),
+                using var x = lin1b.forward(input);
+                using var y = nn.functional.relu(x);
+                return lin2.forward(y);
+            }
+
+            // dynamic/adaptive input layer
+            using var seq = nn.Sequential(
+                ("lin1", getLin1a((int)input.real.NumberOfElements)), 
+                ("relu1", nn.ReLU()), 
+                ("drop1", nn.Dropout(0.1)), 
+                ("lin2", lin2), 
                 ("relu2", nn.ReLU()));
 
-                return seq.forward(input);
-            }
-            
+            return seq.forward(input); 
         }
 
         public Tensor? TransformInputData(params float[] numbers)
@@ -105,8 +99,7 @@ namespace adaptive_deep_learning_model
             // to be customized / adaptive
             //var learning_rate = 0.001f; adaptive via Adam
             // to be customized / adaptive
-            // GPU cuda here
-            var loss = torch.cuda.is_available() ? nn.MSELoss().cuda() : nn.MSELoss();
+            var loss = nn.MSELoss();
             // to be customized / adaptive
             var EPOCHS = 3;
             var finalLoss = 0.0f;
@@ -114,12 +107,6 @@ namespace adaptive_deep_learning_model
             // to be customized / adaptive
             var optimizer = torch.optim.Adam(this.parameters());
 
-            //var b = torch.cuda.is_available();
-
-            //var _ = torch.CUDA;
-            // it should be possible to use GPU NVIDIA
-            // this.to(torch.CUDA);
-            
             for (int e = 0; e < EPOCHS; e++)
             {
                 for (int i = 0; i < steps; i++)
