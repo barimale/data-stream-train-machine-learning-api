@@ -1,4 +1,4 @@
-# slow-train-machine-learning-api [POC]
+# data-stream-train-machine-learning-api [POC]
 Adaptable deep neural networks to learn directly from data streams
 ## Prereqs
 - Docker Desktop
@@ -17,6 +17,9 @@ Ys: 1,1,1,1,1,1,1,1,1,1
 ```
 
 # Todos
+https://www.bing.com/search?q=background%20service%20project%20c%23%20&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=background%20service%20project%20c%23%20&sc=10-30&sk=&cvid=C81D742B0E01405792541D7E25440D4E
+use dapper and do benchmark
+hostedservice to background worker
 https://www.google.com/search?q=vary+input+layer+neural+network&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIJCAMQRRg7GMID0gEGLTFqMGo3qAIEsAIB8QXvRy7F_TusyPEF70cuxf07rMg&client=ms-android-samsung-ga-rev1&sourceid=chrome-mobile&ie=UTF-8
 Do the final check and provide scopedservices
 # Ideas
