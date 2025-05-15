@@ -13,16 +13,17 @@ namespace API.SlowTrainMachineLearning.Services
     {
         private readonly ILogger<NeuralNetworkService> _logger;
         private readonly IMapper _mapper;
-        private readonly ISender _sender;
+        private readonly IServiceProvider _provider;
         private readonly IQueueService _queueService;
 
         public NeuralNetworkService(
             ISender sender,
             IMapper mapper,
+            IServiceProvider provider,
             ILogger<NeuralNetworkService> logger,
             IQueueService queueService)
         {
-            _sender = sender;
+            _provider = provider;
             _mapper = mapper;
             _logger = logger;
             _queueService = queueService;
@@ -53,12 +54,16 @@ namespace API.SlowTrainMachineLearning.Services
                 var loss = refToModel.train(dataBatch, Ys);
                 _logger.LogInformation("Loss: {0}", loss);
 
-                var _ = await _sender.Send(new RegisterDataCommand()
+                using (var scope = _provider.CreateScope())
                 {
-                    Xs = commandRequest.Xs,
-                    Ys = commandRequest.Ys,
-                    Model = Program.TorchModel.ModelToBytes(refToModel),
-                });
+                    var _sender = scope.ServiceProvider.GetRequiredService<ISender>();
+                    var _ = await _sender.Send(new RegisterDataCommand()
+                    {
+                        Xs = commandRequest.Xs,
+                        Ys = commandRequest.Ys,
+                        Model = Program.TorchModel.ModelToBytes(refToModel),
+                    });
+                }
             }
             catch (Exception ex)
             {
@@ -70,7 +75,13 @@ namespace API.SlowTrainMachineLearning.Services
         {
             // use latest model + combine unapplied pieces
             var transformator = Program.TorchModel.Model;
-            var mainModel = await _sender.Send(new GetLatestQuery(string.Empty));
+            GetModuleResult mainModel;
+            
+            using(var scope = _provider.CreateScope())
+            {
+                var _sender = scope.ServiceProvider.GetRequiredService<ISender>();
+                mainModel = await _sender.Send(new GetLatestQuery(string.Empty));
+            }
 
             var refToModel = await Program.TorchModel.GetModelFromPieces(mainModel);
             var dataBatch = transformator.TransformInputData(input.ToFloatArray());
@@ -85,26 +96,32 @@ namespace API.SlowTrainMachineLearning.Services
 
             try
             {
-                var allData = await _sender.Send(new TrainNetworkQuery());
 
-                if (allData.Data.Length > 0)
+                GetAllDataResult allData;
+                using (var scope = _provider.CreateScope())
                 {
-                    await Program.TorchModel.LoadFromDB();
+                    var _sender = scope.ServiceProvider.GetRequiredService<ISender>();
+                    allData = await _sender.Send(new TrainNetworkQuery());
 
-                    foreach (var data in allData.Data)
+                    if (allData.Data.Length > 0)
                     {
-                        try
-                        {
-                            var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
-                            var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
+                        await Program.TorchModel.LoadFromDB();
 
-                            var loss = refToModel.train(dataBatch, Ys);
-                            _logger.LogInformation($"Loss: {loss}");
-                            var _ = await _sender.Send(new UpdateIsAppliedPiece(data.Id));
-                        }
-                        catch (Exception ex)
+                        foreach (var data in allData.Data)
                         {
-                            _logger.LogError(ex.Message);
+                            try
+                            {
+                                var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
+                                var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
+
+                                var loss = refToModel.train(dataBatch, Ys);
+                                _logger.LogInformation($"Loss: {loss}");
+                                var _ = await _sender.Send(new UpdateIsAppliedPiece(data.Id));
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger.LogError(ex.Message);
+                            }
                         }
                     }
                 }
@@ -134,42 +151,50 @@ namespace API.SlowTrainMachineLearning.Services
             try
             {
                 // fuzzy logic 
-                var modelYearsOldInMinutes = await _sender.Send(new ModelYearsOldInMinutesQuery());
-                var allData = await _sender.Send(new TrainNetworkQuery());
-                var pieces = allData.Data.Length;
-                var isGenerateModelAllowed = new FuzzyLogicModelGenerator().main(
-                    (int)modelYearsOldInMinutes.YearsOldInMinutes,
-                    pieces);
-
-                _logger.LogInformation("modelYearsOldInMinutes: " + modelYearsOldInMinutes.YearsOldInMinutes);
-                _logger.LogInformation("pieces amount: " + pieces);
-                _logger.LogInformation("isGenerateModelAllowed: " + isGenerateModelAllowed);
-
-                if (pieces == 0)
-                    return;
-
-                if (isGenerateModelAllowed)
+                GetModelYearsOldResult modelYearsOldInMinutes;
+                GetAllDataResult allData;
+                using (var scope = _provider.CreateScope())
                 {
-                    await Program.TorchModel.LoadFromDB();
+                    var _sender = scope.ServiceProvider.GetRequiredService<ISender>();
+                    modelYearsOldInMinutes = await _sender.Send(new ModelYearsOldInMinutesQuery());
+                    allData = await _sender.Send(new TrainNetworkQuery());
 
-                    foreach (var data in allData.Data)
+
+                    var pieces = allData.Data.Length;
+                    var isGenerateModelAllowed = new FuzzyLogicModelGenerator().main(
+                        (int)modelYearsOldInMinutes.YearsOldInMinutes,
+                        pieces);
+
+                    _logger.LogInformation("modelYearsOldInMinutes: " + modelYearsOldInMinutes.YearsOldInMinutes);
+                    _logger.LogInformation("pieces amount: " + pieces);
+                    _logger.LogInformation("isGenerateModelAllowed: " + isGenerateModelAllowed);
+
+                    if (pieces == 0)
+                        return;
+
+                    if (isGenerateModelAllowed)
                     {
-                        try
-                        {
-                            var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
-                            var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
+                        await Program.TorchModel.LoadFromDB();
 
-                            var loss = refToModel.train(dataBatch, Ys);
-                            _logger.LogInformation($"Loss: {loss}");
-                            var _ = await _sender.Send(new UpdateIsAppliedPiece(data.Id));
-                        }
-                        catch (Exception ex)
+                        foreach (var data in allData.Data)
                         {
-                            _logger.LogError(ex.Message);
+                            try
+                            {
+                                var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
+                                var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
+
+                                var loss = refToModel.train(dataBatch, Ys);
+                                _logger.LogInformation($"Loss: {loss}");
+                                var _ = await _sender.Send(new UpdateIsAppliedPiece(data.Id));
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger.LogError(ex.Message);
+                            }
                         }
+
+                        await Program.TorchModel.SaveToDB(version);
                     }
-
-                    await Program.TorchModel.SaveToDB(version);
                 }
             }
             catch (Exception ex)
