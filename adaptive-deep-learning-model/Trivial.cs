@@ -41,14 +41,16 @@ namespace adaptive_deep_learning_model
         public override Tensor forward(Tensor input)
         {
             // dynamic/adaptive input layer
-            // gpu: save the seq as a model in the class
-            // Sequential model;
             using var seq = nn.Sequential(
                 ("lin1", getLin1a((int)input.real.NumberOfElements)), 
                 ("relu1", nn.ReLU()), 
                 ("drop1", nn.Dropout(0.1)), 
                 ("lin2", lin2), 
                 ("relu2", nn.ReLU()));
+
+            // GPU install cuda torhsharp
+            var device = torch.device(torch.cuda.is_available() ? "cuda" : "cpu");
+            input = input.to(device);
 
             return seq.forward(input); 
         }
