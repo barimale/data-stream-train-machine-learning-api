@@ -18,11 +18,11 @@ Ys: 1,1,1,1,1,1,1,1,1,1
 
 # Todos
 https://www.google.com/search?q=vary+input+layer+neural+network&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIJCAMQRRg7GMID0gEGLTFqMGo3qAIEsAIB8QXvRy7F_TusyPEF70cuxf07rMg&client=ms-android-samsung-ga-rev1&sourceid=chrome-mobile&ie=UTF-8
-Do the final check and provide scopedservices
+Do the final check
 # Ideas
 Use RNN or CNN or graph to be able to handle vary length of the input layer.
 Compare slow-learn neural network with regular one by using the same dataset.
-Create more specific dataset and ingest data to the service from javascript of WPF.
+Create more specific dataset.
 
 # Reqs
 1. Single api call execution time limit: 50ms
@@ -31,7 +31,7 @@ Create more specific dataset and ingest data to the service from javascript of W
 1. Create adaptive neural networks.
 2. Compare networks and reimplement by using GPU.
 3. Prepare data sets: training, test. Shuffle. Merge more than two data sets, shaffle and split into test and train.
-4. Slow learn networks.
+4. dynamic learn networks.
 5. Compare their features (loss, accuracy) by using test data set.
 6. Specify metadata of the model (version, date, time, loss, accuracy, etc.)
 7. Trivial model as stateless:
