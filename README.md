@@ -34,10 +34,10 @@ Create more specific dataset.
 4. dynamic learn networks.
 5. Compare their features (loss, accuracy) by using test data set.
 6. Specify metadata of the model (version, date, time, loss, accuracy, etc.)
-7. Trivial model as stateless:
 8. Hosted service to separate service.
+9. many models in parallel?
 
- # Ksiazki
+ # Books
  https://www.oreilly.com/library/view/uczenie-gebokie-od/9788328365971/
 
  https://www.oreilly.com/library/view/uczenie-maszynowe-z/9788328360020/
