@@ -30,7 +30,6 @@ Create more specific dataset.
 # Implementation order
 1. Create adaptive neural networks.
 3. Prepare data sets: training, test. Shuffle. Merge more than two data sets, shaffle and split into test and train.
-4. dynamic learn networks.
 5. Compare their features (loss, accuracy) by using test data set.
 6. Specify metadata of the model (version, date, time, loss, accuracy, etc.)
 8. Hosted service to separate service.
