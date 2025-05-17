@@ -44,12 +44,12 @@ namespace API.SlowTrainMachineLearning.Services
                     .TransformInputData(
                         commandRequest
                         .Xs
-                        .ToFloatArray());
+                        .ToDoubleArray());
                 var Ys = refToModel
                     .TransformInputData(
                         commandRequest
                         .Ys
-                        .ToFloatArray());
+                        .ToDoubleArray());
 
                 var loss = refToModel.train(dataBatch, Ys);
                 _logger.LogInformation("Loss: {0}", loss);
@@ -84,7 +84,7 @@ namespace API.SlowTrainMachineLearning.Services
             }
 
             var refToModel = await Program.TorchModel.GetModelFromPieces(mainModel);
-            var dataBatch = transformator.TransformInputData(input.ToFloatArray());
+            var dataBatch = transformator.TransformInputData(input.ToDoubleArray());
             var result = refToModel.forward(dataBatch);
 
             return Results.Ok(JsonSerializer.Serialize(result?.data<float>().ToArray()));
@@ -114,8 +114,8 @@ namespace API.SlowTrainMachineLearning.Services
                         {
                             try
                             {
-                                var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
-                                var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
+                                var dataBatch = refToModel.TransformInputData(data.Xs.ToDoubleArray());
+                                var Ys = refToModel.TransformInputData(data.Ys.ToDoubleArray());
 
                                 var loss = refToModel.train(dataBatch, Ys);
                                 _logger.LogInformation($"Loss: {loss}");
@@ -188,8 +188,8 @@ namespace API.SlowTrainMachineLearning.Services
                         {
                             try
                             {
-                                var dataBatch = refToModel.TransformInputData(data.Xs.ToFloatArray());
-                                var Ys = refToModel.TransformInputData(data.Ys.ToFloatArray());
+                                var dataBatch = refToModel.TransformInputData(data.Xs.ToDoubleArray());
+                                var Ys = refToModel.TransformInputData(data.Ys.ToDoubleArray());
 
                                 var loss = refToModel.train(dataBatch, Ys);
                                 _logger.LogInformation($"Loss: {loss}");

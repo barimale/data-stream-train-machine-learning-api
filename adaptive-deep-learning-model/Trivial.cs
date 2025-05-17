@@ -1,5 +1,6 @@
 ﻿using static TorchSharp.torch;
 using TorchSharp;
+using System.Globalization;
 
 namespace adaptive_deep_learning_model
 {
@@ -9,13 +10,13 @@ namespace adaptive_deep_learning_model
     public class Trivial : nn.Module<Tensor, Tensor>
     {
         // to be customized / adaptive
-        private nn.Module<Tensor, Tensor> lin1 = nn.Linear(5, 100);
-        private nn.Module<Tensor, Tensor> lin1b = nn.Linear(10, 100);
-        private nn.Module<Tensor, Tensor> lin2 = nn.Linear(100, 10);
+        private nn.Module<Tensor, Tensor> lin1 = nn.Linear(5, 100, dtype: torch.float64);
+        private nn.Module<Tensor, Tensor> lin1b = nn.Linear(10, 100, dtype: torch.float64);
+        private nn.Module<Tensor, Tensor> lin2 = nn.Linear(100, 10, dtype: torch.float64);
 
         private nn.Module<Tensor, Tensor> getLin1a(int inputLength)
         {
-            return nn.Linear(inputLength, 100);
+            return nn.Linear(inputLength, 100, dtype: torch.float64);
         }
 
         public Trivial(nn.Module module)
@@ -65,9 +66,9 @@ namespace adaptive_deep_learning_model
             return seq.forward(input); 
         }
 
-        public Tensor? TransformInputData(params float[] numbers)
+        public Tensor? TransformInputData(params double[] numbers)
         {
-            var tensor = torch.from_array(numbers);
+            var tensor = torch.from_array(numbers, dtype: torch.float64);
             return tensor;
         }
 
@@ -79,7 +80,7 @@ namespace adaptive_deep_learning_model
             foreach (var s in numbers)
             {
                 string[] s1 = s.Trim('[', ']').Split(',');
-                float[] myArr = Array.ConvertAll(s1, n => float.Parse(n));
+                double[] myArr = Array.ConvertAll(s1, n => double.Parse(n, CultureInfo.InvariantCulture));
                 tensors[index] = TransformInputData(myArr);
                 index += 1;
             }

@@ -1,11 +1,13 @@
-﻿namespace adaptive_deep_learning_model.Utilities
+﻿using System.Globalization;
+
+namespace adaptive_deep_learning_model.Utilities
 {
     public static class ArrayUtilities
     {
-        public static float[] ToFloatArray(this string input)
+        public static double[] ToDoubleArray(this string input)
         {
             string[] s1 = input.Trim('[', ']').Split(',');
-            float[] myArr = Array.ConvertAll(s1, n => float.Parse(n));
+            double[] myArr = Array.ConvertAll(s1, n => double.Parse(n, CultureInfo.InvariantCulture));
 
             return myArr;
         }
