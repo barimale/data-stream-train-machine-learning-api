@@ -90,7 +90,7 @@ namespace API.SlowTrainMachineLearning.Services
             return Results.Ok(JsonSerializer.Serialize(result?.data<double>().ToArray()));
         }
 
-        public async Task TrainModelWithFullDataManually(string version)
+        public async Task BuildModelWithFullDataManually(string version)
         {
             var refToModel = Program.TorchModel.Model;
 
@@ -148,7 +148,7 @@ namespace API.SlowTrainMachineLearning.Services
             await _queueService.Publish(msg);
         }
 
-        public async Task TrainModelWithFullData(string version)
+        public async Task BuildModelWithFullData(string version)
         {
             var refToModel = Program.TorchModel.Model;
 

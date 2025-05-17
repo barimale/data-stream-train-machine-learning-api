@@ -3,7 +3,18 @@
   "WorkspaceRootPath": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\services\\neuralnetworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:services\\neuralnetworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{74CC3E67-A428-4FD1-B64D-A6489C5A8398}|..\\adaptive-deep-learning-model\\adaptive-deep-learning-model.csproj|r:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\combinedmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CC3E67-A428-4FD1-B64D-A6489C5A8398}|..\\adaptive-deep-learning-model\\adaptive-deep-learning-model.csproj|r:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\trivial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -13,7 +24,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -21,15 +32,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CombinedModel.cs",
               "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\CombinedModel.cs",
               "RelativeDocumentMoniker": "..\\adaptive-deep-learning-model\\CombinedModel.cs",
               "ToolTip": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\CombinedModel.cs",
               "RelativeToolTip": "..\\adaptive-deep-learning-model\\CombinedModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBoAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T15:54:51.186Z",
+              "WhenOpened": "2025-05-17T19:12:55.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Trivial.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\Trivial.cs",
+              "RelativeDocumentMoniker": "..\\adaptive-deep-learning-model\\Trivial.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\Trivial.cs",
+              "RelativeToolTip": "..\\adaptive-deep-learning-model\\Trivial.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T19:12:47.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NeuralNetworkService.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Services\\NeuralNetworkService.cs",
+              "RelativeDocumentMoniker": "Services\\NeuralNetworkService.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Services\\NeuralNetworkService.cs",
+              "RelativeToolTip": "Services\\NeuralNetworkService.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAWwFwAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T18:59:06.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-17T18:58:26.312Z",
               "EditorCaption": ""
             }
           ]

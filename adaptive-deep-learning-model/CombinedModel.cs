@@ -1,4 +1,5 @@
-﻿using static TorchSharp.torch;
+﻿using TorchSharp;
+using static TorchSharp.torch;
 
 namespace adaptive_deep_learning_model
 {
@@ -6,6 +7,7 @@ namespace adaptive_deep_learning_model
     public class CombinedModel : nn.Module<Tensor, Tensor>
     {
         private nn.Module<Tensor, Tensor>[] models;
+        private bool IsCuda = torch.cuda.is_available();
 
         public CombinedModel(params nn.Module<Tensor, Tensor>[] models) : base("CombinedModel")
         {
@@ -32,7 +34,7 @@ namespace adaptive_deep_learning_model
             {
                 final = (final + t)/2;
             }
-            var yy = nn.functional.relu(final); // models.Length); WIP
+            var yy = IsCuda ? nn.functional.relu(final).cuda() : nn.functional.relu(final); // models.Length); WIP
             return yy;
         }
     }

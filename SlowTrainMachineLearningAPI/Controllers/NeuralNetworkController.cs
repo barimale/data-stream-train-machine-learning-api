@@ -35,7 +35,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [NonAction]
         public void BuildModel()
         {
-            _neuralNetworkService.TrainModelWithFullData(Guid.NewGuid().ToString());
+            _neuralNetworkService.BuildModelWithFullData(Guid.NewGuid().ToString());
         }
 
         [HttpPost("[action]")]
@@ -51,7 +51,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
         [NonAction]
         public void BuildModelManually(string version)
         {
-            _neuralNetworkService.TrainModelWithFullDataManually(version);
+            _neuralNetworkService.BuildModelWithFullDataManually(version);
         }
 
         [HttpPost("[action]")]
