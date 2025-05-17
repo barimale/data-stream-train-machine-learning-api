@@ -35,13 +35,6 @@ namespace adaptive_deep_learning_model
             RegisterComponents();
         }
 
-        public nn.Module<Tensor, Tensor> merge(params nn.Module<Tensor, Tensor>[] ms)
-        {
-            var combinedModel = new CombinedModel(ms);
-
-            return combinedModel;
-        }
-
         public override Tensor forward(Tensor input)
         {
             // model switch
