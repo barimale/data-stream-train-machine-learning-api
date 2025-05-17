@@ -10,13 +10,13 @@ housing = fetch_california_housing()
 Xtrain, Xtest, ytrain, ytest = train_test_split(housing.data, housing.target, test_size = .2)
 Xtrain, Xval, ytrain, yval = train_test_split(Xtrain, ytrain, test_size=.2)
 
-x = range(1)
+x = range(100)
 # API endpoint
 api_url = "https://localhost:7174/NeuralNetwork/TrainNetwork"
 
 # Iterate over the NumPy array and make POST requests
 for entry in x:
-    xs = np.random.randn(1,5)*100
+    xs = np.random.randn(1,5)
     vectorized_floatXs = np.vectorize(float)
     xs = vectorized_floatXs(xs)
     resultXs = np.array2string(xs, separator=',', suppress_small=True)[1:-1].replace(' ', '').replace('\n', '')

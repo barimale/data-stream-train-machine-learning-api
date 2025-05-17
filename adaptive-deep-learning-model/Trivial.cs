@@ -95,7 +95,7 @@ namespace adaptive_deep_learning_model
             return result;
         }
 
-        public float train(Tensor? dataBatch, Tensor? resultBatch)
+        public double train(Tensor? dataBatch, Tensor? resultBatch)
         {
             // to be customized / adaptive
             //var learning_rate = 0.001f; adaptive via Adam
@@ -103,7 +103,7 @@ namespace adaptive_deep_learning_model
             var loss = nn.MSELoss();
             // to be customized / adaptive
             var EPOCHS = 3;
-            var finalLoss = 0.0f;
+            var finalLoss = 0.0d;
             var steps = 500;
             // to be customized / adaptive
             var optimizer = torch.optim.Adam(this.parameters());
@@ -126,7 +126,7 @@ namespace adaptive_deep_learning_model
                     optimizer.step();
                 }
 
-                finalLoss = loss.forward(this.forward(dataBatch), resultBatch).item<float>();
+                finalLoss = loss.forward(this.forward(dataBatch), resultBatch).item<double>();
             }
 
             return finalLoss;
