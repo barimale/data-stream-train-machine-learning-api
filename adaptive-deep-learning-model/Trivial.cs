@@ -14,6 +14,7 @@ namespace adaptive_deep_learning_model
         private nn.Module<Tensor, Tensor> lin1b = nn.Linear(10, 100, dtype: torch.float64);
         private nn.Module<Tensor, Tensor> lin2 = nn.Linear(100, 10, dtype: torch.float64);
 
+        private bool IsCuda = torch.cuda.is_available();
         private nn.Module<Tensor, Tensor> getLin1a(int inputLength)
         {
             return nn.Linear(inputLength, 100, dtype: torch.float64);
