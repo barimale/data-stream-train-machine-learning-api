@@ -29,7 +29,6 @@ Create more specific dataset.
    
 # Implementation order
 1. Create adaptive neural networks.
-2. Compare networks and reimplement by using GPU.
 3. Prepare data sets: training, test. Shuffle. Merge more than two data sets, shaffle and split into test and train.
 4. dynamic learn networks.
 5. Compare their features (loss, accuracy) by using test data set.
