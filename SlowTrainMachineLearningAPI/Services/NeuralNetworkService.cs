@@ -87,7 +87,7 @@ namespace API.SlowTrainMachineLearning.Services
             var dataBatch = transformator.TransformInputData(input.ToDoubleArray());
             var result = refToModel.forward(dataBatch);
 
-            return Results.Ok(JsonSerializer.Serialize(result?.data<float>().ToArray()));
+            return Results.Ok(JsonSerializer.Serialize(result?.data<double>().ToArray()));
         }
 
         public async Task TrainModelWithFullDataManually(string version)

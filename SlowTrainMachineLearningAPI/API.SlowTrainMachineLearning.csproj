@@ -24,6 +24,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="TorchSharp" Version="0.105.0" />
     <PackageReference Include="TorchSharp-cpu" Version="0.105.0" />
+    <PackageReference Include="TorchSharp-cuda-windows" Version="0.105.0" />
   </ItemGroup>
 
   <ItemGroup>

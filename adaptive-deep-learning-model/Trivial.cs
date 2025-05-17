@@ -1,6 +1,7 @@
 ﻿using static TorchSharp.torch;
 using TorchSharp;
 using System.Globalization;
+using TorchSharp.Modules;
 
 namespace adaptive_deep_learning_model
 {
@@ -17,7 +18,8 @@ namespace adaptive_deep_learning_model
         private bool IsCuda = torch.cuda.is_available();
         private nn.Module<Tensor, Tensor> getLin1a(int inputLength)
         {
-            return nn.Linear(inputLength, 100, dtype: torch.float64);
+
+            return IsCuda ? nn.Linear(inputLength, 100, dtype: torch.float64).cuda() : nn.Linear(inputLength, 100, dtype: torch.float64);
         }
 
         public Trivial(nn.Module module)
@@ -43,34 +45,61 @@ namespace adaptive_deep_learning_model
         public override Tensor forward(Tensor input)
         {
             // model switch
-            if (input.real.NumberOfElements == 5)
+            if (IsCuda)
             {
-                using var xx = lin1.forward(input);
-                using var yy = nn.functional.relu(xx);
-                return lin2.forward(yy);
+                if (input.real.NumberOfElements == 5)
+                {
+                    using var xx = lin1.cuda().forward(input);
+                    using var yy = nn.functional.relu(xx).cuda();
+                    return lin2.cuda().forward(yy);
+                }
+                else if (input.real.NumberOfElements == 10)
+                {
+                    using var x = lin1b.cuda().forward(input);
+                    using var y = nn.functional.relu(x).cuda();
+                    return lin2.cuda().forward(y);
+                }
+
+                // dynamic/adaptive input layer
+                using var seq = nn.Sequential(
+                    ("lin1", getLin1a((int)input.real.NumberOfElements)),
+                    ("relu1", nn.ReLU()),
+                    ("drop1", nn.Dropout(0.1)),
+                    ("lin2", lin2),
+                    ("relu2", nn.ReLU())).cuda();
+
+                return seq.forward(input);
             }
-            else if (input.real.NumberOfElements == 10)
+            else
             {
-                using var x = lin1b.forward(input);
-                using var y = nn.functional.relu(x);
-                return lin2.forward(y);
+                if (input.real.NumberOfElements == 5)
+                {
+                    using var xx = lin1.forward(input);
+                    using var yy = nn.functional.relu(xx);
+                    return lin2.forward(yy);
+                }
+                else if (input.real.NumberOfElements == 10)
+                {
+                    using var x = lin1b.forward(input);
+                    using var y = nn.functional.relu(x);
+                    return lin2.forward(y);
+                }
+
+                // dynamic/adaptive input layer
+                using var seq = nn.Sequential(
+                    ("lin1", getLin1a((int)input.real.NumberOfElements)),
+                    ("relu1", nn.ReLU()),
+                    ("drop1", nn.Dropout(0.1)),
+                    ("lin2", lin2),
+                    ("relu2", nn.ReLU()));
+
+                return seq.forward(input);
             }
-
-            // dynamic/adaptive input layer
-            using var seq = nn.Sequential(
-                ("lin1", getLin1a((int)input.real.NumberOfElements)), 
-                ("relu1", nn.ReLU()), 
-                ("drop1", nn.Dropout(0.1)), 
-                ("lin2", lin2), 
-                ("relu2", nn.ReLU()));
-
-            return seq.forward(input); 
         }
 
         public Tensor? TransformInputData(params double[] numbers)
         {
-            var tensor = torch.from_array(numbers, dtype: torch.float64);
-            return tensor;
+            return IsCuda ? torch.from_array(numbers, dtype: torch.float64).cuda() : torch.from_array(numbers, dtype: torch.float64);
         }
 
         public Tensor TransformInputData(params string[] numbers)
@@ -86,8 +115,7 @@ namespace adaptive_deep_learning_model
                 index += 1;
             }
 
-            Tensor states = torch.stack(tensors);
-            return states;
+            return IsCuda ? torch.stack(tensors).cuda() : torch.stack(tensors);
         }
 
         public Tensor? predict(Tensor? dataBatch)
@@ -101,7 +129,7 @@ namespace adaptive_deep_learning_model
             // to be customized / adaptive
             //var learning_rate = 0.001f; adaptive via Adam
             // to be customized / adaptive
-            var loss = nn.MSELoss();
+            MSELoss loss = IsCuda ? nn.MSELoss().cuda() : nn.MSELoss();
             // to be customized / adaptive
             var EPOCHS = 3;
             var finalLoss = 0.0d;
