@@ -102,28 +102,6 @@ namespace adaptive_deep_learning_model
             return IsCuda ? torch.from_array(numbers, dtype: torch.float64).cuda() : torch.from_array(numbers, dtype: torch.float64);
         }
 
-        public Tensor TransformInputData(params string[] numbers)
-        {
-            var tensors = new Tensor[numbers.Length];
-            var index = 0;
-
-            foreach (var s in numbers)
-            {
-                string[] s1 = s.Trim('[', ']').Split(',');
-                double[] myArr = Array.ConvertAll(s1, n => double.Parse(n, CultureInfo.InvariantCulture));
-                tensors[index] = TransformInputData(myArr);
-                index += 1;
-            }
-
-            return IsCuda ? torch.stack(tensors).cuda() : torch.stack(tensors);
-        }
-
-        public Tensor? predict(Tensor? dataBatch)
-        {
-            var result = this.forward(dataBatch);
-            return result;
-        }
-
         public double train(Tensor? dataBatch, Tensor? resultBatch)
         {
             // to be customized / adaptive
