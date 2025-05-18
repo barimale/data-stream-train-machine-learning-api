@@ -93,7 +93,7 @@ namespace adaptive_deep_learning_model
 
                     torch.autograd.set_detect_anomaly(true);
 
-                    // Do back-progatation, which computes all the gradients.
+                    // Do back-propagation, which computes all the gradients.
                     output.backward();
 
                     optimizer.step();
