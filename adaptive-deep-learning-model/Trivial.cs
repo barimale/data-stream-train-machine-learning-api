@@ -16,6 +16,8 @@ namespace adaptive_deep_learning_model
         private nn.Module<Tensor, Tensor> lin2 = nn.Linear(100, 10, dtype: torch.float64);
 
         private bool IsCuda = torch.cuda.is_available();
+        private Device Device = torch.cuda.is_available() ? torch.CUDA : torch.CPU;
+
         private nn.Module<Tensor, Tensor> getLin1a(int inputLength)
         {
 
@@ -42,15 +44,15 @@ namespace adaptive_deep_learning_model
             {
                 if (input.real.NumberOfElements == 5)
                 {
-                    using var xx = lin1.cuda().forward(input);
-                    using var yy = nn.functional.relu(xx).cuda();
-                    return lin2.cuda().forward(yy);
+                    using var xx = lin1.cuda().forward(input).to(Device);
+                    using var yy = nn.functional.relu(xx).cuda().to(Device);
+                    return lin2.cuda().forward(yy).to(Device);
                 }
                 else if (input.real.NumberOfElements == 10)
                 {
-                    using var x = lin1b.cuda().forward(input);
-                    using var y = nn.functional.relu(x).cuda();
-                    return lin2.cuda().forward(y);
+                    using var x = lin1b.cuda().forward(input).to(Device);
+                    using var y = nn.functional.relu(x).cuda().to(Device);
+                    return lin2.cuda().forward(y).to(Device);
                 }
 
                 // dynamic/adaptive input layer
@@ -59,9 +61,9 @@ namespace adaptive_deep_learning_model
                     ("relu1", nn.ReLU()),
                     ("drop1", nn.Dropout(0.1)),
                     ("lin2", lin2),
-                    ("relu2", nn.ReLU())).cuda();
+                    ("relu2", nn.ReLU())).cuda().to(Device);
 
-                return seq.forward(input);
+                return seq.forward(input).to(Device);
             }
             else
             {
@@ -92,7 +94,7 @@ namespace adaptive_deep_learning_model
 
         public Tensor? TransformInputData(params double[] numbers)
         {
-            return IsCuda ? torch.from_array(numbers, dtype: torch.float64).cuda() : torch.from_array(numbers, dtype: torch.float64);
+            return IsCuda ? torch.from_array(numbers, dtype: torch.float64).to(Device) : torch.from_array(numbers, dtype: torch.float64);
         }
 
         public double train(Tensor? dataBatch, Tensor? resultBatch)
@@ -100,7 +102,7 @@ namespace adaptive_deep_learning_model
             // to be customized / adaptive
             //var learning_rate = 0.001f; adaptive via Adam
             // to be customized / adaptive
-            MSELoss loss = IsCuda ? nn.MSELoss().cuda() : nn.MSELoss();
+            MSELoss loss = IsCuda ? nn.MSELoss().to(Device) : nn.MSELoss();
             // to be customized / adaptive
             var EPOCHS = 3;
             var finalLoss = 0.0d;
@@ -113,7 +115,7 @@ namespace adaptive_deep_learning_model
                 for (int i = 0; i < steps; i++)
                 {
                     // Compute the loss
-                    using var output = loss.forward(this.forward(dataBatch), resultBatch);
+                    using var output = loss.forward(this.forward(dataBatch), resultBatch).to(Device);
 
                     // Clear the gradients before doing the back-propagation
                     this.zero_grad();
@@ -126,7 +128,7 @@ namespace adaptive_deep_learning_model
                     optimizer.step();
                 }
 
-                finalLoss = loss.forward(this.forward(dataBatch), resultBatch).item<double>();
+                finalLoss = loss.forward(this.forward(dataBatch), resultBatch).to(Device).item<double>();
             }
 
             return finalLoss;
