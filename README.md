@@ -24,9 +24,6 @@ https://github.com/SciSharp/Numpy.NET
 Use RNN or CNN or graph to be able to handle vary length of the input layer.
 Compare slow-learn neural network with regular one by using the same dataset.
 Create more specific dataset.
-
-# Reqs
-1. Single api call execution time limit: 50ms
    
 # Implementation order
 1. Create adaptive neural networks.
