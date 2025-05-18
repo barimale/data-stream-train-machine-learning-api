@@ -4,7 +4,6 @@ using Card.Application.CQRS.Commands;
 using Card.Application.CQRS.Queries;
 using fuzzy_logic_model_generator;
 using MediatR;
-using SlowTrainMachineLearningAPI;
 using SlowTrainMachineLearningAPI.Model;
 using System.Text.Json;
 
