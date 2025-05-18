@@ -3,7 +3,7 @@ using Card.Application.CQRS.Commands;
 using RabbitMQ.Client.Events;
 using System.Text.Json;
 
-namespace Albergue.Administrator.HostedServices
+namespace API.SlowTrainMachineLearning.HostedServices
 {
     public class NeuralNetworkTrainerHostedService : IHostedService
     {

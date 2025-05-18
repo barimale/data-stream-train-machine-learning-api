@@ -1,5 +1,4 @@
-
-using Albergue.Administrator.HostedServices;
+using API.SlowTrainMachineLearning.HostedServices;
 using API.SlowTrainMachineLearning.Services;
 using Card.API.Extensions;
 using Card.API.MappingProfiles;
