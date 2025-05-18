@@ -90,6 +90,8 @@ namespace adaptive_deep_learning_model
 
                     // Clear the gradients before doing the back-propagation
                     this.zero_grad();
+                    // WIP maybe not necessary at all 
+                    this.to(Device);
 
                     torch.autograd.set_detect_anomaly(true);
 
