@@ -77,7 +77,7 @@ namespace adaptive_deep_learning_model
             // to be customized / adaptive
             var EPOCHS = 3;
             var finalLoss = 0.0d;
-            var steps = 500;
+            var steps = 1000;
             // to be customized / adaptive
             var optimizer = torch.optim.Adam(this.parameters());
 
