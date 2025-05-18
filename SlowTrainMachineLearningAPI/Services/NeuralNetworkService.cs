@@ -5,6 +5,7 @@ using Card.Application.CQRS.Queries;
 using fuzzy_logic_model_generator;
 using MediatR;
 using SlowTrainMachineLearningAPI;
+using SlowTrainMachineLearningAPI.Model;
 using System.Text.Json;
 
 namespace API.SlowTrainMachineLearning.Services
@@ -15,18 +16,20 @@ namespace API.SlowTrainMachineLearning.Services
         private readonly IMapper _mapper;
         private readonly IServiceProvider _provider;
         private readonly IQueueService _queueService;
-
+        private readonly ITorchModel _torchModel;
         public NeuralNetworkService(
             ISender sender,
             IMapper mapper,
             IServiceProvider provider,
             ILogger<NeuralNetworkService> logger,
+            ITorchModel torchModel,
             IQueueService queueService)
         {
             _provider = provider;
             _mapper = mapper;
             _logger = logger;
             _queueService = queueService;
+            _torchModel = torchModel;
         }
 
         
@@ -37,7 +40,7 @@ namespace API.SlowTrainMachineLearning.Services
                 _logger.LogInformation(
                     "Train neural network in progress. ");
 
-                var refToModel = Program.TorchModel.Model;
+                var refToModel = _torchModel.Model;
                 var dataBatch = refToModel
                     .TransformInputData(
                         commandRequest
@@ -59,7 +62,7 @@ namespace API.SlowTrainMachineLearning.Services
                     {
                         Xs = commandRequest.Xs,
                         Ys = commandRequest.Ys,
-                        Model = Program.TorchModel.ModelToBytes(refToModel),
+                        Model = _torchModel.ModelToBytes(refToModel),
                     });
                 }
             }
@@ -72,7 +75,7 @@ namespace API.SlowTrainMachineLearning.Services
         public async Task<IResult> PredictValue(string input)
         {
             // use latest model + combine unapplied pieces
-            var transformator = Program.TorchModel.Model;
+            var transformator = _torchModel.Model;
             GetModuleResult mainModel;
             
             using(var scope = _provider.CreateScope())
@@ -81,7 +84,7 @@ namespace API.SlowTrainMachineLearning.Services
                 mainModel = await _sender.Send(new GetLatestQuery(string.Empty));
             }
 
-            var refToModel = await Program.TorchModel.GetModelFromPieces(mainModel);
+            var refToModel = await _torchModel.GetModelFromPieces(mainModel);
             var dataBatch = transformator.TransformInputData(input.ToDoubleArray());
             var result = refToModel.forward(dataBatch);
 
@@ -90,14 +93,14 @@ namespace API.SlowTrainMachineLearning.Services
 
         public async Task BuildModelWithFullDataManually(string version)
         {
-            var refToModel = Program.TorchModel.Model;
+            var refToModel = _torchModel.Model;
 
-            if (Program.TorchModel.IsTrainingInProgress)
+            if (_torchModel.IsTrainingInProgress)
                 return;
 
             try
             {
-                Program.TorchModel.IsTrainingInProgress = true;
+                _torchModel.IsTrainingInProgress = true;
                 GetAllDataResult allData;
                 using (var scope = _provider.CreateScope())
                 {
@@ -106,7 +109,7 @@ namespace API.SlowTrainMachineLearning.Services
 
                     if (allData.Data.Length > 0)
                     {
-                        await Program.TorchModel.LoadFromDB();
+                        await _torchModel.LoadFromDB();
 
                         foreach (var data in allData.Data)
                         {
@@ -133,8 +136,8 @@ namespace API.SlowTrainMachineLearning.Services
             }
             finally
             {
-                await Program.TorchModel.SaveToDB(version);
-                Program.TorchModel.IsTrainingInProgress = false;
+                await _torchModel.SaveToDB(version);
+                _torchModel.IsTrainingInProgress = false;
             }
         }
 
@@ -148,14 +151,14 @@ namespace API.SlowTrainMachineLearning.Services
 
         public async Task BuildModelWithFullData(string version)
         {
-            var refToModel = Program.TorchModel.Model;
+            var refToModel = _torchModel.Model;
 
-            if (Program.TorchModel.IsTrainingInProgress)
+            if (_torchModel.IsTrainingInProgress)
                 return;
 
             try
             {
-                Program.TorchModel.IsTrainingInProgress = true;
+                _torchModel.IsTrainingInProgress = true;
                 // fuzzy logic 
                 GetModelYearsOldResult modelYearsOldInMinutes;
                 GetAllDataResult allData;
@@ -180,7 +183,7 @@ namespace API.SlowTrainMachineLearning.Services
 
                     if (isGenerateModelAllowed)
                     {
-                        await Program.TorchModel.LoadFromDB();
+                        await _torchModel.LoadFromDB();
 
                         foreach (var data in allData.Data)
                         {
@@ -199,7 +202,7 @@ namespace API.SlowTrainMachineLearning.Services
                             }
                         }
 
-                        await Program.TorchModel.SaveToDB(version);
+                        await _torchModel.SaveToDB(version);
                     }
                 }
             }
@@ -209,7 +212,7 @@ namespace API.SlowTrainMachineLearning.Services
             }
             finally
             {
-                Program.TorchModel.IsTrainingInProgress = false;
+                _torchModel.IsTrainingInProgress = false;
             }
         }
     }

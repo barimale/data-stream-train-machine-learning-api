@@ -6,15 +6,12 @@ using Card.Application;
 using Card.Infrastructure;
 using Hangfire;
 using Hangfire.MemoryStorage;
-using MediatR;
-using Microsoft.Extensions.DependencyInjection;
 using SlowTrainMachineLearningAPI.Model;
 
 namespace SlowTrainMachineLearningAPI
 {
     public class Program
     {
-        public static TorchModel TorchModel { get; set; }
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -39,6 +36,7 @@ namespace SlowTrainMachineLearningAPI
             builder.Services.AddTransient<INeuralNetworkService, NeuralNetworkService>();
             builder.Services.AddTransient<IQueueService, QueueService>();
             builder.Services.AddTransient<IQueueConsumerService, QueueConsumerService>();
+            builder.Services.AddSingleton<ITorchModel, TorchModel>();
 
             var app = builder.Build();
 
@@ -57,9 +55,6 @@ namespace SlowTrainMachineLearningAPI
             app.UseAuthorization();
 
             app.MapControllers();
-
-            var isender = app.Services.CreateScope().ServiceProvider.GetRequiredService<ISender>();
-            TorchModel = new TorchModel(isender);
 
             app.Run();
         }
