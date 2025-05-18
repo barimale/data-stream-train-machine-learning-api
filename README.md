@@ -19,6 +19,7 @@ Ys: 1,1,1,1,1,1,1,1,1,1
 # Todos
 https://www.google.com/search?q=vary+input+layer+neural+network&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIJCAMQRRg7GMID0gEGLTFqMGo3qAIEsAIB8QXvRy7F_TusyPEF70cuxf07rMg&client=ms-android-samsung-ga-rev1&sourceid=chrome-mobile&ie=UTF-8
 
+https://github.com/SciSharp/Numpy.NET
 # Ideas
 Use RNN or CNN or graph to be able to handle vary length of the input layer.
 Compare slow-learn neural network with regular one by using the same dataset.
