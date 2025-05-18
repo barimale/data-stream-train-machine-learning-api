@@ -58,11 +58,8 @@ namespace SlowTrainMachineLearningAPI
 
             app.MapControllers();
 
-            var provider = builder.Services.BuildServiceProvider();
-            var monitorLoop = app.Services.CreateScope().ServiceProvider.GetRequiredService<ISender>();
-
-            var isender = provider.CreateScope().ServiceProvider.GetRequiredService<ISender>();
-            TorchModel = new TorchModel(monitorLoop);
+            var isender = app.Services.CreateScope().ServiceProvider.GetRequiredService<ISender>();
+            TorchModel = new TorchModel(isender);
 
             app.Run();
         }

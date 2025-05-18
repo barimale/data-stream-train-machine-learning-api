@@ -32,8 +32,6 @@ namespace API.SlowTrainMachineLearning.Services
         
         public async Task DoTrainModelAsync(RegisterModelCommand commandRequest)
         {
-            var id = Guid.NewGuid().ToString();
-
             try
             {
                 _logger.LogInformation(
