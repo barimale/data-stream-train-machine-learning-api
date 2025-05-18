@@ -7,9 +7,9 @@ namespace adaptive_deep_learning_model
     public class CombinedModel : nn.Module<Tensor, Tensor>
     {
         private nn.Module<Tensor, Tensor>[] models;
-        private bool IsCuda = torch.cuda.is_available();
+		private Device Device = torch.cuda.is_available() ? torch.CUDA : torch.CPU;
 
-        public CombinedModel(params nn.Module<Tensor, Tensor>[] models) : base("CombinedModel")
+		public CombinedModel(params nn.Module<Tensor, Tensor>[] models) : base("CombinedModel")
         {
             this.models = models;
             RegisterComponents();
@@ -21,11 +21,12 @@ namespace adaptive_deep_learning_model
             {
                 return null;
             }
+
             Tensor[] outputs = new Tensor[models.Length];
             int index = 0;
             foreach (var model in models)
             {
-                outputs[index] = model.forward(input);
+                outputs[index] = model.forward(input).to(Device);
                 index++;
             }
 
@@ -34,7 +35,8 @@ namespace adaptive_deep_learning_model
             {
                 final = (final + t)/2;
             }
-            var yy = IsCuda ? nn.functional.relu(final).cuda() : nn.functional.relu(final); // models.Length); WIP
+
+            var yy = nn.functional.relu(final).to(Device); // models.Length); WIP
             return yy;
         }
     }
