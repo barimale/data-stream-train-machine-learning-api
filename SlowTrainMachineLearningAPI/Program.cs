@@ -36,6 +36,7 @@ namespace SlowTrainMachineLearningAPI
             builder.Services.AddTransient<INeuralNetworkService, NeuralNetworkService>();
             builder.Services.AddTransient<IQueueService, QueueService>();
             builder.Services.AddTransient<IQueueConsumerService, QueueConsumerService>();
+            // just one model in app
             builder.Services.AddSingleton<ITorchModel, TorchModel>();
 
             var app = builder.Build();
