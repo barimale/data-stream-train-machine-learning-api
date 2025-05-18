@@ -1,8 +1,5 @@
-﻿using Card.Application.CQRS.Commands;
-using Consul;
-using RabbitMQ.Client;
+﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using System.Threading;
 
 namespace API.SlowTrainMachineLearning.Services
 {
