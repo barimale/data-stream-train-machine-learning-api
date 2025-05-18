@@ -16,10 +16,9 @@ namespace adaptive_deep_learning_model
 
         private Device Device = torch.cuda.is_available() ? torch.CUDA : torch.CPU;
 
-        private nn.Module<Tensor, Tensor> getLin1a(int inputLength)
+        private nn.Module<Tensor, Tensor> getLin1a(int inputLength, int outputLength)
         {
-
-            return nn.Linear(inputLength, 100, dtype: torch.float64).to(Device);
+            return nn.Linear(inputLength, outputLength, dtype: torch.float64).to(Device);
         }
 
         public Trivial(nn.Module module)
@@ -54,9 +53,9 @@ namespace adaptive_deep_learning_model
 
             // dynamic/adaptive input layer
             using var seq = nn.Sequential(
-                ("lin1", getLin1a((int)input.real.NumberOfElements)),
+                ("lin1", getLin1a((int)input.real.NumberOfElements, 100)),
                 ("relu1", nn.ReLU()),
-                ("drop1", nn.Dropout(0.1)),
+                //("drop1", nn.Dropout(0.1)),
                 ("lin2", lin2),
                 ("relu2", nn.ReLU())).to(Device);
 
