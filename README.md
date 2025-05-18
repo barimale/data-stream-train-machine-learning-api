@@ -4,7 +4,7 @@ Adaptable deep neural networks to learn directly from data streams
 - Docker Desktop
 - .NET 8.0 SDK
 
-## SQL server:
+## Dockers:
 ```
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password_123#" -p 1500:1433 --name sql_server_container mcr.microsoft.com/mssql/server
 docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.13-management
