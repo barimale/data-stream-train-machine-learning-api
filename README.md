@@ -4,7 +4,7 @@ Adaptable deep neural networks to learn directly from data streams
 - Docker Desktop
 - .NET 8.0 SDK
 
-## SQL server:
+## Dockers:
 ```
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password_123#" -p 1500:1433 --name sql_server_container mcr.microsoft.com/mssql/server
 docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.13-management
@@ -15,17 +15,15 @@ docker run -p 8888:8888 -p 7173:7173 jupyter/minimal-notebook start-notebook.sh 
 Xs: 1,2,3,4,5
 Ys: 1,1,1,1,1,1,1,1,1,1
 ```
-
 # Todos
-https://www.google.com/search?q=vary+input+layer+neural+network&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIJCAMQRRg7GMID0gEGLTFqMGo3qAIEsAIB8QXvRy7F_TusyPEF70cuxf07rMg&client=ms-android-samsung-ga-rev1&sourceid=chrome-mobile&ie=UTF-8
+
+https://github.com/SciSharp/Numpy.NET
+
 
 # Ideas
 Use RNN or CNN or graph to be able to handle vary length of the input layer.
 Compare dynamic-learn neural network with regular one by using the same dataset.
 Create more specific dataset.
-
-# Reqs
-1. Single api call execution time limit: 50ms
    
 # Implementation order
 1. Create adaptive neural networks.
