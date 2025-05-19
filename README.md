@@ -21,7 +21,7 @@ https://www.google.com/search?q=vary+input+layer+neural+network&oq=&gs_lcrp=EgZj
 
 # Ideas
 Use RNN or CNN or graph to be able to handle vary length of the input layer.
-Compare slow-learn neural network with regular one by using the same dataset.
+Compare dynamic-learn neural network with regular one by using the same dataset.
 Create more specific dataset.
 
 # Reqs
