@@ -26,7 +26,7 @@ namespace SlowTrainMachineLearningAPI.Controllers
             _requringJobManager = requringJobManager;
             _neuralNetworkService = neuralNetworkService;
             _requringJobManager.AddOrUpdate(
-                "TrainModelWithFullData", 
+                "BuildModel", 
                 () => BuildModel(),
                 Cron.MinuteInterval(CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES),
                 TimeZoneInfo.Utc);
