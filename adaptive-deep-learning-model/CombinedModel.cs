@@ -33,10 +33,10 @@ namespace adaptive_deep_learning_model
             Tensor final = outputs[0];
             foreach (var t in outputs.Skip(1))
             {
-                final = (final + t)/2;
+                final = (final + t); ///2; WIP
             }
 
-            var yy = nn.functional.relu(final).to(Device); // models.Length); WIP
+            var yy = nn.functional.relu(final / models.Length).to(Device); // models.Length); WIP
             return yy;
         }
     }

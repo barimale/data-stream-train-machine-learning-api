@@ -1,7 +1,24 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\controllers\\neuralnetworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:controllers\\neuralnetworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\services\\iqueueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:services\\iqueueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\services\\iqueueconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:services\\iqueueconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\services\\ineuralnetworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:services\\ineuralnetworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +26,60 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NeuralNetworkController.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Controllers\\NeuralNetworkController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NeuralNetworkController.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Controllers\\NeuralNetworkController.cs",
+              "RelativeToolTip": "Controllers\\NeuralNetworkController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCkAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T17:08:58.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IQueueService.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Services\\IQueueService.cs",
+              "RelativeDocumentMoniker": "Services\\IQueueService.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Services\\IQueueService.cs",
+              "RelativeToolTip": "Services\\IQueueService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T17:00:34.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IQueueConsumerService.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Services\\IQueueConsumerService.cs",
+              "RelativeDocumentMoniker": "Services\\IQueueConsumerService.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Services\\IQueueConsumerService.cs",
+              "RelativeToolTip": "Services\\IQueueConsumerService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T17:00:32.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "INeuralNetworkService.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Services\\INeuralNetworkService.cs",
+              "RelativeDocumentMoniker": "Services\\INeuralNetworkService.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Services\\INeuralNetworkService.cs",
+              "RelativeToolTip": "Services\\INeuralNetworkService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T17:00:30.716Z"
             }
           ]
         }
