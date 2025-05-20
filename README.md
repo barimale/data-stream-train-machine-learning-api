@@ -37,3 +37,9 @@ Create more specific dataset.
  https://www.oreilly.com/library/view/uczenie-gebokie-od/9788328365971/
 
  https://www.oreilly.com/library/view/uczenie-maszynowe-z/9788328360020/
+
+Pick up Thu
+Uczenie maszynowe z użyciem Scikit-Learn, Keras i TensorFlow - książka
+116,99 PLN
+Empik.com
+(3)
