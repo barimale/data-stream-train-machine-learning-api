@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Configurations>Debug;Release;x64</Configurations>
     <Platforms>AnyCPU;x64</Platforms>
+    <UserSecretsId>e7451984-0fef-4db0-b049-001da750c09b</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

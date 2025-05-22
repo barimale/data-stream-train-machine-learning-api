@@ -59,7 +59,7 @@ namespace SlowTrainMachineLearningAPI.Model
                             index += 1;
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                     }
                 }
@@ -86,7 +86,7 @@ namespace SlowTrainMachineLearningAPI.Model
                             index += 1;
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                     }
                 }
