@@ -3,7 +3,23 @@
   "WorkspaceRootPath": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{74CC3E67-A428-4FD1-B64D-A6489C5A8398}|..\\adaptive-deep-learning-model\\adaptive-deep-learning-model.csproj|r:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\combinedmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CC3E67-A428-4FD1-B64D-A6489C5A8398}|..\\adaptive-deep-learning-model\\adaptive-deep-learning-model.csproj|r:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\trivial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4E81C8D2-62B1-43BA-B77B-0C8495D2E94B}|.Solution Items{4E81C8D2-62B1-43BA-B77B-0C8495D2E94B}|R:\\data-stream-train-machine-learning-api\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Vobacom\\.nuget\\packages\\libtorch-cpu-win-x64\\2.5.1\\buildTransitive\\netstandard2.0\\libtorch-cpu-win-x64.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Vobacom\\.nuget\\packages\\libtorch-cpu-osx-arm64\\2.5.1\\buildTransitive\\netstandard2.0\\libtorch-cpu-osx-arm64.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -13,19 +29,80 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "libtorch-cpu-osx-arm64.targets",
+              "DocumentMoniker": "C:\\Users\\Vobacom\\.nuget\\packages\\libtorch-cpu-osx-arm64\\2.5.1\\buildTransitive\\netstandard2.0\\libtorch-cpu-osx-arm64.targets",
+              "ToolTip": "C:\\Users\\Vobacom\\.nuget\\packages\\libtorch-cpu-osx-arm64\\2.5.1\\buildTransitive\\netstandard2.0\\libtorch-cpu-osx-arm64.targets",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-05-22T16:58:24.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CombinedModel.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\CombinedModel.cs",
+              "RelativeDocumentMoniker": "..\\adaptive-deep-learning-model\\CombinedModel.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\CombinedModel.cs",
+              "RelativeToolTip": "..\\adaptive-deep-learning-model\\CombinedModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T15:55:30.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Trivial.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\Trivial.cs",
+              "RelativeDocumentMoniker": "..\\adaptive-deep-learning-model\\Trivial.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\Trivial.cs",
+              "RelativeToolTip": "..\\adaptive-deep-learning-model\\Trivial.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T15:54:05.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "README.md",
               "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\README.md",
               "RelativeDocumentMoniker": "..\\README.md",
               "ToolTip": "R:\\data-stream-train-machine-learning-api\\README.md",
               "RelativeToolTip": "..\\README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2025-05-22T15:43:18.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "libtorch-cpu-win-x64.targets",
+              "DocumentMoniker": "C:\\Users\\Vobacom\\.nuget\\packages\\libtorch-cpu-win-x64\\2.5.1\\buildTransitive\\netstandard2.0\\libtorch-cpu-win-x64.targets",
+              "ToolTip": "C:\\Users\\Vobacom\\.nuget\\packages\\libtorch-cpu-win-x64\\2.5.1\\buildTransitive\\netstandard2.0\\libtorch-cpu-win-x64.targets",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-05-22T17:00:59.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-22T15:51:59.031Z",
               "EditorCaption": ""
             }
           ]

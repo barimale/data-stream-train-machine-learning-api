@@ -40,9 +40,9 @@ namespace adaptive_deep_learning_model
             
             if (input.real.NumberOfElements == 5)
             {
-                using var xx = lin1.forward(input).to(Device);
+                using var xx = lin1.to(Device).forward(input);
                 using var yy = nn.functional.relu(xx).to(Device);
-                return lin2.forward(yy).to(Device);
+                return lin2.to(Device).forward(yy);
             }
             else if (input.real.NumberOfElements == 10)
             {
@@ -64,7 +64,7 @@ namespace adaptive_deep_learning_model
 
         public Tensor? TransformInputData(params double[] numbers)
         {
-            return torch.from_array(numbers, dtype: torch.float64).to(Device);
+            return torch.from_array(numbers, dtype: torch.float64, device: Device);
         }
 
         public double train(Tensor? dataBatch, Tensor? resultBatch)
