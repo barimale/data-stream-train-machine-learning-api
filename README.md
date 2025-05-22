@@ -1,4 +1,4 @@
-# data-stream-train-machine-learning-api
+# data-stream-train-machine-learning-api [POC]
 Adaptable deep neural networks to learn directly from data streams
 ## Prereqs
 - Docker Desktop
