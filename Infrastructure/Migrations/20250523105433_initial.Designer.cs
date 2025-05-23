@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(NNContext))]
-    [Migration("20250507115935_initial")]
+    [Migration("20250523105433_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -28,8 +28,11 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Card.Domain.AggregatesModel.CardAggregate.Data", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("IngestionTime")
                         .HasColumnType("datetime2");
@@ -56,8 +59,11 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Card.Domain.AggregatesModel.CardAggregate.Model", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<byte[]>("ModelAsBytes")
                         .IsRequired()

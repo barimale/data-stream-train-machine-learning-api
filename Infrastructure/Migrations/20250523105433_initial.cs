@@ -19,7 +19,8 @@ namespace Infrastructure.Migrations
                 schema: "ordering",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RegisteringTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModelAsBytes = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     Version = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -34,7 +35,8 @@ namespace Infrastructure.Migrations
                 schema: "ordering",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     IngestionTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Xs = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ys = table.Column<string>(type: "nvarchar(max)", nullable: false),

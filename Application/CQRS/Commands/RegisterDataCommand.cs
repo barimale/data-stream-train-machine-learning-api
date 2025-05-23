@@ -22,11 +22,11 @@ public class RegisterDataResult
         // intentionally left blank
     }
 
-    public RegisterDataResult(string id)
+    public RegisterDataResult(int id)
         :this()
     {
         Id = id;
     }
 
-    public string Id { get; set; }
+    public int Id { get; set; }
 }

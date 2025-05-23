@@ -25,8 +25,11 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Card.Domain.AggregatesModel.CardAggregate.Data", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("IngestionTime")
                         .HasColumnType("datetime2");
@@ -53,8 +56,11 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Card.Domain.AggregatesModel.CardAggregate.Model", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<byte[]>("ModelAsBytes")
                         .IsRequired()

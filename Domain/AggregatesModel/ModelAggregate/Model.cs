@@ -7,7 +7,6 @@ public class Model
     : Entity, IAggregateRoot
 {
     public DateTime RegisteringTime { get; set; }
-    public string Id { get; set; }
     public byte[] ModelAsBytes { get; set; }
     public string Version { get; set; }
 }

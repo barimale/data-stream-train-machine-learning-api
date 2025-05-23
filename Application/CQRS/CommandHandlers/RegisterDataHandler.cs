@@ -17,7 +17,6 @@ public class RegisterDataHandler(IServiceProvider provider)
     {
         var card = new Data()
         {
-            Id = Guid.NewGuid().ToString(),
             IngestionTime = DateTime.Now,
             Xs = command.Xs,
             Ys = command.Ys,

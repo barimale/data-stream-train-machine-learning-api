@@ -23,10 +23,10 @@ public class RegisterModelResult
         // intentionally left blank
     }
 
-    public RegisterModelResult(string id)
+    public RegisterModelResult(int id)
     {
         Id = id;
     }
 
-    public string Id { get; set; }
+    public int Id { get; set; }
 }

@@ -30,14 +30,14 @@ public class DataRepository : IDataRepository
         return await _context.Datas.ToListAsync();
     }
 
-    public async Task<Domain.AggregatesModel.CardAggregate.Data> GetByIdAsync(string id)
+    public async Task<Domain.AggregatesModel.CardAggregate.Data> GetByIdAsync(int id)
     {
         var card = await _context.Datas.FirstOrDefaultAsync(p => p.Id == id);
 
         return card;
     }
 
-    public async Task<string> Delete(string id)
+    public async Task<int> Delete(int id)
     {
         var toBeDeleted = await _context.Datas.FirstOrDefaultAsync(p => p.Id == id);
         var result = _context.Datas.Remove(toBeDeleted);
@@ -52,7 +52,7 @@ public class DataRepository : IDataRepository
         return allofthem;
     }
 
-    public async Task<string> SetIsApplied(string id)
+    public async Task<int> SetIsApplied(int id)
     {
         var tobeupdated = await _context.Datas.FirstOrDefaultAsync(p => p.Id == id);
         tobeupdated.IsApplied = true;

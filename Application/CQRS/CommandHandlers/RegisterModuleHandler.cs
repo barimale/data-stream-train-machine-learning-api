@@ -15,7 +15,6 @@ public class RegisterModuleHandler(IServiceProvider provider)
 
             var card = new Model()
             {
-                Id = Guid.NewGuid().ToString(),
                 RegisteringTime = DateTime.Now,
                 ModelAsBytes = command.Model,
                 Version = command.Version,

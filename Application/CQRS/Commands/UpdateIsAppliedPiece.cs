@@ -4,12 +4,12 @@ namespace Card.Application.CQRS.Commands;
 
 public class UpdateIsAppliedPiece : ICommand<RegisterDataIsAppliedResult>
 {
-    public UpdateIsAppliedPiece(string id)
+    public UpdateIsAppliedPiece(int id)
     {
         Id = id;
     }
 
-    public string Id { get; set; }
+    public int Id { get; set; }
 }
 
 
@@ -20,11 +20,11 @@ public class RegisterDataIsAppliedResult
         // intentionally left blank
     }
 
-    public RegisterDataIsAppliedResult(string id)
+    public RegisterDataIsAppliedResult(int id)
         :this()
     {
         Id = id;
     }
 
-    public string Id { get; set; }
+    public int Id { get; set; }
 }

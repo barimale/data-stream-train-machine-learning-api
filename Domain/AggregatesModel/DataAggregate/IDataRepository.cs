@@ -5,11 +5,11 @@ namespace Card.Domain.AggregatesModel.CardAggregate
     public interface IDataRepository : IRepository<Data>
     {
         Task<Data> AddAsync(Data card);
-        Task<string> Delete(string id);
-        Task<Data> GetByIdAsync(string id);
+        Task<int> Delete(int id);
+        Task<Data> GetByIdAsync(int id);
         Task<IEnumerable<Data>> GetAllAsync();
         Task<IEnumerable<Data>> GetAllUnAppliedAsync();
-        Task<string> SetIsApplied(string id);
+        Task<int> SetIsApplied(int id);
 
     }
 }

@@ -10,7 +10,7 @@ public class DataDto
     }
 
     public DateTime IngestionTime { get; set; }
-    public string Id { get; set; }
+    public int Id { get; set; }
     public string Xs { get; set; }   
     public string Ys { get; set; }
     public byte[] PieceOfModel { get; set; }
