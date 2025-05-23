@@ -91,8 +91,7 @@
               "RelativeToolTip": "input_generator.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-05-23T10:51:43.827Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:51:43.827Z"
             },
             {
               "$type": "Document",
@@ -104,8 +103,7 @@
               "RelativeToolTip": "..\\Application\\Dtos\\DataDto.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:51:25.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:51:25.234Z"
             },
             {
               "$type": "Document",
@@ -117,8 +115,7 @@
               "RelativeToolTip": "..\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAcwCkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:51:17.14Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:51:17.14Z"
             },
             {
               "$type": "Document",
@@ -130,8 +127,7 @@
               "RelativeToolTip": "..\\Application\\CQRS\\Queries\\GetAllDataResult.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:51:03.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:51:03.4Z"
             },
             {
               "$type": "Document",
@@ -143,8 +139,7 @@
               "RelativeToolTip": "Services\\NeuralNetworkService.cs",
               "ViewState": "AgIAAG0AAAAAAAAAAAAcwHkAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:50:44.295Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:50:44.295Z"
             },
             {
               "$type": "Document",
@@ -154,7 +149,7 @@
               "RelativeDocumentMoniker": "..\\README.md",
               "ToolTip": "R:\\data-stream-train-machine-learning-api\\README.md",
               "RelativeToolTip": "..\\README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2025-05-22T15:43:18.585Z",
               "EditorCaption": ""
@@ -169,8 +164,7 @@
               "RelativeToolTip": "..\\Application\\CQRS\\Commands\\RegisterModelCommand.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAIA1wB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:49:35.254Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:49:35.254Z"
             },
             {
               "$type": "Document",
@@ -182,8 +176,7 @@
               "RelativeToolTip": "..\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAA0wBEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:49:32.971Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:49:32.971Z"
             },
             {
               "$type": "Document",
@@ -195,8 +188,7 @@
               "RelativeToolTip": "..\\Application\\CQRS\\Commands\\RegisterDataCommand.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAASwBwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:49:20.213Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:49:20.213Z"
             },
             {
               "$type": "Document",
@@ -208,8 +200,7 @@
               "RelativeToolTip": "..\\Application\\CQRS\\CommandHandlers\\RegisterDataHandler.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAUwC0AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:49:17.045Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:49:17.045Z"
             },
             {
               "$type": "Document",
@@ -221,8 +212,7 @@
               "RelativeToolTip": "..\\Infrastructure\\Repositories\\DataRepository.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAA7wBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:48:11.235Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:48:11.235Z"
             },
             {
               "$type": "Document",
@@ -234,8 +224,7 @@
               "RelativeToolTip": "..\\Domain\\AggregatesModel\\ModelAggregate\\Model.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:47:59.522Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:47:59.522Z"
             },
             {
               "$type": "Document",
@@ -247,8 +236,7 @@
               "RelativeToolTip": "..\\Domain\\AggregatesModel\\DataAggregate\\Data.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:47:35.025Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:47:35.025Z"
             },
             {
               "$type": "Document",
@@ -260,8 +248,7 @@
               "RelativeToolTip": "..\\BuildingBlocks\\Domain\\Entity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:47:14.22Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:47:14.22Z"
             },
             {
               "$type": "Document",
@@ -273,8 +260,7 @@
               "RelativeToolTip": "..\\BuildingBlocks\\Domain\\Enumeration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:47:13.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:47:13.185Z"
             },
             {
               "$type": "Document",
@@ -286,8 +272,7 @@
               "RelativeToolTip": "..\\BuildingBlocks\\Domain\\IAggregateRoot.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:47:09.968Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:47:09.968Z"
             },
             {
               "$type": "Document",
@@ -299,8 +284,7 @@
               "RelativeToolTip": "..\\BuildingBlocks\\Domain\\IRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:47:04.265Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T10:47:04.265Z"
             },
             {
               "$type": "Document",
@@ -322,8 +306,7 @@
               "RelativeToolTip": "..\\adaptive-deep-learning-model\\CombinedModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T15:55:30.716Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T15:55:30.716Z"
             },
             {
               "$type": "Document",
