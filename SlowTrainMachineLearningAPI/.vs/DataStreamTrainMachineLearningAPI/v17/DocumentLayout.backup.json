@@ -6,70 +6,8 @@
       "AbsoluteMoniker": "D:0:0:{4E81C8D2-62B1-43BA-B77B-0C8495D2E94B}|.Solution Items{4E81C8D2-62B1-43BA-B77B-0C8495D2E94B}|R:\\data-stream-train-machine-learning-api\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\input_generator.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:input_generator.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\dtos\\datadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\queryhandlers\\getmodelhandlers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\services\\neuralnetworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:services\\neuralnetworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\queries\\getalldataresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\commandhandlers\\registermodulehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\commandhandlers\\registerdatahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\commands\\registermodelcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\commands\\registerdatacommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7038DCE1-E4A4-4CF6-86E8-253CEECBEC2D}|..\\Infrastructure\\Infrastructure.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure\\repositories\\datarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EC7DD16A-DBE3-4BB1-AB85-1A7E98B6EB28}|..\\Domain\\Domain.csproj|r:\\data-stream-train-machine-learning-api\\domain\\aggregatesmodel\\modelaggregate\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EC7DD16A-DBE3-4BB1-AB85-1A7E98B6EB28}|..\\Domain\\Domain.csproj|r:\\data-stream-train-machine-learning-api\\domain\\aggregatesmodel\\dataaggregate\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D95537-3E36-4AA5-BFD5-3788E433F4F8}|..\\BuildingBlocks\\BuildingBlocks.csproj|r:\\data-stream-train-machine-learning-api\\buildingblocks\\domain\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D95537-3E36-4AA5-BFD5-3788E433F4F8}|..\\BuildingBlocks\\BuildingBlocks.csproj|r:\\data-stream-train-machine-learning-api\\buildingblocks\\domain\\enumeration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D95537-3E36-4AA5-BFD5-3788E433F4F8}|..\\BuildingBlocks\\BuildingBlocks.csproj|r:\\data-stream-train-machine-learning-api\\buildingblocks\\domain\\iaggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44D95537-3E36-4AA5-BFD5-3788E433F4F8}|..\\BuildingBlocks\\BuildingBlocks.csproj|r:\\data-stream-train-machine-learning-api\\buildingblocks\\domain\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74CC3E67-A428-4FD1-B64D-A6489C5A8398}|..\\adaptive-deep-learning-model\\adaptive-deep-learning-model.csproj|r:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\combinedmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74CC3E67-A428-4FD1-B64D-A6489C5A8398}|..\\adaptive-deep-learning-model\\adaptive-deep-learning-model.csproj|r:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\trivial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Vobacom\\.nuget\\packages\\libtorch-cpu-win-x64\\2.5.1\\buildTransitive\\netstandard2.0\\libtorch-cpu-win-x64.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Vobacom\\.nuget\\packages\\libtorch-cpu-osx-arm64\\2.5.1\\buildTransitive\\netstandard2.0\\libtorch-cpu-osx-arm64.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\controllers\\neuralnetworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:controllers\\neuralnetworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -79,68 +17,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "input_generator.py",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\input_generator.py",
-              "RelativeDocumentMoniker": "input_generator.py",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\input_generator.py",
-              "RelativeToolTip": "input_generator.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-05-23T10:51:43.827Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DataDto.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\Dtos\\DataDto.cs",
-              "RelativeDocumentMoniker": "..\\Application\\Dtos\\DataDto.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\Dtos\\DataDto.cs",
-              "RelativeToolTip": "..\\Application\\Dtos\\DataDto.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:51:25.234Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GetModelHandlers.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
-              "RelativeDocumentMoniker": "..\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
-              "RelativeToolTip": "..\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAcwCkAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:51:17.14Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GetAllDataResult.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Queries\\GetAllDataResult.cs",
-              "RelativeDocumentMoniker": "..\\Application\\CQRS\\Queries\\GetAllDataResult.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Queries\\GetAllDataResult.cs",
-              "RelativeToolTip": "..\\Application\\CQRS\\Queries\\GetAllDataResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:51:03.4Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NeuralNetworkService.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Services\\NeuralNetworkService.cs",
-              "RelativeDocumentMoniker": "Services\\NeuralNetworkService.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Services\\NeuralNetworkService.cs",
-              "RelativeToolTip": "Services\\NeuralNetworkService.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAcwHkAAABUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:50:44.295Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -149,198 +27,23 @@
               "RelativeDocumentMoniker": "..\\README.md",
               "ToolTip": "R:\\data-stream-train-machine-learning-api\\README.md",
               "RelativeToolTip": "..\\README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-05-22T15:43:18.585Z",
+              "WhenOpened": "2025-05-28T09:17:09.34Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "RegisterModelCommand.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Commands\\RegisterModelCommand.cs",
-              "RelativeDocumentMoniker": "..\\Application\\CQRS\\Commands\\RegisterModelCommand.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Commands\\RegisterModelCommand.cs",
-              "RelativeToolTip": "..\\Application\\CQRS\\Commands\\RegisterModelCommand.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAIA1wB0AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "NeuralNetworkController.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Controllers\\NeuralNetworkController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NeuralNetworkController.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Controllers\\NeuralNetworkController.cs",
+              "RelativeToolTip": "Controllers\\NeuralNetworkController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:49:35.254Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RegisterModuleHandler.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
-              "RelativeDocumentMoniker": "..\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
-              "RelativeToolTip": "..\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAA0wBEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:49:32.971Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "RegisterDataCommand.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Commands\\RegisterDataCommand.cs",
-              "RelativeDocumentMoniker": "..\\Application\\CQRS\\Commands\\RegisterDataCommand.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Commands\\RegisterDataCommand.cs",
-              "RelativeToolTip": "..\\Application\\CQRS\\Commands\\RegisterDataCommand.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAASwBwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:49:20.213Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RegisterDataHandler.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\CommandHandlers\\RegisterDataHandler.cs",
-              "RelativeDocumentMoniker": "..\\Application\\CQRS\\CommandHandlers\\RegisterDataHandler.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\CommandHandlers\\RegisterDataHandler.cs",
-              "RelativeToolTip": "..\\Application\\CQRS\\CommandHandlers\\RegisterDataHandler.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAUwC0AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:49:17.045Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DataRepository.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure\\Repositories\\DataRepository.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure\\Repositories\\DataRepository.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure\\Repositories\\DataRepository.cs",
-              "RelativeToolTip": "..\\Infrastructure\\Repositories\\DataRepository.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAA7wBMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:48:11.235Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Model.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Domain\\AggregatesModel\\ModelAggregate\\Model.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\AggregatesModel\\ModelAggregate\\Model.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Domain\\AggregatesModel\\ModelAggregate\\Model.cs",
-              "RelativeToolTip": "..\\Domain\\AggregatesModel\\ModelAggregate\\Model.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:47:59.522Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Data.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Domain\\AggregatesModel\\DataAggregate\\Data.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\AggregatesModel\\DataAggregate\\Data.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Domain\\AggregatesModel\\DataAggregate\\Data.cs",
-              "RelativeToolTip": "..\\Domain\\AggregatesModel\\DataAggregate\\Data.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:47:35.025Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Entity.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\BuildingBlocks\\Domain\\Entity.cs",
-              "RelativeDocumentMoniker": "..\\BuildingBlocks\\Domain\\Entity.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\BuildingBlocks\\Domain\\Entity.cs",
-              "RelativeToolTip": "..\\BuildingBlocks\\Domain\\Entity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:47:14.22Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Enumeration.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\BuildingBlocks\\Domain\\Enumeration.cs",
-              "RelativeDocumentMoniker": "..\\BuildingBlocks\\Domain\\Enumeration.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\BuildingBlocks\\Domain\\Enumeration.cs",
-              "RelativeToolTip": "..\\BuildingBlocks\\Domain\\Enumeration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:47:13.185Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "IAggregateRoot.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\BuildingBlocks\\Domain\\IAggregateRoot.cs",
-              "RelativeDocumentMoniker": "..\\BuildingBlocks\\Domain\\IAggregateRoot.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\BuildingBlocks\\Domain\\IAggregateRoot.cs",
-              "RelativeToolTip": "..\\BuildingBlocks\\Domain\\IAggregateRoot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:47:09.968Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\BuildingBlocks\\Domain\\IRepository.cs",
-              "RelativeDocumentMoniker": "..\\BuildingBlocks\\Domain\\IRepository.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\BuildingBlocks\\Domain\\IRepository.cs",
-              "RelativeToolTip": "..\\BuildingBlocks\\Domain\\IRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:47:04.265Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "libtorch-cpu-osx-arm64.targets",
-              "DocumentMoniker": "C:\\Users\\Vobacom\\.nuget\\packages\\libtorch-cpu-osx-arm64\\2.5.1\\buildTransitive\\netstandard2.0\\libtorch-cpu-osx-arm64.targets",
-              "ToolTip": "C:\\Users\\Vobacom\\.nuget\\packages\\libtorch-cpu-osx-arm64\\2.5.1\\buildTransitive\\netstandard2.0\\libtorch-cpu-osx-arm64.targets",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-05-22T16:58:24.216Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "CombinedModel.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\CombinedModel.cs",
-              "RelativeDocumentMoniker": "..\\adaptive-deep-learning-model\\CombinedModel.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\CombinedModel.cs",
-              "RelativeToolTip": "..\\adaptive-deep-learning-model\\CombinedModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T15:55:30.716Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Trivial.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\Trivial.cs",
-              "RelativeDocumentMoniker": "..\\adaptive-deep-learning-model\\Trivial.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\Trivial.cs",
-              "RelativeToolTip": "..\\adaptive-deep-learning-model\\Trivial.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T15:54:05.586Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "libtorch-cpu-win-x64.targets",
-              "DocumentMoniker": "C:\\Users\\Vobacom\\.nuget\\packages\\libtorch-cpu-win-x64\\2.5.1\\buildTransitive\\netstandard2.0\\libtorch-cpu-win-x64.targets",
-              "ToolTip": "C:\\Users\\Vobacom\\.nuget\\packages\\libtorch-cpu-win-x64\\2.5.1\\buildTransitive\\netstandard2.0\\libtorch-cpu-win-x64.targets",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-05-22T17:00:59.197Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-22T15:51:59.031Z"
+              "WhenOpened": "2025-05-28T09:15:57.837Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -1,5 +1,4 @@
 ﻿using Card.Common.Domain;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
 namespace Card.Domain.AggregatesModel.CardAggregate;
 

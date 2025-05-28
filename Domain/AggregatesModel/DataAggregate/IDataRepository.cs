@@ -5,7 +5,6 @@ namespace Card.Domain.AggregatesModel.CardAggregate
     public interface IDataRepository : IRepository<Data>
     {
         Task<Data> AddAsync(Data card);
-        Task<int> Delete(int id);
         Task<Data> GetByIdAsync(int id);
         Task<IEnumerable<Data>> GetAllAsync();
         Task<IEnumerable<Data>> GetAllUnAppliedAsync();

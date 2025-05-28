@@ -18,7 +18,7 @@ public class DataRepository : IDataRepository
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }
 
-    public async Task<Domain.AggregatesModel.CardAggregate.Data> AddAsync(Domain.AggregatesModel.CardAggregate.Data order)
+    public async Task<Data> AddAsync(Data order)
     {
         var result = await _context.Datas.AddAsync(order);
         
@@ -30,19 +30,11 @@ public class DataRepository : IDataRepository
         return await _context.Datas.ToListAsync();
     }
 
-    public async Task<Domain.AggregatesModel.CardAggregate.Data> GetByIdAsync(int id)
+    public async Task<Data> GetByIdAsync(int id)
     {
         var card = await _context.Datas.FirstOrDefaultAsync(p => p.Id == id);
 
         return card;
-    }
-
-    public async Task<int> Delete(int id)
-    {
-        var toBeDeleted = await _context.Datas.FirstOrDefaultAsync(p => p.Id == id);
-        var result = _context.Datas.Remove(toBeDeleted);
-
-        return result.Entity.Id;
     }
 
     public async Task<IEnumerable<Data>> GetAllUnAppliedAsync()
