@@ -18,7 +18,7 @@ Ys: 1,1,1,1,1,1,1,1,1,1
 # Todos
 
 https://github.com/SciSharp/Numpy.NET
-
+https://codeberg.org/Michieal/TorchSharp
 
 # Ideas
 Use RNN or CNN or graph to be able to handle vary length of the input layer.
