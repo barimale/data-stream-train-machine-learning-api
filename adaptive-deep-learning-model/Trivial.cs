@@ -14,7 +14,7 @@ namespace adaptive_deep_learning_model
         private nn.Module<Tensor, Tensor> lin1b = nn.Linear(10, 100, dtype: torch.float64);
         private nn.Module<Tensor, Tensor> lin2 = nn.Linear(100, 10, dtype: torch.float64);
 
-        private Device Device = torch.cuda.is_available() ? torch.CPU : torch.CPU;
+        private Device Device = torch.cuda.is_available() ? torch.CUDA : torch.CPU;
 
         private nn.Module<Tensor, Tensor> getLin1a(int inputLength, int outputLength)
         {
@@ -72,7 +72,7 @@ namespace adaptive_deep_learning_model
             // to be customized / adaptive
             //var learning_rate = 0.001f; adaptive via Adam
             // to be customized / adaptive
-            MSELoss loss = nn.MSELoss().to(Device);
+            MSELoss lossFn = nn.MSELoss();
             // to be customized / adaptive
             var EPOCHS = 3;
             var finalLoss = 0.0d;
@@ -85,22 +85,22 @@ namespace adaptive_deep_learning_model
                 for (int i = 0; i < steps; i++)
                 {
                     // Compute the loss
-                    using var output = loss.forward(this.forward(dataBatch), resultBatch).to(Device);
+                    using var loss = lossFn.forward(this.forward(dataBatch), resultBatch).to(Device);
 
                     // Clear the gradients before doing the back-propagation
-                    this.zero_grad();
-                    // WIP maybe not necessary at all 
-                    this.to(Device);
+                    optimizer.zero_grad();
+                    //// WIP maybe not necessary at all 
+                    //this.to(Device);
 
                     torch.autograd.set_detect_anomaly(true);
 
                     // Do back-propagation, which computes all the gradients.
-                    output.backward();
+                    loss.backward();
 
                     optimizer.step();
                 }
 
-                finalLoss = loss.forward(this.forward(dataBatch), resultBatch).to(Device).item<double>();
+                finalLoss = lossFn.forward(this.forward(dataBatch), resultBatch).to(Device).item<double>();
             }
 
             return finalLoss;

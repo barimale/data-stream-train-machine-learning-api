@@ -7,7 +7,7 @@ namespace adaptive_deep_learning_model
     public class CombinedModel : nn.Module<Tensor, Tensor>
     {
         private nn.Module<Tensor, Tensor>[] models;
-		private Device Device = torch.cuda.is_available() ? torch.CPU : torch.CPU;
+		private Device Device = torch.cuda.is_available() ? torch.CUDA : torch.CPU;
 
 		public CombinedModel(params nn.Module<Tensor, Tensor>[] models) : base("CombinedModel")
         {
