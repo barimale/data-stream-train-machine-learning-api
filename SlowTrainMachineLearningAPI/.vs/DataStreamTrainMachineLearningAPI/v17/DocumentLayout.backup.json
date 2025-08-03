@@ -1,12 +1,68 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E1BFFBF0-5B2D-4877-B3FE-537544787FC2}|..\\Infrastructure.QuestDB\\Infrastructure.QuestDB.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.questdb\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{991A20AB-D678-48B5-8D8F-89FD7F65EA59}|..\\Infrastructure.NHibernate.Migrations\\Infrastructure.NHibernate.Migrations.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate.migrations\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.QuestDB\\Class1.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure.QuestDB\\Class1.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.QuestDB\\Class1.cs",
+              "RelativeToolTip": "..\\Infrastructure.QuestDB\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T19:39:44.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Class1.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\Class1.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Class1.cs",
+              "RelativeToolTip": "..\\Infrastructure.NHibernate\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T19:39:24.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate.Migrations\\Class1.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate.Migrations\\Class1.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate.Migrations\\Class1.cs",
+              "RelativeToolTip": "..\\Infrastructure.NHibernate.Migrations\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T19:39:02.941Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
