@@ -14,7 +14,7 @@ public static class DependencyInjection
     {
         services.AddTransient<IProductRepository, ProductRepository>();
         services.AddTransient<INHibernateHelper, NHibernateHelper>();
-        services.AddTransient<IAddressRepository, AddressRepository>();
+        services.AddTransient<IAddressRepository, ModelRepository>();
         services.AddTransient<IAddress2Repository, Address2Repository>();
         services.AddTransient<ICompanyRepository, CompanyRepository>();
         services.AddTransient<ICompany2Repository, Company2Repository>();
