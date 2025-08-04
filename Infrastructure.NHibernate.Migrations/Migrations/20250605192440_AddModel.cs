@@ -3,26 +3,29 @@ using FluentMigrator;
 
 namespace Demo.Migrations.Migrations
 {
-    [Migration(20250606194233)]
-    public class AddCompany2 : Migration
+    [Migration(20250605192440)]
+    public class AddAddress : Migration
     {
-        private readonly string TableName = LowercaseTableNameConvention.TablePrefix + "Company2";
+        private readonly string TableName = LowercaseTableNameConvention.TablePrefix + "Model";
 
         public override void Up()
         {
-            // Main table
             Create.Table(TableName)
-                .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
-                .WithColumn("Version").AsInt32()
-                .WithColumn("Foo").AsString().Nullable();
+               .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
+               .WithColumn("RegisteringTime").AsDateTimeOffset()
+               .WithColumn("ModelAsBytes").AsBinary().Nullable() // wip asbyte
+               .WithColumn("Version").AsInt32()
+               .WithColumn("ModelVersion").AsString();
 
             // Audit table
             Create.Table(TableName + "_AUD")
                 .WithColumn("Id").AsInt32().NotNullable()
                 .WithColumn("REV").AsInt32().NotNullable()
                 .WithColumn("REVTYPE").AsInt32().NotNullable()
+                .WithColumn("RegisteringTime").AsDateTimeOffset().Nullable()
+                .WithColumn("ModelAsBytes").AsBinary().Nullable()
                 .WithColumn("Version").AsInt32().Nullable()
-                .WithColumn("Foo").AsString().Nullable();
+                .WithColumn("ModelVersion").AsString();
 
             Create.PrimaryKey("PK_" + TableName + "_AUD")
                 .OnTable(TableName + "_AUD")
@@ -35,7 +38,6 @@ namespace Demo.Migrations.Migrations
 
         public override void Down()
         {
-            Delete.Table(TableName + "_AUD");
             Delete.Table(TableName);
         }
     }

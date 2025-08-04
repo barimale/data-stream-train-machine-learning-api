@@ -35,7 +35,7 @@ namespace Demo.Infrastructure.Repositories
             using (var session = _nHibernateHelper.OpenStatelessSesion())
             {
                 return await session.Query<Model>()
-                    .Where(p => p.Version == "latest")
+                    .Where(p => p.ModelVersion == "latest")
                     .FirstOrDefaultAsync();
             }
         }

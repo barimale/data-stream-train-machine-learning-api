@@ -7,5 +7,5 @@ public class Model
 {
     public DateTime RegisteringTime { get; set; }
     public byte[] ModelAsBytes { get; set; }
-    public string Version { get; set; }
+    public string ModelVersion { get; set; }
 }

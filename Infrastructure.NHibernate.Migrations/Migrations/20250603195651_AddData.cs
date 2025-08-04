@@ -3,35 +3,33 @@ using FluentMigrator;
 
 namespace Demo.Migrations.Migrations
 {
-    [Migration(20250606194224)]
-    public class AddAddress2 : Migration
+    [Migration(20250603195651)]
+    public class AddDataMigration : Migration
     {
-        private readonly string TableName = LowercaseTableNameConvention.TablePrefix + "Address2";
+        private readonly string TableName = LowercaseTableNameConvention.TablePrefix + "Data";
 
         public override void Up()
         {
             Create.Table(TableName)
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
-                .WithColumn("Street").AsString().Nullable()
-                .WithColumn("City").AsString().Nullable()
-                .WithColumn("State").AsString().Nullable()
-                .WithColumn("ZipCode").AsString().Nullable()
-                .WithColumn("Country").AsString().Nullable()
+                .WithColumn("IngestionTime").AsDateTimeOffset()
+                .WithColumn("Xs").AsString()
+                .WithColumn("Ys").AsString()
+                .WithColumn("PieceOfModel").AsBinary().Nullable() // wip asbyte
                 .WithColumn("Version").AsInt32()
-                .WithColumn("Phone").AsString().Nullable();
+                .WithColumn("IsApplied").AsBoolean().WithDefaultValue(false);
 
             // Audit table
             Create.Table(TableName + "_AUD")
                 .WithColumn("Id").AsInt32().NotNullable()
                 .WithColumn("REV").AsInt32().NotNullable()
                 .WithColumn("REVTYPE").AsInt32().NotNullable()
-                .WithColumn("Street").AsString().Nullable()
-                .WithColumn("City").AsString().Nullable()
-                .WithColumn("State").AsString().Nullable()
-                .WithColumn("ZipCode").AsString().Nullable()
-                .WithColumn("Country").AsString().Nullable()
+                .WithColumn("IngestionTime").AsDateTimeOffset().Nullable()
+                .WithColumn("Xs").AsString().Nullable()
+                .WithColumn("Ys").AsString().Nullable()
+                .WithColumn("PieceOfModel").AsBinary().Nullable()
                 .WithColumn("Version").AsInt32().Nullable()
-                .WithColumn("Phone").AsString().Nullable();
+                .WithColumn("IsApplied").AsBoolean().Nullable().WithDefaultValue(false);
 
             Create.PrimaryKey("PK_" + TableName + "_AUD")
                 .OnTable(TableName + "_AUD")
@@ -44,7 +42,6 @@ namespace Demo.Migrations.Migrations
 
         public override void Down()
         {
-            Delete.Table(TableName + "_AUD");
             Delete.Table(TableName);
         }
     }

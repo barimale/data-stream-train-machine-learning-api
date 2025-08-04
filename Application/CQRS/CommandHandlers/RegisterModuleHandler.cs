@@ -17,7 +17,7 @@ public class RegisterModuleHandler(IServiceProvider provider)
             {
                 RegisteringTime = DateTime.Now,
                 ModelAsBytes = command.Model,
-                Version = command.Version,
+                ModelVersion = command.Version,
             };
 
             var result = await cardRepository.AddAsync(card);
