@@ -9,6 +9,9 @@
   <ItemGroup>
     <PackageReference Include="NHibernate" Version="5.5.2" />
     <PackageReference Include="NHibernate.Envers" Version="5.5.2" />
+    <PackageReference Include="NLog" Version="6.0.2" />
+	  <PackageReference Include="FluentMigrator.Runner" Version="7.1.0" />
+    <PackageReference Include="FluentNHibernate" Version="3.4.1" />
   </ItemGroup>
 
   <ItemGroup>

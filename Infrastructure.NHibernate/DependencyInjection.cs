@@ -1,6 +1,4 @@
-﻿using Demo.Domain.AggregatesModel.Company2Aggregate;
-using Demo.Domain.AggregatesModel.CompanyAggregate;
-using Demo.Domain.AggregatesModel.ProductAggregate;
+﻿using Card.Domain.AggregatesModel.CardAggregate;
 using Demo.Infrastructure.Database;
 using Demo.Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
@@ -12,12 +10,9 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructureServices
         (this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddTransient<IProductRepository, ProductRepository>();
+        services.AddTransient<IDataRepository, DataRepository>();
         services.AddTransient<INHibernateHelper, NHibernateHelper>();
-        services.AddTransient<IAddressRepository, ModelRepository>();
-        services.AddTransient<IAddress2Repository, Address2Repository>();
-        services.AddTransient<ICompanyRepository, CompanyRepository>();
-        services.AddTransient<ICompany2Repository, Company2Repository>();
+        services.AddTransient<IModelRepository, ModelRepository>();
 
         return services;
     }

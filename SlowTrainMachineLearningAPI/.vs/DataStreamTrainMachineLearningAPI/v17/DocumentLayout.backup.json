@@ -3,13 +3,13 @@
   "WorkspaceRootPath": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E1BFFBF0-5B2D-4877-B3FE-537544787FC2}|..\\Infrastructure.QuestDB\\Infrastructure.QuestDB.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.questdb\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\nhibernatehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\infrastructure.nhibernate.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{991A20AB-D678-48B5-8D8F-89FD7F65EA59}|..\\Infrastructure.NHibernate.Migrations\\Infrastructure.NHibernate.Migrations.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate.migrations\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\inonefilenhibernatehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,40 +24,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.QuestDB\\Class1.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure.QuestDB\\Class1.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.QuestDB\\Class1.cs",
-              "RelativeToolTip": "..\\Infrastructure.QuestDB\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Title": "NHibernateHelper.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\NHibernateHelper.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\NHibernateHelper.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\NHibernateHelper.cs",
+              "RelativeToolTip": "..\\Infrastructure.NHibernate\\NHibernateHelper.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAgwDwAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-02T19:39:44.127Z",
+              "WhenOpened": "2025-08-04T15:52:02.001Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Class1.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\Class1.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Class1.cs",
-              "RelativeToolTip": "..\\Infrastructure.NHibernate\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-02T19:39:24.093Z",
+              "Title": "Infrastructure.NHibernate",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
+              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
+              "RelativeToolTip": "..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-04T15:50:29.674Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate.Migrations\\Class1.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate.Migrations\\Class1.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate.Migrations\\Class1.cs",
-              "RelativeToolTip": "..\\Infrastructure.NHibernate.Migrations\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "InOneFileNHibernateHelper.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\InOneFileNHibernateHelper.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\InOneFileNHibernateHelper.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\InOneFileNHibernateHelper.cs",
+              "RelativeToolTip": "..\\Infrastructure.NHibernate\\InOneFileNHibernateHelper.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAswDcAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-02T19:39:02.941Z",
+              "WhenOpened": "2025-08-04T15:49:31.095Z",
               "EditorCaption": ""
             }
           ]

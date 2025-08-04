@@ -53,7 +53,7 @@ namespace Demo.Infrastructure
                     .Dialect<NHibernate.Dialect.SQLiteDialect>())
                 .Mappings(m =>
                 {
-                    m.FluentMappings.AddFromAssemblyOf<ProductTypeMap>().Conventions.Add<LowercaseTableNameConvention>();
+                    m.FluentMappings.AddFromAssemblyOf<DataMap>().Conventions.Add<LowercaseTableNameConvention>();
                 });
             fluentConfig.ExposeConfiguration(cfg =>
             {

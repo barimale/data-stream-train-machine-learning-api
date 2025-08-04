@@ -1,5 +1,5 @@
-﻿using Demo.Domain.AggregatesModel.Company2Aggregate;
-using Demo.Domain.AggregatesModel.ProductAggregate;
+﻿using Card.Domain.AggregatesModel.CardAggregate;
+using Demo.Domain.AggregatesModel.Company2Aggregate;
 using Demo.Infrastructure.Database;
 using Demo.Infrastructure.Database.Interceptors;
 using Demo.Infrastructure.Database.Listeners;
@@ -59,17 +59,15 @@ namespace Demo.Infrastructure
                     .Driver<NHibernate.Driver.OracleManagedDataClientDriver>())
                 .Mappings(m =>
                 {
-                    m.FluentMappings.AddFromAssemblyOf<ProductTypeMap>().Conventions.Add<LowercaseTableNameConvention>();
+                    m.FluentMappings.AddFromAssemblyOf<DataMap>().Conventions.Add<LowercaseTableNameConvention>();
                 });
 
 #if DEBUG
             fluentConfig.ExposeConfiguration(cfg =>
             {
                 var enversConf = new NHibernate.Envers.Configuration.Fluent.FluentConfiguration();
-                enversConf.Audit<Company2>();
-                enversConf.Audit<Address2>();
-                enversConf.Audit<CompanyAddress2>();
-                enversConf.Audit<Product>();
+                enversConf.Audit<Data>();
+                enversConf.Audit<Model>();
 
                 enversConf.SetRevisionEntity<AuditRevisionEntity>(
                     x => x.Id,
