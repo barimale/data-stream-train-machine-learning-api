@@ -9,8 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BuildingBlocks\BuildingBlocks.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
-    <ProjectReference Include="..\Infrastructure\Infrastructure.EFCore.csproj" />
+    <ProjectReference Include="..\Infrastructure.NHibernate\Infrastructure.NHibernate.csproj" />
   </ItemGroup>
 	
   <ItemGroup>

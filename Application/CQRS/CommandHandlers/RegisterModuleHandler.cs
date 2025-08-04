@@ -21,7 +21,7 @@ public class RegisterModuleHandler(IServiceProvider provider)
             };
 
             var result = await cardRepository.AddAsync(card);
-            await cardRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            //await cardRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
             return new RegisterModelResult(result.Id);
         }        

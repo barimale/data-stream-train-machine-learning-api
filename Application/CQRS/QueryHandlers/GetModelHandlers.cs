@@ -3,11 +3,9 @@ using BuildingBlocks.Application.CQRS;
 using Card.Application.CQRS.Queries;
 using Card.Application.Dtos;
 using Card.Domain.AggregatesModel.CardAggregate;
-using Card.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using static Card.Application.CQRS.Queries.GetAllDataResult;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Card.Application.CQRS.QueryHandlers;
 public class GetCardHandlers(

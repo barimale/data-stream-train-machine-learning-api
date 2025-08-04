@@ -3,13 +3,34 @@
   "WorkspaceRootPath": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\queryhandlers\\getmodelhandlers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\queries\\getalldataresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\commands\\updateisappliedpiece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\commands\\registermodelcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\commands\\registerdatacommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\repositories\\modelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\commandhandlers\\registermodulehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\commandhandlers\\registerdatahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\nhibernatehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\infrastructure.nhibernate.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\inonefilenhibernatehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,40 +45,131 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "NHibernateHelper.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\NHibernateHelper.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\NHibernateHelper.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\NHibernateHelper.cs",
-              "RelativeToolTip": "..\\Infrastructure.NHibernate\\NHibernateHelper.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAgwDwAAAA+AAAAAAAAAA==",
+              "Title": "GetModelHandlers.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
+              "RelativeDocumentMoniker": "..\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
+              "RelativeToolTip": "..\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAgwEYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T15:52:02.001Z",
+              "WhenOpened": "2025-08-04T17:55:22.817Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Infrastructure.NHibernate",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
-              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
-              "RelativeToolTip": "..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-04T15:50:29.674Z",
+              "Title": "GetAllDataResult.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Queries\\GetAllDataResult.cs",
+              "RelativeDocumentMoniker": "..\\Application\\CQRS\\Queries\\GetAllDataResult.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Queries\\GetAllDataResult.cs",
+              "RelativeToolTip": "..\\Application\\CQRS\\Queries\\GetAllDataResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T17:55:18.922Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "InOneFileNHibernateHelper.cs",
-              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\InOneFileNHibernateHelper.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\InOneFileNHibernateHelper.cs",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\InOneFileNHibernateHelper.cs",
-              "RelativeToolTip": "..\\Infrastructure.NHibernate\\InOneFileNHibernateHelper.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAswDcAAAA+AAAAAAAAAA==",
+              "Title": "UpdateIsAppliedPiece.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Commands\\UpdateIsAppliedPiece.cs",
+              "RelativeDocumentMoniker": "..\\Application\\CQRS\\Commands\\UpdateIsAppliedPiece.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Commands\\UpdateIsAppliedPiece.cs",
+              "RelativeToolTip": "..\\Application\\CQRS\\Commands\\UpdateIsAppliedPiece.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T15:49:31.095Z",
+              "WhenOpened": "2025-08-04T17:55:13.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegisterModelCommand.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Commands\\RegisterModelCommand.cs",
+              "RelativeDocumentMoniker": "..\\Application\\CQRS\\Commands\\RegisterModelCommand.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Commands\\RegisterModelCommand.cs",
+              "RelativeToolTip": "..\\Application\\CQRS\\Commands\\RegisterModelCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T17:55:11.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RegisterDataCommand.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Commands\\RegisterDataCommand.cs",
+              "RelativeDocumentMoniker": "..\\Application\\CQRS\\Commands\\RegisterDataCommand.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\Commands\\RegisterDataCommand.cs",
+              "RelativeToolTip": "..\\Application\\CQRS\\Commands\\RegisterDataCommand.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T17:55:07.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ModelRepository.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Repositories\\ModelRepository.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\Repositories\\ModelRepository.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Repositories\\ModelRepository.cs",
+              "RelativeToolTip": "..\\Infrastructure.NHibernate\\Repositories\\ModelRepository.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAjwBQAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T17:54:53.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RegisterModuleHandler.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
+              "RelativeDocumentMoniker": "..\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
+              "RelativeToolTip": "..\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T17:54:34.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RegisterDataHandler.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\CommandHandlers\\RegisterDataHandler.cs",
+              "RelativeDocumentMoniker": "..\\Application\\CQRS\\CommandHandlers\\RegisterDataHandler.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\CommandHandlers\\RegisterDataHandler.cs",
+              "RelativeToolTip": "..\\Application\\CQRS\\CommandHandlers\\RegisterDataHandler.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwCcAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T17:54:13.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "..\\Application\\DependencyInjection.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\DependencyInjection.cs",
+              "RelativeToolTip": "..\\Application\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T17:53:49.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "NHibernateHelper.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\NHibernateHelper.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\NHibernateHelper.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\NHibernateHelper.cs",
+              "RelativeToolTip": "..\\Infrastructure.NHibernate\\NHibernateHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T15:52:02.001Z",
               "EditorCaption": ""
             }
           ]
