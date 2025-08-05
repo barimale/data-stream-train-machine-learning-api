@@ -2,7 +2,7 @@
 using NHibernate.Envers.Configuration.Attributes;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Demo.Domain.AggregatesModel.Company2Aggregate
+namespace Infrastructure.NHibernate.Audit
 {
     [RevisionEntity]
     [Table("REVINFO")]

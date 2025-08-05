@@ -1,6 +1,6 @@
-﻿using BuildingBlocks.Application.CQRS;
+﻿using Card.Common.Application.CQRS;
 
-namespace Card.Application.CQRS.Commands;
+namespace Application.CQRS.Commands;
 
 public class RegisterModelCommand : ICommand<RegisterModelResult>
 {

@@ -1,11 +1,11 @@
 ﻿using Card.Common.Domain;
-using Card.Domain.AggregatesModel.CardAggregate;
-using Demo.Infrastructure.Database;
+using Domain.AggregatesModel.DataAggregate;
+using Infrastructure.NHibernate.Database;
 using NHibernate;
 using NHibernate.Linq;
 using ISession = NHibernate.ISession;
 
-namespace Demo.Infrastructure.Repositories
+namespace Infrastructure.NHibernate.Repositories
 {
     public class DataRepository : IDataRepository
     {

@@ -4,7 +4,7 @@ using NHibernate.SqlCommand;
 using NLog;
 using ILoggerFactory = Microsoft.Extensions.Logging.ILoggerFactory;
 
-namespace Demo.Infrastructure.Database.Interceptors
+namespace Infrastructure.NHibernate.Database.Interceptors
 {
     public class NHibernateInterceptor : EmptyInterceptor
     {

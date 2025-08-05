@@ -1,7 +1,7 @@
-﻿using AutoMapper;
-using Card.Application.Dtos;
+﻿using Application.Dtos;
+using AutoMapper;
 
-namespace Card.Application.Profiles
+namespace Application.Profiles
 {
     public class CardProfile : Profile
     {

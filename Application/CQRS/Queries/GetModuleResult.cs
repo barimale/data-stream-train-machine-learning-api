@@ -1,6 +1,6 @@
-﻿using Card.Application.Dtos;
+﻿using Application.Dtos;
 
-namespace Card.Application.CQRS.Queries;
+namespace Application.CQRS.Queries;
 
 public class GetModuleResult
 {

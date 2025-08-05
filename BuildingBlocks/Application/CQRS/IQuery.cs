@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace BuildingBlocks.Application.CQRS;
+namespace Card.Common.Application.CQRS;
 public interface IQuery<out TResponse> : IRequest<TResponse>
     where TResponse : notnull
 {

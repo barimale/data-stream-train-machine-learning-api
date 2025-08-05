@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
-namespace Card.API.Extensions;
+namespace API.SlowTrainMachineLearning.Extensions;
 
 internal static class MigrateDbContextExtensions
 {

@@ -1,7 +1,7 @@
-﻿using Demo.Domain.AggregatesModel.Company2Aggregate;
-using FluentNHibernate.Mapping;
+﻿using FluentNHibernate.Mapping;
+using Infrastructure.NHibernate.Audit;
 
-namespace Demo.Infrastructure.EntityConfigurations.Audit
+namespace Infrastructure.NHibernate.EntityConfigurations.Audit
 {
     public class AuditRevisionEntityMap : ClassMap<AuditRevisionEntity>
     {

@@ -1,4 +1,4 @@
-﻿namespace BuildingBlocks.API.Middlewares.GlobalExceptions;
+﻿namespace Card.Common.API.Middlewares.GlobalExceptions;
 public class InternalServerException : Exception
 {
     public InternalServerException(string message) : base(message)

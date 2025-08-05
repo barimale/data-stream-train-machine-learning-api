@@ -1,8 +1,8 @@
-﻿using Card.Domain.AggregatesModel.CardAggregate;
+﻿using Domain.AggregatesModel.DataAggregate;
 
-namespace Card.Infrastructure.EntityConfigurations;
+namespace Infrastructure.EFCore.EntityConfigurations;
 
-class DataEntityTypeConfiguration : IEntityTypeConfiguration<Domain.AggregatesModel.CardAggregate.Data>
+class DataEntityTypeConfiguration : IEntityTypeConfiguration<Data>
 {
     public void Configure(EntityTypeBuilder<Data> cardConfiguration)
     {

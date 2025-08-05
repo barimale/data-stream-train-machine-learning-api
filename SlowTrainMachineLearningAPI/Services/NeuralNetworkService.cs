@@ -1,10 +1,11 @@
-﻿using adaptive_deep_learning_model.Utilities;
+﻿using adaptive_deep_learning_model;
+using adaptive_deep_learning_model.Utilities;
+using Application.CQRS.Commands;
+using Application.CQRS.Queries;
 using AutoMapper;
 using Card.Application.CQRS.Commands;
-using Card.Application.CQRS.Queries;
 using fuzzy_logic_model_generator;
 using MediatR;
-using SlowTrainMachineLearningAPI.Model;
 using System.Text.Json;
 
 namespace API.SlowTrainMachineLearning.Services

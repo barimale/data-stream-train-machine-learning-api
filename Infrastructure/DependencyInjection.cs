@@ -1,10 +1,11 @@
-﻿using Card.Domain.AggregatesModel.CardAggregate;
-using Card.Infrastructure.Repositories;
+﻿using Domain.AggregatesModel.DataAggregate;
+using Domain.AggregatesModel.ModelAggregate;
+using Infrastructure.EFCore.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace Card.Infrastructure;
+namespace Infrastructure.EFCore;
 public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructureServices

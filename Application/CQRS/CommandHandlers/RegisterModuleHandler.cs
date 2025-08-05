@@ -1,9 +1,10 @@
-﻿using BuildingBlocks.Application.CQRS;
-using Card.Application.CQRS.Commands;
+﻿using Application.CQRS.Commands;
+using Card.Common.Application.CQRS;
 using Card.Domain.AggregatesModel.CardAggregate;
+using Domain.AggregatesModel.ModelAggregate;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Card.Application.CQRS.CommandHandlers;
+namespace Application.CQRS.CommandHandlers;
 public class RegisterModuleHandler(IServiceProvider provider)
     : ICommandHandler<RegisterModelCommand, RegisterModelResult>
 {

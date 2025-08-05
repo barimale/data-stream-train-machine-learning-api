@@ -1,7 +1,7 @@
-﻿using Demo.Migrations.Conventions;
-using FluentMigrator;
+﻿using FluentMigrator;
+using Infrastructure.NHibernate.Migrations.Conventions;
 
-namespace Demo.Migrations.Migrations
+namespace Infrastructure.NHibernate.Migrations.Migrations
 {
     [Migration(20250603195651)]
     public class AddDataMigration : Migration

@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using Card.Application.CQRS.Commands;
 using Card.API.Model.order;
+using Application.CQRS.Commands;
 
-namespace Card.API.MappingProfiles
+namespace API.SlowTrainMachineLearning.MappingProfiles
 {
     public class ApiProfile : Profile
     {

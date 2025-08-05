@@ -3,7 +3,7 @@ using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace BuildingBlocks.API.Utilities.Healthcheck
+namespace Card.Common.API.Utilities.Healthcheck
 {
     public class HealthChecksDocumentFilter : IDocumentFilter
     {

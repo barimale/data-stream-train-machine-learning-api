@@ -1,9 +1,9 @@
-﻿using BuildingBlocks.Application.CQRS;
-using Card.Application.CQRS.Commands;
-using Card.Domain.AggregatesModel.CardAggregate;
+﻿using Application.CQRS.Commands;
+using Card.Common.Application.CQRS;
+using Domain.AggregatesModel.DataAggregate;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Card.Application.CQRS.CommandHandlers;
+namespace Application.CQRS.CommandHandlers;
 public class RegisterDataHandler(IServiceProvider provider)
     : ICommandHandler<RegisterDataCommand, RegisterDataResult>,
     ICommandHandler<UpdateIsAppliedPiece, RegisterDataIsAppliedResult>

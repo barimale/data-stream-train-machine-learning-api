@@ -1,11 +1,11 @@
-﻿using BuildingBlocks.Application.Behaviors;
-using Card.Application.Profiles;
+﻿using Application.Profiles;
+using Card.Common.Application.Behaviors;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.FeatureManagement;
 
-namespace Card.Application;
+namespace Application;
 public static class DependencyInjection
 {
     public static IServiceCollection AddApplicationServices

@@ -1,7 +1,7 @@
-﻿using Card.Domain.AggregatesModel.CardAggregate;
+﻿using Domain.AggregatesModel.DataAggregate;
 using FluentNHibernate.Mapping;
 
-namespace Demo.Infrastructure.EntityConfigurations
+namespace Infrastructure.NHibernate.EntityConfigurations
 {
     public class DataMap : ClassMap<Data>
     {

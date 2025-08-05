@@ -1,9 +1,9 @@
-﻿using adaptive_deep_learning_model;
+﻿using Application.CQRS.Queries;
 using Card.Application.CQRS.Commands;
 using Card.Application.CQRS.Queries;
 using MediatR;
 
-namespace SlowTrainMachineLearningAPI.Model
+namespace adaptive_deep_learning_model
 {
     public class TorchModel : ITorchModel
     {
@@ -24,7 +24,7 @@ namespace SlowTrainMachineLearningAPI.Model
             }
             private set
             {
-                this.model = value;
+                model = value;
             }
         }
 
@@ -103,7 +103,7 @@ namespace SlowTrainMachineLearningAPI.Model
 
             if (result.Model is null)
             {
-                this.Model = new Trivial();
+                Model = new Trivial();
                 return;
             }
 
@@ -113,7 +113,7 @@ namespace SlowTrainMachineLearningAPI.Model
                 using (MemoryStream fs = new MemoryStream(modelFromDb))
                 using (BinaryReader reader = new BinaryReader(fs))
                 {
-                    this.Model.load(reader);
+                    Model.load(reader);
                     return;
                 }
 
@@ -122,7 +122,7 @@ namespace SlowTrainMachineLearningAPI.Model
             {
             }
 
-            this.Model = new Trivial();
+            Model = new Trivial();
         }
 
         public byte[] ModelToBytes()

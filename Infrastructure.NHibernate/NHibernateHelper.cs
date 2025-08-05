@@ -1,14 +1,15 @@
-﻿using Card.Domain.AggregatesModel.CardAggregate;
-using Demo.Domain.AggregatesModel.Company2Aggregate;
-using Demo.Infrastructure.Database;
-using Demo.Infrastructure.Database.Interceptors;
-using Demo.Infrastructure.Database.Listeners;
-using Demo.Infrastructure.EntityConfigurations;
-using Demo.Migrations.Conventions;
-using Demo.Migrations.Migrations;
+﻿using Domain.AggregatesModel.DataAggregate;
+using Domain.AggregatesModel.ModelAggregate;
 using FluentMigrator.Runner;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using Infrastructure.NHibernate.Audit;
+using Infrastructure.NHibernate.Database;
+using Infrastructure.NHibernate.Database.Interceptors;
+using Infrastructure.NHibernate.Database.Listeners;
+using Infrastructure.NHibernate.EntityConfigurations;
+using Infrastructure.NHibernate.Migrations.Conventions;
+using Infrastructure.NHibernate.Migrations.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -16,7 +17,7 @@ using NHibernate;
 using NHibernate.Cfg;
 using ISession = NHibernate.ISession;
 
-namespace Demo.Infrastructure
+namespace Infrastructure.NHibernate
 {
     public class NHibernateHelper : INHibernateHelper
     {

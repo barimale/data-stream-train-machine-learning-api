@@ -1,5 +1,5 @@
 ﻿using API.SlowTrainMachineLearning.Services;
-using Card.Application.CQRS.Commands;
+using Application.CQRS.Commands;
 using RabbitMQ.Client.Events;
 using System.Text.Json;
 

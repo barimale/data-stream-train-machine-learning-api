@@ -1,7 +1,7 @@
-﻿using Demo.Domain.AggregatesModel.Company2Aggregate;
+﻿using Infrastructure.NHibernate.Audit;
 using NHibernate.Envers;
 
-namespace Demo.Infrastructure.Database.Listeners
+namespace Infrastructure.NHibernate.Database.Listeners
 {
     public class AuditRevisionListener : IRevisionListener
     {

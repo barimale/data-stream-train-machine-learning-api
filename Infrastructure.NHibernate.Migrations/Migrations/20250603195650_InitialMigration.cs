@@ -1,7 +1,6 @@
-﻿using Demo.Migrations.Conventions;
-using FluentMigrator;
+﻿using FluentMigrator;
 
-namespace Demo.Migrations.Migrations
+namespace Infrastructure.NHibernate.Migrations.Migrations
 {
     [Migration(20250603195650)]
     public class InitialMigration : Migration

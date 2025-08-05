@@ -1,8 +1,10 @@
-﻿namespace Demo.Infrastructure.Database
+﻿using NHibernate;
+
+namespace Infrastructure.NHibernate.Database
 {
     public interface INHibernateHelper : IDisposable
     {
-         NHibernate.ISession OpenSession();
-         NHibernate.IStatelessSession OpenStatelessSesion();
+         ISession OpenSession();
+         IStatelessSession OpenStatelessSesion();
     }
 }

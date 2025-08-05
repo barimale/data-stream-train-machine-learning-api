@@ -1,7 +1,7 @@
-﻿using Demo.Migrations.Conventions;
-using FluentMigrator;
+﻿using FluentMigrator;
+using Infrastructure.NHibernate.Migrations.Conventions;
 
-namespace Demo.Migrations.Migrations
+namespace Infrastructure.NHibernate.Migrations.Migrations
 {
     [Migration(20250605192440)]
     public class AddAddress : Migration

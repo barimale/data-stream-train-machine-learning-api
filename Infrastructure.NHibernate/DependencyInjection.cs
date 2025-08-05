@@ -1,10 +1,11 @@
-﻿using Card.Domain.AggregatesModel.CardAggregate;
-using Demo.Infrastructure.Database;
-using Demo.Infrastructure.Repositories;
+﻿using Domain.AggregatesModel.DataAggregate;
+using Domain.AggregatesModel.ModelAggregate;
+using Infrastructure.NHibernate.Database;
+using Infrastructure.NHibernate.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Demo.Infrastructure;
+namespace Infrastructure.NHibernate;
 public static class DependencyInjection
 {
     public static IServiceCollection AddNHibernateInfrastructureServices

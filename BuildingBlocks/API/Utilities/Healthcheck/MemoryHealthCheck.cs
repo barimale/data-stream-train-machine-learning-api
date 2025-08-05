@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Options;
 
-namespace BuildingBlocks.API.Utilities.Healthcheck
+namespace Card.Common.API.Utilities.Healthcheck
 {
     public class MemoryHealthCheck : IHealthCheck
     {
