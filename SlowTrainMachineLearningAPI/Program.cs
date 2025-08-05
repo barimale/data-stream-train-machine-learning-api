@@ -7,6 +7,7 @@ using Card.Infrastructure;
 using Hangfire;
 using Hangfire.MemoryStorage;
 using SlowTrainMachineLearningAPI.Model;
+using Demo.Infrastructure;
 
 namespace SlowTrainMachineLearningAPI
 {
@@ -29,7 +30,7 @@ namespace SlowTrainMachineLearningAPI
             builder.Services
                    .AddAdaptiveNetworkServices(builder.Configuration)
                    .AddApplicationServices(builder.Configuration)
-                   .AddInfrastructureServices(builder.Configuration);
+                   .AddNHibernateInfrastructureServices(builder.Configuration);
 
             builder.Services.AddMigration<NNContext>();
             builder.Services.AddHostedService<NeuralNetworkTrainerHostedService>();

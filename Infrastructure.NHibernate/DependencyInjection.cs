@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Demo.Infrastructure;
 public static class DependencyInjection
 {
-    public static IServiceCollection AddInfrastructureServices
+    public static IServiceCollection AddNHibernateInfrastructureServices
         (this IServiceCollection services, IConfiguration configuration)
     {
         services.AddTransient<IDataRepository, DataRepository>();
