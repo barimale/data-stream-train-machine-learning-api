@@ -17,6 +17,8 @@
 	  <PackageReference Include="NLog.Config" Version="4.7.15" />
 	  <PackageReference Include="NLog.Extensions.Logging" Version="5.5.0" />
 	  <PackageReference Include="NLog.Schema" Version="5.5.0" />
+	  <PackageReference Include="Oracle.ManagedDataAccess" Version="23.9.1" />
+	  <PackageReference Include="System.Security.Permissions" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>

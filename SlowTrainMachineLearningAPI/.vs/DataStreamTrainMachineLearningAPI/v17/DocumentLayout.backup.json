@@ -3,6 +3,28 @@
   "WorkspaceRootPath": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\nhibernatehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\queryhandlers\\getmodelhandlers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\controllers\\neuralnetworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:controllers\\neuralnetworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|r:\\data-stream-train-machine-learning-api\\slowtrainmachinelearningapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7C2AEFB-032C-4603-A161-A304BF903E32}|API.SlowTrainMachineLearning.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4E81C8D2-62B1-43BA-B77B-0C8495D2E94B}|.Solution Items{4E81C8D2-62B1-43BA-B77B-0C8495D2E94B}|R:\\data-stream-train-machine-learning-api\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
@@ -15,9 +37,6 @@
       "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\commandhandlers\\registermodulehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\nhibernatehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\infrastructure.nhibernate.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
@@ -28,11 +47,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAB0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-05T15:20:55.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAB0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-05T15:20:20.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GetModelHandlers.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
+              "RelativeDocumentMoniker": "..\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
+              "RelativeToolTip": "..\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T15:19:40.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NeuralNetworkController.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Controllers\\NeuralNetworkController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NeuralNetworkController.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Controllers\\NeuralNetworkController.cs",
+              "RelativeToolTip": "Controllers\\NeuralNetworkController.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAEwFQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T15:18:59.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCIAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T15:17:18.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "README.md",
               "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\README.md",
               "RelativeDocumentMoniker": "..\\README.md",
@@ -45,7 +129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "TorchModel.cs",
               "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\TorchModel.cs",
               "RelativeDocumentMoniker": "..\\adaptive-deep-learning-model\\TorchModel.cs",
@@ -58,7 +142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "CardProfile.cs",
               "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\Profiles\\CardProfile.cs",
               "RelativeDocumentMoniker": "..\\Application\\Profiles\\CardProfile.cs",
@@ -66,11 +150,12 @@
               "RelativeToolTip": "..\\Application\\Profiles\\CardProfile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T11:21:00.69Z"
+              "WhenOpened": "2025-08-05T11:21:00.69Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "RegisterModuleHandler.cs",
               "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
               "RelativeDocumentMoniker": "..\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
@@ -78,31 +163,34 @@
               "RelativeToolTip": "..\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T11:20:49.986Z"
+              "WhenOpened": "2025-08-05T11:20:49.986Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Infrastructure.NHibernate.csproj",
               "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
               "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
-              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
-              "RelativeToolTip": "..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj*",
+              "RelativeToolTip": "..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj*",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-05T11:16:38Z"
+              "WhenOpened": "2025-08-05T11:16:38Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "NHibernateHelper.cs",
               "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\NHibernateHelper.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\NHibernateHelper.cs",
               "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\NHibernateHelper.cs",
               "RelativeToolTip": "..\\Infrastructure.NHibernate\\NHibernateHelper.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAQwIgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T11:15:52.462Z"
+              "WhenOpened": "2025-08-05T11:15:52.462Z",
+              "EditorCaption": ""
             }
           ]
         }
