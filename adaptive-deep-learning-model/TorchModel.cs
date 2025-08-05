@@ -1,6 +1,5 @@
-﻿using Application.CQRS.Queries;
-using Card.Application.CQRS.Commands;
-using Card.Application.CQRS.Queries;
+﻿using Application.CQRS.Commands;
+using Application.CQRS.Queries;
 using MediatR;
 
 namespace adaptive_deep_learning_model

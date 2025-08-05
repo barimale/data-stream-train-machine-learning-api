@@ -1,12 +1,100 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "R:\\data-stream-train-machine-learning-api\\SlowTrainMachineLearningAPI\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{74CC3E67-A428-4FD1-B64D-A6489C5A8398}|..\\adaptive-deep-learning-model\\adaptive-deep-learning-model.csproj|r:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\torchmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\profiles\\cardprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA59190C-1440-4004-95D3-5CF0E3E85122}|..\\Application\\Application.csproj|r:\\data-stream-train-machine-learning-api\\application\\cqrs\\commandhandlers\\registermodulehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\nhibernatehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}|..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj|r:\\data-stream-train-machine-learning-api\\infrastructure.nhibernate\\infrastructure.nhibernate.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TorchModel.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\TorchModel.cs",
+              "RelativeDocumentMoniker": "..\\adaptive-deep-learning-model\\TorchModel.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\adaptive-deep-learning-model\\TorchModel.cs*",
+              "RelativeToolTip": "..\\adaptive-deep-learning-model\\TorchModel.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T11:21:24.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CardProfile.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\Profiles\\CardProfile.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Profiles\\CardProfile.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\Profiles\\CardProfile.cs",
+              "RelativeToolTip": "..\\Application\\Profiles\\CardProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T11:21:00.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RegisterModuleHandler.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
+              "RelativeDocumentMoniker": "..\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
+              "RelativeToolTip": "..\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T11:20:49.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Infrastructure.NHibernate",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
+              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
+              "RelativeToolTip": "..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-05T11:16:38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NHibernateHelper.cs",
+              "DocumentMoniker": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\NHibernateHelper.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\NHibernateHelper.cs",
+              "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\NHibernateHelper.cs",
+              "RelativeToolTip": "..\\Infrastructure.NHibernate\\NHibernateHelper.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T11:15:52.462Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

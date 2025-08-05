@@ -1,6 +1,5 @@
 ﻿using Application.CQRS.Commands;
 using Card.Common.Application.CQRS;
-using Card.Domain.AggregatesModel.CardAggregate;
 using Domain.AggregatesModel.ModelAggregate;
 using Microsoft.Extensions.DependencyInjection;
 

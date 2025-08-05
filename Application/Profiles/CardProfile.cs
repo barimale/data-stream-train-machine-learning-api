@@ -1,5 +1,7 @@
 ﻿using Application.Dtos;
 using AutoMapper;
+using Domain.AggregatesModel.DataAggregate;
+using Domain.AggregatesModel.ModelAggregate;
 
 namespace Application.Profiles
 {
@@ -7,8 +9,8 @@ namespace Application.Profiles
     {
         public CardProfile()
         {
-            CreateMap<Domain.AggregatesModel.CardAggregate.Model, ModelDto>().ReverseMap();
-            CreateMap<Domain.AggregatesModel.CardAggregate.Data, DataDto>().ReverseMap();
+            CreateMap<Model, ModelDto>().ReverseMap();
+            CreateMap<Data, DataDto>().ReverseMap();
         }
     }
 }

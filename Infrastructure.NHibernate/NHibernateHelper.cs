@@ -15,6 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NHibernate;
 using NHibernate.Cfg;
+using NHibernate.Driver;
+using dummy = NHibernate.Envers.Configuration.Fluent;
 using ISession = NHibernate.ISession;
 
 namespace Infrastructure.NHibernate
@@ -57,7 +59,7 @@ namespace Infrastructure.NHibernate
             var fluentConfig = Fluently.Configure()
                 .Database(OracleManagedDataClientConfiguration.Oracle10
                     .ConnectionString(_connectionString)
-                    .Driver<NHibernate.Driver.OracleManagedDataClientDriver>())
+                    .Driver<OracleManagedDataClientDriver>())
                 .Mappings(m =>
                 {
                     m.FluentMappings.AddFromAssemblyOf<DataMap>().Conventions.Add<LowercaseTableNameConvention>();
@@ -66,7 +68,7 @@ namespace Infrastructure.NHibernate
 #if DEBUG
             fluentConfig.ExposeConfiguration(cfg =>
             {
-                var enversConf = new NHibernate.Envers.Configuration.Fluent.FluentConfiguration();
+                var enversConf = new dummy.FluentConfiguration();
                 enversConf.Audit<Data>();
                 enversConf.Audit<Model>();
 
