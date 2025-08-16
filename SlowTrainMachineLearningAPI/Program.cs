@@ -1,14 +1,15 @@
 using API.SlowTrainMachineLearning.HostedServices;
 using API.SlowTrainMachineLearning.Services;
-using Card.API.Extensions;
-using Card.API.MappingProfiles;
-using Card.Application;
-using Card.Infrastructure;
 using Hangfire;
 using Hangfire.MemoryStorage;
-using SlowTrainMachineLearningAPI.Model;
+using Infrastructure.EFCore;
+using Application;
+using Infrastructure.NHibernate;
+using API.SlowTrainMachineLearning.MappingProfiles;
+using API.SlowTrainMachineLearning.Extensions;
+using adaptive_deep_learning_model;
 
-namespace SlowTrainMachineLearningAPI
+namespace API.SlowTrainMachineLearning
 {
     public class Program
     {
@@ -29,9 +30,9 @@ namespace SlowTrainMachineLearningAPI
             builder.Services
                    .AddAdaptiveNetworkServices(builder.Configuration)
                    .AddApplicationServices(builder.Configuration)
-                   .AddInfrastructureServices(builder.Configuration);
+                   .AddNHibernateInfrastructureServices(builder.Configuration);
 
-            builder.Services.AddMigration<NNContext>();
+            //builder.Services.AddMigration<NNContext>();
             builder.Services.AddHostedService<NeuralNetworkTrainerHostedService>();
             builder.Services.AddTransient<INeuralNetworkService, NeuralNetworkService>();
             builder.Services.AddTransient<IQueueService, QueueService>();

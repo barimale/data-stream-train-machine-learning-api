@@ -1,0 +1,146 @@
+﻿using Domain.AggregatesModel.DataAggregate;
+using Domain.AggregatesModel.ModelAggregate;
+using FluentMigrator.Runner;
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
+using Infrastructure.NHibernate.Audit;
+using Infrastructure.NHibernate.Database;
+using Infrastructure.NHibernate.Database.Interceptors;
+using Infrastructure.NHibernate.Database.Listeners;
+using Infrastructure.NHibernate.EntityConfigurations;
+using Infrastructure.NHibernate.Migrations.Conventions;
+using Infrastructure.NHibernate.Migrations.Migrations;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Driver;
+using dummy = NHibernate.Envers.Configuration.Fluent;
+using ISession = NHibernate.ISession;
+
+namespace Infrastructure.NHibernate
+{
+    public class NHibernateHelper : INHibernateHelper
+    {
+        private static readonly object _lock = new();
+        private ISessionFactory? _sessionFactory;
+        private readonly IConfiguration _configuration;
+        private readonly string _connectionString;
+        private bool _disposed;
+
+        public NHibernateHelper(IConfiguration configuration)
+        {
+            _configuration = configuration;
+            _connectionString = _configuration.GetConnectionString("OracleDB")
+                ?? throw new InvalidOperationException("Connection string 'OracleDB' not found.");
+        }
+
+        private ISessionFactory SessionFactory
+        {
+            get
+            {
+                if (_sessionFactory == null)
+                {
+                    lock (_lock)
+                    {
+                        if (_sessionFactory == null)
+                        {
+                            _sessionFactory = BuildSessionFactory();
+                        }
+                    }
+                }
+                return _sessionFactory;
+            }
+        }
+
+        private ISessionFactory BuildSessionFactory()
+        {
+            var fluentConfig = Fluently.Configure()
+                .Database(OracleManagedDataClientConfiguration.Oracle10
+                    .ConnectionString(_connectionString)
+                    .Driver<OracleManagedDataClientDriver>())
+                .Mappings(m =>
+                {
+                    m.FluentMappings.AddFromAssemblyOf<DataMap>().Conventions.Add<LowercaseTableNameConvention>();
+                });
+
+#if DEBUG
+            fluentConfig.ExposeConfiguration(cfg =>
+            {
+                var enversConf = new dummy.FluentConfiguration();
+                enversConf.Audit<Data>();
+                enversConf.Audit<Model>();
+
+                enversConf.SetRevisionEntity<AuditRevisionEntity>(
+                    x => x.Id,
+                    x => x.RevisionDate, new AuditRevisionListener());
+                cfg.IntegrateWithEnvers(enversConf);
+
+                var loggerFactory = LoggerFactory.Create(builder =>
+                {
+                    builder.SetMinimumLevel(LogLevel.Debug);
+                    builder.AddConsole();
+                });
+
+                cfg.SetInterceptor(new NHibernateInterceptor(loggerFactory));
+
+                var serviceProvider = CreateServices(_connectionString);
+
+                using (var scope = serviceProvider.CreateScope())
+                {
+                    UpdateDatabase(scope.ServiceProvider, null);
+                }
+            });
+#else
+            fluentConfig.ExposeConfiguration(cfg => ());
+#endif
+
+            return fluentConfig.BuildSessionFactory();
+        }
+
+        public ISession OpenSession()
+        {
+            return SessionFactory.OpenSession();
+        }
+
+        public void Dispose()
+        {
+            if (!_disposed)
+            {
+                _sessionFactory?.Dispose();
+                _disposed = true;
+            }
+        }
+        private static IServiceProvider CreateServices(string connectionString)
+        {
+            return new ServiceCollection()
+                .AddFluentMigratorCore()
+                .ConfigureRunner(rb => rb
+                    .AddOracle12CManaged()
+                    .WithGlobalConnectionString(connectionString)
+                    .ScanIn(typeof(InitialMigration).Assembly).For.Migrations())
+                .AddLogging(lb => lb.AddFluentMigratorConsole().AddConsole())
+                .BuildServiceProvider(true);
+        }
+
+        private static void UpdateDatabase(IServiceProvider serviceProvider, long? version)
+        {
+            var runner = serviceProvider.GetRequiredService<IMigrationRunner>();
+
+            if (version.HasValue)
+            {
+                runner.MigrateDown(version.Value);
+            }
+            else
+            {
+                runner.MigrateUp();
+            }
+        }
+
+        public IStatelessSession OpenStatelessSesion()
+        {
+            return SessionFactory.OpenStatelessSession();
+        }
+    }
+}

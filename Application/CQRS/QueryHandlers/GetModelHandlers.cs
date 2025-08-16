@@ -1,15 +1,14 @@
-﻿using AutoMapper;
-using BuildingBlocks.Application.CQRS;
-using Card.Application.CQRS.Queries;
-using Card.Application.Dtos;
-using Card.Domain.AggregatesModel.CardAggregate;
-using Card.Infrastructure.Repositories;
+﻿using Application.CQRS.Queries;
+using Application.Dtos;
+using AutoMapper;
+using Card.Common.Application.CQRS;
+using Domain.AggregatesModel.DataAggregate;
+using Domain.AggregatesModel.ModelAggregate;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using static Card.Application.CQRS.Queries.GetAllDataResult;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using static Application.CQRS.Queries.GetAllDataResult;
 
-namespace Card.Application.CQRS.QueryHandlers;
+namespace Application.CQRS.QueryHandlers;
 public class GetCardHandlers(
     IServiceProvider provider,
     IMapper mapper,

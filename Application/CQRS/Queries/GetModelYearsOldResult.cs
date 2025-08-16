@@ -1,4 +1,4 @@
-﻿namespace Card.Application.CQRS.Queries;
+﻿namespace Application.CQRS.Queries;
 
 public class GetModelYearsOldResult
 {

@@ -1,6 +1,6 @@
 ﻿using TypeGen.Core.TypeAnnotations;
 
-namespace Card.Application.Dtos;
+namespace Application.Dtos;
 
 public class ModelDto
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Design;
 
-namespace Card.Infrastructure
+namespace Infrastructure.EFCore
 {
     /* For migrations generation only */
 

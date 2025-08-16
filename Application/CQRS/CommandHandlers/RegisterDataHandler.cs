@@ -1,13 +1,9 @@
-﻿using BuildingBlocks.Application.CQRS;
-using Card.Application.CQRS.Commands;
-using Card.Common.Domain;
-using Card.Domain.AggregatesModel.CardAggregate;
-using Card.Infrastructure.Repositories;
-using Consul;
+﻿using Application.CQRS.Commands;
+using Card.Common.Application.CQRS;
+using Domain.AggregatesModel.DataAggregate;
 using Microsoft.Extensions.DependencyInjection;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
-namespace Card.Application.CQRS.CommandHandlers;
+namespace Application.CQRS.CommandHandlers;
 public class RegisterDataHandler(IServiceProvider provider)
     : ICommandHandler<RegisterDataCommand, RegisterDataResult>,
     ICommandHandler<UpdateIsAppliedPiece, RegisterDataIsAppliedResult>
@@ -27,7 +23,7 @@ public class RegisterDataHandler(IServiceProvider provider)
             var repository = scope.ServiceProvider.GetService<IDataRepository>();
 
             var result = await repository.AddAsync(card);
-            await repository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            //await repository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
             return new RegisterDataResult(result.Id);
         }
@@ -41,7 +37,7 @@ public class RegisterDataHandler(IServiceProvider provider)
 
             var tobeupdatedId = await dataRepository.SetIsApplied(request.Id);
 
-            await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            //await dataRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
             return new RegisterDataIsAppliedResult(tobeupdatedId);
         }

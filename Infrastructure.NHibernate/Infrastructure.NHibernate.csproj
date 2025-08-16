@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="FluentMigrator.Runner" Version="7.1.0" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.2" />
+	  <PackageReference Include="FluentNHibernate" Version="3.4.1" />
+	  <PackageReference Include="NHibernate.Caches.SysCache2" Version="5.9.0" />
+	  <PackageReference Include="NHibernate.Envers" Version="5.5.2" />
+	  <PackageReference Include="NHibernate.Json" Version="2.0.4" />
+	  <PackageReference Include="NLog" Version="5.5.0" />
+	  <PackageReference Include="NLog.Config" Version="4.7.15" />
+	  <PackageReference Include="NLog.Extensions.Logging" Version="5.5.0" />
+	  <PackageReference Include="NLog.Schema" Version="5.5.0" />
+	  <PackageReference Include="Oracle.ManagedDataAccess" Version="23.9.1" />
+	  <PackageReference Include="System.Security.Permissions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BuildingBlocks\BuildingBlocks.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Infrastructure.NHibernate.Migrations\Infrastructure.NHibernate.Migrations.csproj" />
+  </ItemGroup>
+
+</Project>

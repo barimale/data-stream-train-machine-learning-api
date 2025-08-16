@@ -1,11 +1,11 @@
 ﻿using Card.Common.Domain;
 
-namespace Card.Domain.AggregatesModel.CardAggregate;
+namespace Domain.AggregatesModel.ModelAggregate;
 
 public class Model
     : Entity, IAggregateRoot
 {
     public DateTime RegisteringTime { get; set; }
     public byte[] ModelAsBytes { get; set; }
-    public string Version { get; set; }
+    public string ModelVersion { get; set; }
 }

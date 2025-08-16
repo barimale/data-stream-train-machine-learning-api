@@ -1,14 +1,16 @@
-﻿using AutoMapper;
-using Card.Application.Dtos;
+﻿using Application.Dtos;
+using AutoMapper;
+using Domain.AggregatesModel.DataAggregate;
+using Domain.AggregatesModel.ModelAggregate;
 
-namespace Card.Application.Profiles
+namespace Application.Profiles
 {
     public class CardProfile : Profile
     {
         public CardProfile()
         {
-            CreateMap<Domain.AggregatesModel.CardAggregate.Model, ModelDto>().ReverseMap();
-            CreateMap<Domain.AggregatesModel.CardAggregate.Data, DataDto>().ReverseMap();
+            CreateMap<Model, ModelDto>().ReverseMap();
+            CreateMap<Data, DataDto>().ReverseMap();
         }
     }
 }

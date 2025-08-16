@@ -1,6 +1,6 @@
 ﻿using Card.Common.Domain;
 
-namespace Card.Domain.AggregatesModel.CardAggregate;
+namespace Domain.AggregatesModel.DataAggregate;
 
 public class Data
     : Entity, IAggregateRoot

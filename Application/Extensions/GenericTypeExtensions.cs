@@ -1,4 +1,4 @@
-﻿namespace Card.Application.Extensions;
+﻿namespace Application.Extensions;
 
 public static class GenericTypeExtensions
 {

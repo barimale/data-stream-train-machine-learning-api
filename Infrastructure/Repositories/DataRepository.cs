@@ -1,11 +1,11 @@
 ﻿using Card.Common.Domain;
-using Card.Domain.AggregatesModel.CardAggregate;
+using Domain.AggregatesModel.DataAggregate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Card.Infrastructure.Repositories;
+namespace Infrastructure.EFCore.Repositories;
 
 public class DataRepository : IDataRepository
 {

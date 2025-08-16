@@ -1,8 +1,8 @@
-﻿using BuildingBlocks.Application.CQRS;
+﻿using Card.Common.Application.CQRS;
 using FluentValidation;
 using MediatR;
 
-namespace BuildingBlocks.Application.Behaviors;
+namespace Card.Common.Application.Behaviors;
 public class ValidationBehavior<TRequest, TResponse>
     (IEnumerable<IValidator<TRequest>> validators)
     : IPipelineBehavior<TRequest, TResponse>

@@ -1,4 +1,5 @@
-﻿using Card.Application.CQRS.Commands;
+﻿using Application.CQRS.Commands;
+using Card.Application.CQRS.Commands;
 
 namespace API.SlowTrainMachineLearning.Services
 {

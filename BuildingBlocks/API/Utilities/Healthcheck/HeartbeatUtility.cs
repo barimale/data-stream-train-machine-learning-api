@@ -3,7 +3,7 @@ using System.Text.Json;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 
-namespace BuildingBlocks.API.Utilities.Healthcheck
+namespace Card.Common.API.Utilities.Healthcheck
 {
     public static class HeartbeatUtility
     {

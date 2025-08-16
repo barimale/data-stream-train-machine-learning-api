@@ -3,7 +3,7 @@ using Hangfire;
 using Microsoft.AspNetCore.Mvc;
 using API.SlowTrainMachineLearning.Services;
 
-namespace SlowTrainMachineLearningAPI.Controllers
+namespace API.SlowTrainMachineLearning.Controllers
 {
     [ApiController]
     [Route("[controller]")]

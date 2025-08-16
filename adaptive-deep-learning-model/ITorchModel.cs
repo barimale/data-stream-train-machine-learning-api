@@ -1,7 +1,6 @@
-﻿using adaptive_deep_learning_model;
-using Card.Application.CQRS.Queries;
+﻿using Application.CQRS.Queries;
 
-namespace SlowTrainMachineLearningAPI.Model
+namespace adaptive_deep_learning_model
 {
     public interface ITorchModel
     {

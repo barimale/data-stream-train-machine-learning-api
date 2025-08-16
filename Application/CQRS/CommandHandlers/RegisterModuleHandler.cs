@@ -1,9 +1,9 @@
-﻿using BuildingBlocks.Application.CQRS;
-using Card.Application.CQRS.Commands;
-using Card.Domain.AggregatesModel.CardAggregate;
+﻿using Application.CQRS.Commands;
+using Card.Common.Application.CQRS;
+using Domain.AggregatesModel.ModelAggregate;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Card.Application.CQRS.CommandHandlers;
+namespace Application.CQRS.CommandHandlers;
 public class RegisterModuleHandler(IServiceProvider provider)
     : ICommandHandler<RegisterModelCommand, RegisterModelResult>
 {
@@ -17,11 +17,11 @@ public class RegisterModuleHandler(IServiceProvider provider)
             {
                 RegisteringTime = DateTime.Now,
                 ModelAsBytes = command.Model,
-                Version = command.Version,
+                ModelVersion = command.Version,
             };
 
             var result = await cardRepository.AddAsync(card);
-            await cardRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            //await cardRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
             return new RegisterModelResult(result.Id);
         }        

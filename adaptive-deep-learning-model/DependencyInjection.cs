@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Card.Application;
+namespace adaptive_deep_learning_model;
 public static class DependencyInjection
 {
     public static IServiceCollection AddAdaptiveNetworkServices

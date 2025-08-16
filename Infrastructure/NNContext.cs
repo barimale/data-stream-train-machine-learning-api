@@ -1,10 +1,12 @@
 ﻿using Card.Common.Domain;
-using Card.Infrastructure.EntityConfigurations;
+using Domain.AggregatesModel.DataAggregate;
+using Domain.AggregatesModel.ModelAggregate;
+using Infrastructure.EFCore.EntityConfigurations;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Card.Infrastructure;
+namespace Infrastructure.EFCore;
 
 public class NNContext : DbContext, IUnitOfWork
 {
@@ -14,8 +16,8 @@ public class NNContext : DbContext, IUnitOfWork
         Database.EnsureCreated();
     }
 
-    public DbSet<Domain.AggregatesModel.CardAggregate.Model> Cards { get; set; }
-    public DbSet<Domain.AggregatesModel.CardAggregate.Data> Datas { get; set; }
+    public DbSet<Model> Cards { get; set; }
+    public DbSet<Data> Datas { get; set; }
 
 
     private IDbContextTransaction _currentTransaction;

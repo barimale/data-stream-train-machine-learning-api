@@ -12,7 +12,7 @@ Xtrain, Xval, ytrain, yval = train_test_split(Xtrain, ytrain, test_size=.2)
 
 x = range(100)
 # API endpoint
-api_url = "https://localhost:7174/NeuralNetwork/TrainNetwork"
+api_url = "https://localhost:44341/NeuralNetwork/TrainNetwork"
 
 # Iterate over the NumPy array and make POST requests
 for entry in x:

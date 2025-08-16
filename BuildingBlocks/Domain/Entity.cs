@@ -6,6 +6,7 @@ public abstract class Entity
 {
     int? _requestedHashCode;
     int _Id;
+    int _Version;
     public virtual int Id // guid here? or uint
     {
         get
@@ -15,6 +16,18 @@ public abstract class Entity
         protected set
         {
             _Id = value;
+        }
+    }
+
+    public virtual int Version
+    {
+        get
+        {
+            return _Version;
+        }
+        protected set
+        {
+            _Version = value;
         }
     }
 

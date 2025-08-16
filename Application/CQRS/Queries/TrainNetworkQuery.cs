@@ -1,6 +1,6 @@
-﻿using BuildingBlocks.Application.CQRS;
+﻿using Card.Common.Application.CQRS;
 
-namespace Card.Application.CQRS.Queries;
+namespace Application.CQRS.Queries;
 
 public class TrainNetworkQuery
     : IQuery<GetAllDataResult>

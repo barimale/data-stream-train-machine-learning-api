@@ -1,8 +1,10 @@
-﻿namespace Card.Infrastructure.EntityConfigurations;
+﻿using Domain.AggregatesModel.ModelAggregate;
 
-class CardEntityTypeConfiguration : IEntityTypeConfiguration<Domain.AggregatesModel.CardAggregate.Model>
+namespace Infrastructure.EFCore.EntityConfigurations;
+
+class CardEntityTypeConfiguration : IEntityTypeConfiguration<Model>
 {
-    public void Configure(EntityTypeBuilder<Domain.AggregatesModel.CardAggregate.Model> cardConfiguration)
+    public void Configure(EntityTypeBuilder<Model> cardConfiguration)
     {
         cardConfiguration.ToTable("cards");
 

@@ -33,6 +33,7 @@
     <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\BuildingBlocks\BuildingBlocks.csproj" />
     <ProjectReference Include="..\fuzzy-logic-model-generator\fuzzy-logic-model-generator.csproj" />
+    <ProjectReference Include="..\Infrastructure.NHibernate\Infrastructure.NHibernate.csproj" />
   </ItemGroup>
 
 </Project>

@@ -16,7 +16,7 @@
 	  <ProjectReference Include="..\Application\Application.csproj" />
 	  <ProjectReference Include="..\BuildingBlocks\BuildingBlocks.csproj" />
 	  <ProjectReference Include="..\Domain\Domain.csproj" />
-	  <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+	  <ProjectReference Include="..\Infrastructure\Infrastructure.EFCore.csproj" />
 	</ItemGroup>
 
 </Project>
