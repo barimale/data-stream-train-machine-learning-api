@@ -22,6 +22,8 @@
 /SlowTrainMachineLearningAPI/.vs/DataStreamTrainMachineLearningAPI/FileContentIndex
 /Infrastructure.NHibernate/obj
 /Infrastructure.NHibernate.Migrations/obj
+/Infrastructure.NHibernate/bin
+/Infrastructure.NHibernate.Migrations/bin
 /Infrastructure.QuestDB/obj
 /Infrastructure.NHibernate/bin/Debug/net8.0
 /.vs
