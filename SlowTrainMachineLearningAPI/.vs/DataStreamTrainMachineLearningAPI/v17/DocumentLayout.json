@@ -59,8 +59,7 @@
               "RelativeToolTip": "appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAB0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-05T15:20:55.637Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-05T15:20:55.637Z"
             },
             {
               "$type": "Document",
@@ -72,8 +71,7 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAB0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-05T15:20:20.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-05T15:20:20.57Z"
             },
             {
               "$type": "Document",
@@ -85,8 +83,7 @@
               "RelativeToolTip": "..\\Application\\CQRS\\QueryHandlers\\GetModelHandlers.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T15:19:40.379Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-05T15:19:40.379Z"
             },
             {
               "$type": "Document",
@@ -98,8 +95,7 @@
               "RelativeToolTip": "Controllers\\NeuralNetworkController.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAEwFQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T15:18:59.057Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-05T15:18:59.057Z"
             },
             {
               "$type": "Document",
@@ -111,8 +107,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAAwCIAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T15:17:18.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-05T15:17:18.459Z"
             },
             {
               "$type": "Document",
@@ -124,8 +119,7 @@
               "RelativeToolTip": "..\\README.md",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-08-05T15:16:15.709Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-05T15:16:15.709Z"
             },
             {
               "$type": "Document",
@@ -137,8 +131,7 @@
               "RelativeToolTip": "..\\adaptive-deep-learning-model\\TorchModel.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T11:21:24.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-05T11:21:24.012Z"
             },
             {
               "$type": "Document",
@@ -150,8 +143,7 @@
               "RelativeToolTip": "..\\Application\\Profiles\\CardProfile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T11:21:00.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-05T11:21:00.69Z"
             },
             {
               "$type": "Document",
@@ -163,8 +155,7 @@
               "RelativeToolTip": "..\\Application\\CQRS\\CommandHandlers\\RegisterModuleHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T11:20:49.986Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-05T11:20:49.986Z"
             },
             {
               "$type": "Document",
@@ -176,8 +167,7 @@
               "RelativeToolTip": "..\\Infrastructure.NHibernate\\Infrastructure.NHibernate.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-05T11:16:38Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-05T11:16:38Z"
             },
             {
               "$type": "Document",
@@ -187,7 +177,7 @@
               "RelativeDocumentMoniker": "..\\Infrastructure.NHibernate\\NHibernateHelper.cs",
               "ToolTip": "R:\\data-stream-train-machine-learning-api\\Infrastructure.NHibernate\\NHibernateHelper.cs",
               "RelativeToolTip": "..\\Infrastructure.NHibernate\\NHibernateHelper.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAQwIgAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFsAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-05T11:15:52.462Z",
               "EditorCaption": ""

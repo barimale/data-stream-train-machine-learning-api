@@ -3,33 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35728.132
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.SlowTrainMachineLearning", "API.SlowTrainMachineLearning.csproj", "{B7C2AEFB-032C-4603-A161-A304BF903E32}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Solution Items", ".Solution Items", "{4E81C8D2-62B1-43BA-B77B-0C8495D2E94B}"
 	ProjectSection(SolutionItems) = preProject
 		input_generator.py = input_generator.py
-		..\README.md = ..\README.md
+		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adaptive-deep-learning-model", "..\adaptive-deep-learning-model\adaptive-deep-learning-model.csproj", "{74CC3E67-A428-4FD1-B64D-A6489C5A8398}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adaptive-deep-learning-model", "adaptive-deep-learning-model\adaptive-deep-learning-model.csproj", "{74CC3E67-A428-4FD1-B64D-A6489C5A8398}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "..\Application\Application.csproj", "{DA59190C-1440-4004-95D3-5CF0E3E85122}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{DA59190C-1440-4004-95D3-5CF0E3E85122}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "..\BuildingBlocks\BuildingBlocks.csproj", "{44D95537-3E36-4AA5-BFD5-3788E433F4F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "BuildingBlocks\BuildingBlocks.csproj", "{44D95537-3E36-4AA5-BFD5-3788E433F4F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "..\Domain\Domain.csproj", "{EC7DD16A-DBE3-4BB1-AB85-1A7E98B6EB28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{EC7DD16A-DBE3-4BB1-AB85-1A7E98B6EB28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.EFCore", "..\Infrastructure\Infrastructure.EFCore.csproj", "{7038DCE1-E4A4-4CF6-86E8-253CEECBEC2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.EFCore", "Infrastructure\Infrastructure.EFCore.csproj", "{7038DCE1-E4A4-4CF6-86E8-253CEECBEC2D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{81289FAA-54E6-411D-BA88-C9EEC2E63893}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "neural-network-model", "neural-network-model", "{98863774-F248-445A-8E40-354A28494477}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fuzzy-logic-model-generator", "..\fuzzy-logic-model-generator\fuzzy-logic-model-generator.csproj", "{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fuzzy-logic-model-generator", "fuzzy-logic-model-generator\fuzzy-logic-model-generator.csproj", "{0EBFFA9D-C258-46CC-94B9-85CC04D6800C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.NHibernate.Migrations", "..\Infrastructure.NHibernate.Migrations\Infrastructure.NHibernate.Migrations.csproj", "{991A20AB-D678-48B5-8D8F-89FD7F65EA59}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.NHibernate.Migrations", "Infrastructure.NHibernate.Migrations\Infrastructure.NHibernate.Migrations.csproj", "{991A20AB-D678-48B5-8D8F-89FD7F65EA59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.NHibernate", "..\Infrastructure.NHibernate\Infrastructure.NHibernate.csproj", "{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.NHibernate", "Infrastructure.NHibernate\Infrastructure.NHibernate.csproj", "{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.SlowTrainMachineLearning", "SlowTrainMachineLearningAPI\API.SlowTrainMachineLearning.csproj", "{62B4EE64-9EE3-4203-B716-44255F23D6D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,18 +41,6 @@ Global
 		x64|x64 = x64|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B7C2AEFB-032C-4603-A161-A304BF903E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B7C2AEFB-032C-4603-A161-A304BF903E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B7C2AEFB-032C-4603-A161-A304BF903E32}.Debug|x64.ActiveCfg = Debug|x64
-		{B7C2AEFB-032C-4603-A161-A304BF903E32}.Debug|x64.Build.0 = Debug|x64
-		{B7C2AEFB-032C-4603-A161-A304BF903E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B7C2AEFB-032C-4603-A161-A304BF903E32}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B7C2AEFB-032C-4603-A161-A304BF903E32}.Release|x64.ActiveCfg = Release|x64
-		{B7C2AEFB-032C-4603-A161-A304BF903E32}.Release|x64.Build.0 = Release|x64
-		{B7C2AEFB-032C-4603-A161-A304BF903E32}.x64|Any CPU.ActiveCfg = x64|Any CPU
-		{B7C2AEFB-032C-4603-A161-A304BF903E32}.x64|Any CPU.Build.0 = x64|Any CPU
-		{B7C2AEFB-032C-4603-A161-A304BF903E32}.x64|x64.ActiveCfg = x64|x64
-		{B7C2AEFB-032C-4603-A161-A304BF903E32}.x64|x64.Build.0 = x64|x64
 		{74CC3E67-A428-4FD1-B64D-A6489C5A8398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{74CC3E67-A428-4FD1-B64D-A6489C5A8398}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74CC3E67-A428-4FD1-B64D-A6489C5A8398}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -149,6 +137,18 @@ Global
 		{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}.x64|Any CPU.Build.0 = Debug|Any CPU
 		{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}.x64|x64.ActiveCfg = Debug|Any CPU
 		{B3E80141-2614-4BDF-9D67-1B49C13AE7BA}.x64|x64.Build.0 = Debug|Any CPU
+		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.Debug|x64.ActiveCfg = Debug|x64
+		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.Debug|x64.Build.0 = Debug|x64
+		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.Release|x64.ActiveCfg = Release|x64
+		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.Release|x64.Build.0 = Release|x64
+		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.x64|Any CPU.ActiveCfg = x64|Any CPU
+		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.x64|Any CPU.Build.0 = x64|Any CPU
+		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.x64|x64.ActiveCfg = x64|x64
+		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.x64|x64.Build.0 = x64|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
