@@ -13,21 +13,21 @@ namespace NBomberTest
             var scenario = Scenario.Create("http_scenario", async context =>
             {
                 var request =
-                    Http.CreateRequest("GET", "https://localhost:44341/NeuralNetwork/TrainNetwork")
+                    Http.CreateRequest("POST", "https://localhost:44341/NeuralNetwork/TrainNetwork")
                         //.WithHeader("Accept", "text/html");
                     .WithHeader("Accept", "application/json")
-                    .WithBody(new StringContent("{ id: 1 }", Encoding.UTF8, "application/json"));
+                    .WithBody(new StringContent("{ xs: [ 1,2,3,4,5], ys: [ 1,1,1,1,1,1,1,1,1,1] }", Encoding.UTF8, "application/json"));
                 // .WithBody(new ByteArrayContent(new [] {1,2,3}))                        
 
                 var response = await Http.Send(httpClient, request);
 
                 return response;
             })
-            .WithoutWarmUp()
+            .WithWarmUpDuration(TimeSpan.FromSeconds(5))
             .WithLoadSimulations(
                 Simulation.Inject(rate: 100,
                                   interval: TimeSpan.FromSeconds(1),
-                                  during: TimeSpan.FromSeconds(30))
+                                  during: TimeSpan.FromSeconds(5))
             );
 
             NBomberRunner
