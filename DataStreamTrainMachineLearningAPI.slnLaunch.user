@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "SlowTrainMachineLearningAPI\\API.SlowTrainMachineLearning.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "API.SlowTrainMachineLearning.NBomber\\API.SlowTrainMachineLearning.NBomber.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

@@ -11,6 +11,11 @@ podman run -d -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.13
 podman run -p 8888:8888 -p 7173:7173 jupyter/minimal-notebook start-notebook.sh --NotebookApp.token=''
 podman run -d --name oracle_standard_free -p 1521:1521 -p 5500:5500 -e ORACLE_PWD=Password_123# container-registry.oracle.com/database/free:latest
 
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password_123#" -p 1500:1433 --name sql_server_container mcr.microsoft.com/mssql/server
+docker run -d -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.13-management
+docker run -p 8888:8888 -p 7173:7173 jupyter/minimal-notebook start-notebook.sh --NotebookApp.token=''
+docker run -d --name oracle_standard_free -p 1521:1521 -p 5500:5500 -e ORACLE_PWD=Password_123# container-registry.oracle.com/database/free:latest
+
 ```
 ## Example input data for TrainNetwork method
 ```

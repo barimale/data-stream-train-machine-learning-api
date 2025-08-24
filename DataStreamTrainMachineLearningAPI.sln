@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.NHibernate",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.SlowTrainMachineLearning", "SlowTrainMachineLearningAPI\API.SlowTrainMachineLearning.csproj", "{62B4EE64-9EE3-4203-B716-44255F23D6D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.SlowTrainMachineLearning.NBomber", "API.SlowTrainMachineLearning.NBomber\API.SlowTrainMachineLearning.NBomber.csproj", "{F86C9290-F9FB-49B9-8745-B6E535023B2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -149,6 +151,18 @@ Global
 		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.x64|Any CPU.Build.0 = x64|Any CPU
 		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.x64|x64.ActiveCfg = x64|x64
 		{62B4EE64-9EE3-4203-B716-44255F23D6D5}.x64|x64.Build.0 = x64|x64
+		{F86C9290-F9FB-49B9-8745-B6E535023B2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86C9290-F9FB-49B9-8745-B6E535023B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F86C9290-F9FB-49B9-8745-B6E535023B2B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F86C9290-F9FB-49B9-8745-B6E535023B2B}.Debug|x64.Build.0 = Debug|Any CPU
+		{F86C9290-F9FB-49B9-8745-B6E535023B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F86C9290-F9FB-49B9-8745-B6E535023B2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F86C9290-F9FB-49B9-8745-B6E535023B2B}.Release|x64.ActiveCfg = Release|Any CPU
+		{F86C9290-F9FB-49B9-8745-B6E535023B2B}.Release|x64.Build.0 = Release|Any CPU
+		{F86C9290-F9FB-49B9-8745-B6E535023B2B}.x64|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86C9290-F9FB-49B9-8745-B6E535023B2B}.x64|Any CPU.Build.0 = Debug|Any CPU
+		{F86C9290-F9FB-49B9-8745-B6E535023B2B}.x64|x64.ActiveCfg = Debug|Any CPU
+		{F86C9290-F9FB-49B9-8745-B6E535023B2B}.x64|x64.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
