@@ -27,3 +27,5 @@
 /Infrastructure.QuestDB/obj
 /Infrastructure.NHibernate/bin/Debug/net8.0
 /.vs
+/API.SlowTrainMachineLearning.NBomber/bin/Debug/net8.0
+/API.SlowTrainMachineLearning.NBomber/obj
