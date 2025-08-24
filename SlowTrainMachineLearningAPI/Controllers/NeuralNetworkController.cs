@@ -25,11 +25,11 @@ namespace API.SlowTrainMachineLearning.Controllers
             _backgroundJobClient = backgroundJobClient;
             _requringJobManager = requringJobManager;
             _neuralNetworkService = neuralNetworkService;
-            //_requringJobManager.AddOrUpdate(
-            //    "BuildModel", 
-            //    () => BuildModel(),
-            //    Cron.MinuteInterval(CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES),
-            //    TimeZoneInfo.Utc);
+            _requringJobManager.AddOrUpdate(
+                "BuildModel",
+                () => BuildModel(),
+                Cron.MinuteInterval(CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES),
+                TimeZoneInfo.Utc);
         }
 
         [NonAction]
