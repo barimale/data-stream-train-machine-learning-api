@@ -9,8 +9,6 @@ namespace API.SlowTrainMachineLearning.Controllers
     [Route("[controller]")]
     public class NeuralNetworkController : ControllerBase
     {
-        private const int CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES = 20;
-
         private readonly ILogger<NeuralNetworkController> _logger;
         private readonly IBackgroundJobClient _backgroundJobClient;
         private readonly IRecurringJobManager _requringJobManager;
@@ -28,8 +26,7 @@ namespace API.SlowTrainMachineLearning.Controllers
             _requringJobManager.AddOrUpdate(
                 "BuildModel",
                 () => BuildModel(),
-                Cron.MinuteInterval(CRON_TRAIN_MODEL_INTERVAL_IN_MINUTES),
-                TimeZoneInfo.Utc);
+                Cron.Hourly());
         }
 
         [NonAction]
