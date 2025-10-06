@@ -31,7 +31,7 @@ namespace fuzzy_logic_model_generator
 
             fuzzyEngine.Rules.Add(rule1, rule3);
         }
-       public bool main(int modelYearsOldInMinutes, int amountOfModelPieces)
+       public bool Execute(int modelYearsOldInMinutes, int amountOfModelPieces)
         {
             var result = fuzzyEngine.Defuzzify(
                 new {

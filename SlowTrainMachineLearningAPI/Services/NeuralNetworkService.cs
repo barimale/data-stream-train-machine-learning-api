@@ -170,7 +170,7 @@ namespace API.SlowTrainMachineLearning.Services
 
 
                     var pieces = allData.Data.Length;
-                    var isGenerateModelAllowed = new FuzzyLogicModelGenerator().main(
+                    var isGenerateModelAllowed = new FuzzyLogicModelGenerator().Execute(
                         (int)modelYearsOldInMinutes.YearsOldInMinutes,
                         pieces);
 
