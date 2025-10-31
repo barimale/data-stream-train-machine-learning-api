@@ -19,7 +19,7 @@ namespace adaptive_deep_learning_model
         {
             get
             {
-                return new Trivial();
+                return model;
             }
             private set
             {
